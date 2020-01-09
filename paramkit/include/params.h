@@ -4,44 +4,135 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <map>
 
 #define PARAM_UNINITIALIZED (-1)
+
+#define PARAM_SWITCH1 '/'
+#define PARAM_SWITCH2 '-'
+
 namespace paramkit {
     //--
+
     class Param {
     public:
         Param(const std::string& _argStr)
         {
             argStr = _argStr;
+            getVal = false;
+        }
+
+        virtual std::string valToString() = 0;
+        virtual std::string type() = 0;
+
+        virtual void parse(char *arg) = 0;
+        virtual bool isSet() = 0;
+
+        std::string argStr;
+        bool getVal;
+        std::string info;
+    };
+
+    class DwordParam : public Param {
+    public:
+        DwordParam(const std::string& _argStr, bool _isHex = false)
+            : Param(_argStr)
+        {
+            getVal = true;
             value = PARAM_UNINITIALIZED;
+            isHex = _isHex;
+        }
+
+        virtual std::string valToString()
+        {
+            std::stringstream stream;
+            if (isHex) {
+                stream << std::hex;
+            }
+            else {
+                stream << std::dec;
+            }
+            stream << value;
+            return stream.str();
+        }
+
+        virtual std::string type() {
+            if (isHex) {
+                return "DWORD: hex";
+            }
+            return "DWORD: dec";
+        }
+
+        virtual bool isSet()
+        {
+            return value != PARAM_UNINITIALIZED;
         }
 
         virtual void parse(char *arg) {
             DWORD val = 0;
+            if (isHex) {
+                if (sscanf(arg, "%X", &val) == 0) {
+                    sscanf(arg, "%#X", &val);
+                }
+                this->value = val;
+                return;
+            }
             sscanf(arg, "%d", &val);
             this->value = val;
         }
 
-        std::string argStr;
-        std::string info;
+        bool isHex;
         DWORD value;
     };
 
-    class HexParam : public Param {
+    class BoolParam : public Param {
     public:
-        HexParam(const std::string& _argStr)
+        BoolParam(const std::string& _argStr)
             : Param(_argStr)
         {
+            getVal = false;
+            value = false;
         }
 
-        virtual void parse(char *arg) {
-            DWORD val = 0;
-            if (sscanf(arg, "%X", &val) == 0) {
-                sscanf(arg, "%#X", &val);
-            }
-            this->value = val;
+        virtual std::string type() {
+            return "bool";
         }
+
+        virtual std::string valToString()
+        {
+            std::stringstream stream;
+            stream << std::dec;
+            if (value) {
+                stream << "true";
+            }
+            else {
+                stream << "false";
+            }
+            return stream.str();
+        }
+
+        virtual bool isSet()
+        {
+            return value;
+        }
+
+        virtual void parse(char *arg = nullptr) {
+            if (arg == nullptr) {
+                this->value = true;
+                return;
+            }
+            DWORD val = 0;
+            sscanf(arg, "%d", &val);
+            if (val != 0) {
+                this->value = true;
+            }
+            else {
+                this->value = false;
+            }
+        }
+
+        bool value;
     };
 
     class Params {
@@ -56,30 +147,32 @@ namespace paramkit {
             this->myParams[argStr] = param;
         }
 
-        void setDwordValue(const std::string& str, DWORD val)
+        bool setDwordValue(const std::string& str, DWORD val)
         {
             std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
             if (itr != this->myParams.end()) {
-                Param *param = itr->second;
+                DwordParam *param = dynamic_cast<DwordParam*>(itr->second);
+                if (!param) {
+                    return false;
+                }
                 param->value = val;
-                return;
+                return true;
             }
-            Param *param = new Param(str);
+            DwordParam *param = new DwordParam(str);
             param->value = val;
             this->myParams[str] = param;
+            return true;
         }
 
-        void setInfo(const std::string& str, const std::string& info)
+        bool setInfo(const std::string& str, const std::string& info)
         {
             std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
             if (itr != this->myParams.end()) {
                 Param *param = itr->second;
                 param->info = info;
-                return;
+                return true;
             }
-            Param *param = new Param(str);
-            param->info = info;
-            this->myParams[str] = param;
+            return false;
         }
 
         DWORD getDwordValue(const std::string& str)
@@ -87,10 +180,24 @@ namespace paramkit {
             std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
             if (itr == this->myParams.end()) return PARAM_UNINITIALIZED;
 
-            Param *param = itr->second;
+            DwordParam *param = dynamic_cast<DwordParam*>(itr->second);
+            if (!param) {
+                return false;
+            }
             return param->value;
         }
 
+        virtual bool isSet(const std::string& str)
+        {
+            std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
+            if (itr == this->myParams.end()) return false;
+
+            Param *param = itr->second;
+            if (!param) {
+                return false;
+            }
+            return param->isSet();
+        }
 
         void releaseParams()
         {
