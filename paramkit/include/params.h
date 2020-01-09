@@ -34,9 +34,9 @@ namespace paramkit {
         std::string info;
     };
 
-    class DwordParam : public Param {
+    class IntParam : public Param {
     public:
-        DwordParam(const std::string& _argStr, bool _isHex = false)
+        IntParam(const std::string& _argStr, bool _isHex = false)
             : Param(_argStr)
         {
             getVal = true;
@@ -59,9 +59,9 @@ namespace paramkit {
 
         virtual std::string type() {
             if (isHex) {
-                return "DWORD: hex";
+                return "QWORD: hex";
             }
-            return "DWORD: dec";
+            return "QWORD: dec";
         }
 
         virtual bool isSet()
@@ -70,10 +70,10 @@ namespace paramkit {
         }
 
         virtual void parse(char *arg) {
-            DWORD val = 0;
+            uint64_t val = 0;
             if (isHex) {
-                if (sscanf(arg, "%X", &val) == 0) {
-                    sscanf(arg, "%#X", &val);
+                if (sscanf(arg, "%llX", &val) == 0) {
+                    sscanf(arg, "%#llX", &val);
                 }
                 this->value = val;
                 return;
@@ -83,7 +83,7 @@ namespace paramkit {
         }
 
         bool isHex;
-        DWORD value;
+        uint64_t value;
     };
 
     class BoolParam : public Param {
@@ -147,18 +147,18 @@ namespace paramkit {
             this->myParams[argStr] = param;
         }
 
-        bool setDwordValue(const std::string& str, DWORD val)
+        bool setIntValue(const std::string& str, uint64_t val)
         {
             std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
             if (itr != this->myParams.end()) {
-                DwordParam *param = dynamic_cast<DwordParam*>(itr->second);
+                IntParam *param = dynamic_cast<IntParam*>(itr->second);
                 if (!param) {
                     return false;
                 }
                 param->value = val;
                 return true;
             }
-            DwordParam *param = new DwordParam(str);
+            IntParam *param = new IntParam(str);
             param->value = val;
             this->myParams[str] = param;
             return true;
@@ -175,12 +175,12 @@ namespace paramkit {
             return false;
         }
 
-        DWORD getDwordValue(const std::string& str)
+        uint64_t getIntValue(const std::string& str)
         {
             std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
             if (itr == this->myParams.end()) return PARAM_UNINITIALIZED;
 
-            DwordParam *param = dynamic_cast<DwordParam*>(itr->second);
+            IntParam *param = dynamic_cast<IntParam*>(itr->second);
             if (!param) {
                 return false;
             }
