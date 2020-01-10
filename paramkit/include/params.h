@@ -20,17 +20,17 @@ namespace paramkit {
         Param(const std::string& _argStr)
         {
             argStr = _argStr;
-            getVal = false;
+            requiredParam = false;
         }
 
         virtual std::string valToString() = 0;
         virtual std::string type() = 0;
 
-        virtual void parse(char *arg) = 0;
+        virtual bool parse(char *arg) = 0;
         virtual bool isSet() = 0;
 
         std::string argStr;
-        bool getVal;
+        bool requiredParam;
         std::string info;
     };
 
@@ -39,7 +39,7 @@ namespace paramkit {
         IntParam(const std::string& _argStr, bool _isHex = false)
             : Param(_argStr)
         {
-            getVal = true;
+            requiredParam = true;
             value = PARAM_UNINITIALIZED;
             isHex = _isHex;
         }
@@ -59,9 +59,9 @@ namespace paramkit {
 
         virtual std::string type() {
             if (isHex) {
-                return "QWORD: hex";
+                return "integer: hex";
             }
-            return "QWORD: dec";
+            return "integer: dec";
         }
 
         virtual bool isSet()
@@ -69,29 +69,65 @@ namespace paramkit {
             return value != PARAM_UNINITIALIZED;
         }
 
-        virtual void parse(char *arg) {
+        virtual bool parse(char *arg) {
+            if (!arg) return false;
+
             uint64_t val = 0;
             if (isHex) {
                 if (sscanf(arg, "%llX", &val) == 0) {
                     sscanf(arg, "%#llX", &val);
                 }
                 this->value = val;
-                return;
+                return true;
             }
             sscanf(arg, "%d", &val);
             this->value = val;
+            return true;
         }
 
         bool isHex;
         uint64_t value;
     };
 
+    class StringParam : public Param {
+    public:
+        StringParam(const std::string& _argStr)
+            : Param(_argStr)
+        {
+            requiredParam = true;
+            value = "";
+        }
+
+        virtual std::string valToString()
+        {
+            return "\"" + value + "\"";
+        }
+
+        virtual std::string type() {
+            return "string";
+        }
+
+        virtual bool isSet()
+        {
+            return value.length() > 0;
+        }
+
+        virtual bool parse(char *arg) {
+            if(!arg) return false;
+
+            this->value = arg;
+        }
+
+        std::string value;
+    };
+
+
     class BoolParam : public Param {
     public:
         BoolParam(const std::string& _argStr)
             : Param(_argStr)
         {
-            getVal = false;
+            requiredParam = false;
             value = false;
         }
 
@@ -117,10 +153,10 @@ namespace paramkit {
             return value;
         }
 
-        virtual void parse(char *arg = nullptr) {
-            if (arg == nullptr) {
+        virtual bool parse(char *arg = nullptr) {
+            if (!arg) {
                 this->value = true;
-                return;
+                return true;
             }
             DWORD val = 0;
             sscanf(arg, "%d", &val);
@@ -130,6 +166,7 @@ namespace paramkit {
             else {
                 this->value = false;
             }
+            return true;
         }
 
         bool value;
@@ -149,29 +186,23 @@ namespace paramkit {
 
         bool setIntValue(const std::string& str, uint64_t val)
         {
-            std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
-            if (itr != this->myParams.end()) {
-                IntParam *param = dynamic_cast<IntParam*>(itr->second);
-                if (!param) {
-                    return false;
-                }
-                param->value = val;
-                return true;
+            Param *p = getParam(str);
+            if (!p) return false;
+
+            IntParam *param = dynamic_cast<IntParam*>(p);
+            if (!param) {
+                return false;
             }
-            IntParam *param = new IntParam(str);
             param->value = val;
-            this->myParams[str] = param;
             return true;
         }
 
         bool setInfo(const std::string& str, const std::string& info)
         {
-            std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
-            if (itr != this->myParams.end()) {
-                Param *param = itr->second;
-                param->info = info;
-                return true;
-            }
+            Param *p = getParam(str);
+            if (!p) return false;
+
+            p->info = info;
             return false;
         }
 
@@ -213,6 +244,17 @@ namespace paramkit {
         void info();
         bool parse(int argc, char* argv[]);
 
+    protected:
+        Param * getParam(const std::string &str)
+        {
+            std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
+            if (itr != this->myParams.end()) {
+                return itr->second;
+            }
+            return nullptr;
+        }
+
         std::map<std::string, Param*> myParams;
     };
 };
+

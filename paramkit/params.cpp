@@ -96,11 +96,10 @@ bool Params::parse(int argc, char* argv[])
                     std::cout << argv[i] << " : " << argv[i + 1] << "\n";
 #endif
                 }
-                else if (!param->getVal) {
+                else if (!param->requiredParam) {
                     param->parse(nullptr);
                     count++;
                 }
-
             }
         }
     }
