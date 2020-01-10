@@ -1,7 +1,7 @@
 # ParamKit
 A small library helping to parse commandline parameters (for Windows).
 
-Demo:
+Demo
 -
 Print help for each parameter:
 
