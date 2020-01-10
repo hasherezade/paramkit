@@ -6,7 +6,8 @@
 #define HEADER_COLOR 14
 #define SEPARATOR_COLOR 6
 
-#define PARAM_HELP "?"
+#define PARAM_HELP1 "?"
+#define PARAM_HELP2 "help"
 
 using namespace paramkit;
 
@@ -98,7 +99,7 @@ void Params::info()
         std::cout << "\t: " << param->info << "\n";
     }
     print_in_color(hdr_color, "\nInfo: \n\n");
-    print_param_in_color(param_color, PARAM_HELP);
+    print_param_in_color(param_color, PARAM_HELP2);
     std::cout << " : " << "Print this help\n";
 }
 
@@ -115,7 +116,7 @@ bool Params::parse(int argc, char* argv[])
         std::map<std::string, Param*>::iterator itr;
         for (itr = myParams.begin(); itr != myParams.end(); itr++) {
             Param *param = itr->second;
-            if (!strcmp(param_str, PARAM_HELP))
+            if (!strcmp(param_str, PARAM_HELP2) || !strcmp(param_str, PARAM_HELP1))
             {
                 return false;
             }
