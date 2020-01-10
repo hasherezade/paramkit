@@ -30,16 +30,16 @@ public:
     DemoParams()
         : Params()
     {
-        this->addParam(new IntParam(PARAM_MY_DEC));
+        this->addParam(new IntParam(PARAM_MY_DEC, true));
         this->setInfo(PARAM_MY_DEC, "Sample decimal Integer param");
 
-        this->addParam(new IntParam(PARAM_MY_HEX, true));
+        this->addParam(new IntParam(PARAM_MY_HEX, true, true));
         this->setInfo(PARAM_MY_HEX, "Sample hexadecimal Integer param");
 
-        this->addParam(new BoolParam(PARAM_MY_BOOL));
+        this->addParam(new BoolParam(PARAM_MY_BOOL, false));
         this->setInfo(PARAM_MY_BOOL, "Sample boolean param");
 
-        this->addParam(new StringParam(PARAM_MY_STRING));
+        this->addParam(new StringParam(PARAM_MY_STRING, false));
         this->setInfo(PARAM_MY_STRING, "Sample string param");
     }
 
@@ -77,11 +77,19 @@ int main(int argc, char* argv[])
         params.info();
         return 0;
     }
+
     params.print();
 
     std::cout << "\nConverted: \n";
     t_params_struct p;
     params.fillStruct(p);
     print_params(p);
+
+    if (!params.hasRequiredFilled()) {
+        std::cout << "[!] Some of the required parameters are not filled!\n";
+    }
+    else {
+        std::cout << "[+] All the required parameters filled!\n";
+    }
     return 0;
 }

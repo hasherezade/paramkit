@@ -17,8 +17,9 @@ namespace paramkit {
 
     class Param {
     public:
-        Param(const std::string& _argStr)
+        Param(const std::string& _argStr, bool _isRequired)
         {
+            isRequired = _isRequired;
             argStr = _argStr;
             requiredParam = false;
         }
@@ -29,15 +30,21 @@ namespace paramkit {
         virtual bool parse(char *arg) = 0;
         virtual bool isSet() = 0;
 
+    protected:
         std::string argStr;
-        bool requiredParam;
+        
         std::string info;
+        bool isRequired;
+
+        bool requiredParam; // do you need to pass argument to this param
+
+    friend class Params;
     };
 
     class IntParam : public Param {
     public:
-        IntParam(const std::string& _argStr, bool _isHex = false)
-            : Param(_argStr)
+        IntParam(const std::string& _argStr, bool _isRequired, bool _isHex = false)
+            : Param(_argStr, _isRequired)
         {
             requiredParam = true;
             value = PARAM_UNINITIALIZED;
@@ -91,8 +98,8 @@ namespace paramkit {
 
     class StringParam : public Param {
     public:
-        StringParam(const std::string& _argStr)
-            : Param(_argStr)
+        StringParam(const std::string& _argStr, bool _isRequired)
+            : Param(_argStr, _isRequired)
         {
             requiredParam = true;
             value = "";
@@ -124,8 +131,8 @@ namespace paramkit {
 
     class BoolParam : public Param {
     public:
-        BoolParam(const std::string& _argStr)
-            : Param(_argStr)
+        BoolParam(const std::string& _argStr, bool _isRequired)
+            : Param(_argStr, _isRequired)
         {
             requiredParam = false;
             value = false;
@@ -228,6 +235,18 @@ namespace paramkit {
                 return false;
             }
             return param->isSet();
+        }
+
+        bool hasRequiredFilled()
+        {
+            std::map<std::string, Param*>::iterator itr;
+            for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                Param *param = itr->second;
+                if (param->isRequired && !param->isSet()) {
+                    return false;
+                }
+            }
+            return true;
         }
 
         void releaseParams()
