@@ -1,6 +1,8 @@
 #include "params.h"
 
 #define HILIGHTED_COLOR 0x0f
+#define HEADER_COLOR 14
+#define PARAM_HELP "?"
 
 using namespace paramkit;
 
@@ -59,16 +61,35 @@ void Params::print()
 
 void Params::info()
 {
+    const int hdr_color = HEADER_COLOR;
     const int param_color = HILIGHTED_COLOR;
 
+    print_in_color(hdr_color, "Required: \n\n");
+    //Print Required
     std::map<std::string, Param*>::iterator itr;
     for (itr = myParams.begin(); itr != myParams.end(); itr++) {
         Param *param = itr->second;
+        if (!param->isRequired) continue;
         print_param_in_color(param_color, param->argStr);
         std::cout << " <" << param->type() << ">";
-        std::cout << ": ";
-        std::cout << "\n\t" << std::hex << param->info << "\n";
+        std::cout << "\n\t: " << std::hex << param->info << "\n";
     }
+
+    print_in_color(hdr_color, "\nOptional: \n\n");
+    //Print Optional
+    for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+        Param *param = itr->second;
+        if (param->isRequired) continue;
+        print_param_in_color(param_color, param->argStr);
+        if (param->requiredParam) {
+            std::cout << " <" << param->type() << ">";
+            std::cout << "\n" ;
+        }
+        std::cout << "\t: " << param->info << "\n";
+    }
+    print_in_color(hdr_color, "\nInfo: \n\n");
+    print_param_in_color(param_color, PARAM_HELP);
+    std::cout << " : " << "Print this help\n";
 }
 
 bool Params::parse(int argc, char* argv[])
@@ -83,7 +104,7 @@ bool Params::parse(int argc, char* argv[])
         std::map<std::string, Param*>::iterator itr;
         for (itr = myParams.begin(); itr != myParams.end(); itr++) {
             Param *param = itr->second;
-            if (!strcmp(param_str, "?"))
+            if (!strcmp(param_str, PARAM_HELP))
             {
                 return false;
             }
