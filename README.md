@@ -10,3 +10,5 @@ Print help for each parameter:
 Easily store values of popular types, and verify if all required parameters are filled:
 
 <img src="./img/demo_print.png" alt="demo: print help" >
+
+See [the demo code](https://github.com/hasherezade/paramkit/tree/master/demo)
