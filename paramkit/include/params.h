@@ -125,6 +125,16 @@ namespace paramkit {
             this->value = arg;
         }
 
+        size_t copyToCStr(char *buf, size_t buf_max)
+        {
+            size_t len = value.length() + 1;
+            if (len > buf_max) len = buf_max;
+
+            memcpy(buf, value.c_str(), buf_max);
+            buf[len] = '\0';
+            return len;
+        }
+
         std::string value;
     };
 
