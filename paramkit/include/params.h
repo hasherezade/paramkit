@@ -123,6 +123,7 @@ namespace paramkit {
             if(!arg) return false;
 
             this->value = arg;
+            return true;
         }
 
         size_t copyToCStr(char *buf, size_t buf_max)
