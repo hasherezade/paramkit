@@ -93,6 +93,7 @@ void Params::info()
     for (itr = myParams.begin(); itr != myParams.end(); itr++) {
         Param *param = itr->second;
         if (!param->isRequired) continue;
+
         print_param_in_color(param_color, param->argStr);
         std::cout << " <" << param->type() << ">";
         std::cout << "\n\t: " << std::hex << param->info << "\n";
@@ -103,12 +104,13 @@ void Params::info()
     for (itr = myParams.begin(); itr != myParams.end(); itr++) {
         Param *param = itr->second;
         if (param->isRequired) continue;
+
         print_param_in_color(param_color, param->argStr);
         if (param->requiredParam) {
             std::cout << " <" << param->type() << ">";
-            std::cout << "\n" ;
+            std::cout << "\n\t" ;
         }
-        std::cout << "\t: " << param->info << "\n";
+        std::cout << " : " << param->info << "\n";
     }
     print_in_color(hdr_color, "\nInfo: \n\n");
     print_param_in_color(param_color, PARAM_HELP2);
