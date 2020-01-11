@@ -1,4 +1,6 @@
 # ParamKit
+[![Build status](https://ci.appveyor.com/api/projects/status/dw7xwgd9isgvsair?svg=true)](https://ci.appveyor.com/project/hasherezade/paramkit)
+
 A small library helping to parse commandline parameters (for Windows).
 
 Objectives
