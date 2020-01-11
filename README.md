@@ -6,6 +6,7 @@ Objectives
 + "like Python's `argparse` but for C/C++"
 + compact and minimalistic
 + easy to use
++ extendable
 
 
 Demo
