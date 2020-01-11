@@ -94,7 +94,7 @@ void Params::info(bool hilightMissing)
         Param *param = itr->second;
         if (!param->isRequired) continue;
         int color = param_color;
-        if (!param->isSet()) {
+        if (hilightMissing && !param->isSet()) {
             color = WARNING_COLOR;
         }
         print_param_in_color(color, param->argStr);
