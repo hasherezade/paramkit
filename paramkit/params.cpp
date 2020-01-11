@@ -82,7 +82,7 @@ void Params::print()
     }
 }
 
-void Params::info()
+void Params::info(bool hilightMissing)
 {
     const int hdr_color = HEADER_COLOR;
     const int param_color = HILIGHTED_COLOR;
@@ -93,8 +93,11 @@ void Params::info()
     for (itr = myParams.begin(); itr != myParams.end(); itr++) {
         Param *param = itr->second;
         if (!param->isRequired) continue;
-
-        print_param_in_color(param_color, param->argStr);
+        int color = param_color;
+        if (!param->isSet()) {
+            color = WARNING_COLOR;
+        }
+        print_param_in_color(color, param->argStr);
         std::cout << " <" << param->type() << ">";
         std::cout << "\n\t: " << std::hex << param->info << "\n";
     }

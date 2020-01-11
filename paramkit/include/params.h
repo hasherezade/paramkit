@@ -270,7 +270,7 @@ namespace paramkit {
         }
 
         void print();
-        void info();
+        void info(bool hilightMissing = false);
         bool parse(int argc, char* argv[]);
 
     protected:
