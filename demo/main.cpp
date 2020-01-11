@@ -56,11 +56,7 @@ public:
 
         StringParam *myStr = dynamic_cast<StringParam*>(this->getParam(PARAM_MY_STRING));
         if (myStr) {
-            size_t len = myStr->value.length() + 1;
-            size_t buf_max = sizeof(paramsStruct.myBuf);
-            if (len > buf_max) len = buf_max;
-            memcpy(paramsStruct.myBuf, myStr->value.c_str(), buf_max);
-            paramsStruct.myBuf[len] = '\0';
+            myStr->copyToCStr(paramsStruct.myBuf, sizeof(paramsStruct.myBuf));
         }
         return true;
     }
