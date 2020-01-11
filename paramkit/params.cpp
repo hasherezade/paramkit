@@ -13,14 +13,26 @@ using namespace paramkit;
 
 namespace paramkit {
 
+    bool GetColor(HANDLE hConsole, int& color) {
+        CONSOLE_SCREEN_BUFFER_INFO info;
+        if (!GetConsoleScreenBufferInfo(hConsole, &info))
+            return false;
+        color = info.wAttributes;
+        return true;
+    }
+
     void print_in_color(int color, const std::string &text)
     {
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        int prev = 7;
+        GetColor(hConsole, prev); // get the previous color
+
         FlushConsoleInputBuffer(hConsole);
         SetConsoleTextAttribute(hConsole, color); // back to default color
         std::cout << text;
         FlushConsoleInputBuffer(hConsole);
-        SetConsoleTextAttribute(hConsole, 7); // back to default color
+
+        SetConsoleTextAttribute(hConsole, prev); // back to previous color
     }
 
     void print_param_in_color(int color, const std::string &text)
