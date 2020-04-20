@@ -33,7 +33,7 @@ namespace paramkit {
         }
 
         virtual std::string valToString() = 0;
-        virtual std::string type() = 0;
+        virtual std::string type() const = 0;
 
         virtual bool parse(char *arg) = 0;
         virtual bool isSet() = 0;
@@ -74,7 +74,7 @@ namespace paramkit {
             return stream.str();
         }
 
-        virtual std::string type() {
+        virtual std::string type() const {
             if (isHex) {
                 return "integer: hex";
             }
@@ -120,7 +120,7 @@ namespace paramkit {
             return "\"" + value + "\"";
         }
 
-        virtual std::string type() {
+        virtual std::string type() const {
             return "string";
         }
 
@@ -159,7 +159,7 @@ namespace paramkit {
             value = false;
         }
 
-        virtual std::string type() {
+        virtual std::string type() const {
             return "bool";
         }
 
@@ -285,6 +285,7 @@ namespace paramkit {
         bool parse(int argc, char* argv[]);
 
     protected:
+        void printDesc(const Param &param);
         size_t countRequired();
         size_t countOptional();
 

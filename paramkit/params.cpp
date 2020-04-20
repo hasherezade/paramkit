@@ -104,6 +104,22 @@ size_t Params::countOptional()
     return count;
 }
 
+
+void Params::printDesc(const Param &param)
+{
+    if (param.requiredArg) {
+        if (param.typeDescStr.length()) {
+            std::cout << " <" << param.typeDescStr << ">";
+        }
+        else {
+            std::cout << " <" << param.type() << ">";
+        }
+
+        std::cout << "\n\t";
+    }
+    std::cout << " : " << param.info << "\n";
+}
+
 void Params::info(bool hilightMissing)
 {
     const int hdr_color = HEADER_COLOR;
@@ -116,14 +132,13 @@ void Params::info(bool hilightMissing)
         //Print Required
         for (itr = myParams.begin(); itr != myParams.end(); itr++) {
             Param *param = itr->second;
-            if (!param->isRequired) continue;
+            if (!param || !param->isRequired) continue;
             int color = param_color;
             if (hilightMissing && !param->isSet()) {
                 color = WARNING_COLOR;
             }
             print_param_in_color(color, param->argStr);
-            std::cout << " <" << param->type() << ">";
-            std::cout << "\n\t: " << std::hex << param->info << "\n";
+            printDesc(*param);
         }
     }
     if (countOptional() > 0) {
@@ -131,20 +146,10 @@ void Params::info(bool hilightMissing)
         //Print Optional
         for (itr = myParams.begin(); itr != myParams.end(); itr++) {
             Param *param = itr->second;
-            if (param->isRequired) continue;
+            if (!param || param->isRequired) continue;
 
             print_param_in_color(param_color, param->argStr);
-            if (param->requiredArg) {
-                if (param->typeDescStr.length()) {
-                    std::cout << " <" << param->typeDescStr << ">";
-                }
-                else {
-                    std::cout << " <" << param->type() << ">";
-                }
-                
-                std::cout << "\n\t";
-            }
-            std::cout << " : " << param->info << "\n";
+            printDesc(*param);
         }
     }
 
