@@ -134,8 +134,14 @@ void Params::info(bool hilightMissing)
             if (param->isRequired) continue;
 
             print_param_in_color(param_color, param->argStr);
-            if (param->requiredParam) {
-                std::cout << " <" << param->type() << ">";
+            if (param->requiredArg) {
+                if (param->typeDescStr.length()) {
+                    std::cout << " <" << param->typeDescStr << ">";
+                }
+                else {
+                    std::cout << " <" << param->type() << ">";
+                }
+                
                 std::cout << "\n\t";
             }
             std::cout << " : " << param->info << "\n";
@@ -174,7 +180,7 @@ bool Params::parse(int argc, char* argv[])
 #endif
                     break;
                 }
-                else if (!param->requiredParam) {
+                else if (!param->requiredArg) {
                     param->parse(nullptr);
                     found = true;
                     break;

@@ -21,7 +21,15 @@ namespace paramkit {
         {
             isRequired = _isRequired;
             argStr = _argStr;
-            requiredParam = false;
+            requiredArg = false;
+        }
+
+        Param(const std::string& _argStr, const std::string& _typeDescStr, bool _isRequired)
+        {
+            isRequired = _isRequired;
+            argStr = _argStr;
+            typeDescStr = _typeDescStr;
+            requiredArg = false;
         }
 
         virtual std::string valToString() = 0;
@@ -30,13 +38,15 @@ namespace paramkit {
         virtual bool parse(char *arg) = 0;
         virtual bool isSet() = 0;
 
+        std::string typeDescStr;
+
     protected:
         std::string argStr;
-        
+
         std::string info;
         bool isRequired;
 
-        bool requiredParam; // do you need to pass argument to this param
+        bool requiredArg; // do you need to pass argument to this param
 
     friend class Params;
     };
@@ -46,7 +56,7 @@ namespace paramkit {
         IntParam(const std::string& _argStr, bool _isRequired, bool _isHex = false)
             : Param(_argStr, _isRequired)
         {
-            requiredParam = true;
+            requiredArg = true;
             value = PARAM_UNINITIALIZED;
             isHex = _isHex;
         }
@@ -101,7 +111,7 @@ namespace paramkit {
         StringParam(const std::string& _argStr, bool _isRequired)
             : Param(_argStr, _isRequired)
         {
-            requiredParam = true;
+            requiredArg = true;
             value = "";
         }
 
@@ -145,7 +155,7 @@ namespace paramkit {
         BoolParam(const std::string& _argStr, bool _isRequired)
             : Param(_argStr, _isRequired)
         {
-            requiredParam = false;
+            requiredArg = false;
             value = false;
         }
 
@@ -248,7 +258,7 @@ namespace paramkit {
             return param->isSet();
         }
 
-        bool hasRequiredFilled()
+        virtual bool hasRequiredFilled()
         {
             std::map<std::string, Param*>::iterator itr;
             for (itr = myParams.begin(); itr != myParams.end(); itr++) {
