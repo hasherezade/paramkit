@@ -275,6 +275,9 @@ namespace paramkit {
         bool parse(int argc, char* argv[]);
 
     protected:
+        size_t countRequired();
+        size_t countOptional();
+
         Param * getParam(const std::string &str)
         {
             std::map<std::string, Param*>::iterator itr = this->myParams.find(str);

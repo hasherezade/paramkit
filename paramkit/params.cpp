@@ -82,39 +82,66 @@ void Params::print()
     }
 }
 
+size_t Params::countRequired()
+{
+    size_t count = 0;
+    std::map<std::string, Param*>::iterator itr;
+    for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+        Param *param = itr->second;
+        if (param->isRequired) count++;
+    }
+    return count;
+}
+
+size_t Params::countOptional()
+{
+    size_t count = 0;
+    std::map<std::string, Param*>::iterator itr;
+    for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+        Param *param = itr->second;
+        if (!param->isRequired) count++;
+    }
+    return count;
+}
+
 void Params::info(bool hilightMissing)
 {
     const int hdr_color = HEADER_COLOR;
     const int param_color = HILIGHTED_COLOR;
 
-    print_in_color(hdr_color, "Required: \n\n");
-    //Print Required
     std::map<std::string, Param*>::iterator itr;
-    for (itr = myParams.begin(); itr != myParams.end(); itr++) {
-        Param *param = itr->second;
-        if (!param->isRequired) continue;
-        int color = param_color;
-        if (hilightMissing && !param->isSet()) {
-            color = WARNING_COLOR;
-        }
-        print_param_in_color(color, param->argStr);
-        std::cout << " <" << param->type() << ">";
-        std::cout << "\n\t: " << std::hex << param->info << "\n";
-    }
 
-    print_in_color(hdr_color, "\nOptional: \n\n");
-    //Print Optional
-    for (itr = myParams.begin(); itr != myParams.end(); itr++) {
-        Param *param = itr->second;
-        if (param->isRequired) continue;
-
-        print_param_in_color(param_color, param->argStr);
-        if (param->requiredParam) {
+    if (countRequired() > 0) {
+        print_in_color(hdr_color, "Required: \n\n");
+        //Print Required
+        for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+            Param *param = itr->second;
+            if (!param->isRequired) continue;
+            int color = param_color;
+            if (hilightMissing && !param->isSet()) {
+                color = WARNING_COLOR;
+            }
+            print_param_in_color(color, param->argStr);
             std::cout << " <" << param->type() << ">";
-            std::cout << "\n\t" ;
+            std::cout << "\n\t: " << std::hex << param->info << "\n";
         }
-        std::cout << " : " << param->info << "\n";
     }
+    if (countOptional() > 0) {
+        print_in_color(hdr_color, "\nOptional: \n\n");
+        //Print Optional
+        for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+            Param *param = itr->second;
+            if (param->isRequired) continue;
+
+            print_param_in_color(param_color, param->argStr);
+            if (param->requiredParam) {
+                std::cout << " <" << param->type() << ">";
+                std::cout << "\n\t";
+            }
+            std::cout << " : " << param->info << "\n";
+        }
+    }
+
     print_in_color(hdr_color, "\nInfo: \n\n");
     print_param_in_color(param_color, PARAM_HELP2);
     std::cout << " : " << "Print this help\n";
