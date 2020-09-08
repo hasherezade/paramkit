@@ -75,6 +75,8 @@ void Params::print()
 
     std::map<std::string, Param*>::iterator itr;
     for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+        if (!isSet(itr->first)) continue;
+
         Param *param = itr->second;
         print_param_in_color(param_color, param->argStr);
         std::cout << ": ";
