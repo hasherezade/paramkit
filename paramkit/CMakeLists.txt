@@ -14,6 +14,7 @@ set (srcs
 set (hdrs
 	include/paramkit.h
 	include/params.h
+	include/term_colors.h
 )
 
 add_library ( ${PROJECT_NAME} STATIC ${hdrs} ${srcs} )

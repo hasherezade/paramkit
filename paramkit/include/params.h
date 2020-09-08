@@ -14,6 +14,7 @@
 
 namespace paramkit {
     //--
+    void print_in_color(int color, const std::string &text);
 
     class Param {
     public:
