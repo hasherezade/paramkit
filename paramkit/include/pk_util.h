@@ -39,12 +39,27 @@ namespace paramkit {
 
         for (size_t i = 0; ; i++) {
             if (str1[i] == 0) break;
-            val.push_back(str1[i]);
+            val.push_back((char)str1[i]);
         }
         return val;
     }
 
-    int loadInt(const std::string &str, bool isHex = false);
+    template <typename T_CHAR>
+    int loadInt(const T_CHAR *str1, bool isHex = false)
+    {
+        std::string str = to_string(str1);
+        int intVal = 0;
+        std::stringstream ss;
+        if (isHex) {
+            ss << std::hex << str;
+        }
+        else {
+            ss << std::dec << str;
+        }
+        ss >> intVal;
+        return intVal;
+    }
 
-    int loadInt(const std::wstring &wstr, bool isHex = false);
+    void print_param_in_color(int color, const std::string &text);
+
 };
