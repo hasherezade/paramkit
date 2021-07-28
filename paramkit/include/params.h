@@ -356,7 +356,7 @@ namespace paramkit {
 
         void print();
         void info(bool hilightMissing = false);
-        bool parse(int argc, const char* argv[]);
+        bool parse(int argc, char* argv[]);
 
     protected:
         void printDesc(const Param &param);
