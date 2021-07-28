@@ -188,7 +188,7 @@ bool Params::parse(int argc, char* argv[])
                     break;
                 }
                 else if (!param->requiredArg) {
-                    param->parse(nullptr);
+                    param->parse((char*)nullptr);
                     found = true;
                     break;
                 }

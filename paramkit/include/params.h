@@ -13,6 +13,28 @@
 #define PARAM_SWITCH2 '-'
 
 namespace paramkit {
+
+    static int loadInt(const std::string &str, bool isHex = false)
+    {
+        int intVal = 0;
+        std::stringstream ss;
+        if (isHex) {
+            ss << std::hex << str;
+        }
+        else {
+            ss << std::dec << str;
+        }
+        ss >> intVal;
+        return intVal;
+    }
+
+    static int loadInt(const std::wstring &wstr, bool isHex = false)
+    {
+        int intVal = 0;
+        std::string str(wstr.begin(), wstr.end());
+        return loadInt(str, isHex );
+    }
+
     //--
     void print_in_color(int color, const std::string &text);
 
@@ -36,7 +58,15 @@ namespace paramkit {
         virtual std::string valToString() = 0;
         virtual std::string type() const = 0;
 
-        virtual bool parse(char *arg) = 0;
+        virtual bool parse(const char *arg) = 0;
+
+        virtual bool parse(const wchar_t *arg)
+        {
+            std::wstring value = arg;
+            std::string str(value.begin(), value.end());
+            return parse(str.c_str());
+        }
+
         virtual bool isSet() = 0;
 
         std::string typeDescStr;
@@ -87,19 +117,9 @@ namespace paramkit {
             return value != PARAM_UNINITIALIZED;
         }
 
-        virtual bool parse(char *arg) {
+        virtual bool parse(const char *arg) {
             if (!arg) return false;
-
-            uint64_t val = 0;
-            if (isHex) {
-                if (sscanf(arg, "%llX", &val) == 0) {
-                    sscanf(arg, "%#llX", &val);
-                }
-                this->value = val;
-                return true;
-            }
-            sscanf(arg, "%d", &val);
-            this->value = val;
+            this->value = loadInt(arg, isHex);
             return true;
         }
 
@@ -130,7 +150,7 @@ namespace paramkit {
             return value.length() > 0;
         }
 
-        virtual bool parse(char *arg) {
+        virtual bool parse(const char *arg) {
             if(!arg) return false;
 
             this->value = arg;
@@ -150,6 +170,59 @@ namespace paramkit {
         std::string value;
     };
 
+    class WStringParam : public Param {
+    public:
+        WStringParam(const std::string& _argStr, bool _isRequired)
+            : Param(_argStr, _isRequired)
+        {
+            requiredArg = true;
+            value = L"";
+        }
+
+        virtual std::string valToString()
+        {
+            std::string str(value.begin(), value.end());
+            return "\"" + str + "\"";
+        }
+
+        virtual std::string type() const {
+            return "wstring";
+        }
+
+        virtual bool isSet()
+        {
+            return value.length() > 0;
+        }
+
+        virtual bool parse(const wchar_t *arg) {
+            if (!arg) return false;
+
+            this->value = arg;
+            return true;
+        }
+
+        virtual bool parse(const char *arg) {
+            if (!arg) return false;
+
+            std::string value = arg;
+            std::wstring str(value.begin(), value.end());
+
+            this->value = str;
+            return true;
+        }
+
+        size_t copyToCStr(wchar_t *buf, size_t buf_max)
+        {
+            size_t len = value.length() + 1;
+            if (len > buf_max) len = buf_max;
+
+            memcpy(buf, value.c_str(), len);
+            buf[len] = '\0';
+            return len;
+        }
+
+        std::wstring value;
+    };
 
     class BoolParam : public Param {
     public:
@@ -182,13 +255,13 @@ namespace paramkit {
             return value;
         }
 
-        virtual bool parse(char *arg = nullptr) {
+        virtual bool parse(const char *arg = nullptr) {
             if (!arg) {
                 this->value = true;
                 return true;
             }
-            DWORD val = 0;
-            sscanf(arg, "%d", &val);
+
+            DWORD val = loadInt(arg);
             if (val != 0) {
                 this->value = true;
             }
