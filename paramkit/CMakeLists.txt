@@ -8,13 +8,13 @@ include_directories (
 )
 
 set (srcs
-	params.cpp
 )
 
 set (hdrs
 	include/paramkit.h
 	include/params.h
 	include/term_colors.h
+	include/pk_util.h
 )
 
 add_library ( ${PROJECT_NAME} STATIC ${hdrs} ${srcs} )

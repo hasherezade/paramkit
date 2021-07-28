@@ -7,36 +7,20 @@
 #include <sstream>
 #include <map>
 
-#define PARAM_UNINITIALIZED (-1)
+#include "pk_util.h"
+#include "term_colors.h"
 
-#define PARAM_SWITCH1 '/'
-#define PARAM_SWITCH2 '-'
+#define WARNING_COLOR YELLOW
+#define HILIGHTED_COLOR WHITE
+
+#define HEADER_COLOR YELLOW
+#define SEPARATOR_COLOR BROWN
+//--
+
+#define PARAM_HELP1 "?"
+#define PARAM_HELP2 "help"
 
 namespace paramkit {
-
-    static int loadInt(const std::string &str, bool isHex = false)
-    {
-        int intVal = 0;
-        std::stringstream ss;
-        if (isHex) {
-            ss << std::hex << str;
-        }
-        else {
-            ss << std::dec << str;
-        }
-        ss >> intVal;
-        return intVal;
-    }
-
-    static int loadInt(const std::wstring &wstr, bool isHex = false)
-    {
-        int intVal = 0;
-        std::string str(wstr.begin(), wstr.end());
-        return loadInt(str, isHex );
-    }
-
-    //--
-    void print_in_color(int color, const std::string &text);
 
     class Param {
     public:
@@ -74,7 +58,7 @@ namespace paramkit {
     protected:
         std::string argStr;
 
-        std::string info;
+        std::string m_info;
         bool isRequired;
 
         bool requiredArg; // do you need to pass argument to this param
@@ -260,7 +244,6 @@ namespace paramkit {
                 this->value = true;
                 return true;
             }
-
             DWORD val = loadInt(arg);
             if (val != 0) {
                 this->value = true;
@@ -274,9 +257,17 @@ namespace paramkit {
         bool value;
     };
 
+
+    void print_param_in_color(int color, const std::string &text)
+    {
+        print_in_color(color, PARAM_SWITCH1 + text);
+    }
+
+    //---
+
     class Params {
     public:
-        Params();
+        Params() {}
         virtual ~Params() { releaseParams(); }
 
         void addParam(Param* param)
@@ -304,8 +295,46 @@ namespace paramkit {
             Param *p = getParam(str);
             if (!p) return false;
 
-            p->info = info;
+            p->m_info = info;
             return false;
+        }
+
+        void info(bool hilightMissing = false)
+        {
+            const int hdr_color = HEADER_COLOR;
+            const int param_color = HILIGHTED_COLOR;
+
+            std::map<std::string, Param*>::iterator itr;
+
+            if (countRequired() > 0) {
+                print_in_color(hdr_color, "Required: \n");
+                //Print Required
+                for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                    Param *param = itr->second;
+                    if (!param || !param->isRequired) continue;
+                    int color = param_color;
+                    if (hilightMissing && !param->isSet()) {
+                        color = WARNING_COLOR;
+                    }
+                    print_param_in_color(color, param->argStr);
+                    printDesc(*param);
+                }
+            }
+            if (countOptional() > 0) {
+                print_in_color(hdr_color, "\nOptional: \n");
+                //Print Optional
+                for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                    Param *param = itr->second;
+                    if (!param || param->isRequired) continue;
+
+                    print_param_in_color(param_color, param->argStr);
+                    printDesc(*param);
+                }
+            }
+
+            print_in_color(hdr_color, "\nInfo: \n");
+            print_param_in_color(param_color, PARAM_HELP2);
+            std::cout << " : " << "Print this help\n";
         }
 
         uint64_t getIntValue(const std::string& str)
@@ -354,14 +383,112 @@ namespace paramkit {
             myParams.clear();
         }
 
-        void print();
-        void info(bool hilightMissing = false);
-        bool parse(int argc, char* argv[]);
+        void print_unknown_param(const std::string &param)
+        {
+            print_in_color(WARNING_COLOR, "Invalid parameter: ");
+            std::cout << param << "\n";
+        }
+
+        template <typename T_CHAR>
+        bool parse(int argc, T_CHAR* argv[])
+        {
+            size_t count = 0;
+            for (int i = 1; i < argc; i++) {
+                if (!is_param(argv[i])) {
+                    continue;
+                }
+                bool found = false;
+
+                std::string param_str = to_string(argv[i]);
+
+                std::map<std::string, Param*>::iterator itr;
+                for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                    Param *param = itr->second;
+                    if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1)
+                    {
+                        return false;
+                    }
+
+                    if (param_str == param->argStr) {
+                        if ((i + 1) < argc && !(is_param(argv[i + 1]))) {
+                            param->parse(argv[i + 1]);
+                            found = true;
+#ifdef _DEBUG
+                            std::cout << argv[i] << " : " << argv[i + 1] << "\n";
+#endif
+                            break;
+                        }
+                        else if (!param->requiredArg) {
+                            param->parse((char*)nullptr);
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+                if (found) {
+                    count++;
+                }
+                else {
+                    //const std::string param_str = to_string(argv[i]);
+                    //print_unknown_param(param_str);
+                    return false;
+                }
+            }
+            return (count > 0) ? true : false;
+        }
+
+        void print()
+        {
+            const int param_color = HILIGHTED_COLOR;
+
+            std::map<std::string, Param*>::iterator itr;
+            for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                if (!isSet(itr->first)) continue;
+
+                Param *param = itr->second;
+                print_param_in_color(param_color, param->argStr);
+                std::cout << ": ";
+                std::cout << "\n\t" << std::hex << param->valToString() << "\n";
+            }
+        }
 
     protected:
-        void printDesc(const Param &param);
-        size_t countRequired();
-        size_t countOptional();
+        void Params::printDesc(const Param &param)
+        {
+            if (param.requiredArg) {
+                if (param.typeDescStr.length()) {
+                    std::cout << " <" << param.typeDescStr << ">";
+                }
+                else {
+                    std::cout << " <" << param.type() << ">";
+                }
+
+                std::cout << "\n\t";
+            }
+            std::cout << " : " << param.m_info << "\n";
+        }
+
+        size_t countRequired()
+        {
+            size_t count = 0;
+            std::map<std::string, Param*>::iterator itr;
+            for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                Param *param = itr->second;
+                if (param->isRequired) count++;
+            }
+            return count;
+        }
+
+        size_t countOptional()
+        {
+            size_t count = 0;
+            std::map<std::string, Param*>::iterator itr;
+            for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                Param *param = itr->second;
+                if (!param->isRequired) count++;
+            }
+            return count;
+        }
 
         Param * getParam(const std::string &str)
         {
