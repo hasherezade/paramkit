@@ -160,7 +160,7 @@ void Params::info(bool hilightMissing)
     std::cout << " : " << "Print this help\n";
 }
 
-bool Params::parse(int argc, char* argv[])
+bool Params::parse(int argc, const char* argv[])
 {
     size_t count = 0;
     for (int i = 1; i < argc; i++) {
@@ -188,7 +188,7 @@ bool Params::parse(int argc, char* argv[])
                     break;
                 }
                 else if (!param->requiredArg) {
-                    param->parse(nullptr);
+                    param->parse((char*)nullptr);
                     found = true;
                     break;
                 }
