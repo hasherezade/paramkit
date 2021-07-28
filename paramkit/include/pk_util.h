@@ -31,9 +31,18 @@ namespace paramkit {
     bool is_param(const std::string str);
     //--
 
-    std::string to_string(const char *str);
+    template <typename T_CHAR>
+    std::string to_string(T_CHAR *str1)
+    {
+        if (str1 == nullptr) return "";
+        std::string val;
 
-    std::string to_string(const wchar_t *cstr);
+        for (size_t i = 0; ; i++) {
+            if (str1[i] == 0) break;
+            val.push_back(str1[i]);
+        }
+        return val;
+    }
 
     int loadInt(const std::string &str, bool isHex = false);
 

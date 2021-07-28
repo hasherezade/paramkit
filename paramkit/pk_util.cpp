@@ -22,18 +22,6 @@ void paramkit::print_in_color(int color, const std::string &text)
     SetConsoleTextAttribute(hConsole, prev); // back to previous color
 }
 
-std::string paramkit::to_string(const char *str)
-{
-    return std::string(str);
-}
-
-std::string paramkit::to_string(const wchar_t *cstr)
-{
-    std::wstring wstr = wstr;
-    std::string str(wstr.begin(), wstr.end());
-    return std::string(str);
-}
-
 int paramkit::loadInt(const std::string &str, bool isHex)
 {
     int intVal = 0;
