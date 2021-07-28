@@ -8,6 +8,7 @@ include_directories (
 )
 
 set (srcs
+	pk_util.cpp
 )
 
 set (hdrs

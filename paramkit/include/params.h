@@ -10,7 +10,7 @@
 #include "pk_util.h"
 #include "term_colors.h"
 
-#define WARNING_COLOR YELLOW
+#define WARNING_COLOR RED
 #define HILIGHTED_COLOR WHITE
 
 #define HEADER_COLOR YELLOW
@@ -307,7 +307,7 @@ namespace paramkit {
             std::map<std::string, Param*>::iterator itr;
 
             if (countRequired() > 0) {
-                print_in_color(hdr_color, "Required: \n");
+                print_in_color(hdr_color, "Required: \n\n");
                 //Print Required
                 for (itr = myParams.begin(); itr != myParams.end(); itr++) {
                     Param *param = itr->second;
@@ -321,7 +321,7 @@ namespace paramkit {
                 }
             }
             if (countOptional() > 0) {
-                print_in_color(hdr_color, "\nOptional: \n");
+                print_in_color(hdr_color, "\nOptional: \n\n");
                 //Print Optional
                 for (itr = myParams.begin(); itr != myParams.end(); itr++) {
                     Param *param = itr->second;
@@ -332,7 +332,7 @@ namespace paramkit {
                 }
             }
 
-            print_in_color(hdr_color, "\nInfo: \n");
+            print_in_color(hdr_color, "\nInfo: \n\n");
             print_param_in_color(param_color, PARAM_HELP2);
             std::cout << " : " << "Print this help\n";
         }
@@ -394,12 +394,12 @@ namespace paramkit {
         {
             size_t count = 0;
             for (int i = 1; i < argc; i++) {
-                if (!is_param(argv[i])) {
+                std::string param_str = to_string(argv[i]);
+                if (!is_param(param_str)) {
                     continue;
                 }
                 bool found = false;
-
-                std::string param_str = to_string(argv[i]);
+                param_str = param_str.substr(1); // skip the first char
 
                 std::map<std::string, Param*>::iterator itr;
                 for (itr = myParams.begin(); itr != myParams.end(); itr++) {
@@ -410,7 +410,7 @@ namespace paramkit {
                     }
 
                     if (param_str == param->argStr) {
-                        if ((i + 1) < argc && !(is_param(argv[i + 1]))) {
+                        if ((i + 1) < argc && !(is_param(to_string(argv[i + 1])))) {
                             param->parse(argv[i + 1]);
                             found = true;
 #ifdef _DEBUG
@@ -429,8 +429,8 @@ namespace paramkit {
                     count++;
                 }
                 else {
-                    //const std::string param_str = to_string(argv[i]);
-                    //print_unknown_param(param_str);
+                    const std::string param_str = to_string(argv[i]);
+                    print_unknown_param(param_str);
                     return false;
                 }
             }

@@ -14,27 +14,8 @@
 
 namespace paramkit {
 
-    bool GetColor(HANDLE hConsole, int& color) {
-        CONSOLE_SCREEN_BUFFER_INFO info;
-        if (!GetConsoleScreenBufferInfo(hConsole, &info))
-            return false;
-        color = info.wAttributes;
-        return true;
-    }
-
-    void print_in_color(int color, const std::string &text)
-    {
-        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-        int prev = 7;
-        GetColor(hConsole, prev); // get the previous color
-
-        FlushConsoleInputBuffer(hConsole);
-        SetConsoleTextAttribute(hConsole, color); // back to default color
-        std::cout << text;
-        FlushConsoleInputBuffer(hConsole);
-
-        SetConsoleTextAttribute(hConsole, prev); // back to previous color
-    }
+    bool GetColor(HANDLE hConsole, int& color);
+    void print_in_color(int color, const std::string &text);
 
     template <typename T_CHAR>
     bool str_len(T_CHAR *str1)
@@ -47,52 +28,14 @@ namespace paramkit {
         return 0;
     }
 
-    template <typename T_CHAR>
-    bool is_param(const T_CHAR *str)
-    {
-        if (!str) return false;
-
-        const size_t len = str_len(str);
-        if (len < 2) return false;
-
-        if (str[0] == PARAM_SWITCH1 || str[0] == PARAM_SWITCH2) {
-            return true;
-        }
-        return false;
-    }
-
+    bool is_param(const std::string str);
     //--
 
-    std::string to_string(const char *str)
-    {
-        return std::string(str);
-    }
+    std::string to_string(const char *str);
 
-    std::string to_string(const wchar_t *cstr)
-    {
-        std::wstring wstr = wstr;
-        std::string str(wstr.begin(), wstr.end());
-        return std::string(str);
-    }
+    std::string to_string(const wchar_t *cstr);
 
-    static int loadInt(const std::string &str, bool isHex = false)
-    {
-        int intVal = 0;
-        std::stringstream ss;
-        if (isHex) {
-            ss << std::hex << str;
-        }
-        else {
-            ss << std::dec << str;
-        }
-        ss >> intVal;
-        return intVal;
-    }
+    int loadInt(const std::string &str, bool isHex = false);
 
-    static int loadInt(const std::wstring &wstr, bool isHex = false)
-    {
-        int intVal = 0;
-        std::string str(wstr.begin(), wstr.end());
-        return loadInt(str, isHex);
-    }
+    int loadInt(const std::wstring &wstr, bool isHex = false);
 };
