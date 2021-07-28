@@ -13,7 +13,7 @@ set ( PARAMKIT_DIR "${CMAKE_SOURCE_DIR}/${M_PARAMKIT_LIB}" CACHE PATH "ParamKit 
 #
 # libs
 add_subdirectory ( paramkit )
-set ( PARAMKIT_LIB $<TARGET_FILE:paramkit> CACHE FILE "ParamKit library path" )
+set ( PARAMKIT_LIB $<TARGET_FILE:paramkit> CACHE PATH "ParamKit library path" )
 
 #demos:
 add_subdirectory ( demo )
