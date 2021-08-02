@@ -1,3 +1,8 @@
+/**
+* @file
+* @brief   The main header, responsible for including all the other headers
+*/
+
 #ifndef _PARAMKIT_
 #define _PARAMKIT_
 

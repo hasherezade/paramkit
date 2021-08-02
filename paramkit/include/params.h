@@ -1,3 +1,8 @@
+/**
+* @file
+* @brief   Definitions of the basic parameter types, and the parameters container
+*/
+
 #pragma once
 
 #include <Windows.h>
@@ -20,10 +25,22 @@
 #define PARAM_HELP1 "?"
 #define PARAM_HELP2 "help"
 
+#define PARAM_UNINITIALIZED (-1)
+
+#define PARAM_SWITCH1 '/' ///< The switch used to recognize that the given string should be treated as a parameter (variant 1)
+#define PARAM_SWITCH2 '-' ///< The switch used to recognize that the given string should be treated as a parameter (variant 2)
+
 namespace paramkit {
 
+    //! The base class of a parameter
     class Param {
     public:
+
+        //! A constructor of a parameter
+        /**
+        \param _argStr : the name of the parameter
+        \param _isRequired : the flag if this is a required parameter (if false, the parameter is optional)
+        */
         Param(const std::string& _argStr, bool _isRequired)
         {
             isRequired = _isRequired;
@@ -31,6 +48,12 @@ namespace paramkit {
             requiredArg = false;
         }
 
+        //! A constructor of a parameter
+        /**
+        \param _argStr : the name of the parameter
+        \param _typeDescStr : a description of the parameter type
+        \param _isRequired : the flag if this is a required parameter (if false, the parameter is optional)
+        */
         Param(const std::string& _argStr, const std::string& _typeDescStr, bool _isRequired)
         {
             isRequired = _isRequired;
@@ -39,11 +62,16 @@ namespace paramkit {
             requiredArg = false;
         }
 
+        //! Returns the string representation of the parameter's value
         virtual std::string valToString() = 0;
+
+        //! Returns the string representation of the parameter's type
         virtual std::string type() const = 0;
 
+        //! Parses the parameter from the given string
         virtual bool parse(const char *arg) = 0;
 
+        //! Parses the parameter from the given wide string
         virtual bool parse(const wchar_t *arg)
         {
             std::wstring value = arg;
@@ -51,17 +79,17 @@ namespace paramkit {
             return parse(str.c_str());
         }
 
+        //! Returns true if the parameter is filled, false otherwise.
         virtual bool isSet() = 0;
 
-        std::string typeDescStr;
-
     protected:
-        std::string argStr;
+        std::string argStr; ///< a unique name of the parameter
 
-        std::string m_info;
-        bool isRequired;
+        std::string typeDescStr; ///< a description of the type of the parameter: what type of values are allowed
+        std::string m_info; ///< an information about the the parameter's purpose
 
-        bool requiredArg; // do you need to pass argument to this param
+        bool isRequired; ///< a flag indicating if this parameter is required
+        bool requiredArg; ///< a flag indicating if this parameter needs to be followed by a value
 
     friend class Params;
     };
@@ -254,11 +282,16 @@ namespace paramkit {
 
     //---
 
+    //! The class responsible for storing and parsing parameters
     class Params {
     public:
         Params() {}
         virtual ~Params() { releaseParams(); }
 
+        //! Adds a parameter into the storage
+        /**
+        \param param : an object inheriting from the class Param
+        */
         void addParam(Param* param)
         {
             if (!param) return;
@@ -266,9 +299,72 @@ namespace paramkit {
             this->myParams[argStr] = param;
         }
 
-        bool setIntValue(const std::string& str, uint64_t val)
+        //! Sets the information about the parameter, defined by its name
+        /**
+        \param paramName : a unique name of the parameter
+        \param info : the description of the parameter
+        \return true if setting the info was successful
+        */
+        bool setInfo(const std::string& paramName, const std::string& info)
         {
-            Param *p = getParam(str);
+            Param *p = getParam(paramName);
+            if (!p) return false;
+
+            p->m_info = info;
+            return false;
+        }
+
+        //! Prints info about all the parameters. Optionally hilights the required ones that are missing.
+        /**
+        \param hilightMissing : if set, the required parameters that were not filled are printed in red.
+        */
+        void info(bool hilightMissing = false)
+        {
+            const int hdr_color = HEADER_COLOR;
+            const int param_color = HILIGHTED_COLOR;
+
+            std::map<std::string, Param*>::iterator itr;
+
+            if (countRequired() > 0) {
+                printInColor(hdr_color, "Required: \n\n");
+                //Print Required
+                for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                    Param *param = itr->second;
+                    if (!param || !param->isRequired) continue;
+                    int color = param_color;
+                    if (hilightMissing && !param->isSet()) {
+                        color = WARNING_COLOR;
+                    }
+                    Params::printParamInColor(color, param->argStr);
+                    printDesc(*param);
+                }
+            }
+            if (countOptional() > 0) {
+                printInColor(hdr_color, "\nOptional: \n\n");
+                //Print Optional
+                for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                    Param *param = itr->second;
+                    if (!param || param->isRequired) continue;
+
+                    Params::printParamInColor(param_color, param->argStr);
+                    printDesc(*param);
+                }
+            }
+
+            printInColor(hdr_color, "\nInfo: \n\n");
+            Params::printParamInColor(param_color, PARAM_HELP2);
+            std::cout << " : " << "Print this help\n";
+        }
+
+        //! Fills an IntParam defined by its name with the given value. If such parameter does not exist, or is not of the type IntParam, returns false. Otherwise returns true.
+        /**
+        \param paramName : a name of the parameter (of the type IntParam) that is to be filled
+        \param val : the value to be set into the parameter
+        \return true if setting the value was successful
+        */
+        bool setIntValue(const std::string& paramName, uint64_t val)
+        {
+            Param *p = getParam(paramName);
             if (!p) return false;
 
             IntParam *param = dynamic_cast<IntParam*>(p);
@@ -279,56 +375,13 @@ namespace paramkit {
             return true;
         }
 
-        bool setInfo(const std::string& str, const std::string& info)
+        //! Gets an integer value of the IntParam defined by its name. If such parameter does not exist, or is not of IntParam type, returns PARAM_UNINITIALIZED.
+        /**
+        \param paramName : a name of the parameter (of the type IntParam) which's value is to be retrieved
+        */
+        uint64_t getIntValue(const std::string& paramName)
         {
-            Param *p = getParam(str);
-            if (!p) return false;
-
-            p->m_info = info;
-            return false;
-        }
-
-        void info(bool hilightMissing = false)
-        {
-            const int hdr_color = HEADER_COLOR;
-            const int param_color = HILIGHTED_COLOR;
-
-            std::map<std::string, Param*>::iterator itr;
-
-            if (countRequired() > 0) {
-                print_in_color(hdr_color, "Required: \n\n");
-                //Print Required
-                for (itr = myParams.begin(); itr != myParams.end(); itr++) {
-                    Param *param = itr->second;
-                    if (!param || !param->isRequired) continue;
-                    int color = param_color;
-                    if (hilightMissing && !param->isSet()) {
-                        color = WARNING_COLOR;
-                    }
-                    print_param_in_color(color, param->argStr);
-                    printDesc(*param);
-                }
-            }
-            if (countOptional() > 0) {
-                print_in_color(hdr_color, "\nOptional: \n\n");
-                //Print Optional
-                for (itr = myParams.begin(); itr != myParams.end(); itr++) {
-                    Param *param = itr->second;
-                    if (!param || param->isRequired) continue;
-
-                    print_param_in_color(param_color, param->argStr);
-                    printDesc(*param);
-                }
-            }
-
-            print_in_color(hdr_color, "\nInfo: \n\n");
-            print_param_in_color(param_color, PARAM_HELP2);
-            std::cout << " : " << "Print this help\n";
-        }
-
-        uint64_t getIntValue(const std::string& str)
-        {
-            std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
+            std::map<std::string, Param*>::iterator itr = this->myParams.find(paramName);
             if (itr == this->myParams.end()) return PARAM_UNINITIALIZED;
 
             IntParam *param = dynamic_cast<IntParam*>(itr->second);
@@ -338,9 +391,14 @@ namespace paramkit {
             return param->value;
         }
 
-        virtual bool isSet(const std::string& str)
+        //! Checks if the parameter with the given name is set (filled).
+        /**
+        \param paramName : a name of the parameter
+        \return true if the parameter with the given name exists and is set
+        */
+        virtual bool isSet(const std::string& paramName)
         {
-            std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
+            std::map<std::string, Param*>::iterator itr = this->myParams.find(paramName);
             if (itr == this->myParams.end()) return false;
 
             Param *param = itr->second;
@@ -350,6 +408,7 @@ namespace paramkit {
             return param->isSet();
         }
 
+        //! Checks if all the required parameters are filled.
         virtual bool hasRequiredFilled()
         {
             std::map<std::string, Param*>::iterator itr;
@@ -362,6 +421,7 @@ namespace paramkit {
             return true;
         }
 
+        //! Deletes all the added parameters.
         void releaseParams()
         {
             std::map<std::string, Param*>::iterator itr;
@@ -372,19 +432,14 @@ namespace paramkit {
             myParams.clear();
         }
 
-        void print_unknown_param(const std::string &param)
-        {
-            print_in_color(WARNING_COLOR, "Invalid parameter: ");
-            std::cout << param << "\n";
-        }
-
+        //! Parses the parameters. Prints a warning if an undefined parameter was supplied.
         template <typename T_CHAR>
         bool parse(int argc, T_CHAR* argv[])
         {
             size_t count = 0;
             for (int i = 1; i < argc; i++) {
                 std::string param_str = to_string(argv[i]);
-                if (!is_param(param_str)) {
+                if (!isParam(param_str)) {
                     continue;
                 }
                 bool found = false;
@@ -399,7 +454,7 @@ namespace paramkit {
                     }
 
                     if (param_str == param->argStr) {
-                        if ((i + 1) < argc && !(is_param(to_string(argv[i + 1])))) {
+                        if ((i + 1) < argc && !(isParam(to_string(argv[i + 1])))) {
                             param->parse(argv[i + 1]);
                             found = true;
 #ifdef _DEBUG
@@ -419,30 +474,37 @@ namespace paramkit {
                 }
                 else {
                     const std::string param_str = to_string(argv[i]);
-                    print_unknown_param(param_str);
+                    printUnknownParam(param_str);
                     return false;
                 }
             }
             return (count > 0) ? true : false;
         }
 
+        //! Prints the values of all the parameters that are currently set.
         void print()
         {
             const int param_color = HILIGHTED_COLOR;
-
             std::map<std::string, Param*>::iterator itr;
             for (itr = myParams.begin(); itr != myParams.end(); itr++) {
                 if (!isSet(itr->first)) continue;
 
                 Param *param = itr->second;
-                print_param_in_color(param_color, param->argStr);
+                Params::printParamInColor(param_color, param->argStr);
                 std::cout << ": ";
                 std::cout << "\n\t" << std::hex << param->valToString() << "\n";
             }
         }
 
     protected:
-        void Params::printDesc(const Param &param)
+        void printUnknownParam(const std::string &param)
+        {
+            printInColor(WARNING_COLOR, "Invalid parameter: ");
+            std::cout << param << "\n";
+        }
+
+        //! Prints a formatted description of the parameter, including its unique name, type, and the info.
+        void printDesc(const Param &param)
         {
             if (param.requiredArg) {
                 if (param.typeDescStr.length()) {
@@ -457,6 +519,7 @@ namespace paramkit {
             std::cout << " : " << param.m_info << "\n";
         }
 
+        //! Returns the number of required parameters.
         size_t countRequired()
         {
             size_t count = 0;
@@ -468,6 +531,7 @@ namespace paramkit {
             return count;
         }
 
+        //! Returns the number of optional parameters.
         size_t countOptional()
         {
             size_t count = 0;
@@ -479,13 +543,34 @@ namespace paramkit {
             return count;
         }
 
-        Param * getParam(const std::string &str)
+        //! Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist.
+        Param* getParam(const std::string &str)
         {
             std::map<std::string, Param*>::iterator itr = this->myParams.find(str);
             if (itr != this->myParams.end()) {
                 return itr->second;
             }
             return nullptr;
+        }
+
+        //! Checks if the string starts from the parameter switch.
+        static bool isParam(const std::string &str)
+        {
+            if (str.length() == 0) return false;
+
+            const size_t len = str.length();
+            if (len < 2) return false;
+
+            if (str[0] == PARAM_SWITCH1 || str[0] == PARAM_SWITCH2) {
+                return true;
+            }
+            return false;
+        }
+
+        //! Prints the parameter using the given color. Appends the parameter switch to the name.
+        static void printParamInColor(int color, const std::string &text)
+        {
+            printInColor(color, PARAM_SWITCH1 + text);
         }
 
         std::map<std::string, Param*> myParams;

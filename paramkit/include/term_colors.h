@@ -1,3 +1,8 @@
+/**
+* @file
+* @brief   Definitions of the colors used on the terminal
+*/
+
 #pragma once
 
 #include <iostream>

@@ -1,3 +1,8 @@
+/**
+* @file
+* @brief   The set of utility functions used by the ParamKit
+*/
+
 #pragma once
 
 #include <Windows.h>
@@ -7,21 +12,12 @@
 #include <sstream>
 #include <map>
 
-#define PARAM_UNINITIALIZED (-1)
-
-#define PARAM_SWITCH1 '/'
-#define PARAM_SWITCH2 '-'
-
 namespace paramkit {
 
     bool strequals(const std::string& a, const std::string& b, bool ignoreCase = true);
 
-    bool GetColor(HANDLE hConsole, int& color);
-    void print_in_color(int color, const std::string &text);
-
-    bool is_param(const std::string &str);
-
-    void print_param_in_color(int color, const std::string &text);
+    bool getConsoleColor(HANDLE hConsole, int& color);
+    void printInColor(int color, const std::string &text);
 
     //--
 
@@ -68,6 +64,5 @@ namespace paramkit {
         if (val == 0) return false;
         return true;
     }
-
 
 };
