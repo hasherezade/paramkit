@@ -18,3 +18,5 @@ set (hdrs
 add_executable ( ${PROJECT_NAME} ${hdrs} ${srcs} )
 target_link_libraries ( ${PROJECT_NAME} ${PARAMKIT_LIB} )
 add_dependencies( ${PROJECT_NAME} paramkit )
+
+INSTALL( TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX} COMPONENT ${PROJECT_NAME} )
