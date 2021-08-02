@@ -199,6 +199,7 @@ namespace paramkit {
                     Param *param = itr->second;
                     if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1)
                     {
+                        this->info(false);
                         return false;
                     }
 
@@ -239,10 +240,15 @@ namespace paramkit {
                 else {
                     const std::string param_str = to_string(argv[i]);
                     printUnknownParam(param_str);
+                    this->info(false);
                     return false;
                 }
             }
-            return (count > 0) ? true : false;
+            if (!this->hasRequiredFilled()) {
+                this->info(true);
+                return false;
+            }
+            return true;
         }
 
         //! Prints the values of all the parameters that are currently set.

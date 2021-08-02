@@ -101,8 +101,13 @@ public:
 int main(int argc, char* argv[])
 {
     DemoParams params;
+    if (argc < 2) {
+        paramkit::printInColor(CYAN, "Welcome to ParamKit Demo!");
+        std::cout << "\n\n";
+        params.info(false);
+        return 0;
+    }
     if (!params.parse(argc, argv)) {
-        params.info(true);
         return 0;
     }
     std::cout << "\nPrinting the filled params:\n";
