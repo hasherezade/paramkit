@@ -245,13 +245,7 @@ namespace paramkit {
                 this->value = true;
                 return true;
             }
-            DWORD val = loadInt(arg);
-            if (val != 0) {
-                this->value = true;
-            }
-            else {
-                this->value = false;
-            }
+            this->value = loadBoolean(arg);
             return true;
         }
 

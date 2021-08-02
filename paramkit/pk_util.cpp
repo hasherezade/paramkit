@@ -1,5 +1,21 @@
 #include "pk_util.h"
 
+bool paramkit::strequals(const std::string& a, const std::string& b, bool ignoreCase)
+{
+    size_t aLen = a.size();
+    if (b.size() != aLen) return false;
+
+    for (size_t i = 0; i < aLen; ++i) {
+        if (!ignoreCase) {
+            if (a[i] != b[i]) return false;
+        }
+        else {
+            if (tolower(a[i]) != tolower(b[i])) return false;
+        }
+    }
+    return true;
+}
+
 bool paramkit::GetColor(HANDLE hConsole, int& color) {
     CONSOLE_SCREEN_BUFFER_INFO info;
     if (!GetConsoleScreenBufferInfo(hConsole, &info))
@@ -27,7 +43,7 @@ void paramkit::print_param_in_color(int color, const std::string &text)
     print_in_color(color, PARAM_SWITCH1 + text);
 }
 
-bool paramkit::is_param(const std::string str)
+bool paramkit::is_param(const std::string &str)
 {
     if (str.length() == 0) return false;
 
@@ -39,3 +55,5 @@ bool paramkit::is_param(const std::string str)
     }
     return false;
 }
+
+

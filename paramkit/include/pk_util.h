@@ -14,21 +14,15 @@
 
 namespace paramkit {
 
+    bool strequals(const std::string& a, const std::string& b, bool ignoreCase = true);
+
     bool GetColor(HANDLE hConsole, int& color);
     void print_in_color(int color, const std::string &text);
 
-    template <typename T_CHAR>
-    bool str_len(T_CHAR *str1)
-    {
-        for (size_t i = 0; ; i++) {
-            if (str1[i] == '\0') {
-                return i;
-            }
-        }
-        return 0;
-    }
+    bool is_param(const std::string &str);
 
-    bool is_param(const std::string str);
+    void print_param_in_color(int color, const std::string &text);
+
     //--
 
     template <typename T_CHAR>
@@ -60,6 +54,20 @@ namespace paramkit {
         return intVal;
     }
 
-    void print_param_in_color(int color, const std::string &text);
+    template <typename T_CHAR>
+    bool loadBoolean(const T_CHAR *str1)
+    {
+        std::string str = to_string(str1);
+        if (strequals(str, "True") || strequals(str, "on") || strequals(str, "yes")) {
+            return true;
+        }
+        if (strequals(str, "False") || strequals(str, "off") || strequals(str, "no")) {
+            return false;
+        }
+        const int val = loadInt(str.c_str(), false);
+        if (val == 0) return false;
+        return true;
+    }
+
 
 };
