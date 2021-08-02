@@ -195,7 +195,7 @@ namespace paramkit {
                 param_str = param_str.substr(1); // skip the first char
 
                 std::map<std::string, Param*>::iterator itr;
-                for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                for (itr = myParams.begin(); itr != myParams.end(); ++itr) {
                     Param *param = itr->second;
                     if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1)
                     {
@@ -203,7 +203,16 @@ namespace paramkit {
                     }
 
                     if (param_str == param->argStr) {
+                        // has argument:
                         if ((i + 1) < argc && !(isParam(to_string(argv[i + 1])))) {
+                            std::string nextVal = to_string(argv[i + 1]);
+                            //help requested explicitly
+                            if (nextVal == PARAM_HELP1) {
+                                paramkit::printInColor(RED, param_str);
+                                printDesc(*param);
+                                found = true;
+                                break;
+                            }
                             param->parse(argv[i + 1]);
                             found = true;
 #ifdef _DEBUG
@@ -211,11 +220,17 @@ namespace paramkit {
 #endif
                             break;
                         }
-                        else if (!param->requiredArg) {
+                        // does not require an argument:
+                        if (!param->requiredArg) {
                             param->parse((char*)nullptr);
                             found = true;
                             break;
                         }
+                        // requires an argument, but it is missing:
+                        paramkit::printInColor(RED, param_str);
+                        printDesc(*param);
+                        found = true;
+                        break;
                     }
                 }
                 if (found) {
@@ -253,7 +268,7 @@ namespace paramkit {
         }
 
         //! Prints a formatted description of the parameter, including its unique name, type, and the info.
-        void printDesc(const Param &param)
+        void printDesc(const Param &param) const 
         {
             if (param.requiredArg) {
                 if (param.typeDescStr.length()) {
