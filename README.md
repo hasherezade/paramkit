@@ -5,6 +5,7 @@ A small library helping to parse commandline parameters (for Windows).
 
 Objectives
 -
+
 + "like Python's `argparse` but for C/C++"
 + compact and minimalistic
 + easy to use
@@ -13,6 +14,7 @@ Objectives
 
 Demo
 -
+
 Print help for each parameter:
 
 <img src="https://raw.githubusercontent.com/hasherezade/paramkit/master/img/demo_help.png" alt="demo: print help" >
