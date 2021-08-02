@@ -195,10 +195,11 @@ namespace paramkit {
             return true;
         }
 
-        size_t copyToCStr(wchar_t *buf, size_t buf_max)
+        size_t copyToCStr(wchar_t *buf, size_t buf_len)
         {
-            size_t len = value.length() + 1;
-            if (len > buf_max) len = buf_max;
+            buf_len = buf_len * sizeof(wchar_t);
+            size_t len = (value.length() + 1) * sizeof(wchar_t);
+            if (len > buf_len) len = buf_len;
 
             memcpy(buf, value.c_str(), len);
             buf[len] = '\0';
@@ -256,8 +257,6 @@ namespace paramkit {
 
         bool value;
     };
-
-
 
     //---
 
