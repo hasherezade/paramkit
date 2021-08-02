@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['to_5fstring_121',['to_string',['../namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6',1,'paramkit']]],
-  ['type_122',['type',['../classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a',1,'paramkit::Param::type()'],['../classparamkit_1_1_int_param.html#add37b4b78cd3d60b31e79ffa2ec4db3a',1,'paramkit::IntParam::type()'],['../classparamkit_1_1_string_param.html#a81d60fe6bc3e864d345fa91b41697902',1,'paramkit::StringParam::type()'],['../classparamkit_1_1_w_string_param.html#a46642c73f5b3191ea0970708e6a8efed',1,'paramkit::WStringParam::type()'],['../classparamkit_1_1_bool_param.html#a4603afb7b47a0079be3fdd5d58e7a47f',1,'paramkit::BoolParam::type()']]]
+  ['setinfo_141',['setInfo',['../classparamkit_1_1_params.html#ac9aa1971bca24f4c423c019fd6194c12',1,'paramkit::Params']]],
+  ['setintvalue_142',['setIntValue',['../classparamkit_1_1_params.html#a90c3f797e6b249055f3b46fce04ee345',1,'paramkit::Params']]],
+  ['strequals_143',['strequals',['../namespaceparamkit.html#a6bfda08dc3b78ae8ca0043ebca6920d7',1,'paramkit']]],
+  ['stringparam_144',['StringParam',['../classparamkit_1_1_string_param.html#a47758efed7fa4e955feb7d9edcb89a16',1,'paramkit::StringParam']]]
 ];

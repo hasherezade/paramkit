@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['get_5fbg_5fcolor_15',['GET_BG_COLOR',['../term__colors_8h.html#adc380188dbfb7af8f9a5899776d08745',1,'term_colors.h']]],
-  ['getconsolecolor_16',['getConsoleColor',['../namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb',1,'paramkit']]],
-  ['getintvalue_17',['getIntValue',['../classparamkit_1_1_params.html#a6917fc0a6121fb1822f5adea1fc276c9',1,'paramkit::Params']]],
-  ['getparam_18',['getParam',['../classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4',1,'paramkit::Params']]],
-  ['gray_19',['GRAY',['../term__colors_8h.html#ae5f70677050eecd8909e0248e07b9e73',1,'term_colors.h']]]
+  ['enumname_16',['enumName',['../classparamkit_1_1_enum_param.html#a6068569db984694c6437afa84e497d61',1,'paramkit::EnumParam']]],
+  ['enumparam_17',['EnumParam',['../classparamkit_1_1_enum_param.html#a8108e785eceb6a3ea81020b1cd6a7b66',1,'paramkit::EnumParam::EnumParam()'],['../classparamkit_1_1_enum_param.html',1,'paramkit::EnumParam']]],
+  ['enumtoinfo_18',['enumToInfo',['../classparamkit_1_1_enum_param.html#a072a98848c7f989071b2d9c965fc31f2',1,'paramkit::EnumParam']]],
+  ['enumtostring_19',['enumToString',['../classparamkit_1_1_enum_param.html#aa59d9617ca3e0fc1bce887f179471e70',1,'paramkit::EnumParam']]]
 ];

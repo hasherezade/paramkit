@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['separator_5fcolor_61',['SEPARATOR_COLOR',['../params_8h.html#a1bba3b9a5308d50da5c0dc45dec7b932',1,'params.h']]],
-  ['setinfo_62',['setInfo',['../classparamkit_1_1_params.html#ac9aa1971bca24f4c423c019fd6194c12',1,'paramkit::Params']]],
-  ['setintvalue_63',['setIntValue',['../classparamkit_1_1_params.html#a90c3f797e6b249055f3b46fce04ee345',1,'paramkit::Params']]],
-  ['silver_64',['SILVER',['../term__colors_8h.html#a7e76a14a479114a4b9b20782bb00e69a',1,'term_colors.h']]],
-  ['strequals_65',['strequals',['../namespaceparamkit.html#a6bfda08dc3b78ae8ca0043ebca6920d7',1,'paramkit']]],
-  ['stringparam_66',['StringParam',['../classparamkit_1_1_string_param.html',1,'paramkit::StringParam'],['../classparamkit_1_1_string_param.html#a47758efed7fa4e955feb7d9edcb89a16',1,'paramkit::StringParam::StringParam()']]]
+  ['readme_2emd_70',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['red_71',['RED',['../term__colors_8h.html#a8d23feea868a983c8c2b661e1e16972f',1,'term_colors.h']]],
+  ['red_5fon_5fblack_72',['RED_ON_BLACK',['../term__colors_8h.html#aba26c6d34d6515388c7792a829b5ecba',1,'term_colors.h']]],
+  ['releaseparams_73',['releaseParams',['../classparamkit_1_1_params.html#aa602e7100b2b7458451791f9cabf3493',1,'paramkit::Params']]],
+  ['requiredarg_74',['requiredArg',['../classparamkit_1_1_param.html#aa8116522f1c94007b655c1ea3766795f',1,'paramkit::Param']]]
 ];

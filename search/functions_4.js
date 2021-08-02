@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['hasrequiredfilled_101',['hasRequiredFilled',['../classparamkit_1_1_params.html#aa9ac3da5ecb90680996f9b0b33c29622',1,'paramkit::Params']]]
+  ['get_5fnumber_115',['get_number',['../namespaceparamkit.html#a10e9e7ade6c0d1f749f21914b6d91cac',1,'paramkit']]],
+  ['getconsolecolor_116',['getConsoleColor',['../namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb',1,'paramkit']]],
+  ['getintvalue_117',['getIntValue',['../classparamkit_1_1_params.html#a6917fc0a6121fb1822f5adea1fc276c9',1,'paramkit::Params']]],
+  ['getparam_118',['getParam',['../classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4',1,'paramkit::Params']]]
 ];

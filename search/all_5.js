@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['hasrequiredfilled_20',['hasRequiredFilled',['../classparamkit_1_1_params.html#aa9ac3da5ecb90680996f9b0b33c29622',1,'paramkit::Params']]],
-  ['header_5fcolor_21',['HEADER_COLOR',['../params_8h.html#a8f9a6cfafdc421ae24bd97a909131538',1,'params.h']]],
-  ['hilighted_5fcolor_22',['HILIGHTED_COLOR',['../params_8h.html#afb6800061050ee2482f17c28ed97604f',1,'params.h']]]
+  ['get_5fbg_5fcolor_20',['GET_BG_COLOR',['../term__colors_8h.html#adc380188dbfb7af8f9a5899776d08745',1,'term_colors.h']]],
+  ['get_5fnumber_21',['get_number',['../namespaceparamkit.html#a10e9e7ade6c0d1f749f21914b6d91cac',1,'paramkit']]],
+  ['getconsolecolor_22',['getConsoleColor',['../namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb',1,'paramkit']]],
+  ['getintvalue_23',['getIntValue',['../classparamkit_1_1_params.html#a6917fc0a6121fb1822f5adea1fc276c9',1,'paramkit::Params']]],
+  ['getname_24',['GETNAME',['../pk__util_8h.html#ae547242a5754fe70adcab0368d8288cd',1,'pk_util.h']]],
+  ['getparam_25',['getParam',['../classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4',1,'paramkit::Params']]],
+  ['gray_26',['GRAY',['../term__colors_8h.html#ae5f70677050eecd8909e0248e07b9e73',1,'term_colors.h']]]
 ];

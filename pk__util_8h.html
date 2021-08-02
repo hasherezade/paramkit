@@ -68,6 +68,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">pk_util.h File Reference</div>  </div>
@@ -89,8 +90,23 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceparamkit"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html">paramkit</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ae547242a5754fe70adcab0368d8288cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pk__util_8h.html#ae547242a5754fe70adcab0368d8288cd">GETNAME</a>(x)&#160;&#160;&#160;(#x)</td></tr>
+<tr class="separator:ae547242a5754fe70adcab0368d8288cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:add8ceca8d061cace36693338122acf96"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#add8ceca8d061cace36693338122acf96">paramkit::is_hex</a> (const char *buf, size_t len)</td></tr>
+<tr class="separator:add8ceca8d061cace36693338122acf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13e6043839364f9b51a8e0fe86c6ba37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a13e6043839364f9b51a8e0fe86c6ba37">paramkit::is_dec</a> (const char *buf, size_t len)</td></tr>
+<tr class="separator:a13e6043839364f9b51a8e0fe86c6ba37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5891dfce6623b9b9818378fedee76c1d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a5891dfce6623b9b9818378fedee76c1d">paramkit::is_number</a> (const char *my_buf)</td></tr>
+<tr class="separator:a5891dfce6623b9b9818378fedee76c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10e9e7ade6c0d1f749f21914b6d91cac"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a10e9e7ade6c0d1f749f21914b6d91cac">paramkit::get_number</a> (const char *my_buf)</td></tr>
+<tr class="separator:a10e9e7ade6c0d1f749f21914b6d91cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a839f86aec141a83e7312d6f53db17ef6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a839f86aec141a83e7312d6f53db17ef6">paramkit::is_cstr_equal</a> (char const *a, char const *b, const size_t max_len, bool ignoreCase=true)</td></tr>
+<tr class="separator:a839f86aec141a83e7312d6f53db17ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bfda08dc3b78ae8ca0043ebca6920d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a6bfda08dc3b78ae8ca0043ebca6920d7">paramkit::strequals</a> (const std::string &amp;a, const std::string &amp;b, bool ignoreCase=true)</td></tr>
 <tr class="separator:a6bfda08dc3b78ae8ca0043ebca6920d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20bbe9627672f5707b70450adc7ccaeb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb">paramkit::getConsoleColor</a> (HANDLE hConsole, int &amp;color)</td></tr>
@@ -111,7 +127,28 @@ Functions</h2></td></tr>
 <div class="textblock"><p>The set of utility functions used by the ParamKit. </p>
 
 <p class="definition">Definition in file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ae547242a5754fe70adcab0368d8288cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae547242a5754fe70adcab0368d8288cd">&#9670;&nbsp;</a></span>GETNAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GETNAME</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;(#x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pk__util_8h_source.html#l00015">15</a> of file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

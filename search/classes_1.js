@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['intparam_80',['IntParam',['../classparamkit_1_1_int_param.html',1,'paramkit']]]
+  ['enumparam_94',['EnumParam',['../classparamkit_1_1_enum_param.html',1,'paramkit']]]
 ];

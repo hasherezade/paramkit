@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['m_5finfo_32',['m_info',['../classparamkit_1_1_param.html#ac443d229529f0ad42eb9ce624f293f9f',1,'paramkit::Param']]],
-  ['magenta_33',['MAGENTA',['../term__colors_8h.html#a6f699060902f800f12aaae150f3a708e',1,'term_colors.h']]],
-  ['make_5fcolor_34',['MAKE_COLOR',['../term__colors_8h.html#a57815732ee1775789c29534c08b0a856',1,'term_colors.h']]],
-  ['myparams_35',['myParams',['../classparamkit_1_1_params.html#a0c1ec92bc5e1b6d093b4efe9f9c0be57',1,'paramkit::Params']]]
+  ['lime_41',['LIME',['../term__colors_8h.html#a46019a1f2c10603a54b6cbb19cbf3c21',1,'term_colors.h']]],
+  ['loadboolean_42',['loadBoolean',['../namespaceparamkit.html#aac99eaa5e3c72c131dc5353a7aacc6ee',1,'paramkit']]],
+  ['loadint_43',['loadInt',['../namespaceparamkit.html#ae10aaf94114b91aa3aca8729b8ec6486',1,'paramkit']]]
 ];

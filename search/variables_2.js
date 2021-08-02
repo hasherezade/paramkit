@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['m_5finfo_129',['m_info',['../classparamkit_1_1_param.html#ac443d229529f0ad42eb9ce624f293f9f',1,'paramkit::Param']]],
-  ['myparams_130',['myParams',['../classparamkit_1_1_params.html#a0c1ec92bc5e1b6d093b4efe9f9c0be57',1,'paramkit::Params']]]
+  ['ishex_154',['isHex',['../classparamkit_1_1_int_param.html#a63d53fe7cf5de8ed45e34f3432c55043',1,'paramkit::IntParam']]],
+  ['isrequired_155',['isRequired',['../classparamkit_1_1_param.html#a590c02e349942943bd40304a7291c5ef',1,'paramkit::Param']]]
 ];
