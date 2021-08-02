@@ -13,6 +13,7 @@ set (srcs
 
 set (hdrs
 	include/paramkit.h
+	include/param.h
 	include/params.h
 	include/term_colors.h
 	include/pk_util.h

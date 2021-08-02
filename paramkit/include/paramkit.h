@@ -7,6 +7,7 @@
 #define _PARAMKIT_
 
 #include "pk_util.h"
+#include "param.h"
 #include "params.h"
 #include "term_colors.h"
 
