@@ -1,9 +1,12 @@
 <map id="paramkit::Params::parse" name="paramkit::Params::parse">
-<area shape="rect" id="node1" title="Parses the parameters. Prints a warning if an undefined parameter was supplied." alt="" coords="5,85,167,112"/>
+<area shape="rect" id="node1" title="Parses the parameters. Prints a warning if an undefined parameter was supplied." alt="" coords="5,132,167,159"/>
 <area shape="rect" id="node2" href="$classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6" title="Checks if the string starts from the parameter switch." alt="" coords="231,5,408,32"/>
 <area shape="rect" id="node3" href="$classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817" title="Parses the parameter from the given string." alt="" coords="242,56,397,83"/>
-<area shape="rect" id="node4" href="$classparamkit_1_1_params.html#a0eca605840b3ae6f9d04e0db85913657" title=" " alt="" coords="215,107,424,149"/>
-<area shape="rect" id="node7" href="$namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="255,173,383,200"/>
-<area shape="rect" id="node5" href="$namespaceparamkit.html#af37a9acfa56e75bd41aa5732ff93b5fe" title=" " alt="" coords="472,115,616,141"/>
-<area shape="rect" id="node6" href="$namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb" title=" " alt="" coords="664,115,837,141"/>
+<area shape="rect" id="node4" href="$classparamkit_1_1_params.html#a2e3f13aca8ed6d250dd9303876129dd9" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="227,107,411,133"/>
+<area shape="rect" id="node7" href="$namespaceparamkit.html#af37a9acfa56e75bd41aa5732ff93b5fe" title=" " alt="" coords="473,187,617,213"/>
+<area shape="rect" id="node9" href="$classparamkit_1_1_params.html#a0eca605840b3ae6f9d04e0db85913657" title=" " alt="" coords="215,209,424,250"/>
+<area shape="rect" id="node10" href="$namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="255,275,383,301"/>
+<area shape="rect" id="node5" href="$classparamkit_1_1_param.html#acba6bbfc85401c6e7e0d72c7662f8f78" title=" " alt="" coords="474,81,617,108"/>
+<area shape="rect" id="node6" href="$classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a" title="Returns the string representation of the parameter&#39;s type." alt="" coords="472,132,619,159"/>
+<area shape="rect" id="node8" href="$namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb" title=" " alt="" coords="667,187,840,213"/>
 </map>
