@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['loadint_103',['loadInt',['../namespaceparamkit.html#ae10aaf94114b91aa3aca8729b8ec6486',1,'paramkit']]]
+  ['loadboolean_104',['loadBoolean',['../namespaceparamkit.html#aac99eaa5e3c72c131dc5353a7aacc6ee',1,'paramkit']]],
+  ['loadint_105',['loadInt',['../namespaceparamkit.html#ae10aaf94114b91aa3aca8729b8ec6486',1,'paramkit']]]
 ];
