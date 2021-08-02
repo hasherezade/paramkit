@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wstringparam_83',['WStringParam',['../classparamkit_1_1_w_string_param.html',1,'paramkit']]]
+  ['wstringparam_84',['WStringParam',['../classparamkit_1_1_w_string_param.html',1,'paramkit']]]
 ];

@@ -1,7 +1,7 @@
 <map id="paramkit::Param" name="paramkit::Param">
 <area shape="rect" id="node1" title="The base class of a parameter." alt="" coords="261,5,377,32"/>
-<area shape="rect" id="node2" href="$classparamkit_1_1_bool_param.html" title=" " alt="" coords="5,80,148,107"/>
-<area shape="rect" id="node3" href="$classparamkit_1_1_int_param.html" title=" " alt="" coords="171,80,302,107"/>
-<area shape="rect" id="node4" href="$classparamkit_1_1_string_param.html" title=" " alt="" coords="327,80,477,107"/>
-<area shape="rect" id="node5" href="$classparamkit_1_1_w_string_param.html" title=" " alt="" coords="502,80,665,107"/>
+<area shape="rect" id="node2" href="$classparamkit_1_1_bool_param.html" title="A parameter storing a boolean value." alt="" coords="5,80,148,107"/>
+<area shape="rect" id="node3" href="$classparamkit_1_1_int_param.html" title="A parameter storing an integer value." alt="" coords="171,80,302,107"/>
+<area shape="rect" id="node4" href="$classparamkit_1_1_string_param.html" title="A parameter storing a string value." alt="" coords="327,80,477,107"/>
+<area shape="rect" id="node5" href="$classparamkit_1_1_w_string_param.html" title="A parameter storing a wide string value." alt="" coords="502,80,665,107"/>
 </map>
