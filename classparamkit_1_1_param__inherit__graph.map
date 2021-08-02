@@ -1,5 +1,5 @@
 <map id="paramkit::Param" name="paramkit::Param">
-<area shape="rect" id="node1" title=" " alt="" coords="261,5,377,32"/>
+<area shape="rect" id="node1" title="The base class of a parameter." alt="" coords="261,5,377,32"/>
 <area shape="rect" id="node2" href="$classparamkit_1_1_bool_param.html" title=" " alt="" coords="5,80,148,107"/>
 <area shape="rect" id="node3" href="$classparamkit_1_1_int_param.html" title=" " alt="" coords="171,80,302,107"/>
 <area shape="rect" id="node4" href="$classparamkit_1_1_string_param.html" title=" " alt="" coords="327,80,477,107"/>

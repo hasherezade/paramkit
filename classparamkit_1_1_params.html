@@ -69,12 +69,16 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classparamkit_1_1_params-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">paramkit::Params Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The class responsible for storing and parsing parameters.  
+ <a href="classparamkit_1_1_params.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="params_8h_source.html">params.h</a>&gt;</code></p>
 <table class="memberdecls">
@@ -85,39 +89,62 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ada6b1eebc4e96194b3bd93d28e4a6aec"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#ada6b1eebc4e96194b3bd93d28e4a6aec">~Params</a> ()</td></tr>
 <tr class="separator:ada6b1eebc4e96194b3bd93d28e4a6aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb00d314b8284ebc4718b39703908c4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#acb00d314b8284ebc4718b39703908c4a">addParam</a> (<a class="el" href="classparamkit_1_1_param.html">Param</a> *param)</td></tr>
+<tr class="memdesc:acb00d314b8284ebc4718b39703908c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a parameter into the storage.  <a href="classparamkit_1_1_params.html#acb00d314b8284ebc4718b39703908c4a">More...</a><br /></td></tr>
 <tr class="separator:acb00d314b8284ebc4718b39703908c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ff27421b297d1820fba386e483eaa76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#a3ff27421b297d1820fba386e483eaa76">setIntValue</a> (const std::string &amp;str, uint64_t val)</td></tr>
-<tr class="separator:a3ff27421b297d1820fba386e483eaa76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaff6d63adbe8420457e62f43e9443b47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#aaff6d63adbe8420457e62f43e9443b47">setInfo</a> (const std::string &amp;str, const std::string &amp;<a class="el" href="classparamkit_1_1_params.html#aec8d4bb2e54e3139c261a8fc45867761">info</a>)</td></tr>
-<tr class="separator:aaff6d63adbe8420457e62f43e9443b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9aa1971bca24f4c423c019fd6194c12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#ac9aa1971bca24f4c423c019fd6194c12">setInfo</a> (const std::string &amp;paramName, const std::string &amp;<a class="el" href="classparamkit_1_1_params.html#aec8d4bb2e54e3139c261a8fc45867761">info</a>)</td></tr>
+<tr class="memdesc:ac9aa1971bca24f4c423c019fd6194c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the information about the parameter, defined by its name.  <a href="classparamkit_1_1_params.html#ac9aa1971bca24f4c423c019fd6194c12">More...</a><br /></td></tr>
+<tr class="separator:ac9aa1971bca24f4c423c019fd6194c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec8d4bb2e54e3139c261a8fc45867761"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#aec8d4bb2e54e3139c261a8fc45867761">info</a> (bool hilightMissing=false)</td></tr>
+<tr class="memdesc:aec8d4bb2e54e3139c261a8fc45867761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints info about all the parameters. Optionally hilights the required ones that are missing.  <a href="classparamkit_1_1_params.html#aec8d4bb2e54e3139c261a8fc45867761">More...</a><br /></td></tr>
 <tr class="separator:aec8d4bb2e54e3139c261a8fc45867761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb21c5fce916b4a23f786447afbeb5b7"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#aeb21c5fce916b4a23f786447afbeb5b7">getIntValue</a> (const std::string &amp;str)</td></tr>
-<tr class="separator:aeb21c5fce916b4a23f786447afbeb5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a0a83b49bf9f3016a5b23b54c28b6a4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#a2a0a83b49bf9f3016a5b23b54c28b6a4">isSet</a> (const std::string &amp;str)</td></tr>
-<tr class="separator:a2a0a83b49bf9f3016a5b23b54c28b6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c3f797e6b249055f3b46fce04ee345"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#a90c3f797e6b249055f3b46fce04ee345">setIntValue</a> (const std::string &amp;paramName, uint64_t val)</td></tr>
+<tr class="memdesc:a90c3f797e6b249055f3b46fce04ee345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills an <a class="el" href="classparamkit_1_1_int_param.html">IntParam</a> defined by its name with the given value. If such parameter does not exist, or is not of the type <a class="el" href="classparamkit_1_1_int_param.html">IntParam</a>, returns false. Otherwise returns true.  <a href="classparamkit_1_1_params.html#a90c3f797e6b249055f3b46fce04ee345">More...</a><br /></td></tr>
+<tr class="separator:a90c3f797e6b249055f3b46fce04ee345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6917fc0a6121fb1822f5adea1fc276c9"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#a6917fc0a6121fb1822f5adea1fc276c9">getIntValue</a> (const std::string &amp;paramName)</td></tr>
+<tr class="memdesc:a6917fc0a6121fb1822f5adea1fc276c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an integer value of the <a class="el" href="classparamkit_1_1_int_param.html">IntParam</a> defined by its name. If such parameter does not exist, or is not of <a class="el" href="classparamkit_1_1_int_param.html">IntParam</a> type, returns PARAM_UNINITIALIZED.  <a href="classparamkit_1_1_params.html#a6917fc0a6121fb1822f5adea1fc276c9">More...</a><br /></td></tr>
+<tr class="separator:a6917fc0a6121fb1822f5adea1fc276c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa859eb891917078f75ecde2781d0f07"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#aaa859eb891917078f75ecde2781d0f07">isSet</a> (const std::string &amp;paramName)</td></tr>
+<tr class="memdesc:aaa859eb891917078f75ecde2781d0f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the parameter with the given name is set (filled).  <a href="classparamkit_1_1_params.html#aaa859eb891917078f75ecde2781d0f07">More...</a><br /></td></tr>
+<tr class="separator:aaa859eb891917078f75ecde2781d0f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9ac3da5ecb90680996f9b0b33c29622"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#aa9ac3da5ecb90680996f9b0b33c29622">hasRequiredFilled</a> ()</td></tr>
+<tr class="memdesc:aa9ac3da5ecb90680996f9b0b33c29622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if all the required parameters are filled.  <a href="classparamkit_1_1_params.html#aa9ac3da5ecb90680996f9b0b33c29622">More...</a><br /></td></tr>
 <tr class="separator:aa9ac3da5ecb90680996f9b0b33c29622"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa602e7100b2b7458451791f9cabf3493"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#aa602e7100b2b7458451791f9cabf3493">releaseParams</a> ()</td></tr>
+<tr class="memdesc:aa602e7100b2b7458451791f9cabf3493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all the added parameters.  <a href="classparamkit_1_1_params.html#aa602e7100b2b7458451791f9cabf3493">More...</a><br /></td></tr>
 <tr class="separator:aa602e7100b2b7458451791f9cabf3493"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ff49ebc9a02a32fd7cfd3917758c8a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#a5ff49ebc9a02a32fd7cfd3917758c8a1">print_unknown_param</a> (const std::string &amp;param)</td></tr>
-<tr class="separator:a5ff49ebc9a02a32fd7cfd3917758c8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afee4cd169fb922d355cc37141ab6c81c"><td class="memTemplParams" colspan="2">template&lt;typename T_CHAR &gt; </td></tr>
 <tr class="memitem:afee4cd169fb922d355cc37141ab6c81c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#afee4cd169fb922d355cc37141ab6c81c">parse</a> (int argc, T_CHAR *argv[])</td></tr>
+<tr class="memdesc:afee4cd169fb922d355cc37141ab6c81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the parameters. Prints a warning if an undefined parameter was supplied.  <a href="classparamkit_1_1_params.html#afee4cd169fb922d355cc37141ab6c81c">More...</a><br /></td></tr>
 <tr class="separator:afee4cd169fb922d355cc37141ab6c81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cc9d5679fe31ad7f0497de4a4e80a76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#a6cc9d5679fe31ad7f0497de4a4e80a76">print</a> ()</td></tr>
+<tr class="memdesc:a6cc9d5679fe31ad7f0497de4a4e80a76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the values of all the parameters that are currently set.  <a href="classparamkit_1_1_params.html#a6cc9d5679fe31ad7f0497de4a4e80a76">More...</a><br /></td></tr>
 <tr class="separator:a6cc9d5679fe31ad7f0497de4a4e80a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a4397af31a514b4e3b13db5e05a9be7cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#a4397af31a514b4e3b13db5e05a9be7cb">Params::printDesc</a> (const <a class="el" href="classparamkit_1_1_param.html">Param</a> &amp;param)</td></tr>
-<tr class="separator:a4397af31a514b4e3b13db5e05a9be7cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eca605840b3ae6f9d04e0db85913657"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#a0eca605840b3ae6f9d04e0db85913657">printUnknownParam</a> (const std::string &amp;param)</td></tr>
+<tr class="separator:a0eca605840b3ae6f9d04e0db85913657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab53c002919e6b0ad84f12eb7f3a61d59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#ab53c002919e6b0ad84f12eb7f3a61d59">printDesc</a> (const <a class="el" href="classparamkit_1_1_param.html">Param</a> &amp;param)</td></tr>
+<tr class="memdesc:ab53c002919e6b0ad84f12eb7f3a61d59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a formatted description of the parameter, including its unique name, type, and the info.  <a href="classparamkit_1_1_params.html#ab53c002919e6b0ad84f12eb7f3a61d59">More...</a><br /></td></tr>
+<tr class="separator:ab53c002919e6b0ad84f12eb7f3a61d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3320b47d4e6ff1bcfebbfedceb60150"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#ae3320b47d4e6ff1bcfebbfedceb60150">countRequired</a> ()</td></tr>
+<tr class="memdesc:ae3320b47d4e6ff1bcfebbfedceb60150"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of required parameters.  <a href="classparamkit_1_1_params.html#ae3320b47d4e6ff1bcfebbfedceb60150">More...</a><br /></td></tr>
 <tr class="separator:ae3320b47d4e6ff1bcfebbfedceb60150"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac16ccfdc824f1b402d20539d7b592e97"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#ac16ccfdc824f1b402d20539d7b592e97">countOptional</a> ()</td></tr>
+<tr class="memdesc:ac16ccfdc824f1b402d20539d7b592e97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of optional parameters.  <a href="classparamkit_1_1_params.html#ac16ccfdc824f1b402d20539d7b592e97">More...</a><br /></td></tr>
 <tr class="separator:ac16ccfdc824f1b402d20539d7b592e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a5876b593ed0d9d18ec07cee24b57c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classparamkit_1_1_param.html">Param</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4">getParam</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a5a5876b593ed0d9d18ec07cee24b57c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist.  <a href="classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4">More...</a><br /></td></tr>
 <tr class="separator:a5a5876b593ed0d9d18ec07cee24b57c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a201fcd56dcc125807131723b8e3344e6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6">isParam</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a201fcd56dcc125807131723b8e3344e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the string starts from the parameter switch.  <a href="classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6">More...</a><br /></td></tr>
+<tr class="separator:a201fcd56dcc125807131723b8e3344e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab24d6bd66dadfb5d0da46dfa934c259f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_params.html#ab24d6bd66dadfb5d0da46dfa934c259f">printParamInColor</a> (int color, const std::string &amp;text)</td></tr>
+<tr class="memdesc:ab24d6bd66dadfb5d0da46dfa934c259f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the parameter using the given color. Appends the parameter switch to the name.  <a href="classparamkit_1_1_params.html#ab24d6bd66dadfb5d0da46dfa934c259f">More...</a><br /></td></tr>
+<tr class="separator:ab24d6bd66dadfb5d0da46dfa934c259f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -125,8 +152,9 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a0c1ec92bc5e1b6d093b4efe9f9c0be57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00257">257</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<div class="textblock"><p>The class responsible for storing and parsing parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00286">286</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa393c4169255055a9a0cac5468901c14"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa393c4169255055a9a0cac5468901c14">&#9670;&nbsp;</a></span>Params()</h2>
@@ -151,7 +179,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00259">259</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00288">288</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 
 </div>
 </div>
@@ -178,14 +206,14 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00260">260</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00289">289</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classparamkit_1_1_params_ada6b1eebc4e96194b3bd93d28e4a6aec_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_ada6b1eebc4e96194b3bd93d28e4a6aec_cgraph" alt=""/></div>
 <map name="aclassparamkit_1_1_params_ada6b1eebc4e96194b3bd93d28e4a6aec_cgraph" id="aclassparamkit_1_1_params_ada6b1eebc4e96194b3bd93d28e4a6aec_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,135,47"/>
-<area shape="rect" href="classparamkit_1_1_params.html#aa602e7100b2b7458451791f9cabf3493" title=" " alt="" coords="183,5,353,47"/>
+<area shape="rect" href="classparamkit_1_1_params.html#aa602e7100b2b7458451791f9cabf3493" title="Deletes all the added parameters." alt="" coords="183,5,353,47"/>
 </map>
 </div>
 
@@ -216,7 +244,15 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00262">262</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Adds a parameter into the storage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param</td><td>: an object inheriting from the class <a class="el" href="classparamkit_1_1_param.html" title="The base class of a parameter.">Param</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00295">295</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 
 </div>
 </div>
@@ -243,7 +279,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00471">471</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Returns the number of optional parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00535">535</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 
 </div>
 </div>
@@ -270,12 +308,14 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00460">460</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Returns the number of required parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00523">523</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 
 </div>
 </div>
-<a id="aeb21c5fce916b4a23f786447afbeb5b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb21c5fce916b4a23f786447afbeb5b7">&#9670;&nbsp;</a></span>getIntValue()</h2>
+<a id="a6917fc0a6121fb1822f5adea1fc276c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6917fc0a6121fb1822f5adea1fc276c9">&#9670;&nbsp;</a></span>getIntValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,7 +327,7 @@ Here is the call graph for this function:</div>
           <td class="memname">uint64_t paramkit::Params::getIntValue </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
+          <td class="paramname"><em>paramName</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -298,7 +338,15 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00329">329</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Gets an integer value of the <a class="el" href="classparamkit_1_1_int_param.html">IntParam</a> defined by its name. If such parameter does not exist, or is not of <a class="el" href="classparamkit_1_1_int_param.html">IntParam</a> type, returns PARAM_UNINITIALIZED. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">paramName</td><td>: a name of the parameter (of the type <a class="el" href="classparamkit_1_1_int_param.html">IntParam</a>) which's value is to be retrieved </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00382">382</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 
 </div>
 </div>
@@ -326,7 +374,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00482">482</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00547">547</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 
 </div>
 </div>
@@ -353,14 +403,16 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00353">353</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Checks if all the required parameters are filled. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00412">412</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classparamkit_1_1_params_aa9ac3da5ecb90680996f9b0b33c29622_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_aa9ac3da5ecb90680996f9b0b33c29622_cgraph" alt=""/></div>
 <map name="aclassparamkit_1_1_params_aa9ac3da5ecb90680996f9b0b33c29622_cgraph" id="aclassparamkit_1_1_params_aa9ac3da5ecb90680996f9b0b33c29622_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,207,47"/>
-<area shape="rect" href="classparamkit_1_1_param.html#a54ff50a3a080c21a6e31bce5344c8ed4" title=" " alt="" coords="255,13,407,39"/>
+<area shape="rect" title="Checks if all the required parameters are filled." alt="" coords="5,5,207,47"/>
+<area shape="rect" href="classparamkit_1_1_param.html#a54ff50a3a080c21a6e31bce5344c8ed4" title="Returns true if the parameter is filled, false otherwise." alt="" coords="255,13,407,39"/>
 </map>
 </div>
 
@@ -390,26 +442,66 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00291">291</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Prints info about all the parameters. Optionally hilights the required ones that are missing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hilightMissing</td><td>: if set, the required parameters that were not filled are printed in red. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00321">321</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classparamkit_1_1_params_aec8d4bb2e54e3139c261a8fc45867761_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_aec8d4bb2e54e3139c261a8fc45867761_cgraph" alt=""/></div>
 <map name="aclassparamkit_1_1_params_aec8d4bb2e54e3139c261a8fc45867761_cgraph" id="aclassparamkit_1_1_params_aec8d4bb2e54e3139c261a8fc45867761_cgraph">
-<area shape="rect" title=" " alt="" coords="5,107,156,133"/>
-<area shape="rect" href="classparamkit_1_1_params.html#ac16ccfdc824f1b402d20539d7b592e97" title=" " alt="" coords="205,5,415,32"/>
-<area shape="rect" href="classparamkit_1_1_params.html#ae3320b47d4e6ff1bcfebbfedceb60150" title=" " alt="" coords="204,56,416,83"/>
-<area shape="rect" href="classparamkit_1_1_param.html#a54ff50a3a080c21a6e31bce5344c8ed4" title=" " alt="" coords="234,107,386,133"/>
-<area shape="rect" href="namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f" title=" " alt="" coords="464,179,584,221"/>
-<area shape="rect" href="namespaceparamkit.html#a8992b8e363e04d80f6c8d91f9a230753" title=" " alt="" coords="237,209,383,250"/>
-<area shape="rect" href="namespaceparamkit.html#ad7f620c551f4d6416d525b7ac7f45e34" title=" " alt="" coords="632,187,761,213"/>
+<area shape="rect" title="Prints info about all the parameters. Optionally hilights the required ones that are missing." alt="" coords="5,132,156,159"/>
+<area shape="rect" href="classparamkit_1_1_params.html#ac16ccfdc824f1b402d20539d7b592e97" title="Returns the number of optional parameters." alt="" coords="205,5,415,32"/>
+<area shape="rect" href="classparamkit_1_1_params.html#ae3320b47d4e6ff1bcfebbfedceb60150" title="Returns the number of required parameters." alt="" coords="204,56,416,83"/>
+<area shape="rect" href="classparamkit_1_1_param.html#a54ff50a3a080c21a6e31bce5344c8ed4" title="Returns true if the parameter is filled, false otherwise." alt="" coords="234,107,386,133"/>
+<area shape="rect" href="classparamkit_1_1_params.html#ab53c002919e6b0ad84f12eb7f3a61d59" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="218,157,402,184"/>
+<area shape="rect" href="namespaceparamkit.html#af37a9acfa56e75bd41aa5732ff93b5fe" title=" " alt="" coords="465,237,609,264"/>
+<area shape="rect" href="classparamkit_1_1_params.html#ab24d6bd66dadfb5d0da46dfa934c259f" title="Prints the parameter using the given color. Appends the parameter switch to the name." alt="" coords="214,259,406,301"/>
+<area shape="rect" href="classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a" title="Returns the string representation of the parameter&#39;s type." alt="" coords="464,157,611,184"/>
+<area shape="rect" href="namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb" title=" " alt="" coords="659,237,832,264"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a2a0a83b49bf9f3016a5b23b54c28b6a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a0a83b49bf9f3016a5b23b54c28b6a4">&#9670;&nbsp;</a></span>isSet()</h2>
+<a id="a201fcd56dcc125807131723b8e3344e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a201fcd56dcc125807131723b8e3344e6">&#9670;&nbsp;</a></span>isParam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool paramkit::Params::isParam </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the string starts from the parameter switch. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00557">557</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+
+</div>
+</div>
+<a id="aaa859eb891917078f75ecde2781d0f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa859eb891917078f75ecde2781d0f07">&#9670;&nbsp;</a></span>isSet()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -421,7 +513,7 @@ Here is the call graph for this function:</div>
           <td class="memname">virtual bool paramkit::Params::isSet </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
+          <td class="paramname"><em>paramName</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -432,51 +524,23 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00341">341</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Checks if the parameter with the given name is set (filled). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">paramName</td><td>: a name of the parameter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the parameter with the given name exists and is set </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00399">399</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classparamkit_1_1_params_a2a0a83b49bf9f3016a5b23b54c28b6a4_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_a2a0a83b49bf9f3016a5b23b54c28b6a4_cgraph" alt=""/></div>
-<map name="aclassparamkit_1_1_params_a2a0a83b49bf9f3016a5b23b54c28b6a4_cgraph" id="aclassparamkit_1_1_params_a2a0a83b49bf9f3016a5b23b54c28b6a4_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,164,32"/>
-<area shape="rect" href="classparamkit_1_1_param.html#a54ff50a3a080c21a6e31bce5344c8ed4" title=" " alt="" coords="212,5,364,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a4397af31a514b4e3b13db5e05a9be7cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4397af31a514b4e3b13db5e05a9be7cb">&#9670;&nbsp;</a></span>Params::printDesc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void paramkit::Params::Params::printDesc </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classparamkit_1_1_param.html">Param</a> &amp;&#160;</td>
-          <td class="paramname"><em>param</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00445">445</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classparamkit_1_1_params_a4397af31a514b4e3b13db5e05a9be7cb_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_a4397af31a514b4e3b13db5e05a9be7cb_cgraph" alt=""/></div>
-<map name="aclassparamkit_1_1_params_a4397af31a514b4e3b13db5e05a9be7cb_cgraph" id="aclassparamkit_1_1_params_a4397af31a514b4e3b13db5e05a9be7cb_cgraph">
-<area shape="rect" title=" " alt="" coords="5,29,189,56"/>
-<area shape="rect" href="classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a" title=" " alt="" coords="237,29,384,56"/>
+<div class="center"><img src="classparamkit_1_1_params_aaa859eb891917078f75ecde2781d0f07_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_aaa859eb891917078f75ecde2781d0f07_cgraph" alt=""/></div>
+<map name="aclassparamkit_1_1_params_aaa859eb891917078f75ecde2781d0f07_cgraph" id="aclassparamkit_1_1_params_aaa859eb891917078f75ecde2781d0f07_cgraph">
+<area shape="rect" title="Checks if the parameter with the given name is set (filled)." alt="" coords="5,5,164,32"/>
+<area shape="rect" href="classparamkit_1_1_param.html#a54ff50a3a080c21a6e31bce5344c8ed4" title="Returns true if the parameter is filled, false otherwise." alt="" coords="212,5,364,32"/>
 </map>
 </div>
 
@@ -518,19 +582,21 @@ template&lt;typename T_CHAR &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00382">382</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Parses the parameters. Prints a warning if an undefined parameter was supplied. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00437">437</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classparamkit_1_1_params_afee4cd169fb922d355cc37141ab6c81c_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_afee4cd169fb922d355cc37141ab6c81c_cgraph" alt=""/></div>
 <map name="aclassparamkit_1_1_params_afee4cd169fb922d355cc37141ab6c81c_cgraph" id="aclassparamkit_1_1_params_afee4cd169fb922d355cc37141ab6c81c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,85,167,112"/>
-<area shape="rect" href="namespaceparamkit.html#a7fe1af4129f7df86c43d027facc3471a" title=" " alt="" coords="227,5,357,32"/>
-<area shape="rect" href="classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817" title=" " alt="" coords="215,56,369,83"/>
-<area shape="rect" href="classparamkit_1_1_params.html#a5ff49ebc9a02a32fd7cfd3917758c8a1" title=" " alt="" coords="215,107,369,149"/>
-<area shape="rect" href="namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="228,173,356,200"/>
-<area shape="rect" href="namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f" title=" " alt="" coords="417,107,537,149"/>
-<area shape="rect" href="namespaceparamkit.html#ad7f620c551f4d6416d525b7ac7f45e34" title=" " alt="" coords="585,115,715,141"/>
+<area shape="rect" title="Parses the parameters. Prints a warning if an undefined parameter was supplied." alt="" coords="5,85,167,112"/>
+<area shape="rect" href="classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6" title="Checks if the string starts from the parameter switch." alt="" coords="231,5,408,32"/>
+<area shape="rect" href="classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817" title="Parses the parameter from the given string." alt="" coords="242,56,397,83"/>
+<area shape="rect" href="classparamkit_1_1_params.html#a0eca605840b3ae6f9d04e0db85913657" title=" " alt="" coords="215,107,424,149"/>
+<area shape="rect" href="namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="255,173,383,200"/>
+<area shape="rect" href="namespaceparamkit.html#af37a9acfa56e75bd41aa5732ff93b5fe" title=" " alt="" coords="472,115,616,141"/>
+<area shape="rect" href="namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb" title=" " alt="" coords="664,115,837,141"/>
 </map>
 </div>
 
@@ -559,26 +625,28 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00429">429</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Prints the values of all the parameters that are currently set. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00485">485</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classparamkit_1_1_params_a6cc9d5679fe31ad7f0497de4a4e80a76_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_a6cc9d5679fe31ad7f0497de4a4e80a76_cgraph" alt=""/></div>
 <map name="aclassparamkit_1_1_params_a6cc9d5679fe31ad7f0497de4a4e80a76_cgraph" id="aclassparamkit_1_1_params_a6cc9d5679fe31ad7f0497de4a4e80a76_cgraph">
-<area shape="rect" title=" " alt="" coords="5,64,160,91"/>
-<area shape="rect" href="classparamkit_1_1_params.html#a2a0a83b49bf9f3016a5b23b54c28b6a4" title=" " alt="" coords="223,5,381,32"/>
-<area shape="rect" href="namespaceparamkit.html#a8992b8e363e04d80f6c8d91f9a230753" title=" " alt="" coords="229,57,375,98"/>
-<area shape="rect" href="classparamkit_1_1_param.html#a9244debbf984ea8a3154bf1a9745fadb" title=" " alt="" coords="208,123,396,149"/>
-<area shape="rect" href="classparamkit_1_1_param.html#a54ff50a3a080c21a6e31bce5344c8ed4" title=" " alt="" coords="444,5,596,32"/>
-<area shape="rect" href="namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f" title=" " alt="" coords="460,57,580,98"/>
-<area shape="rect" href="namespaceparamkit.html#ad7f620c551f4d6416d525b7ac7f45e34" title=" " alt="" coords="644,64,773,91"/>
+<area shape="rect" title="Prints the values of all the parameters that are currently set." alt="" coords="5,64,160,91"/>
+<area shape="rect" href="classparamkit_1_1_params.html#aaa859eb891917078f75ecde2781d0f07" title="Checks if the parameter with the given name is set (filled)." alt="" coords="225,5,383,32"/>
+<area shape="rect" href="classparamkit_1_1_params.html#ab24d6bd66dadfb5d0da46dfa934c259f" title="Prints the parameter using the given color. Appends the parameter switch to the name." alt="" coords="208,57,400,98"/>
+<area shape="rect" href="classparamkit_1_1_param.html#a9244debbf984ea8a3154bf1a9745fadb" title="Returns the string representation of the parameter&#39;s value." alt="" coords="210,123,398,149"/>
+<area shape="rect" href="classparamkit_1_1_param.html#a54ff50a3a080c21a6e31bce5344c8ed4" title="Returns true if the parameter is filled, false otherwise." alt="" coords="448,5,600,32"/>
+<area shape="rect" href="namespaceparamkit.html#af37a9acfa56e75bd41aa5732ff93b5fe" title=" " alt="" coords="452,64,596,91"/>
+<area shape="rect" href="namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb" title=" " alt="" coords="648,64,821,91"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a5ff49ebc9a02a32fd7cfd3917758c8a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ff49ebc9a02a32fd7cfd3917758c8a1">&#9670;&nbsp;</a></span>print_unknown_param()</h2>
+<a id="ab53c002919e6b0ad84f12eb7f3a61d59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab53c002919e6b0ad84f12eb7f3a61d59">&#9670;&nbsp;</a></span>printDesc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -587,7 +655,96 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void paramkit::Params::print_unknown_param </td>
+          <td class="memname">void paramkit::Params::printDesc </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classparamkit_1_1_param.html">Param</a> &amp;&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prints a formatted description of the parameter, including its unique name, type, and the info. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00507">507</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classparamkit_1_1_params_ab53c002919e6b0ad84f12eb7f3a61d59_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_ab53c002919e6b0ad84f12eb7f3a61d59_cgraph" alt=""/></div>
+<map name="aclassparamkit_1_1_params_ab53c002919e6b0ad84f12eb7f3a61d59_cgraph" id="aclassparamkit_1_1_params_ab53c002919e6b0ad84f12eb7f3a61d59_cgraph">
+<area shape="rect" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="5,5,189,32"/>
+<area shape="rect" href="classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a" title="Returns the string representation of the parameter&#39;s type." alt="" coords="237,5,384,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab24d6bd66dadfb5d0da46dfa934c259f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab24d6bd66dadfb5d0da46dfa934c259f">&#9670;&nbsp;</a></span>printParamInColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void paramkit::Params::printParamInColor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prints the parameter using the given color. Appends the parameter switch to the name. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00571">571</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classparamkit_1_1_params_ab24d6bd66dadfb5d0da46dfa934c259f_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_ab24d6bd66dadfb5d0da46dfa934c259f_cgraph" alt=""/></div>
+<map name="aclassparamkit_1_1_params_ab24d6bd66dadfb5d0da46dfa934c259f_cgraph" id="aclassparamkit_1_1_params_ab24d6bd66dadfb5d0da46dfa934c259f_cgraph">
+<area shape="rect" title="Prints the parameter using the given color. Appends the parameter switch to the name." alt="" coords="5,5,197,47"/>
+<area shape="rect" href="namespaceparamkit.html#af37a9acfa56e75bd41aa5732ff93b5fe" title=" " alt="" coords="245,13,389,39"/>
+<area shape="rect" href="namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb" title=" " alt="" coords="437,13,611,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0eca605840b3ae6f9d04e0db85913657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eca605840b3ae6f9d04e0db85913657">&#9670;&nbsp;</a></span>printUnknownParam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void paramkit::Params::printUnknownParam </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>param</em></td><td>)</td>
@@ -596,20 +753,20 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00375">375</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00500">500</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classparamkit_1_1_params_a5ff49ebc9a02a32fd7cfd3917758c8a1_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_a5ff49ebc9a02a32fd7cfd3917758c8a1_cgraph" alt=""/></div>
-<map name="aclassparamkit_1_1_params_a5ff49ebc9a02a32fd7cfd3917758c8a1_cgraph" id="aclassparamkit_1_1_params_a5ff49ebc9a02a32fd7cfd3917758c8a1_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,160,47"/>
-<area shape="rect" href="namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f" title=" " alt="" coords="208,5,328,47"/>
-<area shape="rect" href="namespaceparamkit.html#ad7f620c551f4d6416d525b7ac7f45e34" title=" " alt="" coords="376,13,505,39"/>
+<div class="center"><img src="classparamkit_1_1_params_a0eca605840b3ae6f9d04e0db85913657_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_a0eca605840b3ae6f9d04e0db85913657_cgraph" alt=""/></div>
+<map name="aclassparamkit_1_1_params_a0eca605840b3ae6f9d04e0db85913657_cgraph" id="aclassparamkit_1_1_params_a0eca605840b3ae6f9d04e0db85913657_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,215,47"/>
+<area shape="rect" href="namespaceparamkit.html#af37a9acfa56e75bd41aa5732ff93b5fe" title=" " alt="" coords="263,13,407,39"/>
+<area shape="rect" href="namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb" title=" " alt="" coords="455,13,628,39"/>
 </map>
 </div>
 
@@ -638,12 +795,14 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00365">365</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Deletes all the added parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00425">425</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 
 </div>
 </div>
-<a id="aaff6d63adbe8420457e62f43e9443b47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaff6d63adbe8420457e62f43e9443b47">&#9670;&nbsp;</a></span>setInfo()</h2>
+<a id="ac9aa1971bca24f4c423c019fd6194c12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9aa1971bca24f4c423c019fd6194c12">&#9670;&nbsp;</a></span>setInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -655,7 +814,7 @@ Here is the call graph for this function:</div>
           <td class="memname">bool paramkit::Params::setInfo </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
+          <td class="paramname"><em>paramName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -676,28 +835,40 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00282">282</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Sets the information about the parameter, defined by its name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">paramName</td><td>: a unique name of the parameter </td></tr>
+    <tr><td class="paramname">info</td><td>: the description of the parameter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if setting the info was successful </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00308">308</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classparamkit_1_1_params_aaff6d63adbe8420457e62f43e9443b47_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_aaff6d63adbe8420457e62f43e9443b47_cgraph" alt=""/></div>
-<map name="aclassparamkit_1_1_params_aaff6d63adbe8420457e62f43e9443b47_cgraph" id="aclassparamkit_1_1_params_aaff6d63adbe8420457e62f43e9443b47_cgraph">
-<area shape="rect" title=" " alt="" coords="5,81,175,108"/>
-<area shape="rect" href="classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4" title=" " alt="" coords="223,56,408,83"/>
-<area shape="rect" href="classparamkit_1_1_params.html#aec8d4bb2e54e3139c261a8fc45867761" title=" " alt="" coords="240,107,391,133"/>
-<area shape="rect" href="classparamkit_1_1_params.html#ac16ccfdc824f1b402d20539d7b592e97" title=" " alt="" coords="457,5,667,32"/>
-<area shape="rect" href="classparamkit_1_1_params.html#ae3320b47d4e6ff1bcfebbfedceb60150" title=" " alt="" coords="456,56,668,83"/>
-<area shape="rect" href="classparamkit_1_1_param.html#a54ff50a3a080c21a6e31bce5344c8ed4" title=" " alt="" coords="486,107,638,133"/>
-<area shape="rect" href="namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f" title=" " alt="" coords="716,179,836,221"/>
-<area shape="rect" href="namespaceparamkit.html#a8992b8e363e04d80f6c8d91f9a230753" title=" " alt="" coords="489,209,635,250"/>
-<area shape="rect" href="namespaceparamkit.html#ad7f620c551f4d6416d525b7ac7f45e34" title=" " alt="" coords="884,187,1013,213"/>
+<div class="center"><img src="classparamkit_1_1_params_ac9aa1971bca24f4c423c019fd6194c12_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_ac9aa1971bca24f4c423c019fd6194c12_cgraph" alt=""/></div>
+<map name="aclassparamkit_1_1_params_ac9aa1971bca24f4c423c019fd6194c12_cgraph" id="aclassparamkit_1_1_params_ac9aa1971bca24f4c423c019fd6194c12_cgraph">
+<area shape="rect" title="Sets the information about the parameter, defined by its name." alt="" coords="5,107,175,133"/>
+<area shape="rect" href="classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4" title="Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist." alt="" coords="223,81,408,108"/>
+<area shape="rect" href="classparamkit_1_1_params.html#aec8d4bb2e54e3139c261a8fc45867761" title="Prints info about all the parameters. Optionally hilights the required ones that are missing." alt="" coords="240,132,391,159"/>
+<area shape="rect" href="classparamkit_1_1_params.html#ac16ccfdc824f1b402d20539d7b592e97" title="Returns the number of optional parameters." alt="" coords="457,5,667,32"/>
+<area shape="rect" href="classparamkit_1_1_params.html#ae3320b47d4e6ff1bcfebbfedceb60150" title="Returns the number of required parameters." alt="" coords="456,56,668,83"/>
+<area shape="rect" href="classparamkit_1_1_param.html#a54ff50a3a080c21a6e31bce5344c8ed4" title="Returns true if the parameter is filled, false otherwise." alt="" coords="486,107,638,133"/>
+<area shape="rect" href="classparamkit_1_1_params.html#ab53c002919e6b0ad84f12eb7f3a61d59" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="470,157,654,184"/>
+<area shape="rect" href="namespaceparamkit.html#af37a9acfa56e75bd41aa5732ff93b5fe" title=" " alt="" coords="717,237,861,264"/>
+<area shape="rect" href="classparamkit_1_1_params.html#ab24d6bd66dadfb5d0da46dfa934c259f" title="Prints the parameter using the given color. Appends the parameter switch to the name." alt="" coords="466,259,658,301"/>
+<area shape="rect" href="classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a" title="Returns the string representation of the parameter&#39;s type." alt="" coords="716,157,863,184"/>
+<area shape="rect" href="namespaceparamkit.html#a20bbe9627672f5707b70450adc7ccaeb" title=" " alt="" coords="911,237,1084,264"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a3ff27421b297d1820fba386e483eaa76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ff27421b297d1820fba386e483eaa76">&#9670;&nbsp;</a></span>setIntValue()</h2>
+<a id="a90c3f797e6b249055f3b46fce04ee345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c3f797e6b249055f3b46fce04ee345">&#9670;&nbsp;</a></span>setIntValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -709,7 +880,7 @@ Here is the call graph for this function:</div>
           <td class="memname">bool paramkit::Params::setIntValue </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
+          <td class="paramname"><em>paramName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -730,14 +901,24 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00269">269</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p>Fills an <a class="el" href="classparamkit_1_1_int_param.html">IntParam</a> defined by its name with the given value. If such parameter does not exist, or is not of the type <a class="el" href="classparamkit_1_1_int_param.html">IntParam</a>, returns false. Otherwise returns true. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">paramName</td><td>: a name of the parameter (of the type <a class="el" href="classparamkit_1_1_int_param.html">IntParam</a>) that is to be filled </td></tr>
+    <tr><td class="paramname">val</td><td>: the value to be set into the parameter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if setting the value was successful </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00365">365</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classparamkit_1_1_params_a3ff27421b297d1820fba386e483eaa76_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_a3ff27421b297d1820fba386e483eaa76_cgraph" alt=""/></div>
-<map name="aclassparamkit_1_1_params_a3ff27421b297d1820fba386e483eaa76_cgraph" id="aclassparamkit_1_1_params_a3ff27421b297d1820fba386e483eaa76_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,168,47"/>
-<area shape="rect" href="classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4" title=" " alt="" coords="216,13,401,39"/>
+<div class="center"><img src="classparamkit_1_1_params_a90c3f797e6b249055f3b46fce04ee345_cgraph.png" border="0" usemap="#aclassparamkit_1_1_params_a90c3f797e6b249055f3b46fce04ee345_cgraph" alt=""/></div>
+<map name="aclassparamkit_1_1_params_a90c3f797e6b249055f3b46fce04ee345_cgraph" id="aclassparamkit_1_1_params_a90c3f797e6b249055f3b46fce04ee345_cgraph">
+<area shape="rect" title="Fills an IntParam defined by its name with the given value. If such parameter does not exist,..." alt="" coords="5,5,168,47"/>
+<area shape="rect" href="classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4" title="Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist." alt="" coords="216,13,401,39"/>
 </map>
 </div>
 
@@ -764,7 +945,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00491">491</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00576">576</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 
 </div>
 </div>

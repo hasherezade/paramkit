@@ -1,5 +1,5 @@
 <map id="paramkit::IntParam::parse" name="paramkit::IntParam::parse">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,136,47"/>
+<area shape="rect" id="node1" title="Parses the parameter from the given string." alt="" coords="5,5,136,47"/>
 <area shape="rect" id="node2" href="$namespaceparamkit.html#ae10aaf94114b91aa3aca8729b8ec6486" title=" " alt="" coords="184,13,301,39"/>
 <area shape="rect" id="node3" href="$namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="349,13,477,39"/>
 </map>
