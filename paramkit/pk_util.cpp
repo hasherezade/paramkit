@@ -1,5 +1,90 @@
 #include "pk_util.h"
 
+bool paramkit::is_hex(const char *buf, size_t len)
+{
+    for (size_t i = 0; i < len; i++) {
+        if (buf[i] >= '0' && buf[i] <= '9') continue;
+        if (buf[i] >= 'A' && buf[i] <= 'F') continue;
+        if (buf[i] >= 'a' && buf[i] <= 'f') continue;
+        return false;
+    }
+    return true;
+}
+
+bool paramkit::is_dec(const char *buf, size_t len)
+{
+    for (size_t i = 0; i < len; i++) {
+        if (buf[i] >= '0' && buf[i] <= '9') continue;
+        return false;
+    }
+    return true;
+}
+
+bool paramkit::is_number(const char* my_buf)
+{
+    const char hex_pattern[] = "0x";
+    size_t hex_pattern_len = strlen(hex_pattern);
+
+    const size_t len = strlen(my_buf);
+    if (len == 0) return false;
+
+    if (len > hex_pattern_len) {
+        if (is_cstr_equal(my_buf, hex_pattern, hex_pattern_len)) {
+            if (!is_hex(my_buf + hex_pattern_len, len - hex_pattern_len)) return false;
+
+            return true;
+        }
+    }
+    if (!is_dec(my_buf, len)) return false;
+    return true;
+}
+
+long paramkit::get_number(const char *my_buf)
+{
+    const char hex_pattern[] = "0x";
+    size_t hex_pattern_len = strlen(hex_pattern);
+
+    const size_t len = strlen(my_buf);
+    if (len == 0) return 0;
+
+    long out = 0;
+    const size_t min_length = 1; //tolerate number with at least 1 character
+    if (len > hex_pattern_len) {
+        if (is_cstr_equal(my_buf, hex_pattern, hex_pattern_len)) {
+            if (!is_hex(my_buf + hex_pattern_len, min_length)) return 0;
+
+            std::stringstream ss;
+            ss << std::hex << my_buf;
+            ss >> out;
+            return out;
+        }
+    }
+    if (!is_dec(my_buf, min_length)) return 0;
+
+    std::stringstream ss;
+    ss << std::dec << my_buf;
+    ss >> out;
+    return out;
+}
+
+bool paramkit::is_cstr_equal(char const *a, char const *b, const size_t max_len, bool ignoreCase)
+{
+    for (size_t i = 0; i < max_len; ++i) {
+        if (ignoreCase) {
+            if (tolower(a[i]) != tolower(b[i])) {
+                return false;
+            }
+        }
+        else {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        if (a[i] == '\0') break;
+    }
+    return true;
+}
+
 bool paramkit::strequals(const std::string& a, const std::string& b, bool ignoreCase)
 {
     size_t aLen = a.size();

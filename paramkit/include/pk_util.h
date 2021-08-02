@@ -12,8 +12,16 @@
 #include <sstream>
 #include <map>
 
+#define GETNAME(x) (#x)
+
 namespace paramkit {
 
+    bool is_hex(const char *buf, size_t len);
+    bool is_dec(const char *buf, size_t len);
+    bool is_number(const char* my_buf);
+    long get_number(const char *my_buf);
+
+    bool is_cstr_equal(char const *a, char const *b, const size_t max_len, bool ignoreCase = true);
     bool strequals(const std::string& a, const std::string& b, bool ignoreCase = true);
 
     bool getConsoleColor(HANDLE hConsole, int& color);

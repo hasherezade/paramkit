@@ -8,7 +8,18 @@
 #define PARAM_MY_WSTRING "pwstr"
 
 #define PARAM_MY_BOOL "pbool"
+#define PARAM_MY_ENUM "penum"
+
 #define MAX_BUF 50
+
+typedef enum {
+    FRUIT_APPLE = 0,
+    FRUIT_ORANGE = 1,
+    FRUIT_STRAWBERY,
+    FRUIT_COUNT
+} t_fruits;
+
+//---
 
 using namespace paramkit;
 
@@ -18,6 +29,7 @@ typedef struct {
     bool myBool;
     char myABuf[MAX_BUF];
     wchar_t myWBuf[MAX_BUF];
+    t_fruits myEnum;
 } t_params_struct;
 
 void print_params(t_params_struct &p)
@@ -27,6 +39,7 @@ void print_params(t_params_struct &p)
     std::cout << "myBool: " << std::dec << p.myBool << "\n";
     std::cout << "myABuf:  " << p.myABuf << "\n";
     std::wcout << "myWBuf:  " << p.myWBuf << "\n";
+    std::cout << "myEnum:  " << std::dec << p.myEnum << "\n";
 }
 
 class DemoParams : public Params
@@ -49,6 +62,13 @@ public:
 
         this->addParam(new WStringParam(PARAM_MY_WSTRING, false));
         this->setInfo(PARAM_MY_WSTRING, "Sample wide string param");
+
+        EnumParam *myEnum = new EnumParam(PARAM_MY_ENUM, GETNAME(t_fruits), false);
+        this->addParam(myEnum);
+        this->setInfo(PARAM_MY_ENUM, "Sample enum param");
+        myEnum->addEnumValue(t_fruits::FRUIT_APPLE, "A", "green apples");
+        myEnum->addEnumValue(t_fruits::FRUIT_ORANGE, "O", "oranges");
+        myEnum->addEnumValue(t_fruits::FRUIT_STRAWBERY, "S", "fresh strawberries");
     }
 
     bool fillStruct(t_params_struct &paramsStruct)
@@ -69,6 +89,10 @@ public:
         WStringParam *myWStr = dynamic_cast<WStringParam*>(this->getParam(PARAM_MY_WSTRING));
         if (myWStr) {
             myWStr->copyToCStr(paramsStruct.myWBuf, _countof(paramsStruct.myWBuf));
+        }
+        EnumParam *myEnum = dynamic_cast<EnumParam*>(this->getParam(PARAM_MY_ENUM));
+        if (myEnum) {
+            paramsStruct.myEnum = (t_fruits)myEnum->value;
         }
         return true;
     }

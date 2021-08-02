@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <map>
 
 #include "pk_util.h"
 
@@ -48,7 +49,7 @@ namespace paramkit {
         }
 
         //! Returns the string representation of the parameter's value
-        virtual std::string valToString() = 0;
+        virtual std::string valToString() const = 0;
 
         //! Returns the string representation of the parameter's type
         virtual std::string type() const = 0;
@@ -65,7 +66,11 @@ namespace paramkit {
         }
 
         //! Returns true if the parameter is filled, false otherwise.
-        virtual bool isSet() = 0;
+        virtual bool isSet() const = 0;
+
+        virtual std::string info() const {
+            return m_info;
+        }
 
     protected:
         std::string argStr; ///< a unique name of the parameter
@@ -90,7 +95,7 @@ namespace paramkit {
             isHex = _isHex;
         }
 
-        virtual std::string valToString()
+        virtual std::string valToString() const
         {
             std::stringstream stream;
             if (isHex) {
@@ -110,12 +115,13 @@ namespace paramkit {
             return "integer: dec";
         }
 
-        virtual bool isSet()
+        virtual bool isSet() const
         {
             return value != PARAM_UNINITIALIZED;
         }
 
-        virtual bool parse(const char *arg) {
+        virtual bool parse(const char *arg)
+        {
             if (!arg) return false;
             this->value = loadInt(arg, isHex);
             return true;
@@ -135,7 +141,7 @@ namespace paramkit {
             value = "";
         }
 
-        virtual std::string valToString()
+        virtual std::string valToString() const
         {
             return "\"" + value + "\"";
         }
@@ -144,19 +150,20 @@ namespace paramkit {
             return "string";
         }
 
-        virtual bool isSet()
+        virtual bool isSet() const
         {
             return value.length() > 0;
         }
 
-        virtual bool parse(const char *arg) {
+        virtual bool parse(const char *arg)
+        {
             if (!arg) return false;
 
             this->value = arg;
             return true;
         }
 
-        size_t copyToCStr(char *buf, size_t buf_max)
+        size_t copyToCStr(char *buf, size_t buf_max) const
         {
             size_t len = value.length() + 1;
             if (len > buf_max) len = buf_max;
@@ -179,29 +186,32 @@ namespace paramkit {
             value = L"";
         }
 
-        virtual std::string valToString()
+        virtual std::string valToString() const
         {
             std::string str(value.begin(), value.end());
             return "\"" + str + "\"";
         }
 
-        virtual std::string type() const {
+        virtual std::string type() const
+        {
             return "wstring";
         }
 
-        virtual bool isSet()
+        virtual bool isSet() const
         {
             return value.length() > 0;
         }
 
-        virtual bool parse(const wchar_t *arg) {
+        virtual bool parse(const wchar_t *arg)
+        {
             if (!arg) return false;
 
             this->value = arg;
             return true;
         }
 
-        virtual bool parse(const char *arg) {
+        virtual bool parse(const char *arg)
+        {
             if (!arg) return false;
 
             std::string value = arg;
@@ -211,7 +221,7 @@ namespace paramkit {
             return true;
         }
 
-        size_t copyToCStr(wchar_t *buf, size_t buf_len)
+        size_t copyToCStr(wchar_t *buf, size_t buf_len) const
         {
             buf_len = buf_len * sizeof(wchar_t);
             size_t len = (value.length() + 1) * sizeof(wchar_t);
@@ -235,11 +245,12 @@ namespace paramkit {
             value = false;
         }
 
-        virtual std::string type() const {
+        virtual std::string type() const
+        {
             return "bool";
         }
 
-        virtual std::string valToString()
+        virtual std::string valToString() const
         {
             std::stringstream stream;
             stream << std::dec;
@@ -252,12 +263,13 @@ namespace paramkit {
             return stream.str();
         }
 
-        virtual bool isSet()
+        virtual bool isSet() const
         {
             return value;
         }
 
-        virtual bool parse(const char *arg = nullptr) {
+        virtual bool parse(const char *arg = nullptr)
+        {
             if (!arg) {
                 this->value = true;
                 return true;
@@ -269,5 +281,129 @@ namespace paramkit {
         bool value;
     };
 
+
+    //! A parameter storing an enum value
+    class EnumParam : public Param {
+    public:
+        EnumParam(const std::string& _argStr, const std::string _enumName, bool _isRequired)
+            : Param(_argStr, _isRequired), enumName(_enumName), m_isSet(false)
+        {
+            requiredArg = true;
+            value = PARAM_UNINITIALIZED;
+        }
+
+        bool addEnumValue(int value, const std::string &info)
+        {
+            enumToInfo[value] = info;
+            return true;
+        }
+
+        bool addEnumValue(int value, const std::string &str_val, const std::string &info)
+        {
+            enumToString[value] = str_val;
+            enumToInfo[value] = info;
+            return true;
+        }
+
+        virtual std::string valToString() const
+        {
+            if (!isSet()) {
+                return "(undefined)";
+            }
+            std::map<int, std::string>::const_iterator foundString = enumToString.find(value);
+            if (foundString != enumToString.end()) {
+                return foundString->second;
+            }
+            std::stringstream stream;
+            stream << std::dec << value;
+            return stream.str();
+        }
+
+        virtual std::string type() const
+        {
+            return enumName;
+        }
+
+        virtual bool isSet() const
+        {
+            if (!m_isSet) return false;
+            if (!isInEnumScope(value)) {
+                return false;
+            }
+            return true;
+        }
+
+        virtual bool parse(const char *arg)
+        {
+            if (!arg) return false;
+
+            //try to find by the string representation first:
+            const std::string strVal = arg;
+            std::map<int, std::string>::iterator itr;
+            for (itr = enumToString.begin(); itr != enumToString.end(); ++itr) {
+                if (strVal == itr->second) {
+                    this->value = itr->first;
+                    m_isSet = true;
+                    return true;
+                }
+            }
+            //try to find by the integer representation:
+            if (!is_number(arg)) {
+                return false;
+            }
+            int intVal = loadInt(arg);
+            if (!isInEnumScope(intVal)) {
+                // out of the enum scope
+                return false;
+            }
+            this->value = intVal;
+            m_isSet = true;
+            return true;
+        }
+
+        virtual std::string info() const {
+            return m_info + "\n" + printOptionsInfo();
+        }
+
+        int value;
+
+    protected:
+        std::string printOptionsInfo() const {
+            std::stringstream stream;
+
+            std::map<int, std::string>::const_iterator itr;
+            stream << "*" << this->enumName << ":\n";
+            for (itr = enumToInfo.begin(); itr != enumToInfo.end(); ) {
+                int val = itr->first;
+                std::map<int, std::string>::const_iterator foundString = enumToString.find(itr->first);
+
+                stream << "\t" << std::dec << val;
+                if (foundString != enumToString.end()) {
+                    stream << " (" << foundString->second << ")";
+                }
+                stream << " - ";
+                stream << itr->second;
+                ++itr;
+                if (itr != enumToInfo.end()) {
+                    stream << "\n";
+                }
+            }
+            return stream.str();
+        }
+
+        bool isInEnumScope(int intVal)const 
+        {
+            if (enumToInfo.find(intVal) != enumToInfo.end()) {
+                return true;
+            }
+            return false;
+        }
+
+        std::map<int, std::string> enumToString; ///< optional: string representation of the enum parameter
+        std::map<int, std::string> enumToInfo; ///< required: info about the enum parameter
+
+        std::string enumName;
+        bool m_isSet;
+    };
 };
 

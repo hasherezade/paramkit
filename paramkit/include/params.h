@@ -265,7 +265,7 @@ namespace paramkit {
 
                 std::cout << "\n\t";
             }
-            std::cout << " : " << param.m_info << "\n";
+            std::cout << " : " << param.info() << "\n";
         }
 
         //! Returns the number of required parameters.
