@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 {
     DemoParams params;
     if (argc < 2) {
-        paramkit::printInColor(CYAN, "Welcome to ParamKit Demo!");
+        paramkit::print_in_color(CYAN, "Welcome to ParamKit Demo!");
         std::cout << "\n\n";
         params.info(false);
         return 0;
