@@ -123,6 +123,13 @@ namespace paramkit {
         virtual bool parse(const char *arg)
         {
             if (!arg) return false;
+            const size_t len = strlen(arg);
+            if (isHex && !paramkit::is_hex(arg, len) && !paramkit::is_hex_with_prefix(arg)) {
+                return false;
+            }
+            if (!isHex && !paramkit::is_dec(arg, len)) {
+                return false;
+            }
             this->value = loadInt(arg, isHex);
             return true;
         }

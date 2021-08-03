@@ -2,6 +2,7 @@
 
 bool paramkit::is_hex(const char *buf, size_t len)
 {
+    if (!buf || len == 0) return false;
     for (size_t i = 0; i < len; i++) {
         if (buf[i] >= '0' && buf[i] <= '9') continue;
         if (buf[i] >= 'A' && buf[i] <= 'F') continue;
@@ -13,6 +14,7 @@ bool paramkit::is_hex(const char *buf, size_t len)
 
 bool paramkit::is_dec(const char *buf, size_t len)
 {
+    if (!buf || len == 0) return false;
     for (size_t i = 0; i < len; i++) {
         if (buf[i] >= '0' && buf[i] <= '9') continue;
         return false;
@@ -20,8 +22,10 @@ bool paramkit::is_dec(const char *buf, size_t len)
     return true;
 }
 
-bool paramkit::is_number(const char* my_buf)
+bool paramkit::is_hex_with_prefix(const char *my_buf)
 {
+    if (!my_buf) return false;
+
     const char hex_pattern[] = "0x";
     size_t hex_pattern_len = strlen(hex_pattern);
 
@@ -31,16 +35,26 @@ bool paramkit::is_number(const char* my_buf)
     if (len > hex_pattern_len) {
         if (is_cstr_equal(my_buf, hex_pattern, hex_pattern_len)) {
             if (!is_hex(my_buf + hex_pattern_len, len - hex_pattern_len)) return false;
-
             return true;
         }
     }
-    if (!is_dec(my_buf, len)) return false;
-    return true;
+    return false;
+}
+
+bool paramkit::is_number(const char* my_buf)
+{
+    if (!my_buf) return false;
+
+    const size_t len = strlen(my_buf);
+    if (is_hex_with_prefix(my_buf)) return true;
+    if (is_dec(my_buf, len)) return true;
+    return false;
 }
 
 long paramkit::get_number(const char *my_buf)
 {
+    if (!my_buf) return false;
+
     const char hex_pattern[] = "0x";
     size_t hex_pattern_len = strlen(hex_pattern);
 
@@ -69,6 +83,8 @@ long paramkit::get_number(const char *my_buf)
 
 bool paramkit::is_cstr_equal(char const *a, char const *b, const size_t max_len, bool ignoreCase)
 {
+    if (a == b) return true;
+    if (!a || !b) return false;
     for (size_t i = 0; i < max_len; ++i) {
         if (ignoreCase) {
             if (tolower(a[i]) != tolower(b[i])) {
@@ -122,6 +138,4 @@ void paramkit::printInColor(int color, const std::string &text)
 
     SetConsoleTextAttribute(hConsole, prev); // back to previous color
 }
-
-
 

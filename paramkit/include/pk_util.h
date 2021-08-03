@@ -17,6 +17,7 @@
 namespace paramkit {
 
     bool is_hex(const char *buf, size_t len);
+    bool is_hex_with_prefix(const char *buf);
     bool is_dec(const char *buf, size_t len);
     bool is_number(const char* my_buf);
     long get_number(const char *my_buf);
