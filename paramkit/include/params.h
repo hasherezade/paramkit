@@ -185,6 +185,7 @@ namespace paramkit {
         template <typename T_CHAR>
         bool parse(int argc, T_CHAR* argv[])
         {
+            bool paramHelp = false;
             size_t count = 0;
             for (int i = 1; i < argc; i++) {
                 std::string param_str = to_string(argv[i]);
@@ -209,6 +210,7 @@ namespace paramkit {
                             std::string nextVal = to_string(argv[i + 1]);
                             //help requested explicitly
                             if (nextVal == PARAM_HELP1) {
+                                paramHelp = true;
                                 paramkit::printInColor(RED, param_str);
                                 printDesc(*param);
                                 found = true;
@@ -240,9 +242,10 @@ namespace paramkit {
                 else {
                     const std::string param_str = to_string(argv[i]);
                     printUnknownParam(param_str);
-                    this->info(false);
-                    return false;
                 }
+            }
+            if (paramHelp) {
+                return false;
             }
             if (!this->hasRequiredFilled()) {
                 this->info(true);
