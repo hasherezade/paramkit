@@ -75,7 +75,7 @@ namespace paramkit {
             std::map<std::string, Param*>::iterator itr;
 
             if (countRequired() > 0) {
-                printInColor(hdr_color, "Required: \n\n");
+                print_in_color(hdr_color, "Required: \n\n");
                 //Print Required
                 for (itr = myParams.begin(); itr != myParams.end(); itr++) {
                     Param *param = itr->second;
@@ -89,7 +89,7 @@ namespace paramkit {
                 }
             }
             if (countOptional() > 0) {
-                printInColor(hdr_color, "\nOptional: \n\n");
+                print_in_color(hdr_color, "\nOptional: \n\n");
                 //Print Optional
                 for (itr = myParams.begin(); itr != myParams.end(); itr++) {
                     Param *param = itr->second;
@@ -100,7 +100,7 @@ namespace paramkit {
                 }
             }
 
-            printInColor(hdr_color, "\nInfo: \n\n");
+            print_in_color(hdr_color, "\nInfo: \n\n");
             Params::printParamInColor(param_color, PARAM_HELP2);
             std::cout << " : " << "Print this help\n";
         }
@@ -211,7 +211,7 @@ namespace paramkit {
                             //help requested explicitly
                             if (nextVal == PARAM_HELP1) {
                                 paramHelp = true;
-                                paramkit::printInColor(RED, param_str);
+                                paramkit::print_in_color(RED, param_str);
                                 printDesc(*param);
                                 found = true;
                                 break;
@@ -230,7 +230,7 @@ namespace paramkit {
                             break;
                         }
                         // requires an argument, but it is missing:
-                        paramkit::printInColor(RED, param_str);
+                        paramkit::print_in_color(RED, param_str);
                         printDesc(*param);
                         found = true;
                         break;
@@ -272,7 +272,7 @@ namespace paramkit {
     protected:
         void printUnknownParam(const std::string &param)
         {
-            printInColor(WARNING_COLOR, "Invalid parameter: ");
+            print_in_color(WARNING_COLOR, "Invalid parameter: ");
             std::cout << param << "\n";
         }
 
@@ -343,7 +343,7 @@ namespace paramkit {
         //! Prints the parameter using the given color. Appends the parameter switch to the name.
         static void printParamInColor(int color, const std::string &text)
         {
-            printInColor(color, PARAM_SWITCH1 + text);
+            print_in_color(color, PARAM_SWITCH1 + text);
         }
 
         std::map<std::string, Param*> myParams;

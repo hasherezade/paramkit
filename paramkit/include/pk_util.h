@@ -25,8 +25,8 @@ namespace paramkit {
     bool is_cstr_equal(char const *a, char const *b, const size_t max_len, bool ignoreCase = true);
     bool strequals(const std::string& a, const std::string& b, bool ignoreCase = true);
 
-    bool getConsoleColor(HANDLE hConsole, int& color);
-    void printInColor(int color, const std::string &text);
+    bool get_console_color(HANDLE hConsole, int& color);
+    void print_in_color(int color, const std::string &text);
 
     //--
 

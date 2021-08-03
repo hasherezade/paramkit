@@ -117,7 +117,7 @@ bool paramkit::strequals(const std::string& a, const std::string& b, bool ignore
     return true;
 }
 
-bool paramkit::getConsoleColor(HANDLE hConsole, int& color) {
+bool paramkit::get_console_color(HANDLE hConsole, int& color) {
     CONSOLE_SCREEN_BUFFER_INFO info;
     if (!GetConsoleScreenBufferInfo(hConsole, &info))
         return false;
@@ -125,11 +125,11 @@ bool paramkit::getConsoleColor(HANDLE hConsole, int& color) {
     return true;
 }
 
-void paramkit::printInColor(int color, const std::string &text)
+void paramkit::print_in_color(int color, const std::string &text)
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     int prev = 7;
-    getConsoleColor(hConsole, prev); // get the previous color
+    get_console_color(hConsole, prev); // get the previous color
 
     FlushConsoleInputBuffer(hConsole);
     SetConsoleTextAttribute(hConsole, color); // back to default color
