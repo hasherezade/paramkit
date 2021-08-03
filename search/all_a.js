@@ -16,8 +16,8 @@ var searchData=
   ['pk_5futil_2ecpp_63',['pk_util.cpp',['../pk__util_8cpp.html',1,'']]],
   ['pk_5futil_2eh_64',['pk_util.h',['../pk__util_8h.html',1,'']]],
   ['print_65',['print',['../classparamkit_1_1_params.html#a6cc9d5679fe31ad7f0497de4a4e80a76',1,'paramkit::Params']]],
-  ['printdesc_66',['printDesc',['../classparamkit_1_1_params.html#a2e3f13aca8ed6d250dd9303876129dd9',1,'paramkit::Params']]],
-  ['printincolor_67',['printInColor',['../namespaceparamkit.html#af37a9acfa56e75bd41aa5732ff93b5fe',1,'paramkit']]],
+  ['print_5fin_5fcolor_66',['print_in_color',['../namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f',1,'paramkit']]],
+  ['printdesc_67',['printDesc',['../classparamkit_1_1_params.html#a2e3f13aca8ed6d250dd9303876129dd9',1,'paramkit::Params']]],
   ['printoptionsinfo_68',['printOptionsInfo',['../classparamkit_1_1_enum_param.html#ad27246babf677bb93f7f9501da8724a9',1,'paramkit::EnumParam']]],
   ['printparamincolor_69',['printParamInColor',['../classparamkit_1_1_params.html#ab24d6bd66dadfb5d0da46dfa934c259f',1,'paramkit::Params']]],
   ['printunknownparam_70',['printUnknownParam',['../classparamkit_1_1_params.html#a0eca605840b3ae6f9d04e0db85913657',1,'paramkit::Params']]]
