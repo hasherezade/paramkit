@@ -5,10 +5,11 @@ var searchData=
   ['is_5fcstr_5fequal_32',['is_cstr_equal',['../namespaceparamkit.html#a839f86aec141a83e7312d6f53db17ef6',1,'paramkit']]],
   ['is_5fdec_33',['is_dec',['../namespaceparamkit.html#a13e6043839364f9b51a8e0fe86c6ba37',1,'paramkit']]],
   ['is_5fhex_34',['is_hex',['../namespaceparamkit.html#add8ceca8d061cace36693338122acf96',1,'paramkit']]],
-  ['is_5fnumber_35',['is_number',['../namespaceparamkit.html#a5891dfce6623b9b9818378fedee76c1d',1,'paramkit']]],
-  ['ishex_36',['isHex',['../classparamkit_1_1_int_param.html#a63d53fe7cf5de8ed45e34f3432c55043',1,'paramkit::IntParam']]],
-  ['isinenumscope_37',['isInEnumScope',['../classparamkit_1_1_enum_param.html#aa5e8aba5ae8d28fd44575a337e116871',1,'paramkit::EnumParam']]],
-  ['isparam_38',['isParam',['../classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6',1,'paramkit::Params']]],
-  ['isrequired_39',['isRequired',['../classparamkit_1_1_param.html#a590c02e349942943bd40304a7291c5ef',1,'paramkit::Param']]],
-  ['isset_40',['isSet',['../classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd',1,'paramkit::Param::isSet()'],['../classparamkit_1_1_int_param.html#ab4c66081fe8ae7f375a44207f312e2f5',1,'paramkit::IntParam::isSet()'],['../classparamkit_1_1_string_param.html#aa69cefa23d22474b7eca75fceaf3d830',1,'paramkit::StringParam::isSet()'],['../classparamkit_1_1_w_string_param.html#aa03b0c4886a7a58899590da48ba84a5a',1,'paramkit::WStringParam::isSet()'],['../classparamkit_1_1_bool_param.html#a179eeb3b893412b9350f149e359f65de',1,'paramkit::BoolParam::isSet()'],['../classparamkit_1_1_enum_param.html#a8b79fadc43e51775bf56806921f0323c',1,'paramkit::EnumParam::isSet()'],['../classparamkit_1_1_params.html#aaa859eb891917078f75ecde2781d0f07',1,'paramkit::Params::isSet()']]]
+  ['is_5fhex_5fwith_5fprefix_35',['is_hex_with_prefix',['../namespaceparamkit.html#afcc530f128611e6d9a838be0b9271a24',1,'paramkit']]],
+  ['is_5fnumber_36',['is_number',['../namespaceparamkit.html#a5891dfce6623b9b9818378fedee76c1d',1,'paramkit']]],
+  ['ishex_37',['isHex',['../classparamkit_1_1_int_param.html#a63d53fe7cf5de8ed45e34f3432c55043',1,'paramkit::IntParam']]],
+  ['isinenumscope_38',['isInEnumScope',['../classparamkit_1_1_enum_param.html#aa5e8aba5ae8d28fd44575a337e116871',1,'paramkit::EnumParam']]],
+  ['isparam_39',['isParam',['../classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6',1,'paramkit::Params']]],
+  ['isrequired_40',['isRequired',['../classparamkit_1_1_param.html#a590c02e349942943bd40304a7291c5ef',1,'paramkit::Param']]],
+  ['isset_41',['isSet',['../classparamkit_1_1_int_param.html#ab4c66081fe8ae7f375a44207f312e2f5',1,'paramkit::IntParam::isSet()'],['../classparamkit_1_1_string_param.html#aa69cefa23d22474b7eca75fceaf3d830',1,'paramkit::StringParam::isSet()'],['../classparamkit_1_1_w_string_param.html#aa03b0c4886a7a58899590da48ba84a5a',1,'paramkit::WStringParam::isSet()'],['../classparamkit_1_1_bool_param.html#a179eeb3b893412b9350f149e359f65de',1,'paramkit::BoolParam::isSet()'],['../classparamkit_1_1_enum_param.html#a8b79fadc43e51775bf56806921f0323c',1,'paramkit::EnumParam::isSet()'],['../classparamkit_1_1_params.html#aaa859eb891917078f75ecde2781d0f07',1,'paramkit::Params::isSet()'],['../classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd',1,'paramkit::Param::isSet()']]]
 ];

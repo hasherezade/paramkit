@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['separator_5fcolor_75',['SEPARATOR_COLOR',['../params_8h.html#a1bba3b9a5308d50da5c0dc45dec7b932',1,'params.h']]],
-  ['setinfo_76',['setInfo',['../classparamkit_1_1_params.html#ac9aa1971bca24f4c423c019fd6194c12',1,'paramkit::Params']]],
-  ['setintvalue_77',['setIntValue',['../classparamkit_1_1_params.html#a90c3f797e6b249055f3b46fce04ee345',1,'paramkit::Params']]],
-  ['silver_78',['SILVER',['../term__colors_8h.html#a7e76a14a479114a4b9b20782bb00e69a',1,'term_colors.h']]],
-  ['strequals_79',['strequals',['../namespaceparamkit.html#a6bfda08dc3b78ae8ca0043ebca6920d7',1,'paramkit']]],
-  ['stringparam_80',['StringParam',['../classparamkit_1_1_string_param.html',1,'paramkit::StringParam'],['../classparamkit_1_1_string_param.html#a47758efed7fa4e955feb7d9edcb89a16',1,'paramkit::StringParam::StringParam()']]]
+  ['separator_5fcolor_76',['SEPARATOR_COLOR',['../params_8h.html#a1bba3b9a5308d50da5c0dc45dec7b932',1,'params.h']]],
+  ['setinfo_77',['setInfo',['../classparamkit_1_1_params.html#ac9aa1971bca24f4c423c019fd6194c12',1,'paramkit::Params']]],
+  ['setintvalue_78',['setIntValue',['../classparamkit_1_1_params.html#a90c3f797e6b249055f3b46fce04ee345',1,'paramkit::Params']]],
+  ['silver_79',['SILVER',['../term__colors_8h.html#a7e76a14a479114a4b9b20782bb00e69a',1,'term_colors.h']]],
+  ['strequals_80',['strequals',['../namespaceparamkit.html#a6bfda08dc3b78ae8ca0043ebca6920d7',1,'paramkit']]],
+  ['stringparam_81',['StringParam',['../classparamkit_1_1_string_param.html',1,'paramkit::StringParam'],['../classparamkit_1_1_string_param.html#a47758efed7fa4e955feb7d9edcb89a16',1,'paramkit::StringParam::StringParam()']]]
 ];
