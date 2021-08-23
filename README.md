@@ -23,7 +23,7 @@ Easily store values of popular types, and verify if all required parameters are 
 
 <img src="https://raw.githubusercontent.com/hasherezade/paramkit/master/img/demo_print.png" alt="demo: print filled params" >
 
-Verify if no invalid parameter was passed:
+Verify if no invalid parameter was passed, and eventually suggest similar parameters:
 
 <img src="https://raw.githubusercontent.com/hasherezade/paramkit/master/img/demo_invalid_param.png" alt="demo: print invalid param" >
 
