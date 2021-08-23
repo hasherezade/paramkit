@@ -217,6 +217,7 @@ namespace paramkit {
         //! Prints info about all the parameters. Optionally hilights the required ones that are missing.
         /**
         \param hilightMissing : if set, the required parameters that were not filled are printed in red.
+        \param filter : display only parameters similar to the given string
         */
         void info(bool hilightMissing, const std::string &filter="")
         {
