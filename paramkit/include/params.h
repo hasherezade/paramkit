@@ -75,12 +75,13 @@ namespace paramkit {
                 }
                 if (has_filter) {
                     util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
+                    color = (sim_type != util::SIM_NONE) ? MAKE_COLOR(RED, BLACK) : param_color;
                     if (sim_type == util::SIM_NONE) {
                         //try to find the keyword in the string description
                         sim_type = util::has_keyword(param->m_info, filter.substr(1));
+                        color = (sim_type != util::SIM_NONE) ? MAKE_COLOR(SILVER, DARK_RED) : param_color;
                     }
                     if (sim_type == util::SIM_NONE) continue;
-                    color = (sim_type != util::SIM_NONE) ? WARNING_COLOR : param_color;
                 }
 
                 printParamInColor(color, param->argStr);
