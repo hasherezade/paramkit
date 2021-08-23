@@ -1,4 +1,5 @@
 #include "pk_util.h"
+#include "strings_util.h"
 
 bool paramkit::is_hex(const char *buf, size_t len)
 {
@@ -33,7 +34,7 @@ bool paramkit::is_hex_with_prefix(const char *my_buf)
     if (len == 0) return false;
 
     if (len > hex_pattern_len) {
-        if (is_cstr_equal(my_buf, hex_pattern, hex_pattern_len)) {
+        if (util::is_cstr_equal(my_buf, hex_pattern, hex_pattern_len)) {
             if (!is_hex(my_buf + hex_pattern_len, len - hex_pattern_len)) return false;
             return true;
         }
@@ -64,7 +65,7 @@ long paramkit::get_number(const char *my_buf)
     long out = 0;
     const size_t min_length = 1; //tolerate number with at least 1 character
     if (len > hex_pattern_len) {
-        if (is_cstr_equal(my_buf, hex_pattern, hex_pattern_len)) {
+        if (util::is_cstr_equal(my_buf, hex_pattern, hex_pattern_len)) {
             if (!is_hex(my_buf + hex_pattern_len, min_length)) return 0;
 
             std::stringstream ss;
@@ -79,42 +80,6 @@ long paramkit::get_number(const char *my_buf)
     ss << std::dec << my_buf;
     ss >> out;
     return out;
-}
-
-bool paramkit::is_cstr_equal(char const *a, char const *b, const size_t max_len, bool ignoreCase)
-{
-    if (a == b) return true;
-    if (!a || !b) return false;
-    for (size_t i = 0; i < max_len; ++i) {
-        if (ignoreCase) {
-            if (tolower(a[i]) != tolower(b[i])) {
-                return false;
-            }
-        }
-        else {
-            if (a[i] != b[i]) {
-                return false;
-            }
-        }
-        if (a[i] == '\0') break;
-    }
-    return true;
-}
-
-bool paramkit::strequals(const std::string& a, const std::string& b, bool ignoreCase)
-{
-    size_t aLen = a.size();
-    if (b.size() != aLen) return false;
-
-    for (size_t i = 0; i < aLen; ++i) {
-        if (!ignoreCase) {
-            if (a[i] != b[i]) return false;
-        }
-        else {
-            if (tolower(a[i]) != tolower(b[i])) return false;
-        }
-    }
-    return true;
 }
 
 bool paramkit::get_console_color(HANDLE hConsole, int& color) {

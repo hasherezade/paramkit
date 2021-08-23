@@ -72,8 +72,15 @@ namespace paramkit {
         //! Returns true if the parameter is filled, false otherwise.
         virtual bool isSet() const = 0;
 
-        virtual std::string info() const {
+        virtual std::string info() const
+        {
             return m_info;
+        }
+
+        //! Prints the parameter using the given color. Appends the parameter switch to the name.
+        void printInColor(int color)
+        {
+            print_in_color(color, PARAM_SWITCH1 + this->argStr);
         }
 
     protected:
@@ -107,6 +114,7 @@ namespace paramkit {
         friend class ParamGroup;
     };
 
+    //! A comparator class for Param class
     class ParamCompare
     {
     public:

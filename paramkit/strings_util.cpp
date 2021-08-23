@@ -3,13 +3,49 @@
 #include <algorithm>
 #include <cstring>
 
+#define MIN(x,y) ((x) < (y) ? (x) : (y))
+
 std::string paramkit::util::to_lowercase(std::string str)
 {
     std::transform(str.begin(), str.end(), str.begin(), tolower);
     return str;
 }
 
-#define MIN(x,y) ((x) < (y) ? (x) : (y))
+bool paramkit::util::is_cstr_equal(char const *a, char const *b, const size_t max_len, bool ignoreCase)
+{
+    if (a == b) return true;
+    if (!a || !b) return false;
+    for (size_t i = 0; i < max_len; ++i) {
+        if (ignoreCase) {
+            if (tolower(a[i]) != tolower(b[i])) {
+                return false;
+            }
+        }
+        else {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        if (a[i] == '\0') break;
+    }
+    return true;
+}
+
+bool paramkit::util::strequals(const std::string& a, const std::string& b, bool ignoreCase)
+{
+    size_t aLen = a.size();
+    if (b.size() != aLen) return false;
+
+    for (size_t i = 0; i < aLen; ++i) {
+        if (!ignoreCase) {
+            if (a[i] != b[i]) return false;
+        }
+        else {
+            if (tolower(a[i]) != tolower(b[i])) return false;
+        }
+    }
+    return true;
+}
 
 size_t paramkit::util::levenshtein_distance(const char s1[], const char s2[])
 {

@@ -28,8 +28,10 @@ namespace paramkit {
     class Params {
     public:
         Params()
-            : generalGroup(nullptr)
+            : generalGroup(nullptr), 
+            paramHelp(PARAM_HELP2, false)
         {
+            paramHelp.m_info = "Print this help";
         }
 
         virtual ~Params()
@@ -109,7 +111,7 @@ namespace paramkit {
             std::map<std::string, Param*>::iterator itr;
             size_t printed = 0;
             if (countRequired() > 0) {
-                print_in_color(hdr_color, "Required: \n");
+                print_in_color(hdr_color, "Required:\n");
                 //Print Required
                 bool printGroupName = (countGroups(true, filter)) ? true : false;
                 if (paramGroups.size() > 0) {
@@ -126,7 +128,7 @@ namespace paramkit {
             }
             printed = 0;
             if (countOptional() > 0) {
-                print_in_color(hdr_color, "\nOptional: \n");
+                print_in_color(hdr_color, "\nOptional:\n");
                 //Print Optional
                 bool printGroupName = (countGroups(false, filter)) ? true : false;
                 if (paramGroups.size() > 0) {
@@ -141,9 +143,9 @@ namespace paramkit {
                     }
                 }
             }
-            print_in_color(hdr_color, "\nInfo: \n\n");
-            printParamInColor(param_color, PARAM_HELP2);
-            std::cout << " : " << "Print this help\n";
+            print_in_color(hdr_color, "\nInfo:\n");
+            paramHelp.printInColor(param_color);
+            paramHelp.printDesc();
         }
 
         //! Fills an IntParam defined by its name with the given value. If such parameter does not exist, or is not of the type IntParam, returns false. Otherwise returns true.
@@ -322,7 +324,9 @@ namespace paramkit {
                 if (!isSet(itr->first)) continue;
 
                 Param *param = itr->second;
-                printParamInColor(param_color, param->argStr);
+                if (!param) continue; //should never happen
+
+                param->printInColor(param_color);
                 std::cout << ": ";
                 std::cout << "\n\t" << std::hex << param->valToString() << "\n";
             }
@@ -417,6 +421,7 @@ namespace paramkit {
         }
 
         std::map<std::string, Param*> myParams;
+        BoolParam paramHelp;
         ParamGroup *generalGroup;
         std::map<Param*, ParamGroup*> paramToGroup;
         std::map<std::string, ParamGroup*> paramGroups;

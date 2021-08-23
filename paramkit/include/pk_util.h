@@ -22,9 +22,6 @@ namespace paramkit {
     bool is_number(const char* my_buf);
     long get_number(const char *my_buf);
 
-    bool is_cstr_equal(char const *a, char const *b, const size_t max_len, bool ignoreCase = true);
-    bool strequals(const std::string& a, const std::string& b, bool ignoreCase = true);
-
     bool get_console_color(HANDLE hConsole, int& color);
     void print_in_color(int color, const std::string &text);
 
@@ -63,10 +60,10 @@ namespace paramkit {
     bool loadBoolean(const T_CHAR *str1)
     {
         std::string str = to_string(str1);
-        if (strequals(str, "True") || strequals(str, "on") || strequals(str, "yes")) {
+        if (util::strequals(str, "True") || util::strequals(str, "on") || util::strequals(str, "yes")) {
             return true;
         }
-        if (strequals(str, "False") || strequals(str, "off") || strequals(str, "no")) {
+        if (util::strequals(str, "False") || util::strequals(str, "off") || util::strequals(str, "no")) {
             return false;
         }
         const int val = loadInt(str.c_str(), false);

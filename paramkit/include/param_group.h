@@ -17,14 +17,9 @@
 #include "strings_util.h"
 
 namespace paramkit {
-    
-    //! Prints the parameter using the given color. Appends the parameter switch to the name.
-    static void printParamInColor(int color, const std::string &text)
-    {
-        print_in_color(color, PARAM_SWITCH1 + text);
-    }
 
     //---
+    //! The class responsible for grouping parameters
     class ParamGroup {
     public:
         ParamGroup(const std::string& _name)
@@ -67,7 +62,7 @@ namespace paramkit {
                     if (sim_type == util::SIM_NONE) continue;
                 }
 
-                printParamInColor(color, param->argStr);
+                param->printInColor(color);
                 param->printDesc();
                 printed++;
             }
