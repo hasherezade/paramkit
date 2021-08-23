@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['warning_5fcolor_191',['WARNING_COLOR',['../params_8h.html#a3a8113b2321abda8238e8e1f41c6896b',1,'params.h']]],
-  ['white_192',['WHITE',['../term__colors_8h.html#a87b537f5fa5c109d3c05c13d6b18f382',1,'term_colors.h']]]
+  ['yellow_265',['YELLOW',['../term__colors_8h.html#abf681265909adf3d3e8116c93c0ba179',1,'term_colors.h']]],
+  ['yellow_5fon_5fblack_266',['YELLOW_ON_BLACK',['../term__colors_8h.html#a51f81624c8a900209617c4b7a0e97d50',1,'term_colors.h']]]
 ];

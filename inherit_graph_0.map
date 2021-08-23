@@ -1,8 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classparamkit_1_1_param.html" title="The base class of a parameter." alt="" coords="5,107,121,133"/>
-<area shape="rect" id="node2" href="$classparamkit_1_1_bool_param.html" title="A parameter storing a boolean value." alt="" coords="179,5,322,32"/>
-<area shape="rect" id="node3" href="$classparamkit_1_1_enum_param.html" title="A parameter storing an enum value." alt="" coords="176,56,325,83"/>
-<area shape="rect" id="node4" href="$classparamkit_1_1_int_param.html" title="A parameter storing an integer value." alt="" coords="185,107,316,133"/>
-<area shape="rect" id="node5" href="$classparamkit_1_1_string_param.html" title="A parameter storing a string value." alt="" coords="175,157,326,184"/>
-<area shape="rect" id="node6" href="$classparamkit_1_1_w_string_param.html" title="A parameter storing a wide string value." alt="" coords="169,208,332,235"/>
-</map>

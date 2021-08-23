@@ -82,6 +82,7 @@ $(function() {
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
+<code>#include &lt;set&gt;</code><br />
 <code>#include &quot;<a class="el" href="pk__util_8h_source.html">pk_util.h</a>&quot;</code><br />
 </div>
 <p><a href="param_8h_source.html">Go to the source code of this file.</a></p>
@@ -90,6 +91,8 @@ $(function() {
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html">paramkit::Param</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base class of a parameter.  <a href="classparamkit_1_1_param.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param_compare.html">paramkit::ParamCompare</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_int_param.html">paramkit::IntParam</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A parameter storing an integer value.  <a href="classparamkit_1_1_int_param.html#details">More...</a><br /></td></tr>
@@ -116,12 +119,54 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a14bbbc3854e5f93131e713b48ab28e6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="param_8h.html#a14bbbc3854e5f93131e713b48ab28e6b">PARAM_UNINITIALIZED</a>&#160;&#160;&#160;(-1)</td></tr>
 <tr class="separator:a14bbbc3854e5f93131e713b48ab28e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3329a29e6c49e487ea64dfcac664b39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="param_8h.html#ab3329a29e6c49e487ea64dfcac664b39">PARAM_SWITCH1</a>&#160;&#160;&#160;'/'</td></tr>
+<tr class="memdesc:ab3329a29e6c49e487ea64dfcac664b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">The switch used to recognize that the given string should be treated as a parameter (variant 1)  <a href="param_8h.html#ab3329a29e6c49e487ea64dfcac664b39">More...</a><br /></td></tr>
+<tr class="separator:ab3329a29e6c49e487ea64dfcac664b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf7be00146535eaa45882314261b292"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="param_8h.html#aeaf7be00146535eaa45882314261b292">PARAM_SWITCH2</a>&#160;&#160;&#160;'-'</td></tr>
+<tr class="memdesc:aeaf7be00146535eaa45882314261b292"><td class="mdescLeft">&#160;</td><td class="mdescRight">The switch used to recognize that the given string should be treated as a parameter (variant 2)  <a href="param_8h.html#aeaf7be00146535eaa45882314261b292">More...</a><br /></td></tr>
+<tr class="separator:aeaf7be00146535eaa45882314261b292"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Basic parameter types. </p>
 
 <p class="definition">Definition in file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ab3329a29e6c49e487ea64dfcac664b39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3329a29e6c49e487ea64dfcac664b39">&#9670;&nbsp;</a></span>PARAM_SWITCH1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PARAM_SWITCH1&#160;&#160;&#160;'/'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The switch used to recognize that the given string should be treated as a parameter (variant 1) </p>
+
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00020">20</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+
+</div>
+</div>
+<a id="aeaf7be00146535eaa45882314261b292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaf7be00146535eaa45882314261b292">&#9670;&nbsp;</a></span>PARAM_SWITCH2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PARAM_SWITCH2&#160;&#160;&#160;'-'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The switch used to recognize that the given string should be treated as a parameter (variant 2) </p>
+
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00021">21</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+
+</div>
+</div>
 <a id="a14bbbc3854e5f93131e713b48ab28e6b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14bbbc3854e5f93131e713b48ab28e6b">&#9670;&nbsp;</a></span>PARAM_UNINITIALIZED</h2>
 
@@ -134,7 +179,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00017">17</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00018">18</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>

@@ -1,4 +1,0 @@
-<map id="paramkit::Params::setIntValue" name="paramkit::Params::setIntValue">
-<area shape="rect" id="node1" title="Fills an IntParam defined by its name with the given value. If such parameter does not exist,..." alt="" coords="5,5,168,47"/>
-<area shape="rect" id="node2" href="$classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4" title="Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist." alt="" coords="216,13,401,39"/>
-</map>

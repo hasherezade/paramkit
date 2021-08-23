@@ -68,6 +68,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classparamkit_1_1_param-members.html">List of all members</a>  </div>
@@ -80,19 +81,6 @@ $(function() {
  <a href="classparamkit_1_1_param.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="param_8h_source.html">param.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for paramkit::Param:</div>
-<div class="dyncontent">
-<div class="center"><img src="classparamkit_1_1_param__inherit__graph.png" border="0" usemap="#aparamkit_1_1_param_inherit__map" alt="Inheritance graph"/></div>
-<map name="aparamkit_1_1_param_inherit__map" id="aparamkit_1_1_param_inherit__map">
-<area shape="rect" title="The base class of a parameter." alt="" coords="5,107,121,133"/>
-<area shape="rect" href="classparamkit_1_1_bool_param.html" title="A parameter storing a boolean value." alt="" coords="179,5,322,32"/>
-<area shape="rect" href="classparamkit_1_1_enum_param.html" title="A parameter storing an enum value." alt="" coords="176,56,325,83"/>
-<area shape="rect" href="classparamkit_1_1_int_param.html" title="A parameter storing an integer value." alt="" coords="185,107,316,133"/>
-<area shape="rect" href="classparamkit_1_1_string_param.html" title="A parameter storing a string value." alt="" coords="175,157,326,184"/>
-<area shape="rect" href="classparamkit_1_1_w_string_param.html" title="A parameter storing a wide string value." alt="" coords="169,208,332,235"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -120,6 +108,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acba6bbfc85401c6e7e0d72c7662f8f78"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#acba6bbfc85401c6e7e0d72c7662f8f78">info</a> () const</td></tr>
 <tr class="separator:acba6bbfc85401c6e7e0d72c7662f8f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a67ae64966a26486df579fcfa8488922d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a67ae64966a26486df579fcfa8488922d">printDesc</a> () const</td></tr>
+<tr class="memdesc:a67ae64966a26486df579fcfa8488922d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a formatted description of the parameter, including its unique name, type, and the info.  <a href="classparamkit_1_1_param.html#a67ae64966a26486df579fcfa8488922d">More...</a><br /></td></tr>
+<tr class="separator:a67ae64966a26486df579fcfa8488922d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a4e6b57cdf7b67f7a9fa65b8b5c05fd34"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a4e6b57cdf7b67f7a9fa65b8b5c05fd34">argStr</a></td></tr>
@@ -142,11 +136,15 @@ Protected Attributes</h2></td></tr>
 Friends</h2></td></tr>
 <tr class="memitem:a4dbbb91ef14d52c58acb5f3fd999d284"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a4dbbb91ef14d52c58acb5f3fd999d284">Params</a></td></tr>
 <tr class="separator:a4dbbb91ef14d52c58acb5f3fd999d284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1652049eac0efc39fc69bd1899e68fe"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#ae1652049eac0efc39fc69bd1899e68fe">ParamCompare</a></td></tr>
+<tr class="separator:ae1652049eac0efc39fc69bd1899e68fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae76fb4c39b4a1aa43ce272304e8ce90a"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#ae76fb4c39b4a1aa43ce272304e8ce90a">ParamGroup</a></td></tr>
+<tr class="separator:ae76fb4c39b4a1aa43ce272304e8ce90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base class of a parameter. </p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00022">22</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00026">26</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab040513c32c647c7740dfe29204e7d1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab040513c32c647c7740dfe29204e7d1c">&#9670;&nbsp;</a></span>Param() <span class="overload">[1/2]</span></h2>
@@ -191,7 +189,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00030">30</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00034">34</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -245,7 +243,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00043">43</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00047">47</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -275,7 +273,7 @@ Friends</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classparamkit_1_1_enum_param.html#afa69ae3b1918d7a8c67720659d628028">paramkit::EnumParam</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00071">71</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00075">75</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -366,16 +364,36 @@ Friends</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classparamkit_1_1_w_string_param.html#a09b948dd149b245319ec08ebb83e458b">paramkit::WStringParam</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00061">61</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classparamkit_1_1_param_acf0c38591dd3530d02eddc4b4dc9340e_cgraph.png" border="0" usemap="#aclassparamkit_1_1_param_acf0c38591dd3530d02eddc4b4dc9340e_cgraph" alt=""/></div>
-<map name="aclassparamkit_1_1_param_acf0c38591dd3530d02eddc4b4dc9340e_cgraph" id="aclassparamkit_1_1_param_acf0c38591dd3530d02eddc4b4dc9340e_cgraph">
-<area shape="rect" title="Parses the parameter from the given wide string." alt="" coords="5,5,160,32"/>
-<area shape="rect" href="classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817" title="Parses the parameter from the given string." alt="" coords="208,5,363,32"/>
-</map>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00065">65</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+
 </div>
+</div>
+<a id="a67ae64966a26486df579fcfa8488922d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67ae64966a26486df579fcfa8488922d">&#9670;&nbsp;</a></span>printDesc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void paramkit::Param::printDesc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prints a formatted description of the parameter, including its unique name, type, and the info. </p>
+
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00082">82</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -438,6 +456,54 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ae1652049eac0efc39fc69bd1899e68fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1652049eac0efc39fc69bd1899e68fe">&#9670;&nbsp;</a></span>ParamCompare</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classparamkit_1_1_param_compare.html">ParamCompare</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00106">106</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+
+</div>
+</div>
+<a id="ae76fb4c39b4a1aa43ce272304e8ce90a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae76fb4c39b4a1aa43ce272304e8ce90a">&#9670;&nbsp;</a></span>ParamGroup</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classparamkit_1_1_param_group.html">ParamGroup</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00107">107</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+
+</div>
+</div>
 <a id="a4dbbb91ef14d52c58acb5f3fd999d284"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4dbbb91ef14d52c58acb5f3fd999d284">&#9670;&nbsp;</a></span>Params</h2>
 
@@ -458,7 +524,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00084">84</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00105">105</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -485,7 +551,7 @@ Here is the call graph for this function:</div>
 
 <p>a unique name of the parameter </p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00076">76</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00097">97</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -511,7 +577,7 @@ Here is the call graph for this function:</div>
 
 <p>a flag indicating if this parameter is required </p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00081">81</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00102">102</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -537,7 +603,7 @@ Here is the call graph for this function:</div>
 
 <p>an information about the the parameter's purpose </p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00079">79</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00100">100</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -563,7 +629,7 @@ Here is the call graph for this function:</div>
 
 <p>a flag indicating if this parameter needs to be followed by a value </p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00082">82</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00103">103</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -589,7 +655,7 @@ Here is the call graph for this function:</div>
 
 <p>a description of the type of the parameter: what type of values are allowed </p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00078">78</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00099">99</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>

@@ -83,8 +83,10 @@ $(function() {
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &quot;<a class="el" href="pk__util_8h_source.html">pk_util.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="term__colors_8h_source.html">term_colors.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="color__scheme_8h_source.html">color_scheme.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="param_8h_source.html">param.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="strings__util_8h_source.html">strings_util.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="param__group_8h_source.html">param_group.h</a>&quot;</code><br />
 </div>
 <p><a href="params_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -101,62 +103,16 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a3a8113b2321abda8238e8e1f41c6896b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="params_8h.html#a3a8113b2321abda8238e8e1f41c6896b">WARNING_COLOR</a>&#160;&#160;&#160;<a class="el" href="term__colors_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a></td></tr>
-<tr class="separator:a3a8113b2321abda8238e8e1f41c6896b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb6800061050ee2482f17c28ed97604f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="params_8h.html#afb6800061050ee2482f17c28ed97604f">HILIGHTED_COLOR</a>&#160;&#160;&#160;<a class="el" href="term__colors_8h.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a></td></tr>
-<tr class="separator:afb6800061050ee2482f17c28ed97604f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f9a6cfafdc421ae24bd97a909131538"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="params_8h.html#a8f9a6cfafdc421ae24bd97a909131538">HEADER_COLOR</a>&#160;&#160;&#160;<a class="el" href="term__colors_8h.html#abf681265909adf3d3e8116c93c0ba179">YELLOW</a></td></tr>
-<tr class="separator:a8f9a6cfafdc421ae24bd97a909131538"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bba3b9a5308d50da5c0dc45dec7b932"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="params_8h.html#a1bba3b9a5308d50da5c0dc45dec7b932">SEPARATOR_COLOR</a>&#160;&#160;&#160;<a class="el" href="term__colors_8h.html#ab2baea56ece91306020afd6d77fd19f9">BROWN</a></td></tr>
-<tr class="separator:a1bba3b9a5308d50da5c0dc45dec7b932"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33a8ed922344c5a752a06edd6250c206"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="params_8h.html#a33a8ed922344c5a752a06edd6250c206">PARAM_HELP1</a>&#160;&#160;&#160;&quot;?&quot;</td></tr>
 <tr class="separator:a33a8ed922344c5a752a06edd6250c206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d5b269b3839d4e093dfdaa82760d4f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="params_8h.html#a2d5b269b3839d4e093dfdaa82760d4f7">PARAM_HELP2</a>&#160;&#160;&#160;&quot;help&quot;</td></tr>
 <tr class="separator:a2d5b269b3839d4e093dfdaa82760d4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3329a29e6c49e487ea64dfcac664b39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="params_8h.html#ab3329a29e6c49e487ea64dfcac664b39">PARAM_SWITCH1</a>&#160;&#160;&#160;'/'</td></tr>
-<tr class="memdesc:ab3329a29e6c49e487ea64dfcac664b39"><td class="mdescLeft">&#160;</td><td class="mdescRight">The switch used to recognize that the given string should be treated as a parameter (variant 1)  <a href="params_8h.html#ab3329a29e6c49e487ea64dfcac664b39">More...</a><br /></td></tr>
-<tr class="separator:ab3329a29e6c49e487ea64dfcac664b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf7be00146535eaa45882314261b292"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="params_8h.html#aeaf7be00146535eaa45882314261b292">PARAM_SWITCH2</a>&#160;&#160;&#160;'-'</td></tr>
-<tr class="memdesc:aeaf7be00146535eaa45882314261b292"><td class="mdescLeft">&#160;</td><td class="mdescRight">The switch used to recognize that the given string should be treated as a parameter (variant 2)  <a href="params_8h.html#aeaf7be00146535eaa45882314261b292">More...</a><br /></td></tr>
-<tr class="separator:aeaf7be00146535eaa45882314261b292"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The parameters container. </p>
 
 <p class="definition">Definition in file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a8f9a6cfafdc421ae24bd97a909131538"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f9a6cfafdc421ae24bd97a909131538">&#9670;&nbsp;</a></span>HEADER_COLOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define HEADER_COLOR&#160;&#160;&#160;<a class="el" href="term__colors_8h.html#abf681265909adf3d3e8116c93c0ba179">YELLOW</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00022">22</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
-
-</div>
-</div>
-<a id="afb6800061050ee2482f17c28ed97604f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb6800061050ee2482f17c28ed97604f">&#9670;&nbsp;</a></span>HILIGHTED_COLOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define HILIGHTED_COLOR&#160;&#160;&#160;<a class="el" href="term__colors_8h.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00020">20</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
-
-</div>
-</div>
 <a id="a33a8ed922344c5a752a06edd6250c206"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33a8ed922344c5a752a06edd6250c206">&#9670;&nbsp;</a></span>PARAM_HELP1</h2>
 
@@ -169,7 +125,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00026">26</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00022">22</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 
 </div>
 </div>
@@ -185,75 +141,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00027">27</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
-
-</div>
-</div>
-<a id="ab3329a29e6c49e487ea64dfcac664b39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3329a29e6c49e487ea64dfcac664b39">&#9670;&nbsp;</a></span>PARAM_SWITCH1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PARAM_SWITCH1&#160;&#160;&#160;'/'</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The switch used to recognize that the given string should be treated as a parameter (variant 1) </p>
-
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00029">29</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
-
-</div>
-</div>
-<a id="aeaf7be00146535eaa45882314261b292"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaf7be00146535eaa45882314261b292">&#9670;&nbsp;</a></span>PARAM_SWITCH2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PARAM_SWITCH2&#160;&#160;&#160;'-'</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The switch used to recognize that the given string should be treated as a parameter (variant 2) </p>
-
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00030">30</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
-
-</div>
-</div>
-<a id="a1bba3b9a5308d50da5c0dc45dec7b932"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bba3b9a5308d50da5c0dc45dec7b932">&#9670;&nbsp;</a></span>SEPARATOR_COLOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SEPARATOR_COLOR&#160;&#160;&#160;<a class="el" href="term__colors_8h.html#ab2baea56ece91306020afd6d77fd19f9">BROWN</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 <p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00023">23</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
-
-</div>
-</div>
-<a id="a3a8113b2321abda8238e8e1f41c6896b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a8113b2321abda8238e8e1f41c6896b">&#9670;&nbsp;</a></span>WARNING_COLOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WARNING_COLOR&#160;&#160;&#160;<a class="el" href="term__colors_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="params_8h_source.html#l00019">19</a> of file <a class="el" href="params_8h_source.html">params.h</a>.</p>
 
 </div>
 </div>

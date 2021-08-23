@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['header_5fcolor_177',['HEADER_COLOR',['../params_8h.html#a8f9a6cfafdc421ae24bd97a909131538',1,'params.h']]],
-  ['hilighted_5fcolor_178',['HILIGHTED_COLOR',['../params_8h.html#afb6800061050ee2482f17c28ed97604f',1,'params.h']]]
+  ['lime_252',['LIME',['../term__colors_8h.html#a46019a1f2c10603a54b6cbb19cbf3c21',1,'term_colors.h']]]
 ];

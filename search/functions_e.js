@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eparams_151',['~Params',['../classparamkit_1_1_params.html#ada6b1eebc4e96194b3bd93d28e4a6aec',1,'paramkit::Params']]]
+  ['wstringparam_207',['WStringParam',['../classparamkit_1_1_w_string_param.html#a8d698d3c0cf945c9c951a52135ab0ec9',1,'paramkit::WStringParam']]]
 ];

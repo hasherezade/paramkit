@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ishex_156',['isHex',['../classparamkit_1_1_int_param.html#a63d53fe7cf5de8ed45e34f3432c55043',1,'paramkit::IntParam']]],
-  ['isrequired_157',['isRequired',['../classparamkit_1_1_param.html#a590c02e349942943bd40304a7291c5ef',1,'paramkit::Param']]]
+  ['generalgroup_214',['generalGroup',['../classparamkit_1_1_params.html#a9915b67bf61b47d34593c0c39a8e495c',1,'paramkit::Params']]]
 ];
