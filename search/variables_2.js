@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['generalgroup_214',['generalGroup',['../classparamkit_1_1_params.html#a9915b67bf61b47d34593c0c39a8e495c',1,'paramkit::Params']]]
+  ['isrequired_80',['isRequired',['../classparamkit_1_1_param.html#a590c02e349942943bd40304a7291c5ef',1,'paramkit::Param']]]
 ];

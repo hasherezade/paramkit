@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespaceparamkit.html">paramkit</a></li><li class="navelem"><a class="el" href="classparamkit_1_1_param.html">Param</a></li>  </ul>
+<li class="navelem"><b>paramkit</b></li><li class="navelem"><a class="el" href="classparamkit_1_1_param.html">Param</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -81,6 +81,19 @@ $(function() {
  <a href="classparamkit_1_1_param.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="param_8h_source.html">param.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for paramkit::Param:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classparamkit_1_1_param.png" usemap="#paramkit::Param_map" alt=""/>
+  <map id="paramkit::Param_map" name="paramkit::Param_map">
+<area href="classparamkit_1_1_bool_param.html" title="A parameter storing a boolean value." alt="paramkit::BoolParam" shape="rect" coords="0,56,145,80"/>
+<area href="classparamkit_1_1_enum_param.html" title="A parameter storing an enum value." alt="paramkit::EnumParam" shape="rect" coords="155,56,300,80"/>
+<area href="classparamkit_1_1_int_param.html" title="A parameter storing an integer value." alt="paramkit::IntParam" shape="rect" coords="310,56,455,80"/>
+<area href="classparamkit_1_1_string_param.html" title="A parameter storing a string value." alt="paramkit::StringParam" shape="rect" coords="465,56,610,80"/>
+<area href="classparamkit_1_1_w_string_param.html" title="A parameter storing a wide string value." alt="paramkit::WStringParam" shape="rect" coords="620,56,765,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -90,61 +103,74 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae4fd20105cfc9be28dd6a9893c100f9f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#ae4fd20105cfc9be28dd6a9893c100f9f">Param</a> (const std::string &amp;_argStr, const std::string &amp;_typeDescStr, bool _isRequired)</td></tr>
 <tr class="memdesc:ae4fd20105cfc9be28dd6a9893c100f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor of a parameter.  <a href="classparamkit_1_1_param.html#ae4fd20105cfc9be28dd6a9893c100f9f">More...</a><br /></td></tr>
 <tr class="separator:ae4fd20105cfc9be28dd6a9893c100f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5747a0fd4e5cba55ffbd62eeb5195bfe"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a5747a0fd4e5cba55ffbd62eeb5195bfe">valToString</a> () const =0</td></tr>
-<tr class="memdesc:a5747a0fd4e5cba55ffbd62eeb5195bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string representation of the parameter's value.  <a href="classparamkit_1_1_param.html#a5747a0fd4e5cba55ffbd62eeb5195bfe">More...</a><br /></td></tr>
+<tr class="memitem:a5747a0fd4e5cba55ffbd62eeb5195bfe"><td class="memItemLeft" align="right" valign="top"><a id="a5747a0fd4e5cba55ffbd62eeb5195bfe"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a5747a0fd4e5cba55ffbd62eeb5195bfe">valToString</a> () const =0</td></tr>
+<tr class="memdesc:a5747a0fd4e5cba55ffbd62eeb5195bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string representation of the parameter's value. <br /></td></tr>
 <tr class="separator:a5747a0fd4e5cba55ffbd62eeb5195bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bb8d38a31d11b4c23246c2819ab993a"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a">type</a> () const =0</td></tr>
-<tr class="memdesc:a1bb8d38a31d11b4c23246c2819ab993a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string representation of the parameter's type.  <a href="classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a">More...</a><br /></td></tr>
+<tr class="memitem:a1bb8d38a31d11b4c23246c2819ab993a"><td class="memItemLeft" align="right" valign="top"><a id="a1bb8d38a31d11b4c23246c2819ab993a"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a">type</a> () const =0</td></tr>
+<tr class="memdesc:a1bb8d38a31d11b4c23246c2819ab993a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string representation of the parameter's type. <br /></td></tr>
 <tr class="separator:a1bb8d38a31d11b4c23246c2819ab993a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e4533af035e30e87a429fe9a19d6817"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817">parse</a> (const char *arg)=0</td></tr>
-<tr class="memdesc:a0e4533af035e30e87a429fe9a19d6817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the parameter from the given string.  <a href="classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817">More...</a><br /></td></tr>
+<tr class="memitem:a0e4533af035e30e87a429fe9a19d6817"><td class="memItemLeft" align="right" valign="top"><a id="a0e4533af035e30e87a429fe9a19d6817"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817">parse</a> (const char *arg)=0</td></tr>
+<tr class="memdesc:a0e4533af035e30e87a429fe9a19d6817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the parameter from the given string. <br /></td></tr>
 <tr class="separator:a0e4533af035e30e87a429fe9a19d6817"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf0c38591dd3530d02eddc4b4dc9340e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#acf0c38591dd3530d02eddc4b4dc9340e">parse</a> (const wchar_t *arg)</td></tr>
-<tr class="memdesc:acf0c38591dd3530d02eddc4b4dc9340e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the parameter from the given wide string.  <a href="classparamkit_1_1_param.html#acf0c38591dd3530d02eddc4b4dc9340e">More...</a><br /></td></tr>
+<tr class="memitem:acf0c38591dd3530d02eddc4b4dc9340e"><td class="memItemLeft" align="right" valign="top"><a id="acf0c38591dd3530d02eddc4b4dc9340e"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#acf0c38591dd3530d02eddc4b4dc9340e">parse</a> (const wchar_t *arg)</td></tr>
+<tr class="memdesc:acf0c38591dd3530d02eddc4b4dc9340e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the parameter from the given wide string. <br /></td></tr>
 <tr class="separator:acf0c38591dd3530d02eddc4b4dc9340e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fc6876508d33f32620ffe396aaf4edd"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd">isSet</a> () const =0</td></tr>
-<tr class="memdesc:a8fc6876508d33f32620ffe396aaf4edd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the parameter is filled, false otherwise.  <a href="classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd">More...</a><br /></td></tr>
+<tr class="memitem:a8fc6876508d33f32620ffe396aaf4edd"><td class="memItemLeft" align="right" valign="top"><a id="a8fc6876508d33f32620ffe396aaf4edd"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd">isSet</a> () const =0</td></tr>
+<tr class="memdesc:a8fc6876508d33f32620ffe396aaf4edd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the parameter is filled, false otherwise. <br /></td></tr>
 <tr class="separator:a8fc6876508d33f32620ffe396aaf4edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acba6bbfc85401c6e7e0d72c7662f8f78"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#acba6bbfc85401c6e7e0d72c7662f8f78">info</a> () const</td></tr>
+<tr class="memitem:acba6bbfc85401c6e7e0d72c7662f8f78"><td class="memItemLeft" align="right" valign="top"><a id="acba6bbfc85401c6e7e0d72c7662f8f78"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>info</b> () const</td></tr>
 <tr class="separator:acba6bbfc85401c6e7e0d72c7662f8f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a67ae64966a26486df579fcfa8488922d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a67ae64966a26486df579fcfa8488922d">printDesc</a> () const</td></tr>
-<tr class="memdesc:a67ae64966a26486df579fcfa8488922d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a formatted description of the parameter, including its unique name, type, and the info.  <a href="classparamkit_1_1_param.html#a67ae64966a26486df579fcfa8488922d">More...</a><br /></td></tr>
+<tr class="memitem:a67ae64966a26486df579fcfa8488922d"><td class="memItemLeft" align="right" valign="top"><a id="a67ae64966a26486df579fcfa8488922d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a67ae64966a26486df579fcfa8488922d">printDesc</a> () const</td></tr>
+<tr class="memdesc:a67ae64966a26486df579fcfa8488922d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a formatted description of the parameter, including its unique name, type, and the info. <br /></td></tr>
 <tr class="separator:a67ae64966a26486df579fcfa8488922d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a4e6b57cdf7b67f7a9fa65b8b5c05fd34"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a4e6b57cdf7b67f7a9fa65b8b5c05fd34">argStr</a></td></tr>
-<tr class="memdesc:a4e6b57cdf7b67f7a9fa65b8b5c05fd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">a unique name of the parameter  <a href="classparamkit_1_1_param.html#a4e6b57cdf7b67f7a9fa65b8b5c05fd34">More...</a><br /></td></tr>
+<tr class="memitem:a4e6b57cdf7b67f7a9fa65b8b5c05fd34"><td class="memItemLeft" align="right" valign="top"><a id="a4e6b57cdf7b67f7a9fa65b8b5c05fd34"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a4e6b57cdf7b67f7a9fa65b8b5c05fd34">argStr</a></td></tr>
+<tr class="memdesc:a4e6b57cdf7b67f7a9fa65b8b5c05fd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">a unique name of the parameter <br /></td></tr>
 <tr class="separator:a4e6b57cdf7b67f7a9fa65b8b5c05fd34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1e4ef2fdf9fcb7cbd64f161ae19a453"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#ae1e4ef2fdf9fcb7cbd64f161ae19a453">typeDescStr</a></td></tr>
-<tr class="memdesc:ae1e4ef2fdf9fcb7cbd64f161ae19a453"><td class="mdescLeft">&#160;</td><td class="mdescRight">a description of the type of the parameter: what type of values are allowed  <a href="classparamkit_1_1_param.html#ae1e4ef2fdf9fcb7cbd64f161ae19a453">More...</a><br /></td></tr>
+<tr class="memitem:ae1e4ef2fdf9fcb7cbd64f161ae19a453"><td class="memItemLeft" align="right" valign="top"><a id="ae1e4ef2fdf9fcb7cbd64f161ae19a453"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#ae1e4ef2fdf9fcb7cbd64f161ae19a453">typeDescStr</a></td></tr>
+<tr class="memdesc:ae1e4ef2fdf9fcb7cbd64f161ae19a453"><td class="mdescLeft">&#160;</td><td class="mdescRight">a description of the type of the parameter: what type of values are allowed <br /></td></tr>
 <tr class="separator:ae1e4ef2fdf9fcb7cbd64f161ae19a453"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac443d229529f0ad42eb9ce624f293f9f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#ac443d229529f0ad42eb9ce624f293f9f">m_info</a></td></tr>
-<tr class="memdesc:ac443d229529f0ad42eb9ce624f293f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">an information about the the parameter's purpose  <a href="classparamkit_1_1_param.html#ac443d229529f0ad42eb9ce624f293f9f">More...</a><br /></td></tr>
+<tr class="memitem:ac443d229529f0ad42eb9ce624f293f9f"><td class="memItemLeft" align="right" valign="top"><a id="ac443d229529f0ad42eb9ce624f293f9f"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#ac443d229529f0ad42eb9ce624f293f9f">m_info</a></td></tr>
+<tr class="memdesc:ac443d229529f0ad42eb9ce624f293f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">an information about the the parameter's purpose <br /></td></tr>
 <tr class="separator:ac443d229529f0ad42eb9ce624f293f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a590c02e349942943bd40304a7291c5ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a590c02e349942943bd40304a7291c5ef">isRequired</a></td></tr>
-<tr class="memdesc:a590c02e349942943bd40304a7291c5ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">a flag indicating if this parameter is required  <a href="classparamkit_1_1_param.html#a590c02e349942943bd40304a7291c5ef">More...</a><br /></td></tr>
+<tr class="memitem:a590c02e349942943bd40304a7291c5ef"><td class="memItemLeft" align="right" valign="top"><a id="a590c02e349942943bd40304a7291c5ef"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a590c02e349942943bd40304a7291c5ef">isRequired</a></td></tr>
+<tr class="memdesc:a590c02e349942943bd40304a7291c5ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">a flag indicating if this parameter is required <br /></td></tr>
 <tr class="separator:a590c02e349942943bd40304a7291c5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8116522f1c94007b655c1ea3766795f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#aa8116522f1c94007b655c1ea3766795f">requiredArg</a></td></tr>
-<tr class="memdesc:aa8116522f1c94007b655c1ea3766795f"><td class="mdescLeft">&#160;</td><td class="mdescRight">a flag indicating if this parameter needs to be followed by a value  <a href="classparamkit_1_1_param.html#aa8116522f1c94007b655c1ea3766795f">More...</a><br /></td></tr>
+<tr class="memitem:aa8116522f1c94007b655c1ea3766795f"><td class="memItemLeft" align="right" valign="top"><a id="aa8116522f1c94007b655c1ea3766795f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#aa8116522f1c94007b655c1ea3766795f">requiredArg</a></td></tr>
+<tr class="memdesc:aa8116522f1c94007b655c1ea3766795f"><td class="mdescLeft">&#160;</td><td class="mdescRight">a flag indicating if this parameter needs to be followed by a value <br /></td></tr>
 <tr class="separator:aa8116522f1c94007b655c1ea3766795f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a4dbbb91ef14d52c58acb5f3fd999d284"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a4dbbb91ef14d52c58acb5f3fd999d284">Params</a></td></tr>
+<tr class="memitem:a4dbbb91ef14d52c58acb5f3fd999d284"><td class="memItemLeft" align="right" valign="top"><a id="a4dbbb91ef14d52c58acb5f3fd999d284"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>Params</b></td></tr>
 <tr class="separator:a4dbbb91ef14d52c58acb5f3fd999d284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1652049eac0efc39fc69bd1899e68fe"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#ae1652049eac0efc39fc69bd1899e68fe">ParamCompare</a></td></tr>
+<tr class="memitem:ae1652049eac0efc39fc69bd1899e68fe"><td class="memItemLeft" align="right" valign="top"><a id="ae1652049eac0efc39fc69bd1899e68fe"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>ParamCompare</b></td></tr>
 <tr class="separator:ae1652049eac0efc39fc69bd1899e68fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae76fb4c39b4a1aa43ce272304e8ce90a"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#ae76fb4c39b4a1aa43ce272304e8ce90a">ParamGroup</a></td></tr>
+<tr class="memitem:ae76fb4c39b4a1aa43ce272304e8ce90a"><td class="memItemLeft" align="right" valign="top"><a id="ae76fb4c39b4a1aa43ce272304e8ce90a"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>ParamGroup</b></td></tr>
 <tr class="separator:ae76fb4c39b4a1aa43ce272304e8ce90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The base class of a parameter. </p>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00026">26</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab040513c32c647c7740dfe29204e7d1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab040513c32c647c7740dfe29204e7d1c">&#9670;&nbsp;</a></span>Param() <span class="overload">[1/2]</span></h2>
@@ -188,8 +214,6 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00034">34</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -242,420 +266,6 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00047">47</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="acba6bbfc85401c6e7e0d72c7662f8f78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acba6bbfc85401c6e7e0d72c7662f8f78">&#9670;&nbsp;</a></span>info()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual std::string paramkit::Param::info </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="classparamkit_1_1_enum_param.html#afa69ae3b1918d7a8c67720659d628028">paramkit::EnumParam</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00075">75</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<a id="a8fc6876508d33f32620ffe396aaf4edd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fc6876508d33f32620ffe396aaf4edd">&#9670;&nbsp;</a></span>isSet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool paramkit::Param::isSet </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if the parameter is filled, false otherwise. </p>
-
-<p>Implemented in <a class="el" href="classparamkit_1_1_enum_param.html#a8b79fadc43e51775bf56806921f0323c">paramkit::EnumParam</a>, <a class="el" href="classparamkit_1_1_bool_param.html#a179eeb3b893412b9350f149e359f65de">paramkit::BoolParam</a>, <a class="el" href="classparamkit_1_1_w_string_param.html#aa03b0c4886a7a58899590da48ba84a5a">paramkit::WStringParam</a>, <a class="el" href="classparamkit_1_1_string_param.html#aa69cefa23d22474b7eca75fceaf3d830">paramkit::StringParam</a>, and <a class="el" href="classparamkit_1_1_int_param.html#ab4c66081fe8ae7f375a44207f312e2f5">paramkit::IntParam</a>.</p>
-
-</div>
-</div>
-<a id="a0e4533af035e30e87a429fe9a19d6817"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e4533af035e30e87a429fe9a19d6817">&#9670;&nbsp;</a></span>parse() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool paramkit::Param::parse </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>arg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Parses the parameter from the given string. </p>
-
-<p>Implemented in <a class="el" href="classparamkit_1_1_bool_param.html#aa592684bcf66bc26222ed43654533655">paramkit::BoolParam</a>, <a class="el" href="classparamkit_1_1_enum_param.html#a46de8dca085646181b547c37d95f9c9e">paramkit::EnumParam</a>, <a class="el" href="classparamkit_1_1_w_string_param.html#a5c17ee169f5b2206f08735ad69b7cd56">paramkit::WStringParam</a>, <a class="el" href="classparamkit_1_1_string_param.html#a396b748812eca2f2e28cc04c5da6370a">paramkit::StringParam</a>, and <a class="el" href="classparamkit_1_1_int_param.html#a1541d103bb3c0600631a1294d5e3c017">paramkit::IntParam</a>.</p>
-
-</div>
-</div>
-<a id="acf0c38591dd3530d02eddc4b4dc9340e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf0c38591dd3530d02eddc4b4dc9340e">&#9670;&nbsp;</a></span>parse() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool paramkit::Param::parse </td>
-          <td>(</td>
-          <td class="paramtype">const wchar_t *&#160;</td>
-          <td class="paramname"><em>arg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Parses the parameter from the given wide string. </p>
-
-<p>Reimplemented in <a class="el" href="classparamkit_1_1_w_string_param.html#a09b948dd149b245319ec08ebb83e458b">paramkit::WStringParam</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00065">65</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<a id="a67ae64966a26486df579fcfa8488922d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67ae64966a26486df579fcfa8488922d">&#9670;&nbsp;</a></span>printDesc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void paramkit::Param::printDesc </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Prints a formatted description of the parameter, including its unique name, type, and the info. </p>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00082">82</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<a id="a1bb8d38a31d11b4c23246c2819ab993a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bb8d38a31d11b4c23246c2819ab993a">&#9670;&nbsp;</a></span>type()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual std::string paramkit::Param::type </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the string representation of the parameter's type. </p>
-
-<p>Implemented in <a class="el" href="classparamkit_1_1_enum_param.html#a3c98481fbc814d4cda90b1ee86a4b784">paramkit::EnumParam</a>, <a class="el" href="classparamkit_1_1_bool_param.html#a4603afb7b47a0079be3fdd5d58e7a47f">paramkit::BoolParam</a>, <a class="el" href="classparamkit_1_1_w_string_param.html#a46642c73f5b3191ea0970708e6a8efed">paramkit::WStringParam</a>, <a class="el" href="classparamkit_1_1_string_param.html#a81d60fe6bc3e864d345fa91b41697902">paramkit::StringParam</a>, and <a class="el" href="classparamkit_1_1_int_param.html#add37b4b78cd3d60b31e79ffa2ec4db3a">paramkit::IntParam</a>.</p>
-
-</div>
-</div>
-<a id="a5747a0fd4e5cba55ffbd62eeb5195bfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5747a0fd4e5cba55ffbd62eeb5195bfe">&#9670;&nbsp;</a></span>valToString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual std::string paramkit::Param::valToString </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the string representation of the parameter's value. </p>
-
-<p>Implemented in <a class="el" href="classparamkit_1_1_enum_param.html#a583ba00f6a91de9eba3ee546cf14cbb4">paramkit::EnumParam</a>, <a class="el" href="classparamkit_1_1_bool_param.html#a91926d41d5ed4b4999ff7ebdf36e0d9c">paramkit::BoolParam</a>, <a class="el" href="classparamkit_1_1_w_string_param.html#a1b20c047ef1368d70561b0bbeb3ccca5">paramkit::WStringParam</a>, <a class="el" href="classparamkit_1_1_string_param.html#a533b3fc5bb7d1fc0cae8c6aadc719d5f">paramkit::StringParam</a>, and <a class="el" href="classparamkit_1_1_int_param.html#a825664a80e0fcd54c6928b712ac73720">paramkit::IntParam</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="ae1652049eac0efc39fc69bd1899e68fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1652049eac0efc39fc69bd1899e68fe">&#9670;&nbsp;</a></span>ParamCompare</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="classparamkit_1_1_param_compare.html">ParamCompare</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00106">106</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<a id="ae76fb4c39b4a1aa43ce272304e8ce90a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae76fb4c39b4a1aa43ce272304e8ce90a">&#9670;&nbsp;</a></span>ParamGroup</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="classparamkit_1_1_param_group.html">ParamGroup</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00107">107</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<a id="a4dbbb91ef14d52c58acb5f3fd999d284"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dbbb91ef14d52c58acb5f3fd999d284">&#9670;&nbsp;</a></span>Params</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="classparamkit_1_1_params.html">Params</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00105">105</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a4e6b57cdf7b67f7a9fa65b8b5c05fd34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e6b57cdf7b67f7a9fa65b8b5c05fd34">&#9670;&nbsp;</a></span>argStr</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string paramkit::Param::argStr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>a unique name of the parameter </p>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00097">97</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<a id="a590c02e349942943bd40304a7291c5ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a590c02e349942943bd40304a7291c5ef">&#9670;&nbsp;</a></span>isRequired</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool paramkit::Param::isRequired</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>a flag indicating if this parameter is required </p>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00102">102</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<a id="ac443d229529f0ad42eb9ce624f293f9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac443d229529f0ad42eb9ce624f293f9f">&#9670;&nbsp;</a></span>m_info</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string paramkit::Param::m_info</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>an information about the the parameter's purpose </p>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00100">100</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<a id="aa8116522f1c94007b655c1ea3766795f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8116522f1c94007b655c1ea3766795f">&#9670;&nbsp;</a></span>requiredArg</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool paramkit::Param::requiredArg</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>a flag indicating if this parameter needs to be followed by a value </p>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00103">103</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
-
-</div>
-</div>
-<a id="ae1e4ef2fdf9fcb7cbd64f161ae19a453"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1e4ef2fdf9fcb7cbd64f161ae19a453">&#9670;&nbsp;</a></span>typeDescStr</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string paramkit::Param::typeDescStr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>a description of the type of the parameter: what type of values are allowed </p>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00099">99</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
