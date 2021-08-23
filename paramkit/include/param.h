@@ -109,9 +109,8 @@ namespace paramkit {
     public:
         bool operator()(Param* param1, Param* param2) const
         {
-            if (param1 == param2) return 0;
-            if (!param1) return 1;
-            if (!param2) return -1;
+            if (param1 == param2) return true;
+            if (!param1 || !param2) return false;
             bool val = ((param1->argStr.compare(param2->argStr) < 0));
             return val;
         }
