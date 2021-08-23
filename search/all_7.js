@@ -3,7 +3,7 @@ var searchData=
   ['inactive_5fcolor_40',['INACTIVE_COLOR',['../namespaceparamkit.html#a74323087eebbb1b70d76929df38d7724',1,'paramkit']]],
   ['info_41',['info',['../classparamkit_1_1_param.html#acba6bbfc85401c6e7e0d72c7662f8f78',1,'paramkit::Param::info()'],['../classparamkit_1_1_enum_param.html#afa69ae3b1918d7a8c67720659d628028',1,'paramkit::EnumParam::info()'],['../classparamkit_1_1_params.html#a6782fd446c62c74009464a9efc820058',1,'paramkit::Params::info()']]],
   ['intparam_42',['IntParam',['../classparamkit_1_1_int_param.html#a6e9ecf2cece1a6de5a73899f4ee164f9',1,'paramkit::IntParam::IntParam()'],['../classparamkit_1_1_int_param.html',1,'paramkit::IntParam']]],
-  ['is_5fcstr_5fequal_43',['is_cstr_equal',['../namespaceparamkit.html#a839f86aec141a83e7312d6f53db17ef6',1,'paramkit']]],
+  ['is_5fcstr_5fequal_43',['is_cstr_equal',['../namespaceparamkit_1_1util.html#afb05d421f8afb6a6daab67b3dd3776f0',1,'paramkit::util']]],
   ['is_5fdec_44',['is_dec',['../namespaceparamkit.html#a13e6043839364f9b51a8e0fe86c6ba37',1,'paramkit']]],
   ['is_5fhex_45',['is_hex',['../namespaceparamkit.html#add8ceca8d061cace36693338122acf96',1,'paramkit']]],
   ['is_5fhex_5fwith_5fprefix_46',['is_hex_with_prefix',['../namespaceparamkit.html#afcc530f128611e6d9a838be0b9271a24',1,'paramkit']]],
