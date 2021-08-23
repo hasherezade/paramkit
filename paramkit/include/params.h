@@ -236,6 +236,7 @@ namespace paramkit {
                     std::map<std::string, ParamGroup*>::iterator groupItr;
                     for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
                         ParamGroup* group = groupItr->second;
+                        if (!group) continue; //should never happen
                         printed += group->printGroup(printGroupName, true, hilightMissing, filter);
                     }
                     if (!printed) {
@@ -252,6 +253,7 @@ namespace paramkit {
                     std::map<std::string, ParamGroup*>::iterator groupItr;
                     for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
                         ParamGroup* group = groupItr->second;
+                        if (!group) continue; //should never happen
                         printed += group->printGroup(printGroupName, false, hilightMissing, filter);
                     }
                     if (!printed) {
@@ -404,6 +406,7 @@ namespace paramkit {
                         }
                         // requires an argument, but it is missing:
                         paramkit::print_in_color(RED, param_str);
+                        paramHelp = true;
                         param->printDesc();
                         found = true;
                         break;
