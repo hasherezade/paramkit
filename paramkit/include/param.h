@@ -11,6 +11,7 @@
 #include <string>
 #include <sstream>
 #include <map>
+#include <set>
 
 #include "pk_util.h"
 
@@ -72,7 +73,26 @@ namespace paramkit {
             return m_info;
         }
 
+
+
     protected:
+
+        //! Prints a formatted description of the parameter, including its unique name, type, and the info.
+        void printDesc() const
+        {
+            if (requiredArg) {
+                if (typeDescStr.length()) {
+                    std::cout << " <" << typeDescStr << ">";
+                }
+                else {
+                    std::cout << " <" << type() << ">";
+                }
+
+                std::cout << "\n\t";
+            }
+            std::cout << " : " << info() << "\n";
+        }
+
         std::string argStr; ///< a unique name of the parameter
 
         std::string typeDescStr; ///< a description of the type of the parameter: what type of values are allowed
@@ -82,6 +102,18 @@ namespace paramkit {
         bool requiredArg; ///< a flag indicating if this parameter needs to be followed by a value
 
         friend class Params;
+        friend class ParamCompare;
+        friend class ParamGroup;
+    };
+
+    class ParamCompare
+    {
+    public:
+        bool operator()(Param* param1, Param* param2) const
+        {
+            bool val = ((param1->argStr.compare(param2->argStr) < 0));
+            return val;
+        }
     };
 
     //! A parameter storing an integer value

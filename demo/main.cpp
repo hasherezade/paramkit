@@ -69,6 +69,16 @@ public:
         myEnum->addEnumValue(t_fruits::FRUIT_APPLE, "A", "green apples");
         myEnum->addEnumValue(t_fruits::FRUIT_ORANGE, "O", "oranges");
         myEnum->addEnumValue(t_fruits::FRUIT_STRAWBERY, "S", "fresh strawberries");
+
+        //optional: group parameters
+        std::string str_group = "string params";
+        this->addGroup(new ParamGroup(str_group));
+        this->addParamToGroup(PARAM_MY_ASTRING, str_group);
+        this->addParamToGroup(PARAM_MY_WSTRING, str_group);
+
+        str_group = "enums";
+        this->addGroup(new ParamGroup(str_group));
+        this->addParamToGroup(PARAM_MY_ENUM, str_group);
     }
 
     bool fillStruct(t_params_struct &paramsStruct)
