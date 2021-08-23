@@ -19,14 +19,26 @@
 namespace paramkit {
 
     //---
-    //! The class responsible for grouping parameters
+    //! The class responsible for grouping parameters (objects of the type Param)
     class ParamGroup {
     public:
+        //! A constructor of a ParamGroup
+        /**
+        \param _name : a name of the group that will be used to identify it
+        */
         ParamGroup(const std::string& _name)
         {
             this->name = _name;
         }
 
+        //! Prints the whole group of parameters (their names and descriptions), optionally with the group name
+        /**
+        \param printGroupName : a flag indicating if the group name will be printed
+        \param printRequired : a flag indicating if the required parameters should be printed. If true, only required are printed. If false, only optional are printed.
+        \param hilightMissing : a flag indicating if the required parameters that are not filled should be hiligted.
+        \param filter : a string that will be searched among the parameters. If filled, only the parameters that are similar to the given string are printed.
+        \return number of printed parameters
+        */
         size_t printGroup(bool printGroupName, bool printRequired, bool hilightMissing, const std::string &filter = "")
         {
             if (countParams(printRequired, filter) == 0) {

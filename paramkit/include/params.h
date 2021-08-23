@@ -1,6 +1,6 @@
 /**
 * @file
-* @brief   The parameters container
+* @brief   The main parameters container and parser
 */
 
 #pragma once
@@ -24,7 +24,7 @@
 
 namespace paramkit {
 
-    //! The class responsible for storing and parsing parameters
+    //! The class responsible for storing and parsing parameters (objects of the type Param), possibly divided into groups (ParamGroup)
     class Params {
     public:
         Params()
