@@ -17,13 +17,6 @@
 #include "param.h"
 #include "strings_util.h"
 
-const WORD WARNING_COLOR = RED;
-const WORD HILIGHTED_COLOR = WHITE;
-
-const WORD HEADER_COLOR = YELLOW;
-const WORD SEPARATOR_COLOR = BROWN;
-const WORD ERROR_COLOR = RED;
-const WORD INACTIVE_COLOR = GRAY;
 //--
 
 #define PARAM_HELP1 "?"
@@ -33,6 +26,14 @@ const WORD INACTIVE_COLOR = GRAY;
 #define PARAM_SWITCH2 '-' ///< The switch used to recognize that the given string should be treated as a parameter (variant 2)
 
 namespace paramkit {
+
+    const WORD WARNING_COLOR = RED;
+    const WORD HILIGHTED_COLOR = WHITE;
+
+    const WORD HEADER_COLOR = YELLOW;
+    const WORD SEPARATOR_COLOR = BROWN;
+    const WORD ERROR_COLOR = RED;
+    const WORD INACTIVE_COLOR = GRAY;
 
     //! Prints the parameter using the given color. Appends the parameter switch to the name.
     static void printParamInColor(int color, const std::string &text)
@@ -219,7 +220,7 @@ namespace paramkit {
         \param hilightMissing : if set, the required parameters that were not filled are printed in red.
         \param filter : display only parameters similar to the given string
         */
-        void info(bool hilightMissing, const std::string &filter="")
+        void info(bool hilightMissing=false, const std::string &filter="")
         {
             const int hdr_color = HEADER_COLOR;
             const int param_color = HILIGHTED_COLOR;
