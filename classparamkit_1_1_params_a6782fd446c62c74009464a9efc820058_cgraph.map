@@ -5,7 +5,7 @@
 <area shape="rect" id="node10" href="$classparamkit_1_1_params.html#ae3320b47d4e6ff1bcfebbfedceb60150" title="Returns the number of required parameters." alt="" coords="204,493,416,519"/>
 <area shape="rect" id="node11" href="$namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f" title=" " alt="" coords="703,275,823,316"/>
 <area shape="rect" id="node13" href="$classparamkit_1_1_param.html#a67ae64966a26486df579fcfa8488922d" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="464,391,641,418"/>
-<area shape="rect" id="node16" href="$classparamkit_1_1_param_group.html#a04ca01705ab287aae6a0e9c6de425931" title=" " alt="" coords="235,215,385,256"/>
+<area shape="rect" id="node16" href="$classparamkit_1_1_param_group.html#a04ca01705ab287aae6a0e9c6de425931" title="Prints the whole group of parameters (their names and descriptions), optionally with the group name." alt="" coords="235,215,385,256"/>
 <area shape="rect" id="node18" href="$classparamkit_1_1_param.html#aa8a019998011a34aae8bf32efcea1eae" title="Prints the parameter using the given color. Appends the parameter switch to the name." alt="" coords="473,275,632,316"/>
 <area shape="rect" id="node3" href="$classparamkit_1_1_param_group.html#a46c189309a26e56ff489aebd376171b9" title=" " alt="" coords="477,5,628,47"/>
 <area shape="rect" id="node4" href="$namespaceparamkit_1_1util.html#a945aa7b64190a7cc6117582183624b98" title=" " alt="" coords="906,57,1029,99"/>

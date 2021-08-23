@@ -1,5 +1,5 @@
 <map id="paramkit::ParamGroup::printGroup" name="paramkit::ParamGroup::printGroup">
-<area shape="rect" id="node1" title=" " alt="" coords="5,236,156,277"/>
+<area shape="rect" id="node1" title="Prints the whole group of parameters (their names and descriptions), optionally with the group name." alt="" coords="5,236,156,277"/>
 <area shape="rect" id="node2" href="$classparamkit_1_1_param_group.html#a46c189309a26e56ff489aebd376171b9" title=" " alt="" coords="217,127,368,168"/>
 <area shape="rect" id="node3" href="$namespaceparamkit_1_1util.html#a945aa7b64190a7cc6117582183624b98" title=" " alt="" coords="646,136,769,177"/>
 <area shape="rect" id="node5" href="$namespaceparamkit_1_1util.html#a3700f689a7fa40a7135c454909ed1eb4" title=" " alt="" coords="447,71,558,112"/>
