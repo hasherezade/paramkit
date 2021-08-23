@@ -81,6 +81,12 @@ namespace paramkit {
         void printInColor(int color)
         {
             print_in_color(color, PARAM_SWITCH1 + this->argStr);
+            if (this->argStr.length() < 7) {
+                std::cout << "\t";
+            }
+            else if (this->argStr.length() > 8) {
+                std::cout << "\n\t";
+            }
         }
 
     protected:
@@ -95,7 +101,6 @@ namespace paramkit {
                 else {
                     std::cout << " <" << type() << ">";
                 }
-
                 std::cout << "\n\t";
             }
             std::cout << " : " << info() << "\n";
