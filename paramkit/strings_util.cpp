@@ -9,17 +9,6 @@ std::string paramkit::util::to_lowercase(std::string str)
     return str;
 }
 
-bool paramkit::util::is_cstr_equal(char const *a, char const *b, const size_t max_len)
-{
-    for (size_t i = 0; i < max_len; ++i) {
-        if (tolower(a[i]) != tolower(b[i])) {
-            return false;
-        }
-        if (tolower(a[i]) == '\0') break;
-    }
-    return true;
-}
-
 #define MIN(x,y) ((x) < (y) ? (x) : (y))
 
 size_t paramkit::util::levenshtein_distance(const char s1[], const char s2[])
