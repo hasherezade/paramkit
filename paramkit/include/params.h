@@ -75,7 +75,10 @@ namespace paramkit {
                 }
                 if (has_filter) {
                     util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
-                    
+                    if (sim_type == util::SIM_NONE) {
+                        //try to find the keyword in the string description
+                        sim_type = util::has_keyword(param->m_info, filter.substr(1));
+                    }
                     if (sim_type == util::SIM_NONE) continue;
                     color = (sim_type != util::SIM_NONE) ? WARNING_COLOR : param_color;
                 }
@@ -102,6 +105,10 @@ namespace paramkit {
 
                 if (has_filter) {
                     util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
+                    if (sim_type == util::SIM_NONE) {
+                        //try to find the keyword in the string description
+                        sim_type = util::has_keyword(param->m_info, filter.substr(1));
+                    }
                     if (sim_type != util::SIM_NONE) printed++;
                     continue;
                 }

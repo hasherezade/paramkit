@@ -23,6 +23,8 @@ namespace paramkit {
         // Calculate a diffrence in strings histograms
         size_t str_hist_diffrence(const char s1[], const char s2[]);
 
+        stringsim_type has_keyword(const std::string param, const std::string filter);
+
         stringsim_type is_string_similar(const std::string &param, const std::string &filter);
     };
 };

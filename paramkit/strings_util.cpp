@@ -79,11 +79,21 @@ size_t paramkit::util::str_hist_diffrence(const char s1[], const char s2[])
     return diffs;
 }
 
+paramkit::util::stringsim_type paramkit::util::has_keyword( std::string param, std::string filter)
+{
+    param = to_lowercase(param);
+    filter = to_lowercase(filter);
+    const bool sim_found = (param.find(filter) != std::string::npos) || (filter.find(param) != std::string::npos);
+    if (sim_found) return SIM_SUBSTR;
+    return SIM_NONE;
+}
+
 paramkit::util::stringsim_type paramkit::util::is_string_similar(const std::string &param, const std::string &filter)
 {
-    bool sim_found = (param.find(filter) != std::string::npos) || (filter.find(param) != std::string::npos);
-    if (sim_found) return SIM_SUBSTR;
-
+    bool sim_found = false;
+    if (has_keyword(param, filter) != SIM_NONE) {
+        return SIM_SUBSTR;
+    }
     size_t dist = util::levenshtein_distance(filter.c_str(), param.c_str());
     if (dist <= (param.length() / 2)) {
         sim_found = true;
