@@ -73,8 +73,6 @@ namespace paramkit {
             return m_info;
         }
 
-
-
     protected:
 
         //! Prints a formatted description of the parameter, including its unique name, type, and the info.
@@ -111,6 +109,9 @@ namespace paramkit {
     public:
         bool operator()(Param* param1, Param* param2) const
         {
+            if (param1 == param2) return 0;
+            if (!param1) return 1;
+            if (!param2) return -1;
             bool val = ((param1->argStr.compare(param2->argStr) < 0));
             return val;
         }
