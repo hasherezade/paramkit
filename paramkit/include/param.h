@@ -17,6 +17,9 @@
 
 #define PARAM_UNINITIALIZED (-1)
 
+#define PARAM_SWITCH1 '/' ///< The switch used to recognize that the given string should be treated as a parameter (variant 1)
+#define PARAM_SWITCH2 '-' ///< The switch used to recognize that the given string should be treated as a parameter (variant 2)
+
 namespace paramkit {
 
     //! The base class of a parameter

@@ -17,8 +17,10 @@ set (hdrs
 	include/param.h
 	include/params.h
 	include/term_colors.h
+	include/color_scheme.h
 	include/pk_util.h
 	include/strings_util.h
+	include/param_group.h
 )
 
 add_library ( ${PROJECT_NAME} STATIC ${hdrs} ${srcs} )
