@@ -47,10 +47,9 @@ namespace paramkit {
             const bool has_filter = filter.length() > 0 ? true : false;
             size_t printed = 0;
             const int param_color = HILIGHTED_COLOR;
-            const int separator_color = SEPARATOR_COLOR;
 
             if (printGroupName && name.length()) {
-                print_in_color(separator_color, "\n---" + name + "---\n");
+                print_in_color(SEPARATOR_COLOR, "\n---" + name + "---\n");
             }
             std::set<Param*>::iterator itr;
             for (itr = params.begin(); itr != params.end(); ++itr) {
@@ -65,11 +64,11 @@ namespace paramkit {
                 }
                 if (has_filter) {
                     util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
-                    color = (sim_type != util::SIM_NONE) ? MAKE_COLOR(RED, BLACK) : param_color;
+                    color = (sim_type != util::SIM_NONE) ? PARAM_SIMILAR_NAME : param_color;
                     if (sim_type == util::SIM_NONE) {
                         //try to find the keyword in the string description
                         sim_type = util::has_keyword(param->m_info, filter.substr(1));
-                        color = (sim_type != util::SIM_NONE) ? MAKE_COLOR(SILVER, DARK_RED) : param_color;
+                        color = (sim_type != util::SIM_NONE) ? PARAM_SIMILAR_DESC : param_color;
                     }
                     if (sim_type == util::SIM_NONE) continue;
                 }
