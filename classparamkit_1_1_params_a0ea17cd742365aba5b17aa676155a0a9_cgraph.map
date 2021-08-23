@@ -1,0 +1,5 @@
+<map id="paramkit::Params::addParamToGroup" name="paramkit::Params::addParamToGroup">
+<area shape="rect" id="node1" title=" " alt="" coords="5,27,193,69"/>
+<area shape="rect" id="node2" href="$classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4" title="Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist." alt="" coords="241,5,427,32"/>
+<area shape="rect" id="node3" href="$classparamkit_1_1_params.html#aafaccf1fecfd62e8b2852aec2ac4dd3e" title=" " alt="" coords="241,57,427,98"/>
+</map>

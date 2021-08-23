@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['info_64',['info',['../classparamkit_1_1_params.html#a6782fd446c62c74009464a9efc820058',1,'paramkit::Params']]],
-  ['isparam_65',['isParam',['../classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6',1,'paramkit::Params']]],
-  ['isset_66',['isSet',['../classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd',1,'paramkit::Param::isSet()'],['../classparamkit_1_1_int_param.html#ab4c66081fe8ae7f375a44207f312e2f5',1,'paramkit::IntParam::isSet()'],['../classparamkit_1_1_string_param.html#aa69cefa23d22474b7eca75fceaf3d830',1,'paramkit::StringParam::isSet()'],['../classparamkit_1_1_w_string_param.html#aa03b0c4886a7a58899590da48ba84a5a',1,'paramkit::WStringParam::isSet()'],['../classparamkit_1_1_bool_param.html#a179eeb3b893412b9350f149e359f65de',1,'paramkit::BoolParam::isSet()'],['../classparamkit_1_1_enum_param.html#a8b79fadc43e51775bf56806921f0323c',1,'paramkit::EnumParam::isSet()'],['../classparamkit_1_1_params.html#aaa859eb891917078f75ecde2781d0f07',1,'paramkit::Params::isSet()']]]
+  ['get_5fconsole_5fcolor_162',['get_console_color',['../namespaceparamkit.html#aa9e018465904016a166fc0b6f6bb0d63',1,'paramkit']]],
+  ['get_5fnumber_163',['get_number',['../namespaceparamkit.html#a10e9e7ade6c0d1f749f21914b6d91cac',1,'paramkit']]],
+  ['getintvalue_164',['getIntValue',['../classparamkit_1_1_params.html#a6917fc0a6121fb1822f5adea1fc276c9',1,'paramkit::Params']]],
+  ['getparam_165',['getParam',['../classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4',1,'paramkit::Params']]],
+  ['getparamgroup_166',['getParamGroup',['../classparamkit_1_1_params.html#aafaccf1fecfd62e8b2852aec2ac4dd3e',1,'paramkit::Params']]]
 ];

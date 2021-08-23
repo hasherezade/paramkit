@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['countoptional_59',['countOptional',['../classparamkit_1_1_params.html#ac16ccfdc824f1b402d20539d7b592e97',1,'paramkit::Params']]],
-  ['countrequired_60',['countRequired',['../classparamkit_1_1_params.html#ae3320b47d4e6ff1bcfebbfedceb60150',1,'paramkit::Params']]]
+  ['boolparam_155',['BoolParam',['../classparamkit_1_1_bool_param.html#a95a7e41f1db772d48532c54cb0e42f91',1,'paramkit::BoolParam']]]
 ];

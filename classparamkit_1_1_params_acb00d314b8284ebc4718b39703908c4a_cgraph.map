@@ -1,0 +1,7 @@
+<map id="paramkit::Params::addParam" name="paramkit::Params::addParam">
+<area shape="rect" id="node1" title="Adds a parameter into the storage." alt="" coords="5,35,193,61"/>
+<area shape="rect" id="node2" href="$classparamkit_1_1_params.html#a0d557950939bf259da2a7d4851dc4ccd" title=" " alt="" coords="243,5,428,32"/>
+<area shape="rect" id="node3" href="$classparamkit_1_1_params.html#a0ea17cd742365aba5b17aa676155a0a9" title=" " alt="" coords="241,57,429,98"/>
+<area shape="rect" id="node4" href="$classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4" title="Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist." alt="" coords="477,35,663,61"/>
+<area shape="rect" id="node5" href="$classparamkit_1_1_params.html#aafaccf1fecfd62e8b2852aec2ac4dd3e" title=" " alt="" coords="477,86,663,127"/>
+</map>
