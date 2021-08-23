@@ -9,6 +9,7 @@ include_directories (
 
 set (srcs
 	pk_util.cpp
+	strings_util.cpp
 )
 
 set (hdrs
@@ -17,6 +18,7 @@ set (hdrs
 	include/params.h
 	include/term_colors.h
 	include/pk_util.h
+	include/strings_util.h
 )
 
 add_library ( ${PROJECT_NAME} STATIC ${hdrs} ${srcs} )

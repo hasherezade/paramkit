@@ -15,12 +15,15 @@
 #include "pk_util.h"
 #include "term_colors.h"
 #include "param.h"
+#include "strings_util.h"
 
-#define WARNING_COLOR RED
-#define HILIGHTED_COLOR WHITE
+const WORD WARNING_COLOR = RED;
+const WORD HILIGHTED_COLOR = WHITE;
 
-#define HEADER_COLOR YELLOW
-#define SEPARATOR_COLOR BROWN
+const WORD HEADER_COLOR = YELLOW;
+const WORD SEPARATOR_COLOR = BROWN;
+const WORD ERROR_COLOR = RED;
+const WORD INACTIVE_COLOR = GRAY;
 //--
 
 #define PARAM_HELP1 "?"
@@ -45,11 +48,12 @@ namespace paramkit {
             this->name = _name;
         }
 
-        size_t printGroup(bool printGroupName, bool printRequired, bool hilightMissing)
+        size_t printGroup(bool printGroupName, bool printRequired, bool hilightMissing, const std::string &filter="")
         {
-            if (countParams(printRequired) == 0) {
+            if (countParams(printRequired, filter) == 0) {
                 return 0;
             }
+            const bool has_filter = filter.length() > 0 ? true : false;
             size_t printed = 0;
             const int param_color = HILIGHTED_COLOR;
             const int separator_color = SEPARATOR_COLOR;
@@ -68,6 +72,13 @@ namespace paramkit {
                 if (hilightMissing && param->isRequired && !param->isSet()) {
                     color = WARNING_COLOR;
                 }
+                if (has_filter) {
+                    util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
+                    
+                    if (sim_type == util::SIM_NONE) continue;
+                    color = (sim_type != util::SIM_NONE) ? WARNING_COLOR : param_color;
+                }
+
                 printParamInColor(color, param->argStr);
                 param->printDesc();
                 printed++;
@@ -77,8 +88,9 @@ namespace paramkit {
 
     protected:
 
-        size_t countParams(bool printRequired)
+        size_t countParams(bool printRequired, const std::string &filter)
         {
+            const bool has_filter = filter.length() > 0 ? true : false;
             size_t printed = 0;
             std::set<Param*>::iterator itr;
             for (itr = params.begin(); itr != params.end(); ++itr) {
@@ -86,6 +98,12 @@ namespace paramkit {
 
                 if (!param) continue;
                 if (printRequired != param->isRequired) continue;
+
+                if (has_filter) {
+                    util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
+                    if (sim_type != util::SIM_NONE) printed++;
+                    continue;
+                }
 
                 printed++;
             }
@@ -128,7 +146,8 @@ namespace paramkit {
     //! The class responsible for storing and parsing parameters
     class Params {
     public:
-        Params() : generalGroup(nullptr)
+        Params()
+            : generalGroup(nullptr)
         {
         }
 
@@ -145,6 +164,7 @@ namespace paramkit {
                 return false;
             }
             this->paramGroups[group->name] = group;
+            return true;
         }
 
         ParamGroup* getParamGroup(const std::string &str)
@@ -198,38 +218,45 @@ namespace paramkit {
         /**
         \param hilightMissing : if set, the required parameters that were not filled are printed in red.
         */
-        void info(bool hilightMissing = false)
+        void info(bool hilightMissing, const std::string &filter="")
         {
             const int hdr_color = HEADER_COLOR;
             const int param_color = HILIGHTED_COLOR;
 
+            const bool has_filter = filter.length() > 0 ? true : false;
             std::map<std::string, Param*>::iterator itr;
-
+            size_t printed = 0;
             if (countRequired() > 0) {
                 print_in_color(hdr_color, "Required: \n");
                 //Print Required
-                bool printGroupName = (countGroups(true)) ? true : false;
+                bool printGroupName = (countGroups(true, filter)) ? true : false;
                 if (paramGroups.size() > 0) {
                     std::map<std::string, ParamGroup*>::iterator groupItr;
                     for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
                         ParamGroup* group = groupItr->second;
-                        group->printGroup(printGroupName, true, hilightMissing);
+                        printed += group->printGroup(printGroupName, true, hilightMissing, filter);
+                    }
+                    if (!printed) {
+                        print_in_color(INACTIVE_COLOR, "\n[...]\n");
                     }
                 }
             }
+            printed = 0;
             if (countOptional() > 0) {
                 print_in_color(hdr_color, "\nOptional: \n");
                 //Print Optional
-                bool printGroupName = (countGroups(false)) ? true : false;
+                bool printGroupName = (countGroups(false, filter)) ? true : false;
                 if (paramGroups.size() > 0) {
                     std::map<std::string, ParamGroup*>::iterator groupItr;
                     for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
                         ParamGroup* group = groupItr->second;
-                        group->printGroup(printGroupName, false, hilightMissing);
+                        printed += group->printGroup(printGroupName, false, hilightMissing, filter);
+                    }
+                    if (!printed) {
+                        print_in_color(INACTIVE_COLOR, "\n[...]\n");
                     }
                 }
             }
-
             print_in_color(hdr_color, "\nInfo: \n\n");
             printParamInColor(param_color, PARAM_HELP2);
             std::cout << " : " << "Print this help\n";
@@ -386,6 +413,9 @@ namespace paramkit {
                 else {
                     const std::string param_str = to_string(argv[i]);
                     printUnknownParam(param_str);
+                    print_in_color(HILIGHTED_COLOR, "Similar parameters:\n\n");
+                    this->info(false, param_str);
+                    return false;
                 }
             }
             if (paramHelp) {
@@ -433,14 +463,14 @@ namespace paramkit {
             return true;
         }
 
-        size_t countGroups(bool required) const
+        size_t countGroups(bool required, const std::string &filter) const
         {
             size_t groups_count = 0;
             std::map<std::string, ParamGroup*>::const_iterator itr;
             for (itr = paramGroups.begin(); itr != paramGroups.end(); ++itr) {
                 ParamGroup *group = itr->second;
                 if (group == this->generalGroup) continue; //skip the general
-                if (group->countParams(required) > 0) {
+                if (group->countParams(required, filter) > 0) {
                     groups_count++;
                 }
             }
