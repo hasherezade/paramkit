@@ -34,12 +34,12 @@ typedef struct {
 
 void print_params(t_params_struct &p)
 {
-    std::cout << "myDec:  " << std::dec << p.myDec << " = " << std::hex << "0x" << p.myDec << "\n";
-    std::cout << "myHex:  " << std::hex << "0x" << p.myHex << " = " << std::dec << p.myHex << "\n";
-    std::cout << "myBool: " << std::dec << p.myBool << "\n";
-    std::cout << "myABuf:  " << p.myABuf << "\n";
-    std::wcout << "myWBuf:  " << p.myWBuf << "\n";
-    std::cout << "myEnum:  " << std::dec << p.myEnum << "\n";
+    std::cout  << "myDec :  [" << std::dec << p.myDec << "] = " << std::hex << "[0x" << p.myDec << "]\n";
+    std::cout  << "myHex :  [" << std::hex << "0x" << p.myHex << "] = [" << std::dec << p.myHex << "]\n";
+    std::cout  << "myBool:  [" << std::dec << p.myBool << "]\n";
+    std::cout  << "myABuf:  [" << p.myABuf << "]\n";
+    std::wcout << "myWBuf:  [" << p.myWBuf << "]\n";
+    std::cout  << "myEnum:  [" << std::dec << p.myEnum << "]\n";
 }
 
 class DemoParams : public Params
