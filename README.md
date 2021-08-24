@@ -21,7 +21,9 @@ Print help for each parameter:
 
 <img src="https://raw.githubusercontent.com/hasherezade/paramkit/master/img/demo_help.png" alt="demo: print help" >
 
-Paramkit allows you to add custom groups. You can use predefined, popular parameter types, or add your custom ones.
+Paramkit allows you to cluster your parameters into custom groups. 
+
+You can use predefined, popular parameter types, or add your custom ones.
 
 Easily parse and store values, and verify if all required parameters are filled:
 
