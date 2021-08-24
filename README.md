@@ -3,16 +3,16 @@
 
 A small library helping to parse commandline parameters (for Windows).
 
-[Docs](https://hasherezade.github.io/paramkit/) 📚
-
 Objectives
 -
-
 + "like Python's `argparse` but for C/C++"
 + compact and minimalistic
 + easy to use
 + extendable
 
+Docs
+-
+📚 [https://hasherezade.github.io/paramkit/](https://hasherezade.github.io/paramkit/)
 
 Demo
 -
