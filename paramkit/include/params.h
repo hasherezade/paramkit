@@ -328,7 +328,7 @@ namespace paramkit {
 
                 param->printInColor(param_color);
                 std::cout << ": ";
-                std::cout << "\n\t" << std::hex << param->valToString() << "\n";
+                std::cout << std::hex << param->valToString() << "\n";
             }
         }
 
