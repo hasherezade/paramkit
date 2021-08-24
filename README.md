@@ -3,6 +3,8 @@
 
 A small library helping to parse commandline parameters (for Windows).
 
+[Docs](https://hasherezade.github.io/paramkit/) 📚
+
 Objectives
 -
 
