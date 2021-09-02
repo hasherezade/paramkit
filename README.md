@@ -10,6 +10,10 @@ Objectives
 +  easy to use
 +  extendable
 
+You can quickly create a project using ParamKit basing on the given template:
+
++   [Project template](https://github.com/hasherezade/paramkit_tpl)
+
 Docs
 -
 📚 [https://hasherezade.github.io/paramkit/](https://hasherezade.github.io/paramkit/)
