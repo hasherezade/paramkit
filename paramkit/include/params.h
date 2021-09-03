@@ -113,15 +113,17 @@ namespace paramkit {
             if (countRequired() > 0) {
                 print_in_color(hdr_color, "Required:\n");
                 //Print Required
-                bool printGroupName = (countGroups(true, filter)) ? true : false;
+                size_t total_count = 0;
+                bool printGroupName = (countGroups(true, hilightMissing, filter)) ? true : false;
                 if (paramGroups.size() > 0) {
                     std::map<std::string, ParamGroup*>::iterator groupItr;
                     for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
                         ParamGroup* group = groupItr->second;
                         if (!group) continue; //should never happen
                         printed += group->printGroup(printGroupName, true, hilightMissing, filter);
+                        total_count += group->countParams(true, false, "");
                     }
-                    if (!printed) {
+                    if (printed < total_count) {
                         print_in_color(INACTIVE_COLOR, "\n[...]\n");
                     }
                 }
@@ -130,15 +132,17 @@ namespace paramkit {
             if (countOptional() > 0) {
                 print_in_color(hdr_color, "\nOptional:\n");
                 //Print Optional
-                bool printGroupName = (countGroups(false, filter)) ? true : false;
+                size_t total_count = 0;
+                bool printGroupName = (countGroups(false, hilightMissing, filter)) ? true : false;
                 if (paramGroups.size() > 0) {
                     std::map<std::string, ParamGroup*>::iterator groupItr;
                     for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
                         ParamGroup* group = groupItr->second;
                         if (!group) continue; //should never happen
                         printed += group->printGroup(printGroupName, false, hilightMissing, filter);
+                        total_count += group->countParams(false, false, "");
                     }
-                    if (!printed) {
+                    if (printed < total_count) {
                         print_in_color(INACTIVE_COLOR, "\n[...]\n");
                     }
                 }
@@ -352,14 +356,14 @@ namespace paramkit {
             return true;
         }
 
-        size_t countGroups(bool required, const std::string &filter) const
+        size_t countGroups(bool required, bool hilightMissing, const std::string &filter) const
         {
             size_t groups_count = 0;
             std::map<std::string, ParamGroup*>::const_iterator itr;
             for (itr = paramGroups.begin(); itr != paramGroups.end(); ++itr) {
                 ParamGroup *group = itr->second;
                 if (group == this->generalGroup) continue; //skip the general
-                if (group->countParams(required, filter) > 0) {
+                if (group->countParams(required, hilightMissing, filter) > 0) {
                     groups_count++;
                 }
             }

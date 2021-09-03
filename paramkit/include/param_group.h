@@ -41,7 +41,7 @@ namespace paramkit {
         */
         size_t printGroup(bool printGroupName, bool printRequired, bool hilightMissing, const std::string &filter = "")
         {
-            if (countParams(printRequired, filter) == 0) {
+            if (countParams(printRequired, hilightMissing, filter) == 0) {
                 return 0;
             }
             const bool has_filter = filter.length() > 0 ? true : false;
@@ -57,10 +57,11 @@ namespace paramkit {
 
                 if (!param) continue;
                 if (printRequired != param->isRequired) continue;
-
+                bool should_print = hilightMissing ? false : true;
                 int color = param_color;
                 if (hilightMissing && param->isRequired && !param->isSet()) {
                     color = WARNING_COLOR;
+                    should_print = true;
                 }
                 if (has_filter) {
                     util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
@@ -72,17 +73,18 @@ namespace paramkit {
                     }
                     if (sim_type == util::SIM_NONE) continue;
                 }
-
-                param->printInColor(color);
-                param->printDesc();
-                printed++;
+                if (should_print) {
+                    param->printInColor(color);
+                    param->printDesc();
+                    printed++;
+                }
             }
             return printed;
         }
 
     protected:
 
-        size_t countParams(bool printRequired, const std::string &filter)
+        size_t countParams(bool printRequired, bool hilightMissing, const std::string &filter)
         {
             const bool has_filter = filter.length() > 0 ? true : false;
             size_t printed = 0;
@@ -92,7 +94,10 @@ namespace paramkit {
 
                 if (!param) continue;
                 if (printRequired != param->isRequired) continue;
-
+                bool should_print = hilightMissing ? false : true;
+                if (hilightMissing && param->isRequired && !param->isSet()) {
+                    should_print = true;
+                }
                 if (has_filter) {
                     util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
                     if (sim_type == util::SIM_NONE) {
@@ -102,8 +107,9 @@ namespace paramkit {
                     if (sim_type != util::SIM_NONE) printed++;
                     continue;
                 }
-
-                printed++;
+                if (should_print) {
+                    printed++;
+                }
             }
             return printed;
         }
