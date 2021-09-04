@@ -57,6 +57,7 @@ namespace paramkit {
 
                 if (!param) continue;
                 if (printRequired != param->isRequired) continue;
+
                 bool should_print = hilightMissing ? false : true;
                 int color = paramColor;
                 if (hilightMissing && param->isRequired && !param->isSet()) {
@@ -65,13 +66,15 @@ namespace paramkit {
                 }
                 if (has_filter) {
                     util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
-                    color = (sim_type != util::SIM_NONE) ? PARAM_SIMILAR_NAME : paramColor;
-                    if (sim_type == util::SIM_NONE) {
+                    bool has_any = (sim_type != util::SIM_NONE) ? true : false;
+                    color = has_any ? PARAM_SIMILAR_NAME : paramColor;
+                    if (!has_any) {
                         //try to find the keyword in the string description
-                        sim_type = util::has_keyword(param->m_info, filter.substr(1));
-                        color = (sim_type != util::SIM_NONE) ? PARAM_SIMILAR_DESC : paramColor;
+                        sim_type = util::has_keyword(param->m_info, filter);
+                        has_any = (sim_type != util::SIM_NONE) ? true : false;
+                        color = has_any ? PARAM_SIMILAR_DESC : paramColor;
                     }
-                    if (sim_type == util::SIM_NONE) continue;
+                    if (!has_any) continue;
                 }
                 if (should_print) {
                     param->printInColor(color);
@@ -102,7 +105,7 @@ namespace paramkit {
                     util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
                     if (sim_type == util::SIM_NONE) {
                         //try to find the keyword in the string description
-                        sim_type = util::has_keyword(param->m_info, filter.substr(1));
+                        sim_type = util::has_keyword(param->m_info, filter);
                     }
                     if (sim_type != util::SIM_NONE) printed++;
                     continue;

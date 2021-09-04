@@ -265,7 +265,6 @@ namespace paramkit {
                     count++;
                 }
                 else {
-                    const std::string param_str = to_string(argv[i]);
                     printUnknownParam(param_str);
                     print_in_color(HILIGHTED_COLOR, "Similar parameters:\n");
                     this->info(false, param_str);
