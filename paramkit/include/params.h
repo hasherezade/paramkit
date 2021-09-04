@@ -257,16 +257,14 @@ namespace paramkit {
                         // has argument:
                         if ((i + 1) < argc && !(isParam(to_string(argv[i + 1])))) {
                             std::string nextVal = to_string(argv[i + 1]);
-                            //help requested explicitly
-                            if (nextVal == PARAM_HELP1) {
+                            found = true;
+                            //help requested explicitly or parsing failed
+                            if (nextVal == PARAM_HELP1 || !param->parse(nextVal.c_str()) ) {
                                 paramHelp = true;
                                 paramkit::print_in_color(RED, param_str);
                                 param->printDesc();
-                                found = true;
                                 break;
                             }
-                            param->parse(argv[i + 1]);
-                            found = true;
 #ifdef _DEBUG
                             std::cout << argv[i] << " : " << argv[i + 1] << "\n";
 #endif
