@@ -32,7 +32,7 @@ namespace paramkit {
             paramHelp(PARAM_HELP2, false),
             hdrColor(HEADER_COLOR), paramColor(HILIGHTED_COLOR)
         {
-            paramHelp.m_info = "Print this help";
+            paramHelp.m_info = "Print help.";
         }
 
         virtual ~Params()
