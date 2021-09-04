@@ -48,10 +48,10 @@ public:
     DemoParams()
         : Params()
     {
-        this->addParam(new IntParam(PARAM_MY_DEC, true));
+        this->addParam(new IntParam(PARAM_MY_DEC, true, IntParam::INT_BASE_DEC));
         this->setInfo(PARAM_MY_DEC, "Sample decimal Integer param");
 
-        this->addParam(new IntParam(PARAM_MY_HEX, true, true));
+        this->addParam(new IntParam(PARAM_MY_HEX, true, IntParam::INT_BASE_HEX));
         this->setInfo(PARAM_MY_HEX, "Sample hexadecimal Integer param");
 
         this->addParam(new BoolParam(PARAM_MY_BOOL, false));

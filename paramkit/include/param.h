@@ -134,18 +134,26 @@ namespace paramkit {
     //! A parameter storing an integer value
     class IntParam : public Param {
     public:
-        IntParam(const std::string& _argStr, bool _isRequired, bool _isHex = false)
-            : Param(_argStr, _isRequired)
+        typedef enum
+        {
+            INT_BASE_ANY = 0,
+            INT_BASE_DEC = 1,
+            INT_BASE_HEX = 2,
+            INT_BASES_COUNT
+        } t_int_base;
+
+        IntParam(const std::string& _argStr, bool _isRequired, t_int_base _base = INT_BASE_ANY)
+            : Param(_argStr, _isRequired), 
+            base(_base)
         {
             requiredArg = true;
             value = PARAM_UNINITIALIZED;
-            isHex = _isHex;
         }
 
         virtual std::string valToString() const
         {
             std::stringstream stream;
-            if (isHex) {
+            if (base == INT_BASE_HEX) {
                 stream << std::hex;
             }
             else {
@@ -156,10 +164,13 @@ namespace paramkit {
         }
 
         virtual std::string type() const {
-            if (isHex) {
+            if (base == INT_BASE_HEX) {
                 return "integer: hex";
             }
-            return "integer: dec";
+            if (base == INT_BASE_DEC) {
+                return "integer: dec";
+            }
+            return "integer: decimal, or hexadecimal with '0x' prefix";
         }
 
         virtual bool isSet() const
@@ -171,17 +182,39 @@ namespace paramkit {
         {
             if (!arg) return false;
             const size_t len = strlen(arg);
-            if (isHex && !paramkit::is_hex(arg, len) && !paramkit::is_hex_with_prefix(arg)) {
+
+            if (!isValidNumber(arg, len)) {
                 return false;
             }
-            if (!isHex && !paramkit::is_dec(arg, len)) {
-                return false;
+            bool isHex = (base == INT_BASE_HEX);
+            if (base == INT_BASE_ANY) {
+                if (paramkit::is_hex_with_prefix(arg)) {
+                    isHex = true;
+                }
             }
             this->value = loadInt(arg, isHex);
             return true;
         }
 
-        bool isHex;
+        bool isValidNumber(const char *arg, const size_t len)
+        {
+            if (base == INT_BASE_ANY) {
+                if (paramkit::is_hex_with_prefix(arg) || paramkit::is_dec(arg, len)) {
+                    return true;
+                }
+            }
+            if (base == INT_BASE_HEX) {
+                if (paramkit::is_hex(arg, len) || paramkit::is_hex_with_prefix(arg)) {
+                    return true;
+                }
+            }
+            if (base == INT_BASE_DEC) {
+                if (paramkit::is_dec(arg, len)) return true;
+            }
+            return false;
+        }
+
+        t_int_base base;
         uint64_t value;
     };
 
