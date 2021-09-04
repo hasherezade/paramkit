@@ -81,12 +81,6 @@ namespace paramkit {
         void printInColor(int color)
         {
             print_in_color(color, PARAM_SWITCH1 + this->argStr);
-            if (this->argStr.length() < 7) {
-                std::cout << "\t";
-            }
-            else if (this->argStr.length() > 8) {
-                std::cout << "\n\t";
-            }
         }
 
     protected:
@@ -101,8 +95,8 @@ namespace paramkit {
                 else {
                     std::cout << " <" << type() << ">";
                 }
-                std::cout << "\n\t";
             }
+            std::cout << "\n\t";
             std::cout << " : " << info() << "\n";
         }
 
@@ -134,12 +128,13 @@ namespace paramkit {
     //! A parameter storing an integer value
     class IntParam : public Param {
     public:
+        
         typedef enum
         {
             INT_BASE_ANY = 0,
             INT_BASE_DEC = 1,
             INT_BASE_HEX = 2,
-            INT_BASES_COUNT
+            INT_BASE_COUNT
         } t_int_base;
 
         IntParam(const std::string& _argStr, bool _isRequired, t_int_base _base = INT_BASE_ANY)
