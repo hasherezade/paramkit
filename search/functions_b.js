@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['setinfo_202',['setInfo',['../classparamkit_1_1_params.html#ac9aa1971bca24f4c423c019fd6194c12',1,'paramkit::Params']]],
-  ['setintvalue_203',['setIntValue',['../classparamkit_1_1_params.html#a90c3f797e6b249055f3b46fce04ee345',1,'paramkit::Params']]],
-  ['str_5fhist_5fdiffrence_204',['str_hist_diffrence',['../namespaceparamkit_1_1util.html#ab57ee994c23a9fd56a9406e670364f46',1,'paramkit::util']]],
-  ['strequals_205',['strequals',['../namespaceparamkit_1_1util.html#af32e71cbc435aaf99df4cbcd1e4f735f',1,'paramkit::util']]],
-  ['stringparam_206',['StringParam',['../classparamkit_1_1_string_param.html#a47758efed7fa4e955feb7d9edcb89a16',1,'paramkit::StringParam']]]
+  ['releasegroups_199',['releaseGroups',['../classparamkit_1_1_params.html#af170c9ae6cd22d535007ed1f94ad6229',1,'paramkit::Params']]],
+  ['releaseparams_200',['releaseParams',['../classparamkit_1_1_params.html#aa602e7100b2b7458451791f9cabf3493',1,'paramkit::Params']]],
+  ['removeparam_201',['removeParam',['../classparamkit_1_1_param_group.html#ad588c2b0b2f567e0632ace3946ea1143',1,'paramkit::ParamGroup']]]
 ];

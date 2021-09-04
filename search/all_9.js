@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['m_5finfo_58',['m_info',['../classparamkit_1_1_param.html#ac443d229529f0ad42eb9ce624f293f9f',1,'paramkit::Param']]],
-  ['m_5fisset_59',['m_isSet',['../classparamkit_1_1_enum_param.html#a9eb33f4bd7ff1567ed1321da46472031',1,'paramkit::EnumParam']]],
-  ['magenta_60',['MAGENTA',['../term__colors_8h.html#a6f699060902f800f12aaae150f3a708e',1,'term_colors.h']]],
-  ['make_5fcolor_61',['MAKE_COLOR',['../term__colors_8h.html#a57815732ee1775789c29534c08b0a856',1,'term_colors.h']]],
-  ['min_62',['MIN',['../strings__util_8cpp.html#a74e75242132eaabbc1c512488a135926',1,'strings_util.cpp']]],
-  ['myparams_63',['myParams',['../classparamkit_1_1_params.html#a0c1ec92bc5e1b6d093b4efe9f9c0be57',1,'paramkit::Params']]]
+  ['levenshtein_5fdistance_54',['levenshtein_distance',['../namespaceparamkit_1_1util.html#a2e9d23daf2a67b7265115ca5f5043321',1,'paramkit::util']]],
+  ['lime_55',['LIME',['../term__colors_8h.html#a46019a1f2c10603a54b6cbb19cbf3c21',1,'term_colors.h']]],
+  ['loadboolean_56',['loadBoolean',['../namespaceparamkit.html#aac99eaa5e3c72c131dc5353a7aacc6ee',1,'paramkit']]],
+  ['loadint_57',['loadInt',['../namespaceparamkit.html#ae10aaf94114b91aa3aca8729b8ec6486',1,'paramkit']]]
 ];

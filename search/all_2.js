@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['color_5fscheme_2eh_9',['color_scheme.h',['../color__scheme_8h.html',1,'']]],
-  ['copytocstr_10',['copyToCStr',['../classparamkit_1_1_string_param.html#ab175075b50b45ea021b6831add4521dd',1,'paramkit::StringParam::copyToCStr()'],['../classparamkit_1_1_w_string_param.html#a9e6888f2e4337999d5b553d54243439a',1,'paramkit::WStringParam::copyToCStr()']]],
-  ['countgroups_11',['countGroups',['../classparamkit_1_1_params.html#a9d813a6a81f53631db1e194bf06cecf4',1,'paramkit::Params']]],
-  ['countoptional_12',['countOptional',['../classparamkit_1_1_params.html#ac16ccfdc824f1b402d20539d7b592e97',1,'paramkit::Params']]],
-  ['countparams_13',['countParams',['../classparamkit_1_1_param_group.html#a10619cea8da8d9435e08253774606a63',1,'paramkit::ParamGroup']]],
-  ['countrequired_14',['countRequired',['../classparamkit_1_1_params.html#ae3320b47d4e6ff1bcfebbfedceb60150',1,'paramkit::Params']]],
-  ['cyan_15',['CYAN',['../term__colors_8h.html#ad243f93c16bc4c1d3e0a13b84421d760',1,'term_colors.h']]]
+  ['black_6',['BLACK',['../term__colors_8h.html#a7b3b25cba33b07c303f3060fe41887f6',1,'term_colors.h']]],
+  ['blue_7',['BLUE',['../term__colors_8h.html#a79d10e672abb49ad63eeaa8aaef57c38',1,'term_colors.h']]],
+  ['boolparam_8',['BoolParam',['../classparamkit_1_1_bool_param.html#a95a7e41f1db772d48532c54cb0e42f91',1,'paramkit::BoolParam::BoolParam()'],['../classparamkit_1_1_bool_param.html',1,'paramkit::BoolParam']]],
+  ['brown_9',['BROWN',['../term__colors_8h.html#ab2baea56ece91306020afd6d77fd19f9',1,'term_colors.h']]]
 ];

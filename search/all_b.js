@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_28_29_65',['operator()',['../classparamkit_1_1_param_compare.html#a90560083ba039906afb1210eeaa0a0aa',1,'paramkit::ParamCompare']]]
+  ['name_64',['name',['../classparamkit_1_1_param_group.html#acfd1855993f300613d07d55993b25a65',1,'paramkit::ParamGroup']]]
 ];

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['operator_28_29_187',['operator()',['../classparamkit_1_1_param_compare.html#a90560083ba039906afb1210eeaa0a0aa',1,'paramkit::ParamCompare']]]
+  ['levenshtein_5fdistance_184',['levenshtein_distance',['../namespaceparamkit_1_1util.html#a2e9d23daf2a67b7265115ca5f5043321',1,'paramkit::util']]],
+  ['loadboolean_185',['loadBoolean',['../namespaceparamkit.html#aac99eaa5e3c72c131dc5353a7aacc6ee',1,'paramkit']]],
+  ['loadint_186',['loadInt',['../namespaceparamkit.html#ae10aaf94114b91aa3aca8729b8ec6486',1,'paramkit']]]
 ];

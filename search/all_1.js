@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['black_5',['BLACK',['../term__colors_8h.html#a7b3b25cba33b07c303f3060fe41887f6',1,'term_colors.h']]],
-  ['blue_6',['BLUE',['../term__colors_8h.html#a79d10e672abb49ad63eeaa8aaef57c38',1,'term_colors.h']]],
-  ['boolparam_7',['BoolParam',['../classparamkit_1_1_bool_param.html#a95a7e41f1db772d48532c54cb0e42f91',1,'paramkit::BoolParam::BoolParam()'],['../classparamkit_1_1_bool_param.html',1,'paramkit::BoolParam']]],
-  ['brown_8',['BROWN',['../term__colors_8h.html#ab2baea56ece91306020afd6d77fd19f9',1,'term_colors.h']]]
+  ['addenumvalue_1',['addEnumValue',['../classparamkit_1_1_enum_param.html#a83817380637612de58e08e97fe198645',1,'paramkit::EnumParam::addEnumValue(int value, const std::string &amp;info)'],['../classparamkit_1_1_enum_param.html#acf16bb2a398a83191c1588cb323a151c',1,'paramkit::EnumParam::addEnumValue(int value, const std::string &amp;str_val, const std::string &amp;info)']]],
+  ['addgroup_2',['addGroup',['../classparamkit_1_1_params.html#a0d557950939bf259da2a7d4851dc4ccd',1,'paramkit::Params']]],
+  ['addparam_3',['addParam',['../classparamkit_1_1_param_group.html#a3a076ff9b09cf7caa521ed0f83bdbe00',1,'paramkit::ParamGroup::addParam()'],['../classparamkit_1_1_params.html#acb00d314b8284ebc4718b39703908c4a',1,'paramkit::Params::addParam(Param *param)']]],
+  ['addparamtogroup_4',['addParamToGroup',['../classparamkit_1_1_params.html#a0ea17cd742365aba5b17aa676155a0a9',1,'paramkit::Params::addParamToGroup(const std::string paramName, const std::string groupName)'],['../classparamkit_1_1_params.html#a7b2dd27b4b8dbcd4f18432df9b961df1',1,'paramkit::Params::addParamToGroup(Param *param, ParamGroup *group)']]],
+  ['argstr_5',['argStr',['../classparamkit_1_1_param.html#a4e6b57cdf7b67f7a9fa65b8b5c05fd34',1,'paramkit::Param']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['yellow_129',['YELLOW',['../term__colors_8h.html#abf681265909adf3d3e8116c93c0ba179',1,'term_colors.h']]],
-  ['yellow_5fon_5fblack_130',['YELLOW_ON_BLACK',['../term__colors_8h.html#a51f81624c8a900209617c4b7a0e97d50',1,'term_colors.h']]]
+  ['warning_5fcolor_126',['WARNING_COLOR',['../namespaceparamkit.html#a1ad45720e571f107d99d911a49ea3fef',1,'paramkit']]],
+  ['white_127',['WHITE',['../term__colors_8h.html#a87b537f5fa5c109d3c05c13d6b18f382',1,'term_colors.h']]],
+  ['wstringparam_128',['WStringParam',['../classparamkit_1_1_w_string_param.html',1,'paramkit::WStringParam'],['../classparamkit_1_1_w_string_param.html#a8d698d3c0cf945c9c951a52135ab0ec9',1,'paramkit::WStringParam::WStringParam()']]]
 ];

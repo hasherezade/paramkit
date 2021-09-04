@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['dark_5fblue_16',['DARK_BLUE',['../term__colors_8h.html#ab17de36a1b487f9ad9ef7dabd63531ab',1,'term_colors.h']]],
-  ['dark_5fcyan_17',['DARK_CYAN',['../term__colors_8h.html#a8e78c0ca33ec357c0332d33da94f01f8',1,'term_colors.h']]],
-  ['dark_5fgreen_18',['DARK_GREEN',['../term__colors_8h.html#a2ebb0bf1d379e615bda6e25cccf0f08f',1,'term_colors.h']]],
-  ['dark_5fmagenta_19',['DARK_MAGENTA',['../term__colors_8h.html#a908d63d1e1a62efbe7c61685f9144a7d',1,'term_colors.h']]],
-  ['dark_5fred_20',['DARK_RED',['../term__colors_8h.html#adf1abd1d6844a43cca874c266bb57b9b',1,'term_colors.h']]]
+  ['color_5fscheme_2eh_10',['color_scheme.h',['../color__scheme_8h.html',1,'']]],
+  ['copytocstr_11',['copyToCStr',['../classparamkit_1_1_string_param.html#ab175075b50b45ea021b6831add4521dd',1,'paramkit::StringParam::copyToCStr()'],['../classparamkit_1_1_w_string_param.html#a9e6888f2e4337999d5b553d54243439a',1,'paramkit::WStringParam::copyToCStr()']]],
+  ['countcategory_12',['countCategory',['../classparamkit_1_1_params.html#a88e7f4e15b217dd471b81b948b08518b',1,'paramkit::Params']]],
+  ['countgroups_13',['countGroups',['../classparamkit_1_1_params.html#a9d813a6a81f53631db1e194bf06cecf4',1,'paramkit::Params']]],
+  ['countparams_14',['countParams',['../classparamkit_1_1_param_group.html#a10619cea8da8d9435e08253774606a63',1,'paramkit::ParamGroup']]],
+  ['cyan_15',['CYAN',['../term__colors_8h.html#ad243f93c16bc4c1d3e0a13b84421d760',1,'term_colors.h']]]
 ];
