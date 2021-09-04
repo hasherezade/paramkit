@@ -44,6 +44,11 @@ namespace paramkit {
             releaseParams();
         }
 
+        virtual void printBanner()
+        {
+            return;
+        }
+
         virtual void printVersionInfo()
         {
             if (versionStr.length()) {
@@ -237,8 +242,8 @@ namespace paramkit {
                 std::map<std::string, Param*>::iterator itr;
                 for (itr = myParams.begin(); itr != myParams.end(); ++itr) {
                     Param *param = itr->second;
-                    if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1)
-                    {
+                    if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1) {
+                        this->printBanner();
                         this->info(false);
                         return false;
                     }
