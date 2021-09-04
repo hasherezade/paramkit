@@ -1,14 +1,15 @@
 <map id="paramkit::Params::parse" name="paramkit::Params::parse">
-<area shape="rect" id="node1" title="Parses the parameters. Prints a warning if an undefined parameter was supplied." alt="" coords="5,591,167,617"/>
+<area shape="rect" id="node1" title="Parses the parameters. Prints a warning if an undefined parameter was supplied." alt="" coords="5,616,167,643"/>
 <area shape="rect" id="node2" href="$classparamkit_1_1_params.html#aa9ac3da5ecb90680996f9b0b33c29622" title="Checks if all the required parameters are filled." alt="" coords="487,527,688,569"/>
 <area shape="rect" id="node4" href="$classparamkit_1_1_params.html#a6782fd446c62c74009464a9efc820058" title="Prints info about all the parameters. Optionally hilights the required ones that are missing." alt="" coords="249,336,400,363"/>
 <area shape="rect" id="node14" href="$namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f" title=" " alt="" coords="1241,123,1361,165"/>
 <area shape="rect" id="node17" href="$classparamkit_1_1_param.html#a67ae64966a26486df579fcfa8488922d" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="1000,589,1177,616"/>
 <area shape="rect" id="node21" href="$classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6" title="Checks if the string starts from the parameter switch." alt="" coords="236,641,413,668"/>
 <area shape="rect" id="node22" href="$classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817" title="Parses the parameter from the given string." alt="" coords="247,692,402,719"/>
-<area shape="rect" id="node23" href="$classparamkit_1_1_params.html#a0eca605840b3ae6f9d04e0db85913657" title=" " alt="" coords="483,43,692,85"/>
-<area shape="rect" id="node24" href="$classparamkit_1_1_params.html#ab9559bd8e4f58cf066536835b93f309a" title=" " alt="" coords="215,743,435,769"/>
-<area shape="rect" id="node25" href="$namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="261,793,389,820"/>
+<area shape="rect" id="node23" href="$classparamkit_1_1_params.html#a422491f139fc7fabb8232b652fd7d2e9" title=" " alt="" coords="227,743,422,769"/>
+<area shape="rect" id="node24" href="$classparamkit_1_1_params.html#a0eca605840b3ae6f9d04e0db85913657" title=" " alt="" coords="483,43,692,85"/>
+<area shape="rect" id="node25" href="$classparamkit_1_1_params.html#ab9559bd8e4f58cf066536835b93f309a" title=" " alt="" coords="215,793,435,820"/>
+<area shape="rect" id="node26" href="$namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="261,844,389,871"/>
 <area shape="rect" id="node3" href="$classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd" title="Returns true if the parameter is filled, false otherwise." alt="" coords="1225,429,1377,456"/>
 <area shape="rect" id="node5" href="$classparamkit_1_1_params.html#a544c8ecf0e00ac94bab872568cf5960b" title=" " alt="" coords="509,336,666,363"/>
 <area shape="rect" id="node20" href="$classparamkit_1_1_param.html#aa8a019998011a34aae8bf32efcea1eae" title="Prints the parameter using the given color. Appends the parameter switch to the name." alt="" coords="1009,153,1168,194"/>
