@@ -27,6 +27,7 @@ namespace paramkit {
         \param _name : a name of the group that will be used to identify it
         */
         ParamGroup(const std::string& _name)
+            : hdrColor(HEADER_COLOR), paramColor(HILIGHTED_COLOR), separatorColor(SEPARATOR_COLOR)
         {
             this->name = _name;
         }
@@ -46,10 +47,9 @@ namespace paramkit {
             }
             const bool has_filter = filter.length() > 0 ? true : false;
             size_t printed = 0;
-            const int param_color = HILIGHTED_COLOR;
 
             if (printGroupName && name.length()) {
-                print_in_color(SEPARATOR_COLOR, "\n---" + name + "---\n");
+                print_in_color(separatorColor, "\n---" + name + "---\n");
             }
             std::set<Param*>::iterator itr;
             for (itr = params.begin(); itr != params.end(); ++itr) {
@@ -58,18 +58,18 @@ namespace paramkit {
                 if (!param) continue;
                 if (printRequired != param->isRequired) continue;
                 bool should_print = hilightMissing ? false : true;
-                int color = param_color;
+                int color = paramColor;
                 if (hilightMissing && param->isRequired && !param->isSet()) {
                     color = WARNING_COLOR;
                     should_print = true;
                 }
                 if (has_filter) {
                     util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
-                    color = (sim_type != util::SIM_NONE) ? PARAM_SIMILAR_NAME : param_color;
+                    color = (sim_type != util::SIM_NONE) ? PARAM_SIMILAR_NAME : paramColor;
                     if (sim_type == util::SIM_NONE) {
                         //try to find the keyword in the string description
                         sim_type = util::has_keyword(param->m_info, filter.substr(1));
-                        color = (sim_type != util::SIM_NONE) ? PARAM_SIMILAR_DESC : param_color;
+                        color = (sim_type != util::SIM_NONE) ? PARAM_SIMILAR_DESC : paramColor;
                     }
                     if (sim_type == util::SIM_NONE) continue;
                 }
@@ -142,6 +142,10 @@ namespace paramkit {
 
         std::string name;
         std::set<Param*, ParamCompare> params;
+
+        const int hdrColor;
+        const int paramColor;
+        const int separatorColor;
 
         friend class Params;
     };

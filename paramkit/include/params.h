@@ -29,7 +29,8 @@ namespace paramkit {
     public:
         Params()
             : generalGroup(nullptr), 
-            paramHelp(PARAM_HELP2, false)
+            paramHelp(PARAM_HELP2, false),
+            hdrColor(HEADER_COLOR), paramColor(HILIGHTED_COLOR)
         {
             paramHelp.m_info = "Print this help";
         }
@@ -104,14 +105,11 @@ namespace paramkit {
         */
         void info(bool hilightMissing=false, const std::string &filter="")
         {
-            const int hdr_color = HEADER_COLOR;
-            const int param_color = HILIGHTED_COLOR;
-
             _info(true, hilightMissing, filter);
             _info(false, hilightMissing, filter);
 
-            print_in_color(hdr_color, "\nInfo:\n");
-            paramHelp.printInColor(param_color);
+            print_in_color(hdrColor, "\nInfo:\n");
+            paramHelp.printInColor(paramColor);
             paramHelp.printDesc();
         }
 
@@ -285,7 +283,7 @@ namespace paramkit {
         //! Prints the values of all the parameters that are currently set.
         void print()
         {
-            const int param_color = HILIGHTED_COLOR;
+            const int paramColor = HILIGHTED_COLOR;
             std::map<std::string, Param*>::iterator itr;
             for (itr = myParams.begin(); itr != myParams.end(); itr++) {
                 if (!isSet(itr->first)) continue;
@@ -293,7 +291,7 @@ namespace paramkit {
                 Param *param = itr->second;
                 if (!param) continue; //should never happen
 
-                param->printInColor(param_color);
+                param->printInColor(paramColor);
                 std::cout << ": ";
                 std::cout << std::hex << param->valToString() << "\n";
             }
@@ -303,15 +301,12 @@ namespace paramkit {
 
         size_t _info(bool isRequired, bool hilightMissing = false, const std::string &filter = "")
         {
-            const int hdr_color = HEADER_COLOR;
-            const int param_color = HILIGHTED_COLOR;
-
             const bool has_filter = filter.length() > 0 ? true : false;
             std::map<std::string, Param*>::iterator itr;
             size_t printed = 0;
             if (countCategory(isRequired) > 0) {
                 const std::string desc = isRequired ? "Required:" : "Optional:";
-                print_in_color(hdr_color, "\n"+ desc + "\n");
+                print_in_color(hdrColor, "\n"+ desc + "\n");
 
                 size_t total_count = 0;
                 bool printGroupName = (countGroups(isRequired, hilightMissing, filter)) ? true : false;
@@ -410,6 +405,9 @@ namespace paramkit {
         ParamGroup *generalGroup;
         std::map<Param*, ParamGroup*> paramToGroup;
         std::map<std::string, ParamGroup*> paramGroups;
+
+        const int hdrColor;
+        const int paramColor;
     };
 };
 
