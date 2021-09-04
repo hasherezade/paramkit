@@ -21,24 +21,34 @@
 
 #define PARAM_HELP1 "?"
 #define PARAM_HELP2 "help"
+#define PARAM_VERSION "version"
+#define PARAM_VERSION2 "ver"
 
 namespace paramkit {
 
     //! The class responsible for storing and parsing parameters (objects of the type Param), possibly divided into groups (ParamGroup)
     class Params {
     public:
-        Params()
-            : generalGroup(nullptr), 
-            paramHelp(PARAM_HELP2, false),
+        Params(const std::string &version = "")
+            : generalGroup(nullptr), versionStr(version),
+            paramHelp(PARAM_HELP2, false), paramVersion(PARAM_VERSION, false),
             hdrColor(HEADER_COLOR), paramColor(HILIGHTED_COLOR)
         {
             paramHelp.m_info = "Print help.";
+            paramVersion.m_info = "Print version info.";
         }
 
         virtual ~Params()
         {
             releaseGroups();
             releaseParams();
+        }
+
+        virtual void printVersionInfo()
+        {
+            if (versionStr.length()) {
+                std::cout << versionStr << std::endl;
+            }
         }
 
         bool addGroup(ParamGroup *group)
@@ -112,6 +122,11 @@ namespace paramkit {
             print_in_color(hdrColor, "\nInfo:\n");
             paramHelp.printInColor(paramColor);
             paramHelp.printDesc();
+            if (this->versionStr.length()) {
+                paramVersion.printInColor(paramColor);
+                paramVersion.printDesc();
+            }
+
             std::cout << "---" << std::endl;
         }
 
@@ -227,7 +242,12 @@ namespace paramkit {
                         this->info(false);
                         return false;
                     }
-
+                    if (this->versionStr.length()) {
+                        if (param_str == PARAM_VERSION || param_str == PARAM_VERSION2) {
+                            this->printVersionInfo();
+                            return false;
+                        }
+                    }
                     if (param_str == param->argStr) {
                         // has argument:
                         if ((i + 1) < argc && !(isParam(to_string(argv[i + 1])))) {
@@ -401,8 +421,10 @@ namespace paramkit {
             return false;
         }
 
+        std::string versionStr;
         std::map<std::string, Param*> myParams;
         BoolParam paramHelp;
+        BoolParam paramVersion;
         ParamGroup *generalGroup;
         std::map<Param*, ParamGroup*> paramToGroup;
         std::map<std::string, ParamGroup*> paramGroups;
