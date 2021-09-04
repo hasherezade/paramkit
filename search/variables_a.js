@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['typedescstr_250',['typeDescStr',['../classparamkit_1_1_param.html#ae1e4ef2fdf9fcb7cbd64f161ae19a453',1,'paramkit::Param']]]
+  ['separator_5fcolor_255',['SEPARATOR_COLOR',['../namespaceparamkit.html#aacceff24668f5d2ba42c654051d63417',1,'paramkit']]],
+  ['separatorcolor_256',['separatorColor',['../classparamkit_1_1_param_group.html#ada3f9d8e7f2a9372bb65c6f2bebc0d91',1,'paramkit::ParamGroup']]]
 ];
