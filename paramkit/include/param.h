@@ -403,7 +403,7 @@ namespace paramkit {
 
         virtual std::string type() const
         {
-            return enumName;
+            return "*" + enumName;
         }
 
         virtual bool isSet() const
