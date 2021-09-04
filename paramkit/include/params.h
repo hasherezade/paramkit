@@ -105,12 +105,14 @@ namespace paramkit {
         */
         void info(bool hilightMissing=false, const std::string &filter="")
         {
+            std::cout << "---" << std::endl;
             _info(true, hilightMissing, filter);
             _info(false, hilightMissing, filter);
 
             print_in_color(hdrColor, "\nInfo:\n");
             paramHelp.printInColor(paramColor);
             paramHelp.printDesc();
+            std::cout << "---" << std::endl;
         }
 
         //! Fills an IntParam defined by its name with the given value. If such parameter does not exist, or is not of the type IntParam, returns false. Otherwise returns true.
