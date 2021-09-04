@@ -107,46 +107,9 @@ namespace paramkit {
             const int hdr_color = HEADER_COLOR;
             const int param_color = HILIGHTED_COLOR;
 
-            const bool has_filter = filter.length() > 0 ? true : false;
-            std::map<std::string, Param*>::iterator itr;
-            size_t printed = 0;
-            if (countRequired() > 0) {
-                print_in_color(hdr_color, "Required:\n");
-                //Print Required
-                size_t total_count = 0;
-                bool printGroupName = (countGroups(true, hilightMissing, filter)) ? true : false;
-                if (paramGroups.size() > 0) {
-                    std::map<std::string, ParamGroup*>::iterator groupItr;
-                    for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
-                        ParamGroup* group = groupItr->second;
-                        if (!group) continue; //should never happen
-                        printed += group->printGroup(printGroupName, true, hilightMissing, filter);
-                        total_count += group->countParams(true, false, "");
-                    }
-                    if (printed < total_count) {
-                        print_in_color(INACTIVE_COLOR, "\n[...]\n");
-                    }
-                }
-            }
-            printed = 0;
-            if (countOptional() > 0) {
-                print_in_color(hdr_color, "\nOptional:\n");
-                //Print Optional
-                size_t total_count = 0;
-                bool printGroupName = (countGroups(false, hilightMissing, filter)) ? true : false;
-                if (paramGroups.size() > 0) {
-                    std::map<std::string, ParamGroup*>::iterator groupItr;
-                    for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
-                        ParamGroup* group = groupItr->second;
-                        if (!group) continue; //should never happen
-                        printed += group->printGroup(printGroupName, false, hilightMissing, filter);
-                        total_count += group->countParams(false, false, "");
-                    }
-                    if (printed < total_count) {
-                        print_in_color(INACTIVE_COLOR, "\n[...]\n");
-                    }
-                }
-            }
+            _info(true, hilightMissing, filter);
+            _info(false, hilightMissing, filter);
+
             print_in_color(hdr_color, "\nInfo:\n");
             paramHelp.printInColor(param_color);
             paramHelp.printDesc();
@@ -304,7 +267,7 @@ namespace paramkit {
                 else {
                     const std::string param_str = to_string(argv[i]);
                     printUnknownParam(param_str);
-                    print_in_color(HILIGHTED_COLOR, "Similar parameters:\n\n");
+                    print_in_color(HILIGHTED_COLOR, "Similar parameters:\n");
                     this->info(false, param_str);
                     return false;
                 }
@@ -338,6 +301,36 @@ namespace paramkit {
 
     protected:
 
+        size_t _info(bool isRequired, bool hilightMissing = false, const std::string &filter = "")
+        {
+            const int hdr_color = HEADER_COLOR;
+            const int param_color = HILIGHTED_COLOR;
+
+            const bool has_filter = filter.length() > 0 ? true : false;
+            std::map<std::string, Param*>::iterator itr;
+            size_t printed = 0;
+            if (countCategory(isRequired) > 0) {
+                const std::string desc = isRequired ? "Required:" : "Optional:";
+                print_in_color(hdr_color, "\n"+ desc + "\n");
+
+                size_t total_count = 0;
+                bool printGroupName = (countGroups(isRequired, hilightMissing, filter)) ? true : false;
+                if (paramGroups.size() > 0) {
+                    std::map<std::string, ParamGroup*>::iterator groupItr;
+                    for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
+                        ParamGroup* group = groupItr->second;
+                        if (!group) continue; //should never happen
+                        printed += group->printGroup(printGroupName, isRequired, hilightMissing, filter);
+                        total_count += group->countParams(isRequired, false, "");
+                    }
+                    if (printed < total_count) {
+                        print_in_color(INACTIVE_COLOR, "\n[...]\n");
+                    }
+                }
+            }
+            return printed;
+        }
+
         bool addParamToGroup(Param *param, ParamGroup *group)
         {
             if (!param || !group) {
@@ -370,34 +363,22 @@ namespace paramkit {
             return groups_count;
         }
 
+        //! Returns the number of parameters of particular category: required or optional.
+        size_t countCategory(bool isRequired)
+        {
+            size_t count = 0;
+            std::map<std::string, Param*>::iterator itr;
+            for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                Param *param = itr->second;
+                if (param->isRequired == isRequired) count++;
+            }
+            return count;
+        }
+
         void printUnknownParam(const std::string &param)
         {
             print_in_color(WARNING_COLOR, "Invalid parameter: ");
             std::cout << param << "\n";
-        }
-
-        //! Returns the number of required parameters.
-        size_t countRequired()
-        {
-            size_t count = 0;
-            std::map<std::string, Param*>::iterator itr;
-            for (itr = myParams.begin(); itr != myParams.end(); itr++) {
-                Param *param = itr->second;
-                if (param->isRequired) count++;
-            }
-            return count;
-        }
-
-        //! Returns the number of optional parameters.
-        size_t countOptional()
-        {
-            size_t count = 0;
-            std::map<std::string, Param*>::iterator itr;
-            for (itr = myParams.begin(); itr != myParams.end(); itr++) {
-                Param *param = itr->second;
-                if (!param->isRequired) count++;
-            }
-            return count;
         }
 
         //! Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist.
