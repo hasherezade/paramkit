@@ -120,7 +120,7 @@ paramkit::util::stringsim_type paramkit::util::is_string_similar(const std::stri
         return SIM_SUBSTR;
     }
     size_t dist = util::levenshtein_distance(filter.c_str(), param.c_str());
-    if (dist <= (param.length() / 2)) {
+    if (dist == 1 || dist <= (param.length() / 2)) {
         sim_found = true;
     }
     if (dist >= param.length() || dist >= filter.length()) {
@@ -129,7 +129,7 @@ paramkit::util::stringsim_type paramkit::util::is_string_similar(const std::stri
     if (sim_found) return SIM_LAV_DIST;
 
     size_t diff = util::str_hist_diffrence(filter.c_str(), param.c_str());
-    if (diff <= (param.length() / 2) || diff <= (filter.length() / 2)) {
+    if (diff < (param.length() / 2) || diff < (filter.length() / 2)) {
         sim_found = true;
     }
     if (diff >= param.length() || diff >= filter.length()) {
