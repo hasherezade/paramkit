@@ -1,0 +1,4 @@
+<map id="paramkit::WStringParam::copyToCStr" name="paramkit::WStringParam::copyToCStr">
+<area shape="rect" id="node1" title="Copy the stored string value into an external buffer of a given length." alt="" coords="5,5,168,47"/>
+<area shape="rect" id="node2" href="$namespaceparamkit.html#ac6dfe7ceea4d82bbdd34fde13ea4a2d8" title="Copy the std::string/std::wstring value into an buffer of a given character count." alt="" coords="216,13,368,39"/>
+</map>

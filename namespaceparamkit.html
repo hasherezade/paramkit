@@ -132,6 +132,10 @@ Functions</h2></td></tr>
 <tr class="memitem:aac99eaa5e3c72c131dc5353a7aacc6ee"><td class="memTemplParams" colspan="2">template&lt;typename T_CHAR &gt; </td></tr>
 <tr class="memitem:aac99eaa5e3c72c131dc5353a7aacc6ee"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#aac99eaa5e3c72c131dc5353a7aacc6ee">loadBoolean</a> (const T_CHAR *str1)</td></tr>
 <tr class="separator:aac99eaa5e3c72c131dc5353a7aacc6ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="memTemplParams" colspan="2">template&lt;typename T_STR , typename T_CHAR &gt; </td></tr>
+<tr class="memitem:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#ac6dfe7ceea4d82bbdd34fde13ea4a2d8">copy_to_cstr</a> (T_STR value, T_CHAR *buf, size_t buf_count)</td></tr>
+<tr class="memdesc:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the std::string/std::wstring value into an buffer of a given character count.  <a href="namespaceparamkit.html#ac6dfe7ceea4d82bbdd34fde13ea4a2d8">More...</a><br /></td></tr>
+<tr class="separator:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -153,6 +157,46 @@ Variables</h2></td></tr>
 <tr class="separator:a3c80b6accfa0f3ca642cb3ac5b85cf49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ac6dfe7ceea4d82bbdd34fde13ea4a2d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6dfe7ceea4d82bbdd34fde13ea4a2d8">&#9670;&nbsp;</a></span>copy_to_cstr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_STR , typename T_CHAR &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t paramkit::copy_to_cstr </td>
+          <td>(</td>
+          <td class="paramtype">T_STR&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_CHAR *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>buf_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy the std::string/std::wstring value into an buffer of a given character count. </p>
+
+<p class="definition">Definition at line <a class="el" href="pk__util_8h_source.html#l00076">76</a> of file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
+
+</div>
+</div>
 <a id="aa9e018465904016a166fc0b6f6bb0d63"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa9e018465904016a166fc0b6f6bb0d63">&#9670;&nbsp;</a></span>get_console_color()</h2>
 
