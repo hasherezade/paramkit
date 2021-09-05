@@ -75,7 +75,7 @@ namespace paramkit {
     template <typename T_STR, typename T_CHAR>
     size_t copy_to_cstr(T_STR value, T_CHAR *buf, size_t buf_count)
     {
-        size_t val_len = value.length();
+        size_t val_len = value.length() + 1;
         if (val_len > buf_count) {
             val_len = buf_count;
         }
