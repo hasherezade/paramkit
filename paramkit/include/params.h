@@ -237,7 +237,7 @@ namespace paramkit {
                     continue;
                 }
                 bool found = false;
-                param_str = param_str.substr(1); // skip the first char
+                param_str = skipParamPrefix(param_str);
 
                 std::map<std::string, Param*>::iterator itr;
                 for (itr = myParams.begin(); itr != myParams.end(); ++itr) {
@@ -422,6 +422,23 @@ namespace paramkit {
                 return true;
             }
             return false;
+        }
+
+        std::string skipParamPrefix(std::string &str)
+        {
+            size_t prefixLen = 1;
+            const size_t len = str.length();
+            if (len < prefixLen) return str;
+
+            if (str[0] != PARAM_SWITCH1 && str[0] != PARAM_SWITCH2) {
+                return str;
+            }
+            if (len > 2 && str[0] == PARAM_SWITCH2) {
+                if (str[1] == PARAM_SWITCH2) { // double prefix: "--", i.e. "--param"
+                    prefixLen = 2;
+                }
+            }
+            return str.substr(prefixLen); // skip the first char
         }
 
         std::string versionStr;
