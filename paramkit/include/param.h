@@ -108,6 +108,15 @@ namespace paramkit {
             return (sim_type != util::SIM_NONE) ? true : false;
         }
 
+        //! Checks if the parameter type contains the keyword
+        virtual bool isKeywordInType(const std::string &keyword)
+        {
+            if (util::has_keyword(this->type(), keyword)) {
+                return true;
+            }
+            return false;
+        }
+
         //! Checks if the description contains the keyword
         virtual bool isKeywordInDescription(const std::string &keyword)
         {
@@ -430,12 +439,20 @@ namespace paramkit {
             return true;
         }
 
+        virtual bool isKeywordInType(const std::string &keyword)
+        {
+            if (util::has_keyword(enumName, keyword) != util::SIM_NONE) {
+                return true;
+            }
+            return false;
+        }
+
         bool isKeywordInDescription(const std::string &keyword)
         {
             if (Param::isKeywordInDescription(keyword)) {
                 return true;
             }
-            if (util::has_keyword(enumName, keyword) != util::SIM_NONE) {
+            if (isKeywordInType(keyword)) {
                 return true;
             }
             // search the keyword also in the descriptions of particulat options:
