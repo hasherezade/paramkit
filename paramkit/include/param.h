@@ -102,14 +102,14 @@ namespace paramkit {
         }
 
         //! Checks if the param name is similar to the given filter
-        bool isNameSimilar(const std::string &filter)
+        virtual bool isNameSimilar(const std::string &filter)
         {
             util::stringsim_type sim_type = util::is_string_similar(argStr, filter);
             return (sim_type != util::SIM_NONE) ? true : false;
         }
 
         //! Checks if the description contains the keyword
-        bool isKeywordInDescription(const std::string &keyword)
+        virtual bool isKeywordInDescription(const std::string &keyword)
         {
             util::stringsim_type sim_type = util::has_keyword(m_info, keyword);
             return (sim_type != util::SIM_NONE) ? true : false;
@@ -428,6 +428,21 @@ namespace paramkit {
                 return false;
             }
             return true;
+        }
+
+        bool isKeywordInDescription(const std::string &keyword)
+        {
+            if (Param::isKeywordInDescription(keyword)) {
+                return true;
+            }
+            // search the keyword also in the descriptions of particulat options:
+            std::map<int, std::string>::const_iterator itr;
+            for (itr = enumToInfo.begin(); itr != enumToInfo.end(); ++itr) {
+                const std::string valDesc = itr->second;
+                util::stringsim_type sim_type = util::has_keyword(valDesc, keyword);
+                if (sim_type != util::SIM_NONE) return true;
+            }
+            return false;
         }
 
         virtual bool parse(const char *arg)
