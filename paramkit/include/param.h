@@ -454,7 +454,7 @@ namespace paramkit {
             std::stringstream stream;
 
             std::map<int, std::string>::const_iterator itr;
-            stream << "*" << this->enumName << ":\n";
+            stream << type() << ":\n";
             for (itr = enumToInfo.begin(); itr != enumToInfo.end(); ) {
                 int val = itr->first;
                 std::map<int, std::string>::const_iterator foundString = enumToString.find(itr->first);
