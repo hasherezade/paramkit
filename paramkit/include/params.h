@@ -30,10 +30,12 @@ namespace paramkit {
     public:
         Params(const std::string &version = "")
             : generalGroup(nullptr), versionStr(version),
-            paramHelp(PARAM_HELP2, false), paramVersion(PARAM_VERSION, false),
+            paramHelp(PARAM_HELP2, false), paramHelpP(PARAM_HELP2, false),
+            paramVersion(PARAM_VERSION, false),
             hdrColor(HEADER_COLOR), paramColor(HILIGHTED_COLOR)
         {
             paramHelp.m_info = "Print help.";
+            paramHelpP.m_info = "Print help about a given keyword.";
             paramVersion.m_info = "Print version info.";
         }
 
@@ -126,6 +128,8 @@ namespace paramkit {
             print_in_color(hdrColor, "\nInfo:\n");
             paramHelp.printInColor(paramColor);
             paramHelp.printDesc();
+            paramHelpP.printInColor(paramColor);
+            paramHelpP.printDesc();
             if (this->versionStr.length()) {
                 paramVersion.printInColor(paramColor);
                 paramVersion.printDesc();
@@ -244,6 +248,12 @@ namespace paramkit {
                     Param *param = itr->second;
                     if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1) {
                         this->printBanner();
+                        const bool hasArg = (i + 1) < argc && !(isParam(to_string(argv[i + 1])));
+                        if (hasArg) {
+                            std::string nextVal = to_string(argv[i + 1]);
+                            this->info(false, nextVal, true);
+                            return false;
+                        }
                         const bool shouldExpand = (param_str == PARAM_HELP1) ? false : true;
                         this->info(false, "", shouldExpand);
                         return false;
@@ -256,7 +266,8 @@ namespace paramkit {
                     }
                     if (param_str == param->argStr) {
                         // has argument:
-                        if ((i + 1) < argc && !(isParam(to_string(argv[i + 1])))) {
+                        const bool hasArg = (i + 1) < argc && !(isParam(to_string(argv[i + 1])));
+                        if (hasArg) {
                             std::string nextVal = to_string(argv[i + 1]);
                             i++; // icrement index: move to the next argument
                             found = true;
@@ -477,6 +488,7 @@ namespace paramkit {
         std::string versionStr;
         std::map<std::string, Param*> myParams;
         BoolParam paramHelp;
+        StringParam paramHelpP;
         BoolParam paramVersion;
         ParamGroup *generalGroup;
         std::map<Param*, ParamGroup*> paramToGroup;
