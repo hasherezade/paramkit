@@ -269,6 +269,7 @@ namespace paramkit {
             return true;
         }
 
+        //! Copy the stored string value into an external buffer of a given length
         size_t copyToCStr(char *buf, size_t buf_max) const
         {
             size_t len = value.length() + 1;
@@ -327,6 +328,7 @@ namespace paramkit {
             return true;
         }
 
+        //! Copy the stored string value into an external buffer of a given length
         size_t copyToCStr(wchar_t *buf, size_t buf_len) const
         {
             buf_len = buf_len * sizeof(wchar_t);

@@ -322,6 +322,28 @@ namespace paramkit {
             }
         }
 
+        template <class PARAM_T, typename FIELD_T>
+        bool copyVal(const std::string &paramId, FIELD_T &toFill)
+        {
+            PARAM_T *myParam = dynamic_cast<PARAM_T*>(this->getParam(paramId));
+            if (!myParam || !myParam->isSet()) {
+                return false;
+            }
+            toFill = static_cast<FIELD_T>(myParam->value);
+            return true;
+        }
+
+        template <class PARAM_T, typename FIELD_T>
+        bool copyCStr(const std::string &paramId, FIELD_T &toFill, size_t toFillLen)
+        {
+            PARAM_T *myStr = dynamic_cast<PARAM_T*>(this->getParam(paramId));
+            if (!myStr || !myStr->isSet()) {
+                return false;
+            }
+            myStr->copyToCStr(toFill, toFillLen);
+            return true;
+        }
+
     protected:
 
         size_t _info(bool isRequired, bool hilightMissing = false, const std::string &filter = "")
