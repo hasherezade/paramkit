@@ -117,11 +117,11 @@ namespace paramkit {
         \param hilightMissing : if set, the required parameters that were not filled are printed in red.
         \param filter : display only parameters similar to the given string
         */
-        void info(bool hilightMissing=false, const std::string &filter="")
+        void info(bool hilightMissing=false, const std::string &filter="", bool isExpanded=true)
         {
             std::cout << "---" << std::endl;
-            _info(true, hilightMissing, filter);
-            _info(false, hilightMissing, filter);
+            _info(true, hilightMissing, filter, isExpanded);
+            _info(false, hilightMissing, filter, isExpanded);
 
             print_in_color(hdrColor, "\nInfo:\n");
             paramHelp.printInColor(paramColor);
@@ -244,7 +244,8 @@ namespace paramkit {
                     Param *param = itr->second;
                     if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1) {
                         this->printBanner();
-                        this->info(false);
+                        const bool shouldExpand = (param_str == PARAM_HELP1) ? false : true;
+                        this->info(false, "", shouldExpand);
                         return false;
                     }
                     if (this->versionStr.length()) {
@@ -291,7 +292,7 @@ namespace paramkit {
                 else {
                     printUnknownParam(param_str);
                     print_in_color(HILIGHTED_COLOR, "Similar parameters:\n");
-                    this->info(false, param_str);
+                    this->info(false, param_str, true);
                     return false;
                 }
             }
@@ -299,7 +300,7 @@ namespace paramkit {
                 return false;
             }
             if (!this->hasRequiredFilled()) {
-                this->info(true);
+                this->info(true, "", true);
                 return false;
             }
             return true;
@@ -349,7 +350,7 @@ namespace paramkit {
 
     protected:
 
-        size_t _info(bool isRequired, bool hilightMissing = false, const std::string &filter = "")
+        size_t _info(bool isRequired, bool hilightMissing, const std::string &filter, bool isExpanded)
         {
             const bool has_filter = filter.length() > 0 ? true : false;
             std::map<std::string, Param*>::iterator itr;
@@ -365,7 +366,7 @@ namespace paramkit {
                     for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
                         ParamGroup* group = groupItr->second;
                         if (!group) continue; //should never happen
-                        printed += group->printGroup(printGroupName, isRequired, hilightMissing, filter);
+                        printed += group->printGroup(printGroupName, isRequired, hilightMissing, filter, isExpanded);
                         total_count += group->countParams(isRequired, false, "");
                     }
                     if (printed < total_count) {

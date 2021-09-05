@@ -87,7 +87,7 @@ namespace paramkit {
     protected:
 
         //! Prints a formatted description of the parameter, including its unique name, type, and the info.
-        void printDesc() const
+        void printDesc(bool isExpanded = true) const
         {
             if (requiredArg) {
                 if (typeDescStr.length()) {
@@ -97,8 +97,11 @@ namespace paramkit {
                     std::cout << " <" << type() << ">";
                 }
             }
-            std::cout << "\n\t";
-            std::cout << " : " << info() << "\n";
+            if (isExpanded) {
+                std::cout << "\n\t";
+                std::cout << " : " << info();
+            }
+            std::cout << "\n";
         }
 
         //! Checks if the param name is similar to the given filter
