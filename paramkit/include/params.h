@@ -413,10 +413,9 @@ namespace paramkit {
         //! Checks if the string starts from the parameter switch.
         static bool isParam(const std::string &str)
         {
-            if (str.length() == 0) return false;
-
+            const size_t prefixLen = 1;
             const size_t len = str.length();
-            if (len < 2) return false;
+            if (len <= prefixLen) return false;
 
             if (str[0] == PARAM_SWITCH1 || str[0] == PARAM_SWITCH2) {
                 return true;
@@ -424,6 +423,7 @@ namespace paramkit {
             return false;
         }
 
+        //! Skip the parameter prefix. Example: "/param", '-param', or "--param" is converted to "param".
         std::string skipParamPrefix(std::string &str)
         {
             size_t prefixLen = 1;
