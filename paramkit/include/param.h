@@ -435,6 +435,9 @@ namespace paramkit {
             if (Param::isKeywordInDescription(keyword)) {
                 return true;
             }
+            if (util::has_keyword(enumName, keyword) != util::SIM_NONE) {
+                return true;
+            }
             // search the keyword also in the descriptions of particulat options:
             std::map<int, std::string>::const_iterator itr;
             for (itr = enumToInfo.begin(); itr != enumToInfo.end(); ++itr) {
