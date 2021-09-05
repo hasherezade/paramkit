@@ -348,7 +348,7 @@ namespace paramkit {
                 return false;
             }
             if (!myParam->isSet()) {
-                false;
+                return false;
             }
             toFill = static_cast<FIELD_T>(myParam->value);
             return true;
