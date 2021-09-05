@@ -79,6 +79,7 @@ size_t paramkit::util::levenshtein_distance(const char s1[], const char s2[])
 
 inline void calc_histogram(const char s1[], size_t hist1[255])
 {
+    memset(hist1, 0, 255);
     const size_t len1 = strlen(s1);
     for (size_t i = 0; i < len1; i++) {
         const char c = tolower(s1[i]);
@@ -86,7 +87,16 @@ inline void calc_histogram(const char s1[], size_t hist1[255])
     }
 }
 
-size_t paramkit::util::str_hist_similarity(const char s1[], const char s2[])
+inline size_t calc_unique_chars(size_t hist1[255])
+{
+    size_t count = 0;
+    for (size_t i = 0; i < 255; i++) {
+        if (hist1[i] != 0) count++;
+    }
+    return count;
+}
+
+bool paramkit::util::has_similar_histogram(const char s1[], const char s2[])
 {
     const size_t MAX_LEN = 255;
     size_t hist1[MAX_LEN] = { 0 };
@@ -99,7 +109,12 @@ size_t paramkit::util::str_hist_similarity(const char s1[], const char s2[])
     for (size_t i = 0; i < MAX_LEN; i++) {
         if (hist1[i] != 0 && hist2[i] != 0 ) sim++;
     }
-    return sim;
+    const size_t uniq1 = calc_unique_chars(hist1);
+    const size_t uniq2 = calc_unique_chars(hist2);
+    if (sim == uniq1 || sim == uniq2) {
+        return true;
+    }
+    return false;
 }
 
 paramkit::util::stringsim_type paramkit::util::has_keyword( std::string param, std::string filter)
@@ -125,11 +140,9 @@ paramkit::util::stringsim_type paramkit::util::is_string_similar(const std::stri
         sim_found = false;
     }
     if (sim_found) return SIM_LAV_DIST;
-    
-    size_t sim = util::str_hist_similarity(filter.c_str(), param.c_str());
-    if (sim  == param.length() || sim == filter.length()) {
-        sim_found = true;
-    }
+
+    sim_found = util::has_similar_histogram(filter.c_str(), param.c_str());
     if (sim_found) return SIM_HIST;
+
     return SIM_NONE;
 }
