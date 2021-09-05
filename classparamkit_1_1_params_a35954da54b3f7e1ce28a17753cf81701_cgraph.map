@@ -1,13 +1,13 @@
 <map id="paramkit::Params::info" name="paramkit::Params::info">
 <area shape="rect" id="node1" title="Prints info about all the parameters. Optionally hilights the required ones that are missing." alt="" coords="5,366,156,393"/>
-<area shape="rect" id="node2" href="$classparamkit_1_1_params.html#a544c8ecf0e00ac94bab872568cf5960b" title=" " alt="" coords="204,202,361,229"/>
+<area shape="rect" id="node2" href="$classparamkit_1_1_params.html#a5cff091ab033c624dc7ebba81c43ffb0" title=" " alt="" coords="204,202,361,229"/>
 <area shape="rect" id="node16" href="$namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f" title=" " alt="" coords="938,304,1058,345"/>
-<area shape="rect" id="node19" href="$classparamkit_1_1_param.html#a67ae64966a26486df579fcfa8488922d" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="669,442,847,469"/>
+<area shape="rect" id="node19" href="$classparamkit_1_1_param.html#ab15e32b8490c9629d1c1c6dd3c3a7955" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="669,442,847,469"/>
 <area shape="rect" id="node22" href="$classparamkit_1_1_param.html#aa8a019998011a34aae8bf32efcea1eae" title="Prints the parameter using the given color. Appends the parameter switch to the name." alt="" coords="679,275,837,316"/>
 <area shape="rect" id="node3" href="$classparamkit_1_1_params.html#a88e7f4e15b217dd471b81b948b08518b" title="Returns the number of parameters of particular category: required or optional." alt="" coords="409,231,621,258"/>
 <area shape="rect" id="node4" href="$classparamkit_1_1_params.html#a9d813a6a81f53631db1e194bf06cecf4" title=" " alt="" coords="414,89,617,115"/>
 <area shape="rect" id="node5" href="$classparamkit_1_1_param_group.html#a10619cea8da8d9435e08253774606a63" title=" " alt="" coords="683,5,833,47"/>
-<area shape="rect" id="node18" href="$classparamkit_1_1_param_group.html#a04ca01705ab287aae6a0e9c6de425931" title="Prints the whole group of parameters (their names and descriptions), optionally with the group name." alt="" coords="440,165,591,207"/>
+<area shape="rect" id="node18" href="$classparamkit_1_1_param_group.html#a260286561ddeaaeacaee032b63f1609f" title="Prints the whole group of parameters (their names and descriptions), optionally with the group name." alt="" coords="440,165,591,207"/>
 <area shape="rect" id="node6" href="$classparamkit_1_1_param.html#aab4011fd6aedf57ebffc7f8afadc4e39" title="Checks if the description contains the keyword." alt="" coords="907,28,1089,69"/>
 <area shape="rect" id="node9" href="$classparamkit_1_1_param.html#a59414d4f9a333fc68a32379b17caf83f" title="Checks if the param name is similar to the given filter." alt="" coords="895,101,1101,127"/>
 <area shape="rect" id="node15" href="$classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd" title="Returns true if the parameter is filled, false otherwise." alt="" coords="922,162,1074,189"/>
