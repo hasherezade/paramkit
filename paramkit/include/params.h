@@ -316,6 +316,7 @@ namespace paramkit {
                 return false;
             }
             if (!this->hasRequiredFilled()) {
+                print_in_color(WARNING_COLOR, "Missing required parameters:\n");
                 this->info(true, "", true);
                 return false;
             }
