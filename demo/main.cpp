@@ -92,14 +92,19 @@ public:
         copyCStr<WStringParam>(PARAM_MY_WSTRING, paramsStruct.myWBuf, _countof(paramsStruct.myWBuf));
         return true;
     }
+
+    void printBanner()
+    {
+        paramkit::print_in_color(CYAN, "Welcome to ParamKit Demo!");
+        std::cout << std::endl;
+    }
 };
 
 int main(int argc, char* argv[])
 {
     DemoParams params;
     if (argc < 2) {
-        paramkit::print_in_color(CYAN, "Welcome to ParamKit Demo!");
-        std::cout << "\n";
+        params.printBanner();
         params.info(false);
         return 0;
     }
