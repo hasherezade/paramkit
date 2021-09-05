@@ -25,8 +25,8 @@ namespace paramkit {
         // Calculate Levenshtein distance of two strings
         size_t levenshtein_distance(const char s1[], const char s2[]);
 
-        // Calculate a diffrence in strings histograms
-        size_t str_hist_diffrence(const char s1[], const char s2[]);
+        // Calculate a similarity in strings histograms
+        size_t str_hist_similarity(const char s1[], const char s2[]);
 
         stringsim_type has_keyword(const std::string param, const std::string filter);
 

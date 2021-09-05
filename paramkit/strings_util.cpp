@@ -77,31 +77,29 @@ size_t paramkit::util::levenshtein_distance(const char s1[], const char s2[])
     return dist[len2][len1];
 }
 
-size_t paramkit::util::str_hist_diffrence(const char s1[], const char s2[])
+inline void calc_histogram(const char s1[], size_t hist1[255])
+{
+    const size_t len1 = strlen(s1);
+    for (size_t i = 0; i < len1; i++) {
+        const char c = tolower(s1[i]);
+        hist1[c]++;
+    }
+}
+
+size_t paramkit::util::str_hist_similarity(const char s1[], const char s2[])
 {
     const size_t MAX_LEN = 255;
     size_t hist1[MAX_LEN] = { 0 };
     size_t hist2[MAX_LEN] = { 0 };
 
-    const size_t len1 = strlen(s1);
-    const size_t len2 = strlen(s2);
+    calc_histogram(s1, hist1);
+    calc_histogram(s2, hist2);
 
-    for (size_t i = 0; i < strlen(s1); i++) {
-        char c = tolower(s1[i]);
-        hist1[c]++;
-    }
-
-    for (size_t i = 0; i < strlen(s2); i++) {
-        char c = tolower(s2[i]);
-        hist2[c]++;
-    }
-
-    size_t diffs = 0;
+    size_t sim = 0;
     for (size_t i = 0; i < MAX_LEN; i++) {
-        if (hist2[i] == hist1[i]) continue;
-        diffs++;
+        if (hist1[i] != 0 && hist2[i] != 0 ) sim++;
     }
-    return diffs;
+    return sim;
 }
 
 paramkit::util::stringsim_type paramkit::util::has_keyword( std::string param, std::string filter)
@@ -127,13 +125,10 @@ paramkit::util::stringsim_type paramkit::util::is_string_similar(const std::stri
         sim_found = false;
     }
     if (sim_found) return SIM_LAV_DIST;
-
-    size_t diff = util::str_hist_diffrence(filter.c_str(), param.c_str());
-    if (diff < (param.length() / 2) || diff < (filter.length() / 2)) {
+    
+    size_t sim = util::str_hist_similarity(filter.c_str(), param.c_str());
+    if (sim  == param.length() || sim == filter.length()) {
         sim_found = true;
-    }
-    if (diff >= param.length() || diff >= filter.length()) {
-        sim_found = false;
     }
     if (sim_found) return SIM_HIST;
     return SIM_NONE;
