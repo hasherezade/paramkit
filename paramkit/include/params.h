@@ -233,6 +233,7 @@ namespace paramkit {
             for (int i = 1; i < argc; i++) {
                 std::string param_str = to_string(argv[i]);
                 if (!isParam(param_str)) {
+                    printUnknownArgument(param_str);
                     continue;
                 }
                 bool found = false;
@@ -256,6 +257,7 @@ namespace paramkit {
                         // has argument:
                         if ((i + 1) < argc && !(isParam(to_string(argv[i + 1])))) {
                             std::string nextVal = to_string(argv[i + 1]);
+                            i++; // icrement index: move to the next argument
                             found = true;
                             //help requested explicitly or parsing failed
                             if (nextVal == PARAM_HELP1 || !param->parse(nextVal.c_str()) ) {
@@ -397,6 +399,12 @@ namespace paramkit {
         {
             print_in_color(WARNING_COLOR, "Invalid parameter: ");
             std::cout << param << "\n";
+        }
+
+        void printUnknownArgument(const std::string &str)
+        {
+            print_in_color(WARNING_COLOR, "Redundant argument: ");
+            std::cout << str << "\n";
         }
 
         //! Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist.
