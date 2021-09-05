@@ -71,4 +71,17 @@ namespace paramkit {
         return true;
     }
 
+    //! Copy the std::string/std::wstring value into an buffer of a given character count
+    template <typename T_STR, typename T_CHAR>
+    size_t copy_to_cstr(T_STR value, T_CHAR *buf, size_t buf_count)
+    {
+        size_t val_len = value.length();
+        if (val_len > buf_count) {
+            val_len = buf_count;
+        }
+        memcpy(buf, value.c_str(), val_len * sizeof(T_CHAR));
+        buf[val_len - 1] = '\0';
+        return val_len;
+    }
+
 };

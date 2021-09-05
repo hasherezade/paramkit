@@ -83,27 +83,13 @@ public:
 
     bool fillStruct(t_params_struct &paramsStruct)
     {
-        BoolParam *myBool = dynamic_cast<BoolParam*>(this->getParam(PARAM_MY_BOOL));
-        if (myBool) paramsStruct.myBool = myBool->value;
+        copyVal<BoolParam>(PARAM_MY_BOOL, paramsStruct.myBool);
+        copyVal<IntParam>(PARAM_MY_DEC, paramsStruct.myDec);
+        copyVal<IntParam>(PARAM_MY_HEX, paramsStruct.myHex);
+        copyVal<EnumParam>(PARAM_MY_ENUM, paramsStruct.myEnum);
 
-        IntParam *myDec = dynamic_cast<IntParam*>(this->getParam(PARAM_MY_DEC));
-        if (myDec) paramsStruct.myDec = myDec->value;
-
-        IntParam *myHex = dynamic_cast<IntParam*>(this->getParam(PARAM_MY_HEX));
-        if (myHex) paramsStruct.myHex = myHex->value;
-
-        StringParam *myStr = dynamic_cast<StringParam*>(this->getParam(PARAM_MY_ASTRING));
-        if (myStr) {
-            myStr->copyToCStr(paramsStruct.myABuf, _countof(paramsStruct.myWBuf));
-        }
-        WStringParam *myWStr = dynamic_cast<WStringParam*>(this->getParam(PARAM_MY_WSTRING));
-        if (myWStr) {
-            myWStr->copyToCStr(paramsStruct.myWBuf, _countof(paramsStruct.myWBuf));
-        }
-        EnumParam *myEnum = dynamic_cast<EnumParam*>(this->getParam(PARAM_MY_ENUM));
-        if (myEnum) {
-            paramsStruct.myEnum = (t_fruits)myEnum->value;
-        }
+        copyCStr<StringParam>(PARAM_MY_ASTRING, paramsStruct.myABuf, _countof(paramsStruct.myABuf));
+        copyCStr<WStringParam>(PARAM_MY_WSTRING, paramsStruct.myWBuf, _countof(paramsStruct.myWBuf));
         return true;
     }
 };
@@ -123,7 +109,7 @@ int main(int argc, char* argv[])
     std::cout << "\nPrinting the filled params:\n";
     params.print();
 
-    t_params_struct p;
+    t_params_struct p = { 0 };
     params.fillStruct(p);
 
     std::cout << "\nConverted to the structure:\n";

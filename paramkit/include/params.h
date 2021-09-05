@@ -326,8 +326,11 @@ namespace paramkit {
         bool copyVal(const std::string &paramId, FIELD_T &toFill)
         {
             PARAM_T *myParam = dynamic_cast<PARAM_T*>(this->getParam(paramId));
-            if (!myParam || !myParam->isSet()) {
+            if (!myParam) {
                 return false;
+            }
+            if (!myParam->isSet()) {
+                false;
             }
             toFill = static_cast<FIELD_T>(myParam->value);
             return true;

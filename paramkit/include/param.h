@@ -272,12 +272,7 @@ namespace paramkit {
         //! Copy the stored string value into an external buffer of a given length
         size_t copyToCStr(char *buf, size_t buf_max) const
         {
-            size_t len = value.length() + 1;
-            if (len > buf_max) len = buf_max;
-
-            memcpy(buf, value.c_str(), len);
-            buf[len] = '\0';
-            return len;
+            return copy_to_cstr(value, buf, buf_max);
         }
 
         std::string value;
@@ -331,13 +326,7 @@ namespace paramkit {
         //! Copy the stored string value into an external buffer of a given length
         size_t copyToCStr(wchar_t *buf, size_t buf_len) const
         {
-            buf_len = buf_len * sizeof(wchar_t);
-            size_t len = (value.length() + 1) * sizeof(wchar_t);
-            if (len > buf_len) len = buf_len;
-
-            memcpy(buf, value.c_str(), len);
-            buf[len] = '\0';
-            return len;
+            return copy_to_cstr(value, buf, buf_len);
         }
 
         std::wstring value;
