@@ -9,7 +9,7 @@
 <area shape="rect" id="node23" href="$classparamkit_1_1_params.html#a422491f139fc7fabb8232b652fd7d2e9" title=" " alt="" coords="227,743,422,769"/>
 <area shape="rect" id="node24" href="$classparamkit_1_1_params.html#a0eca605840b3ae6f9d04e0db85913657" title=" " alt="" coords="483,43,692,85"/>
 <area shape="rect" id="node25" href="$classparamkit_1_1_params.html#ab9559bd8e4f58cf066536835b93f309a" title=" " alt="" coords="215,793,435,820"/>
-<area shape="rect" id="node26" href="$classparamkit_1_1_params.html#a04d11e853139ee33a27f76efb0cbf5bf" title=" " alt="" coords="229,845,420,886"/>
+<area shape="rect" id="node26" href="$classparamkit_1_1_params.html#a04d11e853139ee33a27f76efb0cbf5bf" title="Skip the parameter prefix. Example: &quot;/param&quot;, &#39;&#45;param&#39;, or &quot;&#45;&#45;param&quot; is converted to &quot;param&quot;." alt="" coords="229,845,420,886"/>
 <area shape="rect" id="node27" href="$namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="261,911,389,937"/>
 <area shape="rect" id="node3" href="$classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd" title="Returns true if the parameter is filled, false otherwise." alt="" coords="1225,429,1377,456"/>
 <area shape="rect" id="node5" href="$classparamkit_1_1_params.html#a544c8ecf0e00ac94bab872568cf5960b" title=" " alt="" coords="509,336,666,363"/>
