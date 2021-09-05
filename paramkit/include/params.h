@@ -247,13 +247,15 @@ namespace paramkit {
                 for (itr = myParams.begin(); itr != myParams.end(); ++itr) {
                     Param *param = itr->second;
                     if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1) {
-                        this->printBanner();
-                        const bool hasArg = (i + 1) < argc && !(isParam(to_string(argv[i + 1])));
-                        if (hasArg) {
-                            std::string nextVal = to_string(argv[i + 1]);
-                            this->info(false, nextVal, true);
-                            return false;
+                        if (param_str == PARAM_HELP2) {
+                            const bool hasArg = (i + 1) < argc && !(isParam(to_string(argv[i + 1])));
+                            if (hasArg) {
+                                std::string nextVal = to_string(argv[i + 1]);
+                                this->info(false, nextVal, true);
+                                return false;
+                            }
                         }
+                        this->printBanner();
                         const bool shouldExpand = (param_str == PARAM_HELP1) ? false : true;
                         this->info(false, "", shouldExpand);
                         return false;
