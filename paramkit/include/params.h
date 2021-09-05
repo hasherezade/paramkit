@@ -30,12 +30,13 @@ namespace paramkit {
     public:
         Params(const std::string &version = "")
             : generalGroup(nullptr), versionStr(version),
-            paramHelp(PARAM_HELP2, false), paramHelpP(PARAM_HELP2, false),
+            paramHelp(PARAM_HELP2, false), paramHelpP(PARAM_HELP2, false), paramInfoP("<param> ?", false),
             paramVersion(PARAM_VERSION, false),
             hdrColor(HEADER_COLOR), paramColor(HILIGHTED_COLOR)
         {
             paramHelp.m_info = "Print help.";
             paramHelpP.m_info = "Print help about a given keyword.";
+            paramInfoP.m_info = "Print details of a given parameter.";
             paramVersion.m_info = "Print version info.";
         }
 
@@ -130,6 +131,8 @@ namespace paramkit {
             paramHelp.printDesc();
             paramHelpP.printInColor(paramColor);
             paramHelpP.printDesc();
+            paramInfoP.printInColor(paramColor);
+            paramInfoP.printDesc();
             if (this->versionStr.length()) {
                 paramVersion.printInColor(paramColor);
                 paramVersion.printDesc();
@@ -489,8 +492,11 @@ namespace paramkit {
 
         std::string versionStr;
         std::map<std::string, Param*> myParams;
+
         BoolParam paramHelp;
         StringParam paramHelpP;
+        BoolParam paramInfoP;
+
         BoolParam paramVersion;
         ParamGroup *generalGroup;
         std::map<Param*, ParamGroup*> paramToGroup;
