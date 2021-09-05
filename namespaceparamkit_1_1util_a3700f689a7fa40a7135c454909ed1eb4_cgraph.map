@@ -1,8 +1,9 @@
 <map id="paramkit::util::is_string_similar" name="paramkit::util::is_string_similar">
 <area shape="rect" id="node1" title=" " alt="" coords="5,71,116,112"/>
 <area shape="rect" id="node2" href="$namespaceparamkit_1_1util.html#a945aa7b64190a7cc6117582183624b98" title=" " alt="" coords="186,5,309,47"/>
-<area shape="rect" id="node4" href="$namespaceparamkit_1_1util.html#a2e9d23daf2a67b7265115ca5f5043321" title=" " alt="" coords="164,71,331,112"/>
-<area shape="rect" id="node5" href="$namespaceparamkit_1_1util.html#adc11801d5a38639547130fa88ab75c58" title=" " alt="" coords="189,136,305,177"/>
-<area shape="rect" id="node3" href="$namespaceparamkit_1_1util.html#ab0c63142df3447c55d829b79f38a808f" title=" " alt="" coords="379,5,491,47"/>
-<area shape="rect" id="node6" href="$strings__util_8cpp.html#a0d394fb1cc81f603fd16c455c41fd959" title=" " alt="" coords="379,143,490,170"/>
+<area shape="rect" id="node4" href="$namespaceparamkit_1_1util.html#a05cdae0c832c4c407264b80150f7a467" title=" " alt="" coords="182,71,313,112"/>
+<area shape="rect" id="node7" href="$namespaceparamkit_1_1util.html#a2e9d23daf2a67b7265115ca5f5043321" title=" " alt="" coords="164,136,331,177"/>
+<area shape="rect" id="node3" href="$namespaceparamkit_1_1util.html#ab0c63142df3447c55d829b79f38a808f" title=" " alt="" coords="388,5,500,47"/>
+<area shape="rect" id="node5" href="$strings__util_8cpp.html#a0d394fb1cc81f603fd16c455c41fd959" title=" " alt="" coords="389,75,499,102"/>
+<area shape="rect" id="node6" href="$strings__util_8cpp.html#af595a22959774f94811772ba5e6d4339" title=" " alt="" coords="379,126,509,153"/>
 </map>
