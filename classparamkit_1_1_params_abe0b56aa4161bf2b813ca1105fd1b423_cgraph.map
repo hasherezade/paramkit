@@ -1,0 +1,4 @@
+<map id="paramkit::Params::copyVal" name="paramkit::Params::copyVal">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,180,32"/>
+<area shape="rect" id="node2" href="$classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4" title="Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist." alt="" coords="228,5,413,32"/>
+</map>
