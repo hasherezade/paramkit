@@ -15,7 +15,6 @@
 #include "pk_util.h"
 #include "color_scheme.h"
 #include "param.h"
-#include "strings_util.h"
 #include "param_group.h"
 //--
 

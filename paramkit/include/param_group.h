@@ -65,13 +65,10 @@ namespace paramkit {
                     should_print = true;
                 }
                 if (has_filter) {
-                    util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
-                    bool has_any = (sim_type != util::SIM_NONE) ? true : false;
+                    bool has_any = param->isNameSimilar(filter);
                     color = has_any ? PARAM_SIMILAR_NAME : paramColor;
                     if (!has_any) {
-                        //try to find the keyword in the string description
-                        sim_type = util::has_keyword(param->m_info, filter);
-                        has_any = (sim_type != util::SIM_NONE) ? true : false;
+                        has_any = param->isKeywordInDescription(filter);
                         color = has_any ? PARAM_SIMILAR_DESC : paramColor;
                     }
                     if (!has_any) continue;
@@ -102,13 +99,10 @@ namespace paramkit {
                     should_print = true;
                 }
                 if (has_filter) {
-                    util::stringsim_type sim_type = util::is_string_similar(param->argStr, filter);
-                    if (sim_type == util::SIM_NONE) {
-                        //try to find the keyword in the string description
-                        sim_type = util::has_keyword(param->m_info, filter);
+                    should_print = false;
+                    if (param->isNameSimilar(filter) || param->isKeywordInDescription(filter)) {
+                        should_print = true;
                     }
-                    if (sim_type != util::SIM_NONE) printed++;
-                    continue;
                 }
                 if (should_print) {
                     printed++;

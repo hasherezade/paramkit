@@ -14,6 +14,7 @@
 #include <set>
 
 #include "pk_util.h"
+#include "strings_util.h"
 
 #define PARAM_UNINITIALIZED (-1)
 
@@ -98,6 +99,20 @@ namespace paramkit {
             }
             std::cout << "\n\t";
             std::cout << " : " << info() << "\n";
+        }
+
+        //! Checks if the param name is similar to the given filter
+        bool isNameSimilar(const std::string &filter)
+        {
+            util::stringsim_type sim_type = util::is_string_similar(argStr, filter);
+            return (sim_type != util::SIM_NONE) ? true : false;
+        }
+
+        //! Checks if the description contains the keyword
+        bool isKeywordInDescription(const std::string &keyword)
+        {
+            util::stringsim_type sim_type = util::has_keyword(m_info, keyword);
+            return (sim_type != util::SIM_NONE) ? true : false;
         }
 
         std::string argStr; ///< a unique name of the parameter
