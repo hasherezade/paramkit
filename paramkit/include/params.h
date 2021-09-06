@@ -103,15 +103,17 @@ namespace paramkit {
         //! Sets the information about the parameter, defined by its name
         /**
         \param paramName : a unique name of the parameter
-        \param info : the description of the parameter
+        \param basic_info : basic description of the parameter
+        \param extended_info : additional description of the parameter
         \return true if setting the info was successful
         */
-        bool setInfo(const std::string& paramName, const std::string& info)
+        bool setInfo(const std::string& paramName, const std::string& basic_info, const std::string& extended_info = "")
         {
             Param *p = getParam(paramName);
             if (!p) return false;
 
-            p->m_info = info;
+            p->m_info = basic_info;
+            p->m_extInfo = extended_info;
             return false;
         }
 

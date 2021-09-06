@@ -78,9 +78,9 @@ namespace paramkit {
             std::stringstream ss;
             ss << m_info;
             if (isExpanded) {
-                const std::string options = optionsInfo();
-                if (options.length()) {
-                    ss << "\n" << options;
+                const std::string eInfo = extendedInfo();
+                if (eInfo.length()) {
+                    ss << "\n" << eInfo;
                 }
             }
             return ss.str();
@@ -133,16 +133,17 @@ namespace paramkit {
             return (sim_type != util::SIM_NONE) ? true : false;
         }
 
-        //! Extended information about accepted values
-        virtual std::string optionsInfo() const
+        //! Extended information
+        virtual std::string extendedInfo() const
         {
-            return "";
+            return m_extInfo;
         }
 
         std::string argStr; ///< a unique name of the parameter
 
         std::string typeDescStr; ///< a description of the type of the parameter: what type of values are allowed
-        std::string m_info; ///< an information about the the parameter's purpose
+        std::string m_info; ///< a basic information about the the parameter's purpose
+        std::string m_extInfo; ///< an extended information about the the parameter's purpose
 
         bool isRequired; ///< a flag indicating if this parameter is required
         bool requiredArg; ///< a flag indicating if this parameter needs to be followed by a value
@@ -503,6 +504,15 @@ namespace paramkit {
         int value;
 
     protected:
+
+        std::string extendedInfo() const
+        {
+            std::stringstream stream;
+            stream << Param::extendedInfo();
+            stream << optionsInfo();
+            return stream.str();
+        }
+
         std::string optionsInfo() const
         {
             std::stringstream stream;
