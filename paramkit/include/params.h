@@ -133,7 +133,7 @@ namespace paramkit {
             std::cout << "---" << std::endl;
         }
 
-        //! Prints brief info about all the parameters.
+        //! Prints brief info about all the parameters. Wrapper for printInfo.
         void printBriefInfo()
         {
             printInfo(false, "", false);
