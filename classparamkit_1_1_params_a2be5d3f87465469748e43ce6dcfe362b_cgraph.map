@@ -1,0 +1,10 @@
+<map id="paramkit::Params::printInfoSection" name="paramkit::Params::printInfoSection">
+<area shape="rect" id="node1" title=" " alt="" coords="5,47,181,88"/>
+<area shape="rect" id="node2" href="$namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f" title=" " alt="" coords="468,5,588,47"/>
+<area shape="rect" id="node4" href="$classparamkit_1_1_param.html#ada6abaed9cdfa209128b98f08a02eb42" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="229,113,407,139"/>
+<area shape="rect" id="node8" href="$classparamkit_1_1_param.html#aa8a019998011a34aae8bf32efcea1eae" title="Prints the parameter using the given color. Appends the parameter switch to the name." alt="" coords="239,47,397,88"/>
+<area shape="rect" id="node3" href="$namespaceparamkit.html#aa9e018465904016a166fc0b6f6bb0d63" title=" " alt="" coords="673,5,821,47"/>
+<area shape="rect" id="node5" href="$classparamkit_1_1_param.html#a9ca5337339bfdab66752df0a68fa7b39" title=" " alt="" coords="457,87,599,114"/>
+<area shape="rect" id="node7" href="$classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a" title="Returns the string representation of the parameter&#39;s type." alt="" coords="455,138,601,165"/>
+<area shape="rect" id="node6" href="$classparamkit_1_1_param.html#a6b152e2ee470662dfd3723dab5845fb2" title="Extended information." alt="" coords="649,87,845,114"/>
+</map>
