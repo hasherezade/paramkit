@@ -129,7 +129,9 @@ namespace paramkit {
         //! Checks if the description contains the keyword
         virtual bool isKeywordInDescription(const std::string &keyword)
         {
-            util::stringsim_type sim_type = util::has_keyword(m_info, keyword);
+            if (util::has_keyword(m_info, keyword)) return true;
+
+            util::stringsim_type sim_type = util::has_keyword(m_extInfo, keyword);
             return (sim_type != util::SIM_NONE) ? true : false;
         }
 

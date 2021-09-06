@@ -119,6 +119,9 @@ bool paramkit::util::has_similar_histogram(const char s1[], const char s2[])
 
 paramkit::util::stringsim_type paramkit::util::has_keyword( std::string param, std::string filter)
 {
+    if (param.empty() || filter.empty()) {
+        return SIM_NONE;
+    }
     param = to_lowercase(param);
     filter = to_lowercase(filter);
     const bool sim_found = (param.find(filter) != std::string::npos) || (filter.find(param) != std::string::npos);
@@ -128,6 +131,9 @@ paramkit::util::stringsim_type paramkit::util::has_keyword( std::string param, s
 
 paramkit::util::stringsim_type paramkit::util::is_string_similar(const std::string &param, const std::string &filter)
 {
+    if (param.empty() || filter.empty()) {
+        return SIM_NONE;
+    }
     bool sim_found = false;
     if (has_keyword(param, filter) != SIM_NONE) {
         return SIM_SUBSTR;
