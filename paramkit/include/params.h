@@ -128,7 +128,8 @@ namespace paramkit {
             std::cout << "---" << std::endl;
             _info(true, hilightMissing, filter, isExtended);
             _info(false, hilightMissing, filter, isExtended);
-            printInfoSection(isExtended);
+            const bool extendedInfoS = (filter.empty() && !hilightMissing) ? isExtended : false;
+            printInfoSection(extendedInfoS);
             std::cout << "---" << std::endl;
         }
 
