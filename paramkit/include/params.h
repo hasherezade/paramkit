@@ -311,6 +311,11 @@ namespace paramkit {
                 this->info(true, "", true);
                 return false;
             }
+            if (this->countCategory(true) == 0 && countFilled(false) == 0) {
+                std::stringstream ss1;
+                ss1 << "Run with parameter " << PARAM_SWITCH1 << PARAM_HELP1 << " or " << PARAM_SWITCH1 << PARAM_HELP2 << " to see the options...\n";
+                print_in_color(YELLOW, ss1.str());
+            }
             return true;
         }
 
@@ -357,6 +362,20 @@ namespace paramkit {
         }
 
     protected:
+
+        virtual bool countFilled(bool isRequired)
+        {
+            size_t count = 0;
+            std::map<std::string, Param*>::iterator itr;
+            for (itr = myParams.begin(); itr != myParams.end(); itr++) {
+                Param *param = itr->second;
+                if (param->isRequired != isRequired) continue;
+                if (param->isSet()) {
+                    count++;
+                }
+            }
+            return count;
+        }
 
         size_t _info(bool isRequired, bool hilightMissing, const std::string &filter, bool isExtended)
         {
