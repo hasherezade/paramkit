@@ -1,7 +1,7 @@
 <map id="paramkit::Params::parse" name="paramkit::Params::parse">
 <area shape="rect" id="node1" title="Parses the parameters. Prints a warning if an undefined parameter was supplied." alt="" coords="5,586,167,613"/>
 <area shape="rect" id="node2" href="$classparamkit_1_1_params.html#a88e7f4e15b217dd471b81b948b08518b" title="Returns the number of parameters of particular category: required or optional." alt="" coords="997,703,1209,730"/>
-<area shape="rect" id="node3" href="$classparamkit_1_1_params.html#ae1b661d7004c8f8fc237235940f3376b" title=" " alt="" coords="491,758,683,785"/>
+<area shape="rect" id="node3" href="$classparamkit_1_1_params.html#a68be5aa6237c5bb5e5eb5f07c4304c63" title=" " alt="" coords="491,758,683,785"/>
 <area shape="rect" id="node5" href="$classparamkit_1_1_params.html#aa9ac3da5ecb90680996f9b0b33c29622" title="Checks if all the required parameters are filled." alt="" coords="744,709,945,751"/>
 <area shape="rect" id="node6" href="$classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6" title="Checks if the string starts from the parameter switch." alt="" coords="236,713,413,739"/>
 <area shape="rect" id="node7" href="$classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817" title="Parses the parameter from the given string." alt="" coords="247,763,402,790"/>
