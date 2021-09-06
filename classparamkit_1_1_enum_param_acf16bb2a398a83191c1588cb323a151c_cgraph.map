@@ -1,6 +1,6 @@
 <map id="paramkit::EnumParam::addEnumValue" name="paramkit::EnumParam::addEnumValue">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,155,47"/>
-<area shape="rect" id="node2" href="$classparamkit_1_1_enum_param.html#afa69ae3b1918d7a8c67720659d628028" title=" " alt="" coords="203,5,352,47"/>
-<area shape="rect" id="node3" href="$classparamkit_1_1_enum_param.html#ad27246babf677bb93f7f9501da8724a9" title=" " alt="" coords="400,5,549,47"/>
-<area shape="rect" id="node4" href="$classparamkit_1_1_enum_param.html#a3c98481fbc814d4cda90b1ee86a4b784" title="Returns the string representation of the parameter&#39;s type." alt="" coords="597,5,747,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,35,155,76"/>
+<area shape="rect" id="node2" href="$classparamkit_1_1_enum_param.html#a83817380637612de58e08e97fe198645" title=" " alt="" coords="203,5,352,47"/>
+<area shape="rect" id="node3" href="$classparamkit_1_1_param.html#acd5fba03bf8f0f1c57f3935ae5c406de" title=" " alt="" coords="400,42,543,69"/>
+<area shape="rect" id="node4" href="$classparamkit_1_1_param.html#a2ef00788ae2e0a54b392fe35609110a4" title="Extended information about accepted values." alt="" coords="591,42,777,69"/>
 </map>
