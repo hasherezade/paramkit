@@ -34,7 +34,7 @@ namespace paramkit {
             paramVersion(PARAM_VERSION, false),
             hdrColor(HEADER_COLOR), paramColor(HILIGHTED_COLOR)
         {
-            paramHelp.m_info = "Print help.";
+            paramHelp.m_info = "Print complete help.";
             paramHelpP.m_info = "Print help about a given keyword.";
             paramInfoP.m_info = "Print details of a given parameter.";
             paramVersion.m_info = "Print version info.";
@@ -128,19 +128,7 @@ namespace paramkit {
             std::cout << "---" << std::endl;
             _info(true, hilightMissing, filter, isExtended);
             _info(false, hilightMissing, filter, isExtended);
-
-            print_in_color(hdrColor, "\nInfo:\n");
-            paramHelp.printInColor(paramColor);
-            paramHelp.printDesc();
-            paramHelpP.printInColor(paramColor);
-            paramHelpP.printDesc();
-            paramInfoP.printInColor(paramColor);
-            paramInfoP.printDesc();
-            if (this->versionStr.length()) {
-                paramVersion.printInColor(paramColor);
-                paramVersion.printDesc();
-            }
-
+            printInfoSection(isExtended);
             std::cout << "---" << std::endl;
         }
 
@@ -256,14 +244,13 @@ namespace paramkit {
                         if (param_str == PARAM_HELP2) {
                             const bool hasArg = (i + 1) < argc && !(isParam(to_string(argv[i + 1])));
                             if (hasArg) {
-                                std::string nextVal = to_string(argv[i + 1]);
-                                this->info(false, nextVal, true);
+                                const std::string nextVal = to_string(argv[i + 1]);
+                                printHelp(nextVal, true);
                                 return false;
                             }
                         }
-                        this->printBanner();
                         const bool shouldExpand = (param_str == PARAM_HELP1) ? false : true;
-                        this->info(false, "", shouldExpand);
+                        printHelp("", shouldExpand);
                         return false;
                     }
                     if (this->versionStr.length()) {
@@ -395,6 +382,47 @@ namespace paramkit {
                 }
             }
             return printed;
+        }
+
+        bool printHelp(const std::string helpArg, bool shouldExpand)
+        {
+            if (helpArg.empty()) {
+                this->printBanner();
+                this->info(false, "", shouldExpand);
+                return false;
+            }
+            if (helpArg == PARAM_HELP1 || helpArg == PARAM_HELP2) {
+                printBanner();
+                printInfoSection(true);
+                return true;
+            }
+            if (helpArg == PARAM_VERSION || helpArg == PARAM_VERSION2) {
+                if (this->versionStr.length()) {
+                    paramVersion.printInColor(paramColor);
+                    paramVersion.printDesc(true);
+                }
+                else {
+                    std::cout << "Application version is not set\n";
+                }
+                return true;
+            }
+            this->info(false, helpArg, shouldExpand);
+            return true;
+        }
+
+        void printInfoSection(bool isExtended)
+        {
+            print_in_color(hdrColor, "\nInfo:\n");
+            paramHelp.printInColor(paramColor);
+            paramHelp.printDesc(isExtended);
+            paramHelpP.printInColor(paramColor);
+            paramHelpP.printDesc(isExtended);
+            paramInfoP.printInColor(paramColor);
+            paramInfoP.printDesc(isExtended);
+            if (this->versionStr.length()) {
+                paramVersion.printInColor(paramColor);
+                paramVersion.printDesc(isExtended);
+            }
         }
 
         bool addParamToGroup(Param *param, ParamGroup *group)
