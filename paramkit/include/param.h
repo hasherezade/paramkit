@@ -73,9 +73,17 @@ namespace paramkit {
         //! Returns true if the parameter is filled, false otherwise.
         virtual bool isSet() const = 0;
 
-        virtual std::string info() const
+        virtual std::string info(bool isExpanded) const
         {
-            return m_info;
+            std::stringstream ss;
+            ss << m_info;
+            if (isExpanded) {
+                const std::string options = optionsInfo();
+                if (options.length()) {
+                    ss << "\n" << options;
+                }
+            }
+            return ss.str();
         }
 
         //! Prints the parameter using the given color. Appends the parameter switch to the name.
@@ -97,10 +105,8 @@ namespace paramkit {
                     std::cout << " <" << type() << ">";
                 }
             }
-            if (isExpanded) {
-                std::cout << "\n\t";
-                std::cout << " : " << info();
-            }
+            std::cout << "\n\t";
+            std::cout << " : " << info(isExpanded);
             std::cout << "\n";
         }
 
@@ -125,6 +131,12 @@ namespace paramkit {
         {
             util::stringsim_type sim_type = util::has_keyword(m_info, keyword);
             return (sim_type != util::SIM_NONE) ? true : false;
+        }
+
+        //! Extended information about accepted values
+        virtual std::string optionsInfo() const
+        {
+            return "";
         }
 
         std::string argStr; ///< a unique name of the parameter
@@ -400,8 +412,9 @@ namespace paramkit {
 
         bool addEnumValue(int value, const std::string &str_val, const std::string &info)
         {
-            enumToString[value] = str_val;
-            enumToInfo[value] = info;
+            if (addEnumValue(value, info)) {
+                enumToString[value] = str_val;
+            }
             return true;
         }
 
@@ -487,16 +500,12 @@ namespace paramkit {
             return true;
         }
 
-        virtual std::string info() const {
-            return m_info + "\n" + printOptionsInfo();
-        }
-
         int value;
 
     protected:
-        std::string printOptionsInfo() const {
+        std::string optionsInfo() const
+        {
             std::stringstream stream;
-
             std::map<int, std::string>::const_iterator itr;
             stream << type() << ":\n";
             for (itr = enumToInfo.begin(); itr != enumToInfo.end(); ) {
