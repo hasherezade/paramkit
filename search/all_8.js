@@ -1,7 +1,7 @@
 var searchData=
 [
   ['inactive_5fcolor_50',['INACTIVE_COLOR',['../namespaceparamkit.html#a74323087eebbb1b70d76929df38d7724',1,'paramkit']]],
-  ['info_51',['info',['../classparamkit_1_1_param.html#a9ca5337339bfdab66752df0a68fa7b39',1,'paramkit::Param::info()'],['../classparamkit_1_1_params.html#aecbade5e5a2c48d666f1788c91a9d6bc',1,'paramkit::Params::info()']]],
+  ['info_51',['info',['../classparamkit_1_1_param.html#a9ca5337339bfdab66752df0a68fa7b39',1,'paramkit::Param']]],
   ['int_5fbase_5fany_52',['INT_BASE_ANY',['../classparamkit_1_1_int_param.html#ac865ddb87d4b68c7d72320c4d1e85806a030422967ccd2f6fdc991788045523c1',1,'paramkit::IntParam']]],
   ['int_5fbase_5fcount_53',['INT_BASE_COUNT',['../classparamkit_1_1_int_param.html#ac865ddb87d4b68c7d72320c4d1e85806a7db2613543943fc733e2da1c5614c9c8',1,'paramkit::IntParam']]],
   ['int_5fbase_5fdec_54',['INT_BASE_DEC',['../classparamkit_1_1_int_param.html#ac865ddb87d4b68c7d72320c4d1e85806abd04125ca8615f46e280e33bb21446a7',1,'paramkit::IntParam']]],
