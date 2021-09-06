@@ -1,0 +1,4 @@
+<map id="paramkit::Params::setInfo" name="paramkit::Params::setInfo">
+<area shape="rect" id="node1" title="Sets the information about the parameter, defined by its name." alt="" coords="5,5,175,32"/>
+<area shape="rect" id="node2" href="$classparamkit_1_1_params.html#a5a5876b593ed0d9d18ec07cee24b57c4" title="Retrieve the parameter by its unique name. Returns nullptr if such parameter does not exist." alt="" coords="223,5,408,32"/>
+</map>

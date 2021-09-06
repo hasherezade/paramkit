@@ -1,9 +1,9 @@
 <map id="paramkit::Params::parse" name="paramkit::Params::parse">
 <area shape="rect" id="node1" title="Parses the parameters. Prints a warning if an undefined parameter was supplied." alt="" coords="5,729,167,756"/>
 <area shape="rect" id="node2" href="$classparamkit_1_1_params.html#aa9ac3da5ecb90680996f9b0b33c29622" title="Checks if all the required parameters are filled." alt="" coords="487,56,688,98"/>
-<area shape="rect" id="node4" href="$classparamkit_1_1_params.html#a35954da54b3f7e1ce28a17753cf81701" title="Prints info about all the parameters. Optionally hilights the required ones that are missing." alt="" coords="249,485,400,512"/>
+<area shape="rect" id="node4" href="$classparamkit_1_1_params.html#aecbade5e5a2c48d666f1788c91a9d6bc" title="Prints info about all the parameters. Optionally hilights the required ones that are missing." alt="" coords="249,485,400,512"/>
 <area shape="rect" id="node18" href="$namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f" title=" " alt="" coords="1269,536,1389,578"/>
-<area shape="rect" id="node21" href="$classparamkit_1_1_param.html#ab15e32b8490c9629d1c1c6dd3c3a7955" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="1000,56,1177,82"/>
+<area shape="rect" id="node21" href="$classparamkit_1_1_param.html#ada6abaed9cdfa209128b98f08a02eb42" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="1000,56,1177,82"/>
 <area shape="rect" id="node26" href="$classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6" title="Checks if the string starts from the parameter switch." alt="" coords="236,754,413,781"/>
 <area shape="rect" id="node27" href="$classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817" title="Parses the parameter from the given string." alt="" coords="247,805,402,832"/>
 <area shape="rect" id="node28" href="$classparamkit_1_1_params.html#a422491f139fc7fabb8232b652fd7d2e9" title=" " alt="" coords="227,856,422,882"/>
@@ -13,23 +13,23 @@
 <area shape="rect" id="node32" href="$classparamkit_1_1_params.html#a04d11e853139ee33a27f76efb0cbf5bf" title="Skip the parameter prefix. Example: &quot;/param&quot;, &#39;&#45;param&#39;, or &quot;&#45;&#45;param&quot; is converted to &quot;param&quot;." alt="" coords="229,958,420,999"/>
 <area shape="rect" id="node33" href="$namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="261,1024,389,1050"/>
 <area shape="rect" id="node3" href="$classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd" title="Returns true if the parameter is filled, false otherwise." alt="" coords="1253,165,1405,192"/>
-<area shape="rect" id="node5" href="$classparamkit_1_1_params.html#a5cff091ab033c624dc7ebba81c43ffb0" title=" " alt="" coords="509,296,666,322"/>
+<area shape="rect" id="node5" href="$classparamkit_1_1_params.html#a595d57c5ce9253b88b381d284f61ff80" title=" " alt="" coords="509,296,666,322"/>
 <area shape="rect" id="node25" href="$classparamkit_1_1_param.html#aa8a019998011a34aae8bf32efcea1eae" title="Prints the parameter using the given color. Appends the parameter switch to the name." alt="" coords="1009,427,1168,468"/>
 <area shape="rect" id="node6" href="$classparamkit_1_1_params.html#a88e7f4e15b217dd471b81b948b08518b" title="Returns the number of parameters of particular category: required or optional." alt="" coords="740,266,952,293"/>
 <area shape="rect" id="node7" href="$classparamkit_1_1_params.html#a9d813a6a81f53631db1e194bf06cecf4" title=" " alt="" coords="745,165,947,192"/>
 <area shape="rect" id="node8" href="$classparamkit_1_1_param_group.html#a10619cea8da8d9435e08253774606a63" title=" " alt="" coords="1013,158,1164,199"/>
-<area shape="rect" id="node20" href="$classparamkit_1_1_param_group.html#a260286561ddeaaeacaee032b63f1609f" title="Prints the whole group of parameters (their names and descriptions), optionally with the group name." alt="" coords="771,318,921,359"/>
+<area shape="rect" id="node20" href="$classparamkit_1_1_param_group.html#a83686450484467d8633f4db8f4c24118" title="Prints the whole group of parameters (their names and descriptions), optionally with the group name." alt="" coords="771,318,921,359"/>
 <area shape="rect" id="node9" href="$classparamkit_1_1_param.html#aab4011fd6aedf57ebffc7f8afadc4e39" title="Checks if the description contains the keyword." alt="" coords="1237,235,1420,276"/>
 <area shape="rect" id="node12" href="$classparamkit_1_1_param.html#a59414d4f9a333fc68a32379b17caf83f" title="Checks if the param name is similar to the given filter." alt="" coords="1225,308,1432,334"/>
-<area shape="rect" id="node10" href="$namespaceparamkit_1_1util.html#a945aa7b64190a7cc6117582183624b98" title=" " alt="" coords="1737,235,1859,276"/>
-<area shape="rect" id="node11" href="$namespaceparamkit_1_1util.html#ab0c63142df3447c55d829b79f38a808f" title=" " alt="" coords="1939,235,2051,276"/>
-<area shape="rect" id="node13" href="$namespaceparamkit_1_1util.html#a3700f689a7fa40a7135c454909ed1eb4" title=" " alt="" coords="1518,300,1629,342"/>
-<area shape="rect" id="node14" href="$namespaceparamkit_1_1util.html#a05cdae0c832c4c407264b80150f7a467" title=" " alt="" coords="1733,300,1863,342"/>
-<area shape="rect" id="node17" href="$namespaceparamkit_1_1util.html#a2e9d23daf2a67b7265115ca5f5043321" title=" " alt="" coords="1715,366,1881,407"/>
-<area shape="rect" id="node15" href="$strings__util_8cpp.html#a0d394fb1cc81f603fd16c455c41fd959" title=" " alt="" coords="1939,305,2050,332"/>
-<area shape="rect" id="node16" href="$strings__util_8cpp.html#af595a22959774f94811772ba5e6d4339" title=" " alt="" coords="1929,356,2060,382"/>
-<area shape="rect" id="node19" href="$namespaceparamkit.html#aa9e018465904016a166fc0b6f6bb0d63" title=" " alt="" coords="1499,536,1647,578"/>
-<area shape="rect" id="node22" href="$classparamkit_1_1_param.html#acd5fba03bf8f0f1c57f3935ae5c406de" title=" " alt="" coords="1257,30,1400,57"/>
+<area shape="rect" id="node10" href="$namespaceparamkit_1_1util.html#a945aa7b64190a7cc6117582183624b98" title=" " alt="" coords="1746,235,1869,276"/>
+<area shape="rect" id="node11" href="$namespaceparamkit_1_1util.html#ab0c63142df3447c55d829b79f38a808f" title=" " alt="" coords="1948,235,2060,276"/>
+<area shape="rect" id="node13" href="$namespaceparamkit_1_1util.html#a3700f689a7fa40a7135c454909ed1eb4" title=" " alt="" coords="1523,300,1633,342"/>
+<area shape="rect" id="node14" href="$namespaceparamkit_1_1util.html#a05cdae0c832c4c407264b80150f7a467" title=" " alt="" coords="1742,300,1873,342"/>
+<area shape="rect" id="node17" href="$namespaceparamkit_1_1util.html#a2e9d23daf2a67b7265115ca5f5043321" title=" " alt="" coords="1724,366,1891,407"/>
+<area shape="rect" id="node15" href="$strings__util_8cpp.html#a0d394fb1cc81f603fd16c455c41fd959" title=" " alt="" coords="1949,305,2059,332"/>
+<area shape="rect" id="node16" href="$strings__util_8cpp.html#af595a22959774f94811772ba5e6d4339" title=" " alt="" coords="1939,356,2069,382"/>
+<area shape="rect" id="node19" href="$namespaceparamkit.html#aa9e018465904016a166fc0b6f6bb0d63" title=" " alt="" coords="1504,536,1652,578"/>
+<area shape="rect" id="node22" href="$classparamkit_1_1_param.html#a9ca5337339bfdab66752df0a68fa7b39" title=" " alt="" coords="1257,30,1400,57"/>
 <area shape="rect" id="node24" href="$classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a" title="Returns the string representation of the parameter&#39;s type." alt="" coords="1255,81,1402,108"/>
-<area shape="rect" id="node23" href="$classparamkit_1_1_param.html#a2ef00788ae2e0a54b392fe35609110a4" title="Extended information about accepted values." alt="" coords="1480,30,1667,57"/>
+<area shape="rect" id="node23" href="$classparamkit_1_1_param.html#a6b152e2ee470662dfd3723dab5845fb2" title="Extended information." alt="" coords="1480,30,1676,57"/>
 </map>
