@@ -280,9 +280,6 @@ namespace paramkit {
                                 param->printDesc();
                                 break;
                             }
-#ifdef _DEBUG
-                            std::cout << argv[i] << " : " << argv[i + 1] << "\n";
-#endif
                             break;
                         }
                         // does not require an argument:
