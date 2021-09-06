@@ -412,6 +412,15 @@ namespace paramkit {
 
         void printInfoSection(bool isExtended)
         {
+            if (isExtended) {
+                // make an example:
+                if (myParams.size()) {
+                    std::map<std::string, Param*>::iterator itr = myParams.begin();
+                    std::stringstream ss1;
+                    ss1 << "\t  Example: " << PARAM_SWITCH1 << itr->first << " ?";
+                    paramInfoP.m_extInfo = ss1.str();
+                }
+            }
             print_in_color(hdrColor, "\nInfo:\n");
             paramHelp.printInColor(paramColor);
             paramHelp.printDesc(isExtended);
