@@ -111,9 +111,10 @@ bool paramkit::util::has_similar_histogram(const char s1[], const char s2[])
     }
     const size_t uniq1 = calc_unique_chars(hist1);
     const size_t uniq2 = calc_unique_chars(hist2);
-    if (sim == uniq1 || sim == uniq2) {
+    if (sim == uniq1 && sim == uniq2) {
         return true;
     }
+    //
     return false;
 }
 
