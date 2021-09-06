@@ -123,7 +123,7 @@ namespace paramkit {
         \param filter : display only parameters similar to the given string
         \param isExtended : display extended info about each parameter
         */
-        void info(bool hilightMissing=false, const std::string &filter="", bool isExtended =true)
+        void printInfo(bool hilightMissing=false, const std::string &filter = "", bool isExtended = true)
         {
             std::cout << "---" << std::endl;
             _info(true, hilightMissing, filter, isExtended);
@@ -131,6 +131,12 @@ namespace paramkit {
             const bool extendedInfoS = (filter.empty() && !hilightMissing) ? isExtended : false;
             printInfoSection(extendedInfoS);
             std::cout << "---" << std::endl;
+        }
+
+        //! Prints brief info about all the parameters.
+        void printBriefInfo()
+        {
+            printInfo(false, "", false);
         }
 
         //! Fills an IntParam defined by its name with the given value. If such parameter does not exist, or is not of the type IntParam, returns false. Otherwise returns true.
@@ -299,7 +305,7 @@ namespace paramkit {
                 else {
                     printUnknownParam(param_str);
                     print_in_color(HILIGHTED_COLOR, "Similar parameters:\n");
-                    this->info(false, param_str, true);
+                    this->printInfo(false, param_str, true);
                     return false;
                 }
             }
@@ -308,7 +314,7 @@ namespace paramkit {
             }
             if (!this->hasRequiredFilled()) {
                 print_in_color(WARNING_COLOR, "Missing required parameters:\n");
-                this->info(true, "", true);
+                this->printInfo(true, "", true);
                 return false;
             }
             if (this->countCategory(true) == 0 && countFilled(false) == 0) {
@@ -408,7 +414,7 @@ namespace paramkit {
         {
             if (helpArg.empty()) {
                 this->printBanner();
-                this->info(false, "", shouldExpand);
+                this->printInfo(false, "", shouldExpand);
                 return false;
             }
             if (helpArg == PARAM_HELP1 || helpArg == PARAM_HELP2) {
@@ -426,7 +432,7 @@ namespace paramkit {
                 }
                 return true;
             }
-            this->info(false, helpArg, shouldExpand);
+            this->printInfo(false, helpArg, shouldExpand);
             return true;
         }
 

@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
     DemoParams params;
     if (argc < 2) {
         params.printBanner();
-        params.info(false);
+        params.printInfo(false);
         return 0;
     }
     if (!params.parse(argc, argv)) {
