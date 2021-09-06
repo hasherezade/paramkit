@@ -121,12 +121,13 @@ namespace paramkit {
         /**
         \param hilightMissing : if set, the required parameters that were not filled are printed in red.
         \param filter : display only parameters similar to the given string
+        \param isExtended : display extended info about each parameter
         */
-        void info(bool hilightMissing=false, const std::string &filter="", bool isExpanded=true)
+        void info(bool hilightMissing=false, const std::string &filter="", bool isExtended =true)
         {
             std::cout << "---" << std::endl;
-            _info(true, hilightMissing, filter, isExpanded);
-            _info(false, hilightMissing, filter, isExpanded);
+            _info(true, hilightMissing, filter, isExtended);
+            _info(false, hilightMissing, filter, isExtended);
 
             print_in_color(hdrColor, "\nInfo:\n");
             paramHelp.printInColor(paramColor);
@@ -369,7 +370,7 @@ namespace paramkit {
 
     protected:
 
-        size_t _info(bool isRequired, bool hilightMissing, const std::string &filter, bool isExpanded)
+        size_t _info(bool isRequired, bool hilightMissing, const std::string &filter, bool isExtended)
         {
             const bool has_filter = filter.length() > 0 ? true : false;
             std::map<std::string, Param*>::iterator itr;
@@ -385,7 +386,7 @@ namespace paramkit {
                     for (groupItr = this->paramGroups.begin(); groupItr != paramGroups.end(); ++groupItr) {
                         ParamGroup* group = groupItr->second;
                         if (!group) continue; //should never happen
-                        printed += group->printGroup(printGroupName, isRequired, hilightMissing, filter, isExpanded);
+                        printed += group->printGroup(printGroupName, isRequired, hilightMissing, filter, isExtended);
                         total_count += group->countParams(isRequired, false, "");
                     }
                     if (printed < total_count) {

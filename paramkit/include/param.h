@@ -73,11 +73,11 @@ namespace paramkit {
         //! Returns true if the parameter is filled, false otherwise.
         virtual bool isSet() const = 0;
 
-        virtual std::string info(bool isExpanded) const
+        virtual std::string info(bool isExtended) const
         {
             std::stringstream ss;
             ss << m_info;
-            if (isExpanded) {
+            if (isExtended) {
                 const std::string eInfo = extendedInfo();
                 if (eInfo.length()) {
                     ss << "\n" << eInfo;
@@ -95,7 +95,7 @@ namespace paramkit {
     protected:
 
         //! Prints a formatted description of the parameter, including its unique name, type, and the info.
-        void printDesc(bool isExpanded = true) const
+        void printDesc(bool isExtended = true) const
         {
             if (requiredArg) {
                 if (typeDescStr.length()) {
@@ -106,7 +106,7 @@ namespace paramkit {
                 }
             }
             std::cout << "\n\t";
-            std::cout << " : " << info(isExpanded);
+            std::cout << " : " << info(isExtended);
             std::cout << "\n";
         }
 

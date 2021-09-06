@@ -38,10 +38,10 @@ namespace paramkit {
         \param printRequired : a flag indicating if the required parameters should be printed. If true, only required are printed. If false, only optional are printed.
         \param hilightMissing : a flag indicating if the required parameters that are not filled should be hiligted.
         \param filter : a string that will be searched among the parameters. If filled, only the parameters that are similar to the given string are printed.
-        \param isExpanded : print parameter details
+        \param isExtended : print extended info about each parameter
         \return number of printed parameters
         */
-        size_t printGroup(bool printGroupName, bool printRequired, bool hilightMissing, const std::string &filter = "", bool isExpanded = false)
+        size_t printGroup(bool printGroupName, bool printRequired, bool hilightMissing, const std::string &filter = "", bool isExtended = false)
         {
             if (countParams(printRequired, hilightMissing, filter) == 0) {
                 return 0;
@@ -76,7 +76,7 @@ namespace paramkit {
                 }
                 if (should_print) {
                     param->printInColor(color);
-                    param->printDesc(isExpanded);
+                    param->printDesc(isExtended);
                     printed++;
                 }
             }
