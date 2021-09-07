@@ -270,7 +270,7 @@ namespace paramkit {
                         // has argument:
                         const bool hasArg = (i + 1) < argc && !(isParam(to_string(argv[i + 1])));
                         if (hasArg) {
-                            std::string nextVal = to_string(argv[i + 1]);
+                            const std::string nextVal = to_string(argv[i + 1]);
                             i++; // icrement index: move to the next argument
                             found = true;
                             //help requested explicitly or parsing failed
@@ -280,9 +280,6 @@ namespace paramkit {
                                 param->printDesc();
                                 break;
                             }
-#ifdef _DEBUG
-                            std::cout << argv[i] << " : " << argv[i + 1] << "\n";
-#endif
                             break;
                         }
                         // does not require an argument:
