@@ -11,6 +11,7 @@
 #include <string>
 #include <sstream>
 #include <map>
+#include <set>
 
 #include "color_scheme.h"
 #include "param.h"
@@ -52,7 +53,7 @@ namespace paramkit {
             if (printGroupName && name.length()) {
                 print_in_color(separatorColor, "\n---" + name + "---\n");
             }
-            std::set<Param*>::iterator itr;
+            std::set<Param*, ParamCompare>::iterator itr;
             for (itr = params.begin(); itr != params.end(); ++itr) {
                 Param* param = (*itr);
 
@@ -89,7 +90,7 @@ namespace paramkit {
         {
             const bool has_filter = filter.length() > 0 ? true : false;
             size_t printed = 0;
-            std::set<Param*>::iterator itr;
+            std::set<Param*, ParamCompare>::iterator itr;
             for (itr = params.begin(); itr != params.end(); ++itr) {
                 Param* param = (*itr);
 
@@ -114,7 +115,7 @@ namespace paramkit {
 
         bool hasParam(Param *param)
         {
-            std::set<Param*>::iterator itr = params.find(param);
+            std::set<Param*, ParamCompare>::iterator itr = params.find(param);
             if (itr != params.end()) {
                 return true;
             }
@@ -130,7 +131,7 @@ namespace paramkit {
 
         bool removeParam(Param *param)
         {
-            std::set<Param*>::iterator itr = params.find(param);
+            std::set<Param*, ParamCompare>::iterator itr = params.find(param);
             if (itr != params.end()) {
                 params.erase(itr);
                 return true;
