@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['white_362',['WHITE',['../term__colors_8h.html#a87b537f5fa5c109d3c05c13d6b18f382',1,'term_colors.h']]]
+  ['silver_363',['SILVER',['../term__colors_8h.html#a7e76a14a479114a4b9b20782bb00e69a',1,'term_colors.h']]]
 ];
