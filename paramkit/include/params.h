@@ -169,7 +169,7 @@ namespace paramkit {
 
             IntParam *param = dynamic_cast<IntParam*>(itr->second);
             if (!param) {
-                return false;
+                return 0;
             }
             return param->value;
         }
