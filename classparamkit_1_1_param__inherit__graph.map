@@ -4,5 +4,7 @@
 <area shape="rect" id="node3" href="$classparamkit_1_1_enum_param.html" title="A parameter storing an enum value." alt="" coords="176,56,325,83"/>
 <area shape="rect" id="node4" href="$classparamkit_1_1_int_param.html" title="A parameter storing an integer value." alt="" coords="185,107,316,133"/>
 <area shape="rect" id="node5" href="$classparamkit_1_1_string_param.html" title="A parameter storing a string value." alt="" coords="175,157,326,184"/>
-<area shape="rect" id="node6" href="$classparamkit_1_1_w_string_param.html" title="A parameter storing a wide string value." alt="" coords="169,208,332,235"/>
+<area shape="rect" id="node8" href="$classparamkit_1_1_w_string_param.html" title="A parameter storing a wide string value." alt="" coords="169,208,332,235"/>
+<area shape="rect" id="node6" href="$classparamkit_1_1_string_list_param.html" title=" " alt="" coords="380,157,552,184"/>
+<area shape="rect" id="node7" href="$classparamkit_1_1_int_list_param.html" title=" " alt="" coords="600,157,753,184"/>
 </map>

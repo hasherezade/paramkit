@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['inactive_5fcolor_285',['INACTIVE_COLOR',['../namespaceparamkit.html#a74323087eebbb1b70d76929df38d7724',1,'paramkit']]],
-  ['isrequired_286',['isRequired',['../classparamkit_1_1_param.html#a590c02e349942943bd40304a7291c5ef',1,'paramkit::Param']]]
+  ['hdrcolor_294',['hdrColor',['../classparamkit_1_1_param_group.html#adf6506740d6e168559203fb089426dcb',1,'paramkit::ParamGroup::hdrColor()'],['../classparamkit_1_1_params.html#aba6405182b5d9c5d461bee0da41b0fc7',1,'paramkit::Params::hdrColor()']]],
+  ['header_5fcolor_295',['HEADER_COLOR',['../namespaceparamkit.html#a06f8c81d262f94d1935260c06a3d8bff',1,'paramkit']]],
+  ['hilighted_5fcolor_296',['HILIGHTED_COLOR',['../namespaceparamkit.html#ab9c1d06da040b46836c0988cddf68ec7',1,'paramkit']]]
 ];
