@@ -119,6 +119,10 @@ Functions</h2></td></tr>
 <tr class="separator:a5891dfce6623b9b9818378fedee76c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10e9e7ade6c0d1f749f21914b6d91cac"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a10e9e7ade6c0d1f749f21914b6d91cac">get_number</a> (const char *my_buf)</td></tr>
 <tr class="separator:a10e9e7ade6c0d1f749f21914b6d91cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe3a552611357aa93f0bb47ae228611"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#aafe3a552611357aa93f0bb47ae228611">strip_to_list</a> (IN std::string s, IN std::string delim, OUT std::set&lt; std::string &gt; &amp;elements_list)</td></tr>
+<tr class="separator:aafe3a552611357aa93f0bb47ae228611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade7de913e1ad18d1c62a62573e389074"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#ade7de913e1ad18d1c62a62573e389074">trim</a> (std::string &amp;str, const std::string &amp;chars=&quot;\t\n\v\f\r &quot;)</td></tr>
+<tr class="separator:ade7de913e1ad18d1c62a62573e389074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9e018465904016a166fc0b6f6bb0d63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#aa9e018465904016a166fc0b6f6bb0d63">get_console_color</a> (HANDLE hConsole, int &amp;color)</td></tr>
 <tr class="separator:aa9e018465904016a166fc0b6f6bb0d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49deb56ac40daf498a59211c34e5168f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f">print_in_color</a> (int color, const std::string &amp;text)</td></tr>
@@ -136,6 +140,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#ac6dfe7ceea4d82bbdd34fde13ea4a2d8">copy_to_cstr</a> (T_STR value, T_CHAR *buf, size_t buf_count)</td></tr>
 <tr class="memdesc:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the std::string/std::wstring value into an buffer of a given character count.  <a href="namespaceparamkit.html#ac6dfe7ceea4d82bbdd34fde13ea4a2d8">More...</a><br /></td></tr>
 <tr class="separator:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c4649d5e234dfbe63f7ab00cbfbe766"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a9c4649d5e234dfbe63f7ab00cbfbe766">ltrim</a> (std::string &amp;str, const std::string &amp;chars=&quot;\t\n\v\f\r &quot;)</td></tr>
+<tr class="separator:a9c4649d5e234dfbe63f7ab00cbfbe766"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a236b91ee9475397762fd1abb2e189a3c"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a236b91ee9475397762fd1abb2e189a3c">rtrim</a> (std::string &amp;str, const std::string &amp;chars=&quot;\t\n\v\f\r &quot;)</td></tr>
+<tr class="separator:a236b91ee9475397762fd1abb2e189a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -193,7 +201,7 @@ template&lt;typename T_STR , typename T_CHAR &gt; </div>
 
 <p>Copy the std::string/std::wstring value into an buffer of a given character count. </p>
 
-<p class="definition">Definition at line <a class="el" href="pk__util_8h_source.html#l00076">76</a> of file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pk__util_8h_source.html#l00079">79</a> of file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
 
 </div>
 </div>
@@ -398,7 +406,7 @@ template&lt;typename T_CHAR &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pk__util_8h_source.html#l00060">60</a> of file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pk__util_8h_source.html#l00063">63</a> of file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -441,7 +449,7 @@ template&lt;typename T_CHAR &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pk__util_8h_source.html#l00044">44</a> of file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pk__util_8h_source.html#l00047">47</a> of file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -451,6 +459,36 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="171,5,299,32"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a9c4649d5e234dfbe63f7ab00cbfbe766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c4649d5e234dfbe63f7ab00cbfbe766">&#9670;&nbsp;</a></span>ltrim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string&amp; paramkit::ltrim </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>chars</em> = <code>&quot;\t\n\v\f\r&#160;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00108">108</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
 
 </div>
 </div>
@@ -493,6 +531,83 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a236b91ee9475397762fd1abb2e189a3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a236b91ee9475397762fd1abb2e189a3c">&#9670;&nbsp;</a></span>rtrim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string&amp; paramkit::rtrim </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>chars</em> = <code>&quot;\t\n\v\f\r&#160;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00114">114</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aafe3a552611357aa93f0bb47ae228611"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafe3a552611357aa93f0bb47ae228611">&#9670;&nbsp;</a></span>strip_to_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t paramkit::strip_to_list </td>
+          <td>(</td>
+          <td class="paramtype">IN std::string&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IN std::string&#160;</td>
+          <td class="paramname"><em>delim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OUT std::set&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>elements_list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00126">126</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceparamkit_aafe3a552611357aa93f0bb47ae228611_cgraph.png" border="0" usemap="#anamespaceparamkit_aafe3a552611357aa93f0bb47ae228611_cgraph" alt=""/></div>
+<map name="anamespaceparamkit_aafe3a552611357aa93f0bb47ae228611_cgraph" id="anamespaceparamkit_aafe3a552611357aa93f0bb47ae228611_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,151,57"/>
+<area shape="rect" href="namespaceparamkit.html#ade7de913e1ad18d1c62a62573e389074" title=" " alt="" coords="199,31,299,57"/>
+<area shape="rect" href="namespaceparamkit.html#a9c4649d5e234dfbe63f7ab00cbfbe766" title=" " alt="" coords="347,5,450,32"/>
+<area shape="rect" href="namespaceparamkit.html#a236b91ee9475397762fd1abb2e189a3c" title=" " alt="" coords="347,56,451,83"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="aa42e3156acd731ed26b212894a9b23f6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa42e3156acd731ed26b212894a9b23f6">&#9670;&nbsp;</a></span>to_string()</h2>
 
@@ -511,7 +626,47 @@ template&lt;typename T_CHAR &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pk__util_8h_source.html#l00031">31</a> of file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pk__util_8h_source.html#l00034">34</a> of file <a class="el" href="pk__util_8h_source.html">pk_util.h</a>.</p>
+
+</div>
+</div>
+<a id="ade7de913e1ad18d1c62a62573e389074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade7de913e1ad18d1c62a62573e389074">&#9670;&nbsp;</a></span>trim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string &amp; paramkit::trim </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>chars</em> = <code>&quot;\t\n\v\f\r&#160;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00121">121</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceparamkit_ade7de913e1ad18d1c62a62573e389074_cgraph.png" border="0" usemap="#anamespaceparamkit_ade7de913e1ad18d1c62a62573e389074_cgraph" alt=""/></div>
+<map name="anamespaceparamkit_ade7de913e1ad18d1c62a62573e389074_cgraph" id="anamespaceparamkit_ade7de913e1ad18d1c62a62573e389074_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,105,57"/>
+<area shape="rect" href="namespaceparamkit.html#a9c4649d5e234dfbe63f7ab00cbfbe766" title=" " alt="" coords="154,5,257,32"/>
+<area shape="rect" href="namespaceparamkit.html#a236b91ee9475397762fd1abb2e189a3c" title=" " alt="" coords="153,56,257,83"/>
+</map>
+</div>
 
 </div>
 </div>
