@@ -17,6 +17,7 @@
 #include "strings_util.h"
 
 #define PARAM_UNINITIALIZED (-1)
+#define INFO_SPACER "\t   "
 
 #define PARAM_SWITCH1 '/' ///< The switch used to recognize that the given string should be treated as a parameter (variant 1)
 #define PARAM_SWITCH2 '-' ///< The switch used to recognize that the given string should be treated as a parameter (variant 2)

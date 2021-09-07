@@ -440,7 +440,7 @@ namespace paramkit {
                 if (myParams.size()) {
                     std::map<std::string, Param*>::iterator itr = myParams.begin();
                     std::stringstream ss1;
-                    ss1 << "\t  Example: " << PARAM_SWITCH1 << itr->first << " ?";
+                    ss1 << INFO_SPACER << "Example: " << PARAM_SWITCH1 << itr->first << " ?";
                     paramInfoP.m_extInfo = ss1.str();
                 }
             }
