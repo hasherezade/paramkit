@@ -552,5 +552,86 @@ namespace paramkit {
         std::string enumName;
         bool m_isSet;
     };
+
+
+    class StringListParam : public StringParam {
+    public:
+        StringListParam(const std::string& _argStr, bool _isRequired, char _delimiter)
+            : StringParam(_argStr, _isRequired),
+            delimiter(std::string(1, _delimiter))
+        {
+        }
+
+        StringListParam(const std::string& _argStr, bool _isRequired, std::string _delimiter)
+            : StringParam(_argStr, _isRequired),
+            delimiter(_delimiter)
+        {
+        }
+
+        virtual std::string type() const
+        {
+            return "list: separated by \'" + delimiter + "\'";
+        }
+
+        size_t stripToElements(OUT std::set<std::string> &elements_list)
+        {
+            return strip_to_list(this->value, this->delimiter, elements_list);
+        }
+
+        const std::string delimiter;
+    };
+
+    class IntListParam : public StringListParam {
+    public:
+        IntListParam(const std::string& _argStr, bool _isRequired, char _delimiter)
+            : StringListParam(_argStr, _isRequired, _delimiter)
+        {
+        }
+
+        IntListParam(const std::string& _argStr, bool _isRequired, std::string _delimiter)
+            : StringListParam(_argStr, _isRequired, _delimiter)
+        {
+        }
+
+        virtual std::string type() const
+        {
+            return "list: dec or hex, separated by \'" + delimiter + "\'";
+        }
+
+        virtual bool parse(const char *arg)
+        {
+            if (!arg) return false;
+
+            std::set<std::string> str_list;
+            if (!strip_to_list(arg, this->delimiter, str_list)) {
+                return false;
+            }
+            std::set<std::string>::iterator itr;
+            for (itr = str_list.begin(); itr != str_list.end(); ++itr) {
+                std::string nextEl = *itr;
+                if (!paramkit::is_number(nextEl.c_str())) return false;
+            }
+            this->value = arg;
+            return true;
+        }
+
+        size_t stripToIntElements(OUT std::set<long> &elements_list)
+        {
+            std::set<std::string> str_list;
+            if (!stripToElements(str_list)) {
+                return 0;
+            }
+            std::set<std::string>::iterator itr;
+            for (itr = str_list.begin(); itr != str_list.end(); ++itr) {
+                std::string nextEl = *itr;
+                if (!paramkit::is_number(nextEl.c_str())) continue;
+
+                long number = paramkit::get_number(nextEl.c_str());
+                elements_list.insert(number);
+            }
+            return elements_list.size();
+        }
+
+    };
 };
 
