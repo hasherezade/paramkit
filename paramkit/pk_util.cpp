@@ -104,3 +104,43 @@ void paramkit::print_in_color(int color, const std::string &text)
     SetConsoleTextAttribute(hConsole, prev); // back to previous color
 }
 
+namespace paramkit {
+    std::string& ltrim(std::string& str, const std::string& chars = "\t\n\v\f\r ")
+    {
+        str.erase(0, str.find_first_not_of(chars));
+        return str;
+    }
+
+    std::string& rtrim(std::string& str, const std::string& chars = "\t\n\v\f\r ")
+    {
+        str.erase(str.find_last_not_of(chars) + 1);
+        return str;
+    }
+};
+
+std::string& paramkit::trim(std::string& str, const std::string& chars)
+{
+    return ltrim(rtrim(str, chars), chars);
+}
+
+size_t paramkit::strip_to_list(IN std::string s, IN std::string delim, OUT std::set<std::string> &elements_list)
+{
+    size_t start = 0;
+    size_t end = s.find(delim);
+    while (end != std::string::npos)
+    {
+        std::string next_str = s.substr(start, end - start);
+        trim(next_str);
+        if (next_str.length() > 0) {
+            elements_list.insert(next_str);
+        }
+        start = end + delim.length();
+        end = s.find(delim, start);
+    }
+    std::string next_str = s.substr(start, end);
+    trim(next_str);
+    if (next_str.length() > 0) {
+        elements_list.insert(next_str);
+    }
+    return elements_list.size();
+}

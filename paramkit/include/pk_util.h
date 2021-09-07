@@ -11,6 +11,7 @@
 #include <string>
 #include <sstream>
 #include <map>
+#include <set>
 
 #define GETNAME(x) (#x)
 
@@ -22,9 +23,11 @@ namespace paramkit {
     bool is_number(const char* my_buf);
     long get_number(const char *my_buf);
 
+    size_t strip_to_list(IN std::string s, IN std::string delim, OUT std::set<std::string> &elements_list);
+    std::string& trim(std::string& str, const std::string& chars = "\t\n\v\f\r ");
+
     bool get_console_color(HANDLE hConsole, int& color);
     void print_in_color(int color, const std::string &text);
-
     //--
 
     template <typename T_CHAR>
