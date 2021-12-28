@@ -1,7 +1,8 @@
 <map id="paramkit::BoolParam::parse" name="paramkit::BoolParam::parse">
-<area shape="rect" id="node1" title="Parses the parameter from the given string." alt="" coords="5,49,148,90"/>
-<area shape="rect" id="node2" href="$namespaceparamkit.html#aac99eaa5e3c72c131dc5353a7aacc6ee" title=" " alt="" coords="196,56,345,83"/>
-<area shape="rect" id="node3" href="$namespaceparamkit.html#ae10aaf94114b91aa3aca8729b8ec6486" title=" " alt="" coords="412,5,529,32"/>
-<area shape="rect" id="node4" href="$namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="596,31,724,57"/>
-<area shape="rect" id="node5" href="$namespaceparamkit_1_1util.html#af32e71cbc435aaf99df4cbcd1e4f735f" title=" " alt="" coords="393,107,548,133"/>
+<area shape="rect" id="node1" title="Parses the parameter from the given string." alt="" coords="5,74,148,115"/>
+<area shape="rect" id="node2" href="$namespaceparamkit.html#a09194681e61f03bc2e5747c6a9812326" title=" " alt="" coords="196,81,345,108"/>
+<area shape="rect" id="node3" href="$namespaceparamkit.html#a13e6043839364f9b51a8e0fe86c6ba37" title=" " alt="" coords="413,5,529,32"/>
+<area shape="rect" id="node4" href="$namespaceparamkit.html#ae10aaf94114b91aa3aca8729b8ec6486" title=" " alt="" coords="412,56,529,83"/>
+<area shape="rect" id="node5" href="$namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="596,81,724,108"/>
+<area shape="rect" id="node6" href="$namespaceparamkit_1_1util.html#af32e71cbc435aaf99df4cbcd1e4f735f" title=" " alt="" coords="393,157,548,184"/>
 </map>
