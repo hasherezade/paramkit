@@ -267,8 +267,9 @@ namespace paramkit {
                         }
                     }
                     if (param_str == param->argStr) {
-                        // has argument:
-                        const bool hasArg = (i + 1) < argc && !(isParam(to_string(argv[i + 1])));
+                        // has an argument:
+                        const bool hasArg = (i + 1) < argc && 
+                            ( param->requiredArg || !(isParam(to_string(argv[i + 1]))) );
                         if (hasArg) {
                             const std::string nextVal = to_string(argv[i + 1]);
                             i++; // icrement index: move to the next argument
