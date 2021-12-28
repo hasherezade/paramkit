@@ -392,8 +392,7 @@ namespace paramkit {
                 this->value = true;
                 return true;
             }
-            this->value = loadBoolean(arg);
-            return true;
+            return loadBoolean(arg, this->value);
         }
 
         bool value;

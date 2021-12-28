@@ -60,18 +60,30 @@ namespace paramkit {
     }
 
     template <typename T_CHAR>
-    bool loadBoolean(const T_CHAR *str1)
+    bool loadBoolean(IN const T_CHAR *str1, OUT bool &value)
     {
         std::string str = to_string(str1);
         if (util::strequals(str, "True") || util::strequals(str, "on") || util::strequals(str, "yes")) {
+            value = true;
             return true;
         }
         if (util::strequals(str, "False") || util::strequals(str, "off") || util::strequals(str, "no")) {
+            value = false;
+            return true;
+        }
+        if (!is_dec(str.c_str(), str.length())) {
             return false;
         }
         const int val = loadInt(str.c_str(), false);
-        if (val == 0) return false;
-        return true;
+        if (val == 0) {
+            value = false;
+            return true;
+        }
+        if (val == 1) {
+            value = true;
+            return true;
+        }
+        return false;
     }
 
     //! Copy the std::string/std::wstring value into an buffer of a given character count
