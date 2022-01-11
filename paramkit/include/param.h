@@ -361,6 +361,7 @@ namespace paramkit {
         {
             requiredArg = false;
             value = false;
+            isParsed = false;
         }
 
         virtual std::string type() const
@@ -383,19 +384,22 @@ namespace paramkit {
 
         virtual bool isSet() const
         {
-            return value;
+            return isParsed;
         }
 
         virtual bool parse(const char *arg = nullptr)
         {
             if (!arg) {
                 this->value = true;
+                this->isParsed = true;
                 return true;
             }
-            return loadBoolean(arg, this->value);
+            this->isParsed = loadBoolean(arg, this->value);
+            return this->isParsed;
         }
 
         bool value;
+        bool isParsed;
     };
 
 
