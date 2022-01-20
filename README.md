@@ -1,5 +1,7 @@
 # ParamKit
 [![Build status](https://ci.appveyor.com/api/projects/status/dw7xwgd9isgvsair?svg=true)](https://ci.appveyor.com/project/hasherezade/paramkit)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/hasherezade/paramkit)](https://github.com/hasherezade/paramkit/commits)
+[![Last Commit](https://img.shields.io/github/last-commit/hasherezade/paramkit/master)](https://github.com/hasherezade/paramkit/commits)
 
 A small library helping to parse commandline parameters (for Windows).
 
