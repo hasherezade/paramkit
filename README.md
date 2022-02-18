@@ -1,5 +1,6 @@
 # ParamKit
 [![Build status](https://ci.appveyor.com/api/projects/status/dw7xwgd9isgvsair?svg=true)](https://ci.appveyor.com/project/hasherezade/paramkit)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/eb0766850dbf4a389b54aa04ae92906d)](https://app.codacy.com/gh/hasherezade/paramkit/dashboard?branch=master)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/hasherezade/paramkit)](https://github.com/hasherezade/paramkit/commits)
 [![Last Commit](https://img.shields.io/github/last-commit/hasherezade/paramkit/master)](https://github.com/hasherezade/paramkit/commits)
 
