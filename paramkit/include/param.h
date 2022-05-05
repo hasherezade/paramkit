@@ -40,6 +40,7 @@ namespace paramkit {
             isRequired = _isRequired;
             argStr = _argStr;
             requiredArg = false;
+            active = true;
         }
 
         //! A constructor of a parameter
@@ -54,6 +55,7 @@ namespace paramkit {
             argStr = _argStr;
             typeDescStr = _typeDescStr;
             requiredArg = false;
+            active = true;
         }
 
         //! Returns the string representation of the parameter's value
@@ -71,6 +73,17 @@ namespace paramkit {
             std::wstring value = arg;
             std::string str(value.begin(), value.end());
             return parse(str.c_str());
+        }
+
+        void setActive(bool _active)
+        {
+            this->active = _active;
+        }
+
+        //! Returns true if the parameter is active, false otherwise.
+        virtual bool isActive() const
+        {
+            return this->active;
         }
 
         //! Returns true if the parameter is filled, false otherwise.
@@ -152,6 +165,7 @@ namespace paramkit {
 
         bool isRequired; ///< a flag indicating if this parameter is required
         bool requiredArg; ///< a flag indicating if this parameter needs to be followed by a value
+        bool active; ///< a flag indicating if this parameter is available
 
         friend class Params;
         friend class ParamCompare;

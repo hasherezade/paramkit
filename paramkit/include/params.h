@@ -197,7 +197,7 @@ namespace paramkit {
             std::map<std::string, Param*>::iterator itr;
             for (itr = myParams.begin(); itr != myParams.end(); itr++) {
                 Param *param = itr->second;
-                if (param->isRequired && !param->isSet()) {
+                if (param->isRequired && param->isActive() && !param->isSet()) {
                     return false;
                 }
             }
@@ -267,6 +267,9 @@ namespace paramkit {
                         }
                     }
                     if (param_str == param->argStr) {
+                        if (!param->isActive()) {
+                            paramkit::print_in_color(RED, "WARNING: chosen inactive parameter: " + param_str + "\n");
+                        }
                         // has an argument:
                         const bool hasArg = (i + 1) < argc && 
                             ( param->requiredArg || !(isParam(to_string(argv[i + 1]))) );
@@ -274,9 +277,22 @@ namespace paramkit {
                             const std::string nextVal = to_string(argv[i + 1]);
                             i++; // icrement index: move to the next argument
                             found = true;
-                            //help requested explicitly or parsing failed
-                            if (nextVal == PARAM_HELP1 || !param->parse(nextVal.c_str()) ) {
+                            bool isParsed = false;
+                            
+                            if (nextVal == PARAM_HELP1) {
                                 paramHelp = true;
+                                isParsed = true;
+                            }
+                            else {
+                                isParsed = param->parse(nextVal.c_str());
+                                if (!isParsed) paramHelp = true;
+                            }
+
+                            //help requested explicitly or parsing failed
+                            if (paramHelp) {
+                                if (!isParsed) {
+                                    paramkit::print_in_color(RED, "Parsing the parameter failed. Correct options:\n");
+                                }
                                 paramkit::print_in_color(RED, param_str);
                                 param->printDesc();
                                 break;

@@ -76,6 +76,9 @@ namespace paramkit {
                     if (!has_any) continue;
                 }
                 if (should_print) {
+                    if (!param->isActive()) {
+                        color = INACTIVE_COLOR;
+                    }
                     param->printInColor(color);
                     param->printDesc(isExtended);
                     printed++;
