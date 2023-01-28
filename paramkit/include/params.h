@@ -233,7 +233,7 @@ namespace paramkit {
         template <typename T_CHAR>
         bool parse(int argc, T_CHAR* argv[])
         {
-            bool paramHelp = false;
+            bool helpRequested = false;
             size_t count = 0;
             for (int i = 1; i < argc; i++) {
                 std::string param_str = to_string(argv[i]);
@@ -246,6 +246,7 @@ namespace paramkit {
 
                 std::map<std::string, Param*>::iterator itr;
                 for (itr = myParams.begin(); itr != myParams.end(); ++itr) {
+                    bool paramHelp = false;
                     Param *param = itr->second;
                     if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1) {
                         if (param_str == PARAM_HELP2) {
@@ -275,17 +276,21 @@ namespace paramkit {
                             ( param->requiredArg || !(isParam(to_string(argv[i + 1]))) );
                         if (hasArg) {
                             const std::string nextVal = to_string(argv[i + 1]);
-                            i++; // icrement index: move to the next argument
+                            i++; // increment index: move to the next argument
                             found = true;
                             bool isParsed = false;
                             
                             if (nextVal == PARAM_HELP1) {
                                 paramHelp = true;
+                                helpRequested = true;
                                 isParsed = true;
                             }
                             else {
                                 isParsed = param->parse(nextVal.c_str());
-                                if (!isParsed) paramHelp = true;
+                                if (!isParsed) {
+                                    paramHelp = true;
+                                    helpRequested = true;
+                                }
                             }
 
                             //help requested explicitly or parsing failed
@@ -308,6 +313,7 @@ namespace paramkit {
                         // requires an argument, but it is missing:
                         paramkit::print_in_color(RED, param_str);
                         paramHelp = true;
+                        helpRequested = true;
                         param->printDesc();
                         found = true;
                         break;
@@ -323,7 +329,7 @@ namespace paramkit {
                     return false;
                 }
             }
-            if (paramHelp) {
+            if (helpRequested) {
                 return false;
             }
             if (!this->hasRequiredFilled()) {
