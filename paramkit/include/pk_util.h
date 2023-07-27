@@ -13,6 +13,8 @@
 #include <map>
 #include <set>
 
+#include "strings_util.h"
+
 #define GETNAME(x) (#x)
 
 namespace paramkit {
