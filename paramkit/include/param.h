@@ -58,6 +58,8 @@ namespace paramkit {
             active = true;
         }
 
+        virtual ~Param() {}
+
         //! Returns the string representation of the parameter's value
         virtual std::string valToString() const = 0;
 
