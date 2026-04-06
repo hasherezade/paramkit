@@ -114,7 +114,7 @@ namespace paramkit {
 
             p->m_info = basic_info;
             p->m_extInfo = extended_info;
-            return false;
+            return true;
         }
 
         //! Prints info about all the parameters. Optionally hilights the required ones that are missing.

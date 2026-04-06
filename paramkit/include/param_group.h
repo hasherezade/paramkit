@@ -129,7 +129,7 @@ namespace paramkit {
         {
             if (hasParam(param)) return false;
             this->params.insert(param);
-            return false;
+            return true;
         }
 
         bool removeParam(Param *param)
