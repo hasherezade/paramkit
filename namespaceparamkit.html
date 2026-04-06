@@ -141,10 +141,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a09194681e61f03bc2e5747c6a9812326"><td class="memTemplParams" colspan="2">template&lt;typename T_CHAR &gt; </td></tr>
 <tr class="memitem:a09194681e61f03bc2e5747c6a9812326"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a09194681e61f03bc2e5747c6a9812326">loadBoolean</a> (IN const T_CHAR *str1, OUT bool &amp;value)</td></tr>
 <tr class="separator:a09194681e61f03bc2e5747c6a9812326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="memTemplParams" colspan="2">template&lt;typename T_STR , typename T_CHAR &gt; </td></tr>
-<tr class="memitem:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#ac6dfe7ceea4d82bbdd34fde13ea4a2d8">copy_to_cstr</a> (T_STR value, T_CHAR *buf, size_t buf_count)</td></tr>
-<tr class="memdesc:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the std::string/std::wstring value into an buffer of a given character count.  <a href="namespaceparamkit.html#ac6dfe7ceea4d82bbdd34fde13ea4a2d8">More...</a><br /></td></tr>
-<tr class="separator:ac6dfe7ceea4d82bbdd34fde13ea4a2d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5248ccebd8b840ebc6ba22b8b0e6fea9"><td class="memTemplParams" colspan="2">template&lt;typename T_CHAR &gt; </td></tr>
+<tr class="memitem:a5248ccebd8b840ebc6ba22b8b0e6fea9"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a5248ccebd8b840ebc6ba22b8b0e6fea9">copy_to_cstr</a> (const std::basic_string&lt; T_CHAR &gt; &amp;value, T_CHAR *buf, size_t buf_count)</td></tr>
+<tr class="memdesc:a5248ccebd8b840ebc6ba22b8b0e6fea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the std::string/std::wstring value into an buffer of a given character count.  <a href="namespaceparamkit.html#a5248ccebd8b840ebc6ba22b8b0e6fea9">More...</a><br /></td></tr>
+<tr class="separator:a5248ccebd8b840ebc6ba22b8b0e6fea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c4649d5e234dfbe63f7ab00cbfbe766"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a9c4649d5e234dfbe63f7ab00cbfbe766">ltrim</a> (std::string &amp;str, const std::string &amp;chars=&quot;\t\n\v\f\r &quot;)</td></tr>
 <tr class="separator:a9c4649d5e234dfbe63f7ab00cbfbe766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a236b91ee9475397762fd1abb2e189a3c"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a236b91ee9475397762fd1abb2e189a3c">rtrim</a> (std::string &amp;str, const std::string &amp;chars=&quot;\t\n\v\f\r &quot;)</td></tr>
@@ -170,18 +170,18 @@ Variables</h2></td></tr>
 <tr class="separator:a3c80b6accfa0f3ca642cb3ac5b85cf49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac6dfe7ceea4d82bbdd34fde13ea4a2d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6dfe7ceea4d82bbdd34fde13ea4a2d8">&#9670;&nbsp;</a></span>copy_to_cstr()</h2>
+<a id="a5248ccebd8b840ebc6ba22b8b0e6fea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5248ccebd8b840ebc6ba22b8b0e6fea9">&#9670;&nbsp;</a></span>copy_to_cstr()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_STR , typename T_CHAR &gt; </div>
+template&lt;typename T_CHAR &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_t paramkit::copy_to_cstr </td>
           <td>(</td>
-          <td class="paramtype">T_STR&#160;</td>
+          <td class="paramtype">const std::basic_string&lt; T_CHAR &gt; &amp;&#160;</td>
           <td class="paramname"><em>value</em>, </td>
         </tr>
         <tr>
