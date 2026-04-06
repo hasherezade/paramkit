@@ -45,11 +45,11 @@ namespace paramkit {
         return val;
     }
 
-    template <typename T_CHAR>
-    int loadInt(const T_CHAR *str1, bool isHex = false)
+    template <typename T_INT, typename T_CHAR>
+    T_INT loadInt(const T_CHAR *str1, bool isHex = false)
     {
         std::string str = to_string(str1);
-        int intVal = 0;
+        T_INT intVal = 0;
         std::stringstream ss;
         if (isHex) {
             ss << std::hex << str;
@@ -76,7 +76,7 @@ namespace paramkit {
         if (!is_dec(str.c_str(), str.length())) {
             return false;
         }
-        const int val = loadInt(str.c_str(), false);
+        const int val = loadInt<int>(str.c_str(), false);
         if (val == 0) {
             value = false;
             return true;

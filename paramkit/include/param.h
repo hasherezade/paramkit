@@ -248,7 +248,7 @@ namespace paramkit {
                     isHex = true;
                 }
             }
-            this->value = loadInt(arg, isHex);
+            this->value = loadInt<uint64_t>(arg, isHex);
             return true;
         }
 
@@ -515,7 +515,7 @@ namespace paramkit {
             if (!is_number(arg)) {
                 return false;
             }
-            int intVal = loadInt(arg);
+            int intVal = loadInt<int>(arg);
             if (!isInEnumScope(intVal)) {
                 // out of the enum scope
                 return false;
