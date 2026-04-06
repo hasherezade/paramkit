@@ -36,11 +36,9 @@ namespace paramkit {
         \param _isRequired : the flag if this is a required parameter (if false, the parameter is optional)
         */
         Param(const std::string& _argStr, bool _isRequired)
+            : argStr(_argStr), isRequired(_isRequired),
+            requiredArg(false), active(true), isParsed(false)
         {
-            isRequired = _isRequired;
-            argStr = _argStr;
-            requiredArg = false;
-            active = true;
         }
 
         //! A constructor of a parameter
@@ -50,12 +48,9 @@ namespace paramkit {
         \param _isRequired : the flag if this is a required parameter (if false, the parameter is optional)
         */
         Param(const std::string& _argStr, const std::string& _typeDescStr, bool _isRequired)
+            :argStr(_argStr), isRequired(_isRequired), typeDescStr(_typeDescStr),
+            requiredArg(false), active(true), isParsed(false)
         {
-            isRequired = _isRequired;
-            argStr = _argStr;
-            typeDescStr = _typeDescStr;
-            requiredArg = false;
-            active = true;
         }
 
         virtual ~Param() {}
@@ -88,8 +83,11 @@ namespace paramkit {
             return this->active;
         }
 
-        //! Returns true if the parameter is filled, false otherwise.
-        virtual bool isSet() const = 0;
+        //! Returns true if the parameter was parsed, false otherwise.
+        virtual bool isSet() const
+        {
+            return isParsed;
+        }
 
         virtual std::string info(bool isExtended) const
         {
@@ -168,6 +166,7 @@ namespace paramkit {
         bool isRequired; ///< a flag indicating if this parameter is required
         bool requiredArg; ///< a flag indicating if this parameter needs to be followed by a value
         bool active; ///< a flag indicating if this parameter is available
+        bool isParsed; ///< a flag indicating if this parameter has been parsed
 
         friend class Params;
         friend class ParamCompare;
@@ -229,16 +228,12 @@ namespace paramkit {
             return "integer: decimal, or hexadecimal with '0x' prefix";
         }
 
-        virtual bool isSet() const
-        {
-            return value != PARAM_UNINITIALIZED;
-        }
-
         virtual bool parse(const char *arg)
         {
+            this->isParsed = false;
             if (!arg) return false;
-            const size_t len = strlen(arg);
 
+            const size_t len = strlen(arg);
             if (!isValidNumber(arg, len)) {
                 return false;
             }
@@ -249,6 +244,7 @@ namespace paramkit {
                 }
             }
             this->value = loadInt<uint64_t>(arg, isHex);
+            this->isParsed = true;
             return true;
         }
 
@@ -289,20 +285,19 @@ namespace paramkit {
             return "\"" + value + "\"";
         }
 
-        virtual std::string type() const {
-            return "string";
-        }
-
-        virtual bool isSet() const
+        virtual std::string type() const
         {
-            return value.length() > 0;
+            return "string";
         }
 
         virtual bool parse(const char *arg)
         {
+            this->value = "";
+            this->isParsed = false;
             if (!arg) return false;
 
             this->value = arg;
+            this->isParsed = true;
             return true;
         }
 
@@ -336,27 +331,28 @@ namespace paramkit {
             return "wstring";
         }
 
-        virtual bool isSet() const
-        {
-            return value.length() > 0;
-        }
-
         virtual bool parse(const wchar_t *arg)
         {
+            this->value = L"";
+            this->isParsed = false;
             if (!arg) return false;
 
             this->value = arg;
+            this->isParsed = true;
             return true;
         }
 
         virtual bool parse(const char *arg)
         {
+            this->value = L"";
+            this->isParsed = false;
             if (!arg) return false;
 
             std::string value = arg;
             std::wstring str(value.begin(), value.end());
 
             this->value = str;
+            this->isParsed = true;
             return true;
         }
 
@@ -377,7 +373,6 @@ namespace paramkit {
         {
             requiredArg = false;
             value = false;
-            isParsed = false;
         }
 
         virtual std::string type() const
@@ -398,13 +393,9 @@ namespace paramkit {
             return stream.str();
         }
 
-        virtual bool isSet() const
-        {
-            return isParsed;
-        }
-
         virtual bool parse(const char *arg = nullptr)
         {
+            this->isParsed = false;
             if (!arg) {
                 this->value = true;
                 this->isParsed = true;
@@ -415,15 +406,13 @@ namespace paramkit {
         }
 
         bool value;
-        bool isParsed;
     };
-
 
     //! A parameter storing an enum value
     class EnumParam : public Param {
     public:
         EnumParam(const std::string& _argStr, const std::string _enumName, bool _isRequired)
-            : Param(_argStr, _isRequired), enumName(_enumName), m_isSet(false)
+            : Param(_argStr, _isRequired), enumName(_enumName)
         {
             requiredArg = true;
             value = PARAM_UNINITIALIZED;
@@ -464,7 +453,7 @@ namespace paramkit {
 
         virtual bool isSet() const
         {
-            if (!m_isSet) return false;
+            if (!isParsed) return false;
             if (!isInEnumScope(value)) {
                 return false;
             }
@@ -499,6 +488,7 @@ namespace paramkit {
 
         virtual bool parse(const char *arg)
         {
+            this->isParsed = false;
             if (!arg) return false;
 
             //try to find by the string representation first:
@@ -507,7 +497,7 @@ namespace paramkit {
             for (itr = enumToString.begin(); itr != enumToString.end(); ++itr) {
                 if (strVal == itr->second) {
                     this->value = itr->first;
-                    m_isSet = true;
+                    this->isParsed = true;
                     return true;
                 }
             }
@@ -521,7 +511,7 @@ namespace paramkit {
                 return false;
             }
             this->value = intVal;
-            m_isSet = true;
+            this->isParsed = true;
             return true;
         }
 
@@ -572,7 +562,6 @@ namespace paramkit {
         std::map<int, std::string> enumToInfo; ///< required: info about the enum parameter
 
         std::string enumName;
-        bool m_isSet;
     };
 
 
@@ -622,6 +611,7 @@ namespace paramkit {
 
         virtual bool parse(const char *arg)
         {
+            this->isParsed = false;
             if (!arg) return false;
 
             std::set<std::string> str_list;
@@ -634,6 +624,7 @@ namespace paramkit {
                 if (!paramkit::is_number(nextEl.c_str())) return false;
             }
             this->value = arg;
+            this->isParsed = true;
             return true;
         }
 
