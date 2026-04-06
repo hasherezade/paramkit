@@ -32,7 +32,7 @@ var searchData=
   ['pk_5futil_2ecpp_122',['pk_util.cpp',['../pk__util_8cpp.html',1,'']]],
   ['pk_5futil_2eh_123',['pk_util.h',['../pk__util_8h.html',1,'']]],
   ['print_124',['print',['../classparamkit_1_1_params.html#a6cc9d5679fe31ad7f0497de4a4e80a76',1,'paramkit::Params']]],
-  ['print_5fin_5fcolor_125',['print_in_color',['../namespaceparamkit.html#a49deb56ac40daf498a59211c34e5168f',1,'paramkit']]],
+  ['print_5fin_5fcolor_125',['print_in_color',['../namespaceparamkit.html#a5091b3f2e6357e6eb933415934ff23ca',1,'paramkit']]],
   ['printbanner_126',['printBanner',['../classparamkit_1_1_params.html#a422491f139fc7fabb8232b652fd7d2e9',1,'paramkit::Params']]],
   ['printbriefinfo_127',['printBriefInfo',['../classparamkit_1_1_params.html#ad58bcb31a38e44f9765bcfbde608daf1',1,'paramkit::Params']]],
   ['printdesc_128',['printDesc',['../classparamkit_1_1_param.html#ada6abaed9cdfa209128b98f08a02eb42',1,'paramkit::Param']]],
