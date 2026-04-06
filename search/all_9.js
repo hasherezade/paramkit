@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['levenshtein_5fdistance_77',['levenshtein_distance',['../namespaceparamkit_1_1util.html#a2e9d23daf2a67b7265115ca5f5043321',1,'paramkit::util']]],
-  ['lime_78',['LIME',['../term__colors_8h.html#a46019a1f2c10603a54b6cbb19cbf3c21',1,'term_colors.h']]],
-  ['loadboolean_79',['loadBoolean',['../namespaceparamkit.html#a09194681e61f03bc2e5747c6a9812326',1,'paramkit']]],
-  ['loadint_80',['loadInt',['../namespaceparamkit.html#a5eed09baaeadeeb27f35935f20a02ec9',1,'paramkit']]],
-  ['ltrim_81',['ltrim',['../namespaceparamkit.html#a9c4649d5e234dfbe63f7ab00cbfbe766',1,'paramkit']]]
+  ['levenshtein_5fdistance_78',['levenshtein_distance',['../namespaceparamkit_1_1util.html#a2e9d23daf2a67b7265115ca5f5043321',1,'paramkit::util']]],
+  ['lime_79',['LIME',['../term__colors_8h.html#a46019a1f2c10603a54b6cbb19cbf3c21',1,'term_colors.h']]],
+  ['loadboolean_80',['loadBoolean',['../namespaceparamkit.html#a09194681e61f03bc2e5747c6a9812326',1,'paramkit']]],
+  ['loadint_81',['loadInt',['../namespaceparamkit.html#a5eed09baaeadeeb27f35935f20a02ec9',1,'paramkit']]],
+  ['ltrim_82',['ltrim',['../namespaceparamkit.html#a9c4649d5e234dfbe63f7ab00cbfbe766',1,'paramkit']]]
 ];

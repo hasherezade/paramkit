@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['calc_5fhistogram_12',['calc_histogram',['../strings__util_8cpp.html#a0d394fb1cc81f603fd16c455c41fd959',1,'strings_util.cpp']]],
-  ['calc_5funique_5fchars_13',['calc_unique_chars',['../strings__util_8cpp.html#af595a22959774f94811772ba5e6d4339',1,'strings_util.cpp']]],
+  ['calc_5fhistogram_12',['calc_histogram',['../strings__util_8cpp.html#aa567f443094ed2ee418ccd0c9aa21ca9',1,'strings_util.cpp']]],
+  ['calc_5funique_5fchars_13',['calc_unique_chars',['../strings__util_8cpp.html#ae1b9a228d9a01c75f96bcb2d60010998',1,'strings_util.cpp']]],
   ['color_5fscheme_2eh_14',['color_scheme.h',['../color__scheme_8h.html',1,'']]],
   ['copy_5fto_5fcstr_15',['copy_to_cstr',['../namespaceparamkit.html#ac6dfe7ceea4d82bbdd34fde13ea4a2d8',1,'paramkit']]],
   ['copycstr_16',['copyCStr',['../classparamkit_1_1_params.html#a97ba405427f7484be0873e949c1ff408',1,'paramkit::Params']]],

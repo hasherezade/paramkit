@@ -111,6 +111,7 @@ var menudata={children:[
 {text:"c",url:"globals.html#index_c"},
 {text:"d",url:"globals.html#index_d"},
 {text:"g",url:"globals.html#index_g"},
+{text:"h",url:"globals.html#index_h"},
 {text:"i",url:"globals.html#index_i"},
 {text:"l",url:"globals.html#index_l"},
 {text:"m",url:"globals.html#index_m"},
@@ -122,4 +123,17 @@ var menudata={children:[
 {text:"y",url:"globals.html#index_y"}]},
 {text:"Functions",url:"globals_func.html"},
 {text:"Typedefs",url:"globals_type.html"},
-{text:"Macros",url:"globals_defs.html"}]}]}]}
+{text:"Macros",url:"globals_defs.html",children:[
+{text:"b",url:"globals_defs.html#index_b"},
+{text:"c",url:"globals_defs.html#index_c"},
+{text:"d",url:"globals_defs.html#index_d"},
+{text:"g",url:"globals_defs.html#index_g"},
+{text:"h",url:"globals_defs.html#index_h"},
+{text:"i",url:"globals_defs.html#index_i"},
+{text:"l",url:"globals_defs.html#index_l"},
+{text:"m",url:"globals_defs.html#index_m"},
+{text:"p",url:"globals_defs.html#index_p"},
+{text:"r",url:"globals_defs.html#index_r"},
+{text:"s",url:"globals_defs.html#index_s"},
+{text:"w",url:"globals_defs.html#index_w"},
+{text:"y",url:"globals_defs.html#index_y"}]}]}]}]}

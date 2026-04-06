@@ -81,17 +81,35 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a7f5fc8a70667ca4c9fc598a30f7e8602"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings__util_8cpp.html#a7f5fc8a70667ca4c9fc598a30f7e8602">HIST_SIZE</a>&#160;&#160;&#160;256</td></tr>
+<tr class="separator:a7f5fc8a70667ca4c9fc598a30f7e8602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74e75242132eaabbc1c512488a135926"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings__util_8cpp.html#a74e75242132eaabbc1c512488a135926">MIN</a>(x,  y)&#160;&#160;&#160;((x) &lt; (y) ? (x) : (y))</td></tr>
 <tr class="separator:a74e75242132eaabbc1c512488a135926"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0d394fb1cc81f603fd16c455c41fd959"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings__util_8cpp.html#a0d394fb1cc81f603fd16c455c41fd959">calc_histogram</a> (const char s1[], size_t hist1[255])</td></tr>
-<tr class="separator:a0d394fb1cc81f603fd16c455c41fd959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af595a22959774f94811772ba5e6d4339"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings__util_8cpp.html#af595a22959774f94811772ba5e6d4339">calc_unique_chars</a> (size_t hist1[255])</td></tr>
-<tr class="separator:af595a22959774f94811772ba5e6d4339"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa567f443094ed2ee418ccd0c9aa21ca9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings__util_8cpp.html#aa567f443094ed2ee418ccd0c9aa21ca9">calc_histogram</a> (const char s1[], size_t hist1[<a class="el" href="strings__util_8cpp.html#a7f5fc8a70667ca4c9fc598a30f7e8602">HIST_SIZE</a>])</td></tr>
+<tr class="separator:aa567f443094ed2ee418ccd0c9aa21ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1b9a228d9a01c75f96bcb2d60010998"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="strings__util_8cpp.html#ae1b9a228d9a01c75f96bcb2d60010998">calc_unique_chars</a> (const size_t hist1[<a class="el" href="strings__util_8cpp.html#a7f5fc8a70667ca4c9fc598a30f7e8602">HIST_SIZE</a>])</td></tr>
+<tr class="separator:ae1b9a228d9a01c75f96bcb2d60010998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a7f5fc8a70667ca4c9fc598a30f7e8602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f5fc8a70667ca4c9fc598a30f7e8602">&#9670;&nbsp;</a></span>HIST_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HIST_SIZE&#160;&#160;&#160;256</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="strings__util_8cpp_source.html#l00006">6</a> of file <a class="el" href="strings__util_8cpp_source.html">strings_util.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a74e75242132eaabbc1c512488a135926"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74e75242132eaabbc1c512488a135926">&#9670;&nbsp;</a></span>MIN</h2>
 
@@ -118,13 +136,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="strings__util_8cpp_source.html#l00006">6</a> of file <a class="el" href="strings__util_8cpp_source.html">strings_util.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="strings__util_8cpp_source.html#l00008">8</a> of file <a class="el" href="strings__util_8cpp_source.html">strings_util.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0d394fb1cc81f603fd16c455c41fd959"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d394fb1cc81f603fd16c455c41fd959">&#9670;&nbsp;</a></span>calc_histogram()</h2>
+<a id="aa567f443094ed2ee418ccd0c9aa21ca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa567f443094ed2ee418ccd0c9aa21ca9">&#9670;&nbsp;</a></span>calc_histogram()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +160,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>hist1</em>[255]&#160;</td>
+          <td class="paramname"><em>hist1</em>[HIST_SIZE]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -157,12 +175,12 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="strings__util_8cpp_source.html#l00080">80</a> of file <a class="el" href="strings__util_8cpp_source.html">strings_util.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="strings__util_8cpp_source.html#l00087">87</a> of file <a class="el" href="strings__util_8cpp_source.html">strings_util.cpp</a>.</p>
 
 </div>
 </div>
-<a id="af595a22959774f94811772ba5e6d4339"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af595a22959774f94811772ba5e6d4339">&#9670;&nbsp;</a></span>calc_unique_chars()</h2>
+<a id="ae1b9a228d9a01c75f96bcb2d60010998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1b9a228d9a01c75f96bcb2d60010998">&#9670;&nbsp;</a></span>calc_unique_chars()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,8 +191,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">size_t calc_unique_chars </td>
           <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>hist1</em>[255]</td><td>)</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>hist1</em>[HIST_SIZE]</td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -185,7 +203,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="strings__util_8cpp_source.html#l00090">90</a> of file <a class="el" href="strings__util_8cpp_source.html">strings_util.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="strings__util_8cpp_source.html#l00098">98</a> of file <a class="el" href="strings__util_8cpp_source.html">strings_util.cpp</a>.</p>
 
 </div>
 </div>
