@@ -648,7 +648,7 @@ namespace paramkit {
                 std::string nextEl = *itr;
                 if (!paramkit::is_number(nextEl.c_str())) continue;
 
-                long number = paramkit::get_number(nextEl.c_str());
+                long number = paramkit::get_number<long>(nextEl.c_str());
                 elements_list.insert(number);
             }
             return elements_list.size();

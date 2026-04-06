@@ -19,18 +19,47 @@
 
 namespace paramkit {
 
+    size_t strip_to_list(IN std::string s, IN std::string delim, OUT std::set<std::string>& elements_list);
+    std::string& trim(std::string& str, const std::string& chars = "\t\n\v\f\r ");
+
+    bool get_console_color(HANDLE hConsole, int& color);
+    void print_in_color(int color, const std::string& text);
+
     bool is_hex(const char *buf, size_t len);
     bool is_hex_with_prefix(const char *buf);
     bool is_dec(const char *buf, size_t len);
     bool is_number(const char* my_buf);
-    long get_number(const char *my_buf);
 
-    size_t strip_to_list(IN std::string s, IN std::string delim, OUT std::set<std::string> &elements_list);
-    std::string& trim(std::string& str, const std::string& chars = "\t\n\v\f\r ");
+    template <typename T_INT>
+    T_INT get_number(const char* my_buf)
+    {
+        if (!my_buf) return false;
 
-    bool get_console_color(HANDLE hConsole, int& color);
-    void print_in_color(int color, const std::string &text);
-    //--
+        const char hex_pattern[] = "0x";
+        size_t hex_pattern_len = strlen(hex_pattern);
+
+        const size_t len = strlen(my_buf);
+        if (len == 0) return 0;
+
+        T_INT out = 0;
+        const size_t min_length = 1; //tolerate number with at least 1 character
+        if (len > hex_pattern_len) {
+            if (util::is_cstr_equal(my_buf, hex_pattern, hex_pattern_len)) {
+                if (!is_hex(my_buf + hex_pattern_len, min_length)) return 0;
+
+                std::stringstream ss;
+                ss << std::hex << my_buf;
+                ss >> out;
+                return out;
+            }
+        }
+        if (!is_dec(my_buf, min_length)) return 0;
+
+        std::stringstream ss;
+        ss << std::dec << my_buf;
+        ss >> out;
+        return out;
+    }
 
     template <typename T_CHAR>
     std::string to_string(T_CHAR *str1)
