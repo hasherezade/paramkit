@@ -52,26 +52,33 @@ bool paramkit::is_number(const char* my_buf)
     return false;
 }
 
-bool paramkit::get_console_color(HANDLE hConsole, int& color) {
-    CONSOLE_SCREEN_BUFFER_INFO info;
+bool paramkit::get_console_color(HANDLE hConsole, WORD& color) {
+    CONSOLE_SCREEN_BUFFER_INFO info{};
     if (!GetConsoleScreenBufferInfo(hConsole, &info))
         return false;
     color = info.wAttributes;
     return true;
 }
 
-void paramkit::print_in_color(int color, const std::string &text)
+void paramkit::print_in_color(WORD color, const std::string &text)
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    int prev = 7;
-    get_console_color(hConsole, prev); // get the previous color
+    if (hConsole == INVALID_HANDLE_VALUE || hConsole == NULL) {
+        std::cout << text;
+        return;
+    }
+    WORD prev = 7;
+    const bool is_retrieved = get_console_color(hConsole, prev);
+    if (is_retrieved) {
+        std::cout << std::flush;
+        SetConsoleTextAttribute(hConsole, color);
+    }
 
-    FlushConsoleInputBuffer(hConsole);
-    SetConsoleTextAttribute(hConsole, color); // back to default color
-    std::cout << text;
-    FlushConsoleInputBuffer(hConsole);
+    std::cout << text << std::flush;
 
-    SetConsoleTextAttribute(hConsole, prev); // back to previous color
+    if (is_retrieved) {
+        SetConsoleTextAttribute(hConsole, prev); // back to previous color
+    }
 }
 
 namespace paramkit {

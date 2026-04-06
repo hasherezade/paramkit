@@ -22,8 +22,8 @@ namespace paramkit {
     size_t strip_to_list(IN std::string s, IN std::string delim, OUT std::set<std::string>& elements_list);
     std::string& trim(std::string& str, const std::string& chars = "\t\n\v\f\r ");
 
-    bool get_console_color(HANDLE hConsole, int& color);
-    void print_in_color(int color, const std::string& text);
+    bool get_console_color(HANDLE hConsole, WORD& color);
+    void print_in_color(WORD color, const std::string& text);
 
     bool is_hex(const char *buf, size_t len);
     bool is_hex_with_prefix(const char *buf);
