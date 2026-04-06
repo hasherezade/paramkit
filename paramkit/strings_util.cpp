@@ -3,7 +3,10 @@
 #include <algorithm>
 #include <cstring>
 
+#define HIST_SIZE 256
+
 #define MIN(x,y) ((x) < (y) ? (x) : (y))
+
 
 std::string paramkit::util::to_lowercase(std::string str)
 {
@@ -17,7 +20,9 @@ bool paramkit::util::is_cstr_equal(char const *a, char const *b, const size_t ma
     if (!a || !b) return false;
     for (size_t i = 0; i < max_len; ++i) {
         if (ignoreCase) {
-            if (tolower(a[i]) != tolower(b[i])) {
+            const unsigned char c1 = static_cast<unsigned char>(a[i]);
+            const unsigned char c2 = static_cast<unsigned char>(b[i]);
+            if (tolower(c1) != tolower(c2)) {
                 return false;
             }
         }
@@ -41,7 +46,9 @@ bool paramkit::util::strequals(const std::string& a, const std::string& b, bool 
             if (a[i] != b[i]) return false;
         }
         else {
-            if (tolower(a[i]) != tolower(b[i])) return false;
+            const unsigned char c1 = static_cast<unsigned char>(a[i]);
+            const unsigned char c2 = static_cast<unsigned char>(b[i]);
+            if (tolower(c1) != tolower(c2)) return false;
         }
     }
     return true;
@@ -77,20 +84,21 @@ size_t paramkit::util::levenshtein_distance(const char s1[], const char s2[])
     return dist[len2][len1];
 }
 
-inline void calc_histogram(const char s1[], size_t hist1[255])
+inline void calc_histogram(const char s1[], size_t hist1[HIST_SIZE])
 {
-    memset(hist1, 0, 255);
+    const size_t hist1_size = sizeof(hist1[0]) * HIST_SIZE;
+    ::memset(hist1, 0, hist1_size);
     const size_t len1 = strlen(s1);
     for (size_t i = 0; i < len1; i++) {
-        const char c = tolower(s1[i]);
-        hist1[c]++;
+        const unsigned char c = static_cast<unsigned char>(s1[i]);
+        hist1[static_cast<unsigned char>(tolower(c))]++;
     }
 }
 
-inline size_t calc_unique_chars(size_t hist1[255])
+inline size_t calc_unique_chars(const size_t hist1[HIST_SIZE])
 {
     size_t count = 0;
-    for (size_t i = 0; i < 255; i++) {
+    for (size_t i = 0; i < HIST_SIZE; i++) {
         if (hist1[i] != 0) count++;
     }
     return count;
@@ -98,15 +106,14 @@ inline size_t calc_unique_chars(size_t hist1[255])
 
 bool paramkit::util::has_similar_histogram(const char s1[], const char s2[])
 {
-    const size_t MAX_LEN = 255;
-    size_t hist1[MAX_LEN] = { 0 };
-    size_t hist2[MAX_LEN] = { 0 };
+    size_t hist1[HIST_SIZE] = { 0 };
+    size_t hist2[HIST_SIZE] = { 0 };
 
     calc_histogram(s1, hist1);
     calc_histogram(s2, hist2);
 
     size_t sim = 0;
-    for (size_t i = 0; i < MAX_LEN; i++) {
+    for (size_t i = 0; i < HIST_SIZE; i++) {
         if (hist1[i] != 0 && hist2[i] != 0 ) sim++;
     }
     const size_t uniq1 = calc_unique_chars(hist1);
