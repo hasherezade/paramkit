@@ -134,9 +134,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aa42e3156acd731ed26b212894a9b23f6"><td class="memTemplParams" colspan="2">template&lt;typename T_CHAR &gt; </td></tr>
 <tr class="memitem:aa42e3156acd731ed26b212894a9b23f6"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6">to_string</a> (T_CHAR *str1)</td></tr>
 <tr class="separator:aa42e3156acd731ed26b212894a9b23f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae10aaf94114b91aa3aca8729b8ec6486"><td class="memTemplParams" colspan="2">template&lt;typename T_CHAR &gt; </td></tr>
-<tr class="memitem:ae10aaf94114b91aa3aca8729b8ec6486"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#ae10aaf94114b91aa3aca8729b8ec6486">loadInt</a> (const T_CHAR *str1, bool isHex=false)</td></tr>
-<tr class="separator:ae10aaf94114b91aa3aca8729b8ec6486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eed09baaeadeeb27f35935f20a02ec9"><td class="memTemplParams" colspan="2">template&lt;typename T_INT , typename T_CHAR &gt; </td></tr>
+<tr class="memitem:a5eed09baaeadeeb27f35935f20a02ec9"><td class="memTemplItemLeft" align="right" valign="top">T_INT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a5eed09baaeadeeb27f35935f20a02ec9">loadInt</a> (const T_CHAR *str1, bool isHex=false)</td></tr>
+<tr class="separator:a5eed09baaeadeeb27f35935f20a02ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09194681e61f03bc2e5747c6a9812326"><td class="memTemplParams" colspan="2">template&lt;typename T_CHAR &gt; </td></tr>
 <tr class="memitem:a09194681e61f03bc2e5747c6a9812326"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a09194681e61f03bc2e5747c6a9812326">loadBoolean</a> (IN const T_CHAR *str1, OUT bool &amp;value)</td></tr>
 <tr class="separator:a09194681e61f03bc2e5747c6a9812326"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -426,26 +426,25 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceparamkit_a09194681e61f03bc2e5747c6a9812326_cgraph.png" border="0" usemap="#anamespaceparamkit_a09194681e61f03bc2e5747c6a9812326_cgraph" alt=""/></div>
 <map name="anamespaceparamkit_a09194681e61f03bc2e5747c6a9812326_cgraph" id="anamespaceparamkit_a09194681e61f03bc2e5747c6a9812326_cgraph">
-<area shape="rect" title=" " alt="" coords="5,81,155,108"/>
+<area shape="rect" title=" " alt="" coords="5,56,155,83"/>
 <area shape="rect" href="namespaceparamkit.html#a13e6043839364f9b51a8e0fe86c6ba37" title=" " alt="" coords="222,5,338,32"/>
-<area shape="rect" href="namespaceparamkit.html#ae10aaf94114b91aa3aca8729b8ec6486" title=" " alt="" coords="221,56,339,83"/>
-<area shape="rect" href="namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="405,81,533,108"/>
-<area shape="rect" href="namespaceparamkit_1_1util.html#af32e71cbc435aaf99df4cbcd1e4f735f" title=" " alt="" coords="203,157,357,184"/>
+<area shape="rect" href="namespaceparamkit_1_1util.html#af32e71cbc435aaf99df4cbcd1e4f735f" title=" " alt="" coords="203,56,357,83"/>
+<area shape="rect" href="namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="216,107,344,133"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ae10aaf94114b91aa3aca8729b8ec6486"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae10aaf94114b91aa3aca8729b8ec6486">&#9670;&nbsp;</a></span>loadInt()</h2>
+<a id="a5eed09baaeadeeb27f35935f20a02ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eed09baaeadeeb27f35935f20a02ec9">&#9670;&nbsp;</a></span>loadInt()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_CHAR &gt; </div>
+template&lt;typename T_INT , typename T_CHAR &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int paramkit::loadInt </td>
+          <td class="memname">T_INT paramkit::loadInt </td>
           <td>(</td>
           <td class="paramtype">const T_CHAR *&#160;</td>
           <td class="paramname"><em>str1</em>, </td>
@@ -468,8 +467,8 @@ template&lt;typename T_CHAR &gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespaceparamkit_ae10aaf94114b91aa3aca8729b8ec6486_cgraph.png" border="0" usemap="#anamespaceparamkit_ae10aaf94114b91aa3aca8729b8ec6486_cgraph" alt=""/></div>
-<map name="anamespaceparamkit_ae10aaf94114b91aa3aca8729b8ec6486_cgraph" id="anamespaceparamkit_ae10aaf94114b91aa3aca8729b8ec6486_cgraph">
+<div class="center"><img src="namespaceparamkit_a5eed09baaeadeeb27f35935f20a02ec9_cgraph.png" border="0" usemap="#anamespaceparamkit_a5eed09baaeadeeb27f35935f20a02ec9_cgraph" alt=""/></div>
+<map name="anamespaceparamkit_a5eed09baaeadeeb27f35935f20a02ec9_cgraph" id="anamespaceparamkit_a5eed09baaeadeeb27f35935f20a02ec9_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,123,32"/>
 <area shape="rect" href="namespaceparamkit.html#aa42e3156acd731ed26b212894a9b23f6" title=" " alt="" coords="171,5,299,32"/>
 </map>
