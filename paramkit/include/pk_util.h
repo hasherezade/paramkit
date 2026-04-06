@@ -118,16 +118,20 @@ namespace paramkit {
     }
 
     //! Copy the std::string/std::wstring value into an buffer of a given character count
-    template <typename T_STR, typename T_CHAR>
-    size_t copy_to_cstr(T_STR value, T_CHAR *buf, size_t buf_count)
+    template <typename T_CHAR>
+    size_t copy_to_cstr(const std::basic_string<T_CHAR>& value, T_CHAR* buf, size_t buf_count)
     {
-        size_t val_len = value.length() + 1;
-        if (val_len > buf_count) {
-            val_len = buf_count;
+        if (!buf || buf_count == 0) {
+            return 0;
         }
-        memcpy(buf, value.c_str(), val_len * sizeof(T_CHAR));
-        buf[val_len - 1] = '\0';
-        return val_len;
+
+        const size_t chars_to_copy = (value.length() < (buf_count - 1)) ? value.length() : (buf_count - 1);
+
+        if (chars_to_copy > 0) {
+            ::memcpy(buf, value.c_str(), chars_to_copy * sizeof(T_CHAR));
+        }
+        buf[chars_to_copy] = T_CHAR{};
+        return chars_to_copy;
     }
 
 };
