@@ -52,7 +52,8 @@ bool paramkit::is_number(const char* my_buf)
     return false;
 }
 
-bool paramkit::get_console_color(HANDLE hConsole, WORD& color) {
+bool paramkit::get_console_color(HANDLE hConsole, WORD& color)
+{
     CONSOLE_SCREEN_BUFFER_INFO info{};
     if (!GetConsoleScreenBufferInfo(hConsole, &info))
         return false;
