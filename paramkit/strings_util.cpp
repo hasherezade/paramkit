@@ -54,34 +54,29 @@ bool paramkit::util::strequals(const std::string& a, const std::string& b, bool 
     return true;
 }
 
-size_t paramkit::util::levenshtein_distance(const char s1[], const char s2[])
+int paramkit::util::levenshtein_distance(const char s1[], const char s2[])
 {
-    const size_t MAX_LEN = 100;
-    const size_t len1 = strlen(s1);
-    const size_t len2 = strlen(s2);
+    // MAX_LEN caps stack usage at MAX_LEN*MAX_LEN*sizeof(int) = ~40 KB.
+    // Strings at or beyond this length return -1 (caller must handle).
+    const int MAX_LEN = 100;
+    const int len1 = static_cast<int>(strlen(s1));
+    const int len2 = static_cast<int>(strlen(s2));
 
-    if (len1 >= MAX_LEN || len2 >= MAX_LEN) return(-1);
+    if (len1 >= MAX_LEN || len2 >= MAX_LEN) return -1;
 
-    //init the distance matrix
+    // dist[i][j] = edit distance between s1[0..i-1] and s2[0..j-1]
     int dist[MAX_LEN][MAX_LEN] = { 0 };
-    for (int i = 0;i <= len1;i++) {
-        dist[0][i] = i;
-    }
-    for (int j = 0;j <= len2; j++) {
-        dist[j][0] = j;
-    }
-    // calculate
-    for (int j = 1;j <= len1; j++) {
-        for (int i = 1;i <= len2; i++) {
-            int track = 1;
-            if (s1[i - 1] == s2[j - 1]) {
-                track = 0;
-            }
-            int t = MIN((dist[i - 1][j] + 1), (dist[i][j - 1] + 1));
-            dist[i][j] = MIN(t, (dist[i - 1][j - 1] + track));
+    for (int i = 0; i <= len1; i++) dist[i][0] = i; // deletions from s1
+    for (int j = 0; j <= len2; j++) dist[0][j] = j; // insertions into s1
+
+    for (int i = 1; i <= len1; i++) {
+        for (int j = 1; j <= len2; j++) {
+            const int track = (s1[i - 1] == s2[j - 1]) ? 0 : 1;
+            const int t = MIN(dist[i - 1][j] + 1, dist[i][j - 1] + 1);
+            dist[i][j] = MIN(t, dist[i - 1][j - 1] + track);
         }
     }
-    return dist[len2][len1];
+    return dist[len1][len2];
 }
 
 inline void calc_histogram(const char s1[], size_t hist1[HIST_SIZE])
@@ -142,21 +137,21 @@ paramkit::util::stringsim_type paramkit::util::is_string_similar(const std::stri
     if (param.empty() || filter.empty()) {
         return SIM_NONE;
     }
-    bool sim_found = false;
     if (has_keyword(param, filter) != SIM_NONE) {
         return SIM_SUBSTR;
     }
-    size_t dist = util::levenshtein_distance(filter.c_str(), param.c_str());
-    if (dist == 1 || dist <= (param.length() / 2)) {
-        sim_found = true;
+    const int dist = util::levenshtein_distance(filter.c_str(), param.c_str());
+    if (dist >= 0) {
+        // dist == -1 means strings exceeded MAX_LEN; skip Levenshtein similarity in that case
+        bool sim_found = (dist == 1 || dist <= static_cast<int>(param.length() / 2));
+        if (dist >= static_cast<int>(param.length()) || dist >= static_cast<int>(filter.length())) {
+            sim_found = false;
+        }
+        if (sim_found) return SIM_LAV_DIST;
     }
-    if (dist >= param.length() || dist >= filter.length()) {
-        sim_found = false;
+
+    if (util::has_similar_histogram(filter.c_str(), param.c_str())) {
+        return SIM_HIST;
     }
-    if (sim_found) return SIM_LAV_DIST;
-
-    sim_found = util::has_similar_histogram(filter.c_str(), param.c_str());
-    if (sim_found) return SIM_HIST;
-
     return SIM_NONE;
 }
