@@ -99,9 +99,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a46642c73f5b3191ea0970708e6a8efed"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_w_string_param.html#a46642c73f5b3191ea0970708e6a8efed">type</a> () const</td></tr>
 <tr class="memdesc:a46642c73f5b3191ea0970708e6a8efed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the string representation of the parameter's type.  <a href="classparamkit_1_1_w_string_param.html#a46642c73f5b3191ea0970708e6a8efed">More...</a><br /></td></tr>
 <tr class="separator:a46642c73f5b3191ea0970708e6a8efed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa03b0c4886a7a58899590da48ba84a5a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_w_string_param.html#aa03b0c4886a7a58899590da48ba84a5a">isSet</a> () const</td></tr>
-<tr class="memdesc:aa03b0c4886a7a58899590da48ba84a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the parameter is filled, false otherwise.  <a href="classparamkit_1_1_w_string_param.html#aa03b0c4886a7a58899590da48ba84a5a">More...</a><br /></td></tr>
-<tr class="separator:aa03b0c4886a7a58899590da48ba84a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09b948dd149b245319ec08ebb83e458b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_w_string_param.html#a09b948dd149b245319ec08ebb83e458b">parse</a> (const wchar_t *arg)</td></tr>
 <tr class="memdesc:a09b948dd149b245319ec08ebb83e458b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the parameter from the given wide string.  <a href="classparamkit_1_1_w_string_param.html#a09b948dd149b245319ec08ebb83e458b">More...</a><br /></td></tr>
 <tr class="separator:a09b948dd149b245319ec08ebb83e458b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,6 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abf1f7c47bda39867d8df2e61159ff28e inherit pub_methods_classparamkit_1_1_param"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#abf1f7c47bda39867d8df2e61159ff28e">isActive</a> () const</td></tr>
 <tr class="memdesc:abf1f7c47bda39867d8df2e61159ff28e inherit pub_methods_classparamkit_1_1_param"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the parameter is active, false otherwise.  <a href="classparamkit_1_1_param.html#abf1f7c47bda39867d8df2e61159ff28e">More...</a><br /></td></tr>
 <tr class="separator:abf1f7c47bda39867d8df2e61159ff28e inherit pub_methods_classparamkit_1_1_param"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfa9e02299d7eea91a009bfc17e3fb7f inherit pub_methods_classparamkit_1_1_param"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#abfa9e02299d7eea91a009bfc17e3fb7f">isSet</a> () const</td></tr>
+<tr class="memdesc:abfa9e02299d7eea91a009bfc17e3fb7f inherit pub_methods_classparamkit_1_1_param"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the parameter was parsed, false otherwise.  <a href="classparamkit_1_1_param.html#abfa9e02299d7eea91a009bfc17e3fb7f">More...</a><br /></td></tr>
+<tr class="separator:abfa9e02299d7eea91a009bfc17e3fb7f inherit pub_methods_classparamkit_1_1_param"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ca5337339bfdab66752df0a68fa7b39 inherit pub_methods_classparamkit_1_1_param"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a9ca5337339bfdab66752df0a68fa7b39">info</a> (bool isExtended) const</td></tr>
 <tr class="separator:a9ca5337339bfdab66752df0a68fa7b39 inherit pub_methods_classparamkit_1_1_param"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8a019998011a34aae8bf32efcea1eae inherit pub_methods_classparamkit_1_1_param"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#aa8a019998011a34aae8bf32efcea1eae">printInColor</a> (int color)</td></tr>
@@ -176,11 +176,14 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a93f7cf97b55a50eab0ab1545c71b0846 inherit pro_attribs_classparamkit_1_1_param"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a93f7cf97b55a50eab0ab1545c71b0846">active</a></td></tr>
 <tr class="memdesc:a93f7cf97b55a50eab0ab1545c71b0846 inherit pro_attribs_classparamkit_1_1_param"><td class="mdescLeft">&#160;</td><td class="mdescRight">a flag indicating if this parameter is available  <a href="classparamkit_1_1_param.html#a93f7cf97b55a50eab0ab1545c71b0846">More...</a><br /></td></tr>
 <tr class="separator:a93f7cf97b55a50eab0ab1545c71b0846 inherit pro_attribs_classparamkit_1_1_param"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a670346b61e8b8f5b4f5e8c483c01a68b inherit pro_attribs_classparamkit_1_1_param"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparamkit_1_1_param.html#a670346b61e8b8f5b4f5e8c483c01a68b">isParsed</a></td></tr>
+<tr class="memdesc:a670346b61e8b8f5b4f5e8c483c01a68b inherit pro_attribs_classparamkit_1_1_param"><td class="mdescLeft">&#160;</td><td class="mdescRight">a flag indicating if this parameter has been parsed  <a href="classparamkit_1_1_param.html#a670346b61e8b8f5b4f5e8c483c01a68b">More...</a><br /></td></tr>
+<tr class="separator:a670346b61e8b8f5b4f5e8c483c01a68b inherit pro_attribs_classparamkit_1_1_param"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A parameter storing a wide string value. </p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00319">319</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00314">314</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8d698d3c0cf945c9c951a52135ab0ec9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d698d3c0cf945c9c951a52135ab0ec9">&#9670;&nbsp;</a></span>WStringParam()</h2>
@@ -216,7 +219,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00321">321</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00316">316</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -257,7 +260,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Copy the stored string value into an external buffer of a given length. </p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00364">364</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00360">360</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -267,37 +270,6 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="namespaceparamkit.html#a5248ccebd8b840ebc6ba22b8b0e6fea9" title="Copy the std::string/std::wstring value into an buffer of a given character count." alt="" coords="216,13,368,39"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="aa03b0c4886a7a58899590da48ba84a5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa03b0c4886a7a58899590da48ba84a5a">&#9670;&nbsp;</a></span>isSet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool paramkit::WStringParam::isSet </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if the parameter is filled, false otherwise. </p>
-
-<p>Implements <a class="el" href="classparamkit_1_1_param.html#a8fc6876508d33f32620ffe396aaf4edd">paramkit::Param</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00339">339</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -329,7 +301,7 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817">paramkit::Param</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00352">352</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00345">345</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -361,7 +333,7 @@ Here is the call graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="classparamkit_1_1_param.html#acf0c38591dd3530d02eddc4b4dc9340e">paramkit::Param</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00344">344</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00334">334</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -392,7 +364,7 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="classparamkit_1_1_param.html#a1bb8d38a31d11b4c23246c2819ab993a">paramkit::Param</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00334">334</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00329">329</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -423,7 +395,7 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="classparamkit_1_1_param.html#a5747a0fd4e5cba55ffbd62eeb5195bfe">paramkit::Param</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00328">328</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00323">323</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
@@ -440,7 +412,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00369">369</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="param_8h_source.html#l00365">365</a> of file <a class="el" href="param_8h_source.html">param.h</a>.</p>
 
 </div>
 </div>
