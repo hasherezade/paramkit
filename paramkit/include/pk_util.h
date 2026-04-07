@@ -33,7 +33,7 @@ namespace paramkit {
     template <typename T_INT>
     T_INT get_number(const char* my_buf)
     {
-        if (!my_buf) return false;
+        if (!my_buf) return T_INT(0);
 
         const char hex_pattern[] = "0x";
         size_t hex_pattern_len = strlen(hex_pattern);
@@ -45,7 +45,7 @@ namespace paramkit {
         const size_t min_length = 1; //tolerate number with at least 1 character
         if (len > hex_pattern_len) {
             if (util::is_cstr_equal(my_buf, hex_pattern, hex_pattern_len)) {
-                if (!is_hex(my_buf + hex_pattern_len, min_length)) return 0;
+                if (!is_hex(my_buf + hex_pattern_len, len - hex_pattern_len)) return T_INT(0);
 
                 std::stringstream ss;
                 ss << std::hex << my_buf;
@@ -53,7 +53,7 @@ namespace paramkit {
                 return out;
             }
         }
-        if (!is_dec(my_buf, min_length)) return 0;
+        if (!is_dec(my_buf, len)) return T_INT(0);
 
         std::stringstream ss;
         ss << std::dec << my_buf;
@@ -71,6 +71,19 @@ namespace paramkit {
             if (str1[i] == 0) break;
             val.push_back((char)str1[i]);
         }
+        return val;
+    }
+
+    // Specialisation for wide strings: uses WideCharToMultiByte (CP_UTF8)
+    // so that non-ASCII characters are preserved rather than silently truncated.
+    template <>
+    inline std::string to_string<wchar_t>(wchar_t *str1)
+    {
+        if (str1 == nullptr) return "";
+        const int size = WideCharToMultiByte(CP_UTF8, 0, str1, -1, nullptr, 0, nullptr, nullptr);
+        if (size <= 0) return "";
+        std::string val(static_cast<size_t>(size) - 1, '\0');
+        WideCharToMultiByte(CP_UTF8, 0, str1, -1, &val[0], size, nullptr, nullptr);
         return val;
     }
 

@@ -6,6 +6,7 @@
 #pragma once
 
 #include <windows.h>
+#include <cstdint>
 
 #include <iostream>
 #include <string>
@@ -22,7 +23,6 @@
 #define PARAM_SWITCH1 '/' ///< The switch used to recognize that the given string should be treated as a parameter (variant 1)
 #define PARAM_SWITCH2 '-' ///< The switch used to recognize that the given string should be treated as a parameter (variant 2)
 
-typedef unsigned __int64 uint64_t;
 
 namespace paramkit {
 
@@ -67,9 +67,12 @@ namespace paramkit {
         //! Parses the parameter from the given wide string
         virtual bool parse(const wchar_t *arg)
         {
-            std::wstring value = arg;
-            std::string str(value.begin(), value.end());
-            return parse(str.c_str());
+            if (!arg) return false;
+            const int size = WideCharToMultiByte(CP_UTF8, 0, arg, -1, nullptr, 0, nullptr, nullptr);
+            if (size <= 0) return false;
+            std::string narrow(static_cast<size_t>(size) - 1, '\0');
+            WideCharToMultiByte(CP_UTF8, 0, arg, -1, &narrow[0], size, nullptr, nullptr);
+            return parse(narrow.c_str());
         }
 
         void setActive(bool _active)
@@ -329,8 +332,12 @@ namespace paramkit {
 
         virtual std::string valToString() const
         {
-            std::string str(value.begin(), value.end());
-            return "\"" + str + "\"";
+            if (value.empty()) return "\"\"";
+            const int size = WideCharToMultiByte(CP_UTF8, 0, value.c_str(), -1, nullptr, 0, nullptr, nullptr);
+            if (size <= 0) return "\"\"";
+            std::string narrow(static_cast<size_t>(size) - 1, '\0');
+            WideCharToMultiByte(CP_UTF8, 0, value.c_str(), -1, &narrow[0], size, nullptr, nullptr);
+            return "\"" + narrow + "\"";
         }
 
         virtual std::string type() const
@@ -355,8 +362,8 @@ namespace paramkit {
             this->isParsed = false;
             if (!arg) return false;
 
-            std::string value = arg;
-            std::wstring str(value.begin(), value.end());
+            std::string narrow = arg;
+            std::wstring str(narrow.begin(), narrow.end());
 
             this->value = str;
             this->isParsed = true;
