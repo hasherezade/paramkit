@@ -40,6 +40,9 @@ namespace paramkit {
             paramVersion.m_info = "Print version info.";
         }
 
+        Params(const Params&) = delete;
+        Params& operator=(const Params&) = delete;
+
         virtual ~Params()
         {
             releaseGroups();
@@ -244,93 +247,88 @@ namespace paramkit {
                     printUnknownArgument(param_str);
                     continue;
                 }
-                bool found = false;
                 param_str = skipParamPrefix(param_str);
 
-                std::map<std::string, Param*>::iterator itr;
-                for (itr = myParams.begin(); itr != myParams.end(); ++itr) {
-                    bool paramHelp = false;
-                    Param *param = itr->second;
-                    if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1) {
-                        if (param_str == PARAM_HELP2) {
-                            const bool hasArg = (i + 1) < argc && !(isParam(to_string(argv[i + 1])));
-                            if (hasArg) {
-                                const std::string nextVal = to_string(argv[i + 1]);
-                                printHelp(nextVal, true);
-                                return false;
-                            }
-                        }
-                        const bool shouldExpand = (param_str == PARAM_HELP1) ? false : true;
-                        printHelp("", shouldExpand);
-                        return false;
-                    }
-                    if (this->versionStr.length()) {
-                        if (param_str == PARAM_VERSION || param_str == PARAM_VERSION2) {
-                            this->printVersionInfo();
+                // Handle built-in help/version tokens before searching the param map.
+                if (param_str == PARAM_HELP2 || param_str == PARAM_HELP1) {
+                    if (param_str == PARAM_HELP2) {
+                        const bool hasArg = (i + 1) < argc && !(isParam(to_string(argv[i + 1])));
+                        if (hasArg) {
+                            const std::string nextVal = to_string(argv[i + 1]);
+                            printHelp(nextVal, true);
                             return false;
                         }
                     }
-                    if (param_str == param->argStr) {
-                        if (!param->isActive()) {
-                            paramkit::print_in_color(RED, "WARNING: chosen inactive parameter: " + param_str + "\n");
-                        }
-                        // has an argument:
-                        const bool hasArg = (i + 1) < argc && 
-                            ( param->requiredArg || !(isParam(to_string(argv[i + 1]))) );
-                        if (hasArg) {
-                            const std::string nextVal = to_string(argv[i + 1]);
-                            i++; // increment index: move to the next argument
-                            found = true;
-                            bool isParsed = false;
-                            
-                            if (nextVal == PARAM_HELP1) {
-                                paramHelp = true;
-                                helpRequested = true;
-                                isParsed = true;
-                            }
-                            else {
-                                isParsed = param->parse(nextVal.c_str());
-                                if (!isParsed) {
-                                    paramHelp = true;
-                                    helpRequested = true;
-                                }
-                            }
-
-                            //help requested explicitly or parsing failed
-                            if (paramHelp) {
-                                if (!isParsed) {
-                                    paramkit::print_in_color(RED, "Parsing the parameter failed. Correct options:\n");
-                                }
-                                paramkit::print_in_color(RED, param_str);
-                                param->printDesc();
-                                break;
-                            }
-                            break;
-                        }
-                        // does not require an argument:
-                        if (!param->requiredArg) {
-                            param->parse((char*)nullptr);
-                            found = true;
-                            break;
-                        }
-                        // requires an argument, but it is missing:
-                        paramkit::print_in_color(RED, param_str);
-                        paramHelp = true;
-                        helpRequested = true;
-                        param->printDesc();
-                        found = true;
-                        break;
+                    const bool shouldExpand = (param_str == PARAM_HELP1) ? false : true;
+                    printHelp("", shouldExpand);
+                    return false;
+                }
+                if (this->versionStr.length()) {
+                    if (param_str == PARAM_VERSION || param_str == PARAM_VERSION2) {
+                        this->printVersionInfo();
+                        return false;
                     }
                 }
-                if (found) {
-                    count++;
-                }
-                else {
+
+                // Map lookup:
+                std::map<std::string, Param*>::iterator itr = myParams.find(param_str);
+                if (itr == myParams.end()) {
                     printUnknownParam(param_str);
                     print_in_color(HILIGHTED_COLOR, "Similar parameters:\n");
                     this->printInfo(false, param_str, true);
                     return false;
                 }
+
+                bool paramHelp = false;
+                Param *param = itr->second;
+
+                if (!param->isActive()) {
+                    paramkit::print_in_color(RED, "WARNING: chosen inactive parameter: " + param_str + "\n");
+                }
+                // has an argument:
+                const bool hasArg = (i + 1) < argc &&
+                    (param->requiredArg || !(isParam(to_string(argv[i + 1]))));
+                if (hasArg) {
+                    const std::string nextVal = to_string(argv[i + 1]);
+                    i++; // increment index: move to the next argument
+                    bool isParsed = false;
+
+                    if (nextVal == PARAM_HELP1) {
+                        paramHelp = true;
+                        helpRequested = true;
+                        isParsed = true;
+                    }
+                    else {
+                        isParsed = param->parse(nextVal.c_str());
+                        if (!isParsed) {
+                            paramHelp = true;
+                            helpRequested = true;
+                        }
+                    }
+
+                    // help requested explicitly or parsing failed
+                    if (paramHelp) {
+                        if (!isParsed) {
+                            paramkit::print_in_color(RED, "Parsing the parameter failed. Correct options:\n");
+                        }
+                        paramkit::print_in_color(RED, param_str);
+                        param->printDesc();
+                    }
+                    count++;
+                    continue;
+                }
+                // does not require an argument:
+                if (!param->requiredArg) {
+                    param->parse((char*)nullptr);
+                    count++;
+                    continue;
+                }
+                // requires an argument, but it is missing:
+                paramkit::print_in_color(RED, param_str);
+                paramHelp = true;
+                helpRequested = true;
+                param->printDesc();
+                count++;
             }
             if (helpRequested) {
                 return false;
