@@ -39,10 +39,9 @@ namespace paramkit {
         size_t hex_pattern_len = strlen(hex_pattern);
 
         const size_t len = strlen(my_buf);
-        if (len == 0) return 0;
+        if (len == 0) return T_INT(0);
 
         T_INT out = 0;
-        const size_t min_length = 1; //tolerate number with at least 1 character
         if (len > hex_pattern_len) {
             if (util::is_cstr_equal(my_buf, hex_pattern, hex_pattern_len)) {
                 if (!is_hex(my_buf + hex_pattern_len, len - hex_pattern_len)) return T_INT(0);

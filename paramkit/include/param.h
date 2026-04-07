@@ -251,7 +251,7 @@ namespace paramkit {
             return true;
         }
 
-        bool isValidNumber(const char *arg, const size_t len)
+        bool isValidNumber(const char *arg, const size_t len) const
         {
             if (base == INT_BASE_ANY) {
                 if (paramkit::is_hex_with_prefix(arg) || paramkit::is_dec(arg, len)) {
@@ -362,10 +362,12 @@ namespace paramkit {
             this->isParsed = false;
             if (!arg) return false;
 
-            std::string narrow = arg;
-            std::wstring str(narrow.begin(), narrow.end());
+            const int size = MultiByteToWideChar(CP_UTF8, 0, arg, -1, nullptr, 0);
+            if (size <= 0) return false;
+            std::wstring wide(static_cast<size_t>(size) - 1, L'\0');
+            MultiByteToWideChar(CP_UTF8, 0, arg, -1, &wide[0], size);
 
-            this->value = str;
+            this->value = wide;
             this->isParsed = true;
             return true;
         }
@@ -425,7 +427,7 @@ namespace paramkit {
     //! A parameter storing an enum value
     class EnumParam : public Param {
     public:
-        EnumParam(const std::string& _argStr, const std::string _enumName, bool _isRequired)
+        EnumParam(const std::string& _argStr, const std::string& _enumName, bool _isRequired)
             : Param(_argStr, _isRequired), enumName(_enumName)
         {
             requiredArg = true;
