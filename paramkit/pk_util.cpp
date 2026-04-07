@@ -61,21 +61,23 @@ bool paramkit::get_console_color(HANDLE hConsole, WORD& color)
     return true;
 }
 
-void paramkit::print_in_color(WORD color, const std::string &text)
+void paramkit::print_in_color(WORD color, const std::string &text, DWORD out_hndl)
 {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    HANDLE hConsole = GetStdHandle(out_hndl);
     if (hConsole == INVALID_HANDLE_VALUE || hConsole == NULL) {
         std::cout << text;
         return;
     }
+    const bool is_error = (out_hndl == STD_ERROR_HANDLE) ? true : false;
+    std::ostream& stream = is_error ? std::cerr : std::cout;
     WORD prev = 7;
     const bool is_retrieved = get_console_color(hConsole, prev);
     if (is_retrieved) {
-        std::cout << std::flush;
+        stream << std::flush;
         SetConsoleTextAttribute(hConsole, color);
     }
 
-    std::cout << text << std::flush;
+    stream << text << std::flush;
 
     if (is_retrieved) {
         SetConsoleTextAttribute(hConsole, prev); // back to previous color

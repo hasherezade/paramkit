@@ -23,7 +23,7 @@ namespace paramkit {
     std::string& trim(std::string& str, const std::string& chars = "\t\n\v\f\r ");
 
     bool get_console_color(HANDLE hConsole, WORD& color);
-    void print_in_color(WORD color, const std::string& text);
+    void print_in_color(WORD color, const std::string& text, DWORD out_hndl=STD_OUTPUT_HANDLE);
 
     bool is_hex(const char *buf, size_t len);
     bool is_hex_with_prefix(const char *buf);
