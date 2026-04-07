@@ -22,8 +22,9 @@ namespace paramkit {
         bool is_cstr_equal(char const *a, char const *b, const size_t max_len, bool ignoreCase = true);
         bool strequals(const std::string& a, const std::string& b, bool ignoreCase = true);
 
-        // Calculate Levenshtein distance of two strings
-        size_t levenshtein_distance(const char s1[], const char s2[]);
+        // Calculate Levenshtein distance of two strings.
+        // Returns -1 if either string exceeds the internal length limit.
+        int levenshtein_distance(const char s1[], const char s2[]);
 
         // Check a similarity in strings histograms
         bool has_similar_histogram(const char s1[], const char s2[]);
