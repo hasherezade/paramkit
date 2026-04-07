@@ -88,16 +88,20 @@ namespace paramkit {
         /**
         \param param : an object inheriting from the class Param
         */
-        void addParam(Param* param)
+        bool addParam(Param* param)
         {
-            if (!param) return;
+            if (!param) return false;
             const std::string argStr = param->argStr;
+            if (myParams.find(argStr) != myParams.end()) {
+                return false;
+            }
             this->myParams[argStr] = param;
             if (!generalGroup) {
                 generalGroup = new ParamGroup("");
                 this->addGroup(generalGroup);
             }
             this->addParamToGroup(param, this->generalGroup);
+            return true;
         }
 
         //! Sets the information about the parameter, defined by its name
