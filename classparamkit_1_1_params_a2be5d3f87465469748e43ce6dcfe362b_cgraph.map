@@ -1,6 +1,6 @@
 <map id="paramkit::Params::printInfoSection" name="paramkit::Params::printInfoSection">
 <area shape="rect" id="node1" title=" " alt="" coords="5,47,181,88"/>
-<area shape="rect" id="node2" href="$namespaceparamkit.html#a5091b3f2e6357e6eb933415934ff23ca" title=" " alt="" coords="468,5,588,47"/>
+<area shape="rect" id="node2" href="$namespaceparamkit.html#aac7f64e8e44bc05628c2d5681a56ec38" title=" " alt="" coords="468,5,588,47"/>
 <area shape="rect" id="node4" href="$classparamkit_1_1_param.html#ada6abaed9cdfa209128b98f08a02eb42" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="229,113,407,139"/>
 <area shape="rect" id="node8" href="$classparamkit_1_1_param.html#aa8a019998011a34aae8bf32efcea1eae" title="Prints the parameter using the given color. Appends the parameter switch to the name." alt="" coords="239,47,397,88"/>
 <area shape="rect" id="node3" href="$namespaceparamkit.html#a7a9a62a5df460acbed8f27409eeebc14" title=" " alt="" coords="673,5,821,47"/>

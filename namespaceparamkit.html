@@ -119,8 +119,8 @@ Functions</h2></td></tr>
 <tr class="separator:ade7de913e1ad18d1c62a62573e389074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a9a62a5df460acbed8f27409eeebc14"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a7a9a62a5df460acbed8f27409eeebc14">get_console_color</a> (HANDLE hConsole, WORD &amp;color)</td></tr>
 <tr class="separator:a7a9a62a5df460acbed8f27409eeebc14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5091b3f2e6357e6eb933415934ff23ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#a5091b3f2e6357e6eb933415934ff23ca">print_in_color</a> (WORD color, const std::string &amp;text)</td></tr>
-<tr class="separator:a5091b3f2e6357e6eb933415934ff23ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac7f64e8e44bc05628c2d5681a56ec38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#aac7f64e8e44bc05628c2d5681a56ec38">print_in_color</a> (WORD color, const std::string &amp;text, DWORD out_hndl=STD_OUTPUT_HANDLE)</td></tr>
+<tr class="separator:aac7f64e8e44bc05628c2d5681a56ec38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add8ceca8d061cace36693338122acf96"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#add8ceca8d061cace36693338122acf96">is_hex</a> (const char *buf, size_t len)</td></tr>
 <tr class="separator:add8ceca8d061cace36693338122acf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcc530f128611e6d9a838be0b9271a24"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceparamkit.html#afcc530f128611e6d9a838be0b9271a24">is_hex_with_prefix</a> (const char *buf)</td></tr>
@@ -505,12 +505,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00086">86</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00088">88</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a5091b3f2e6357e6eb933415934ff23ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5091b3f2e6357e6eb933415934ff23ca">&#9670;&nbsp;</a></span>print_in_color()</h2>
+<a id="aac7f64e8e44bc05628c2d5681a56ec38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac7f64e8e44bc05628c2d5681a56ec38">&#9670;&nbsp;</a></span>print_in_color()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -525,7 +525,13 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>text</em>&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DWORD&#160;</td>
+          <td class="paramname"><em>out_hndl</em> = <code>STD_OUTPUT_HANDLE</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -539,8 +545,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespaceparamkit_a5091b3f2e6357e6eb933415934ff23ca_cgraph.png" border="0" usemap="#anamespaceparamkit_a5091b3f2e6357e6eb933415934ff23ca_cgraph" alt=""/></div>
-<map name="anamespaceparamkit_a5091b3f2e6357e6eb933415934ff23ca_cgraph" id="anamespaceparamkit_a5091b3f2e6357e6eb933415934ff23ca_cgraph">
+<div class="center"><img src="namespaceparamkit_aac7f64e8e44bc05628c2d5681a56ec38_cgraph.png" border="0" usemap="#anamespaceparamkit_aac7f64e8e44bc05628c2d5681a56ec38_cgraph" alt=""/></div>
+<map name="anamespaceparamkit_aac7f64e8e44bc05628c2d5681a56ec38_cgraph" id="anamespaceparamkit_aac7f64e8e44bc05628c2d5681a56ec38_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,125,47"/>
 <area shape="rect" href="namespaceparamkit.html#a7a9a62a5df460acbed8f27409eeebc14" title=" " alt="" coords="173,5,321,47"/>
 </map>
@@ -574,7 +580,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00092">92</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00094">94</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
 
 </div>
 </div>
@@ -610,7 +616,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00104">104</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00106">106</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -673,7 +679,7 @@ template&lt;typename T_CHAR &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00099">99</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pk__util_8cpp_source.html#l00101">101</a> of file <a class="el" href="pk__util_8cpp_source.html">pk_util.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

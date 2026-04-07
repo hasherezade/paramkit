@@ -6,7 +6,7 @@
 <area shape="rect" id="node6" href="$classparamkit_1_1_param.html#abf1f7c47bda39867d8df2e61159ff28e" title="Returns true if the parameter is active, false otherwise." alt="" coords="1261,811,1431,837"/>
 <area shape="rect" id="node7" href="$classparamkit_1_1_params.html#a201fcd56dcc125807131723b8e3344e6" title="Checks if the string starts from the parameter switch." alt="" coords="236,912,413,939"/>
 <area shape="rect" id="node8" href="$classparamkit_1_1_param.html#a0e4533af035e30e87a429fe9a19d6817" title="Parses the parameter from the given string." alt="" coords="247,963,402,989"/>
-<area shape="rect" id="node9" href="$namespaceparamkit.html#a5091b3f2e6357e6eb933415934ff23ca" title=" " alt="" coords="1526,449,1646,490"/>
+<area shape="rect" id="node9" href="$namespaceparamkit.html#aac7f64e8e44bc05628c2d5681a56ec38" title=" " alt="" coords="1526,449,1646,490"/>
 <area shape="rect" id="node11" href="$classparamkit_1_1_param.html#ada6abaed9cdfa209128b98f08a02eb42" title="Prints a formatted description of the parameter, including its unique name, type, and the info." alt="" coords="1257,557,1435,584"/>
 <area shape="rect" id="node15" href="$classparamkit_1_1_params.html#a663e31145a0b704d6bda00066480d2b9" title=" " alt="" coords="234,415,415,441"/>
 <area shape="rect" id="node18" href="$classparamkit_1_1_params.html#a300019fa16942f27ff8b32d43e6342ab" title="Prints info about all the parameters. Optionally hilights the required ones that are missing." alt="" coords="499,288,675,315"/>

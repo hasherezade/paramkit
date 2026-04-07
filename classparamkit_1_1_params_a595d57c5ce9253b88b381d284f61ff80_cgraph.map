@@ -3,7 +3,7 @@
 <area shape="rect" id="node2" href="$classparamkit_1_1_params.html#a88e7f4e15b217dd471b81b948b08518b" title="Returns the number of parameters of particular category: required or optional." alt="" coords="211,5,423,32"/>
 <area shape="rect" id="node3" href="$classparamkit_1_1_params.html#a9d813a6a81f53631db1e194bf06cecf4" title=" " alt="" coords="215,56,418,83"/>
 <area shape="rect" id="node4" href="$classparamkit_1_1_param_group.html#a10619cea8da8d9435e08253774606a63" title=" " alt="" coords="484,23,635,65"/>
-<area shape="rect" id="node15" href="$namespaceparamkit.html#a5091b3f2e6357e6eb933415934ff23ca" title=" " alt="" coords="739,402,859,443"/>
+<area shape="rect" id="node15" href="$namespaceparamkit.html#aac7f64e8e44bc05628c2d5681a56ec38" title=" " alt="" coords="739,402,859,443"/>
 <area shape="rect" id="node17" href="$classparamkit_1_1_param_group.html#a83686450484467d8633f4db8f4c24118" title="Prints the whole group of parameters (their names and descriptions), optionally with the group name." alt="" coords="241,183,392,225"/>
 <area shape="rect" id="node5" href="$classparamkit_1_1_param.html#aab4011fd6aedf57ebffc7f8afadc4e39" title="Checks if the description contains the keyword." alt="" coords="708,35,891,77"/>
 <area shape="rect" id="node8" href="$classparamkit_1_1_param.html#a59414d4f9a333fc68a32379b17caf83f" title="Checks if the param name is similar to the given filter." alt="" coords="696,108,903,135"/>
