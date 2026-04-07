@@ -158,8 +158,7 @@ namespace paramkit {
             if (!param) {
                 return false;
             }
-            param->value = val;
-            return true;
+            return param->setValue(val);
         }
 
         //! Gets an integer value of the IntParam defined by its name. If such parameter does not exist, or is not of IntParam type, returns PARAM_UNINITIALIZED.

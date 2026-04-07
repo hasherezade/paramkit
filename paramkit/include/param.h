@@ -266,6 +266,13 @@ namespace paramkit {
             return false;
         }
 
+        bool setValue(uint64_t val)
+        {
+            this->value = val;
+            this->isParsed = true;
+            return true;
+        }
+
         t_int_base base;
         uint64_t value;
     };
